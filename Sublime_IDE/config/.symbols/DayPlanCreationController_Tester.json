@@ -1,0 +1,24 @@
+{
+    "properties": [], 
+    "methods": [], 
+    "innerClasses": [], 
+    "variables": [], 
+    "constructors": [], 
+    "namespace": null, 
+    "name": "DayPlanCreationController_Tester", 
+    "tableDeclaration": {
+        "type": "DayPlanCreationController_Tester", 
+        "modifiers": [
+            "TEST"
+        ], 
+        "references": [], 
+        "location": {
+            "column": 15, 
+            "line": 2
+        }, 
+        "name": "DayPlanCreationController_Tester"
+    }, 
+    "key": "01pF0000003fauj", 
+    "id": "01pF0000003fauj", 
+    "externalReferences": []
+}

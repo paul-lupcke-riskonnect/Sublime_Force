@@ -1,0 +1,305 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"due",
+				"dueDate"
+			],
+			[
+				"output",
+				"outputfile"
+			],
+			[
+				"Da",
+				"Datetime_Date_Testing	[Custom Apex Class]"
+			],
+			[
+				"r",
+				"PUBLIC runCalculation2() 	Date"
+			],
+			[
+				"Date",
+				"Date	[Standard Apex Class]"
+			],
+			[
+				"val",
+				"PUBLIC valueOf(String str) 	Datetime"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/Users/paul.lupcke/tmp.txt",
+			"settings":
+			{
+				"buffer_size": 146365,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/paul.lupcke/output.txt",
+			"settings":
+			{
+				"buffer_size": 1442,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/paul.lupcke/Sublime_Force/Sublime_IDE/src/classes/ActionPlanCreationController.cls",
+		"/Users/paul.lupcke/Sublime_Force/Sublime_IDE/src/classes/ActionPlansBatchBuilderUtilities.cls",
+		"/Users/paul.lupcke/Sublime_Force/Sublime_IDE/src/pages/ActionPlanCreation.page",
+		"/Users/paul.lupcke/Sublime_Force/Sublime_IDE/src/pages/ActionPlanPrint.page",
+		"/Users/paul.lupcke/Sublime_Force/Sublime_IDE/src/pages/ActionPlanDetail.page",
+		"/Users/paul.lupcke/Sublime_Force/Sublime_IDE/src/pages/ActionPlanTemplateCreation.page",
+		"/Users/paul.lupcke/Sublime_Force/Sublime_IDE/src/pages/ActionPlanTemplateDetail.page",
+		"/Users/paul.lupcke/Sublime_Force/Sublime_IDE/src/classes/ImportActionPlanTemplate.cls",
+		"/Users/paul.lupcke/Sublime_Force/Sublime_IDE/src/classes/ActionPlanTemplateCreationController.cls",
+		"/Users/paul.lupcke/Sublime_Force/Sublime_IDE/src/classes/ExportActionPlanTemplate.cls",
+		"/Users/paul.lupcke/Sublime_Force/Sublime_IDE/src/classes/ActionPlanTemplates.cls",
+		"/Users/paul.lupcke/Sublime_Force/Sublime_IDE/src/classes/ActionPlansTaskTriggerUtilities.cls",
+		"/Users/paul.lupcke/Sublime_Force/Sublime_IDE/src/triggers/ActionPlanTaskTrigger.trigger",
+		"/Users/paul.lupcke/Sublime_Force/Sublime_IDE/src/classes/Datetime_Date_Testing.cls",
+		"/Users/paul.lupcke/Sublime_Force/Sublime_IDE/src/classes/ActionPlansUtilities.cls",
+		"/Users/paul.lupcke/Sublime_Force/Sublime_IDE/src/classes/ActionPlansBatchTaskBuilder.cls",
+		"/Users/paul.lupcke/Sublime_Force/Sublime_IDE/src/classes/ActionPlansBatchBuilder.cls",
+		"/Users/paul.lupcke/tmp.txt",
+		"/Users/paul.lupcke/Sublime_Force/Sublime_IDE/src/classes/Datetime_Date_Testing_Tester.cls",
+		"/Users/paul.lupcke/output.txt",
+		"/Users/paul.lupcke/Python/DebugParser.py",
+		"/Users/paul.lupcke/Python/helloworld.py",
+		"/Users/paul.lupcke/Sublime_Force/Sublime_IDE/src/triggers/ActionPlanTrigger.trigger",
+		"/Users/paul.lupcke/Sublime_Force/Sublime_IDE/src/classes/ActionPlansTestUtilities.cls",
+		"/Users/paul.lupcke/Sublime_Force/Sublime_IDE/src/classes/ActionPlanDetailController.cls",
+		"/Users/paul.lupcke/Sublime_Force/Sublime_IDE/src/classes/ActionPlansUtilitiesTest.cls",
+		"/Users/paul.lupcke/Sublime_Force/Sublime_IDE/src/classes/ActionPlansTaskTriggerUtilitiesTest.cls",
+		"/Users/paul.lupcke/Sublime_Force/Sublime_IDE/src/classes/ActionPlansBatchDeleteTest.cls",
+		"/Users/paul.lupcke/Sublime_Force/Sublime_IDE/src/classes/ActionPlansBatchBuilderTest.cls"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"Dependent__c",
+			"addhour",
+			"Hight",
+			"aptTOTALList",
+			"StartDate__c",
+			"DaysFromStart__c",
+			"addDays",
+			"Hours_After__c",
+			"adddays",
+			"ActivityDate__c",
+			"StartDate__c",
+			"debug",
+			"StartDate__c",
+			"DaysFromStart__c",
+			"Hours_After__c",
+			"DaysFromStart__c",
+			"Hours_After__c",
+			"DaysFromStart__c",
+			"Hours_After__c",
+			"DaysFromStart__c",
+			"StartDate"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Users/paul.lupcke/tmp.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 146365,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								146365,
+								146365
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 23381.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/paul.lupcke/output.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1442,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1441,
+								1441
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.MavensMate-OutputPanel":
+	{
+		"height": 100.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "Sublime_IDE.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 322.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -1,0 +1,25 @@
+<apex:page tabStyle="Force_com_UI_Componects__tab" controller="ForceUIComponentsControler">
+<style>
+.panel{
+background-image: none;
+background-color:#666666;
+}
+.panelActive{
+background-color: #38197A;
+}
+</style>
+<apex:panelBar headerClass="panel" headerClassActive="panelActive">
+	<apex:panelBarItem label="listViews">
+		<apex:listViews type="Resource__c" />
+	</apex:panelBarItem>
+	<apex:panelBarItem label="enhancedList">
+		<apex:enhancedList type="Resource__c" height="300" />
+	</apex:panelBarItem>
+	<apex:panelBarItem label="relatedList">
+		<apex:relatedList subject="{!subject}" list="Skills__r" />
+	</apex:panelBarItem>
+	<apex:panelBarItem label="detail">
+		<apex:detail subject="{!subject}" relatedList="false" title="false" />
+	</apex:panelBarItem>
+</apex:panelBar>
+</apex:page>

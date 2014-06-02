@@ -1,0 +1,167 @@
+{
+    "properties": [
+        {
+            "modifiers": [], 
+            "name": "worker", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 2
+            }, 
+            "type": "Datetime"
+        }, 
+        {
+            "modifiers": [], 
+            "name": "offset", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 3
+            }, 
+            "type": "Integer"
+        }
+    ], 
+    "methods": [
+        {
+            "modifiers": [], 
+            "name": "runCalculation", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 14, 
+                "line": 11
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "runCalculation2", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 14, 
+                "line": 18
+            }, 
+            "returnType": "void", 
+            "type": null
+        }
+    ], 
+    "innerClasses": [], 
+    "variables": [
+        {
+            "type": "Datetime", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 40, 
+                "line": 7
+            }, 
+            "name": "start"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 55, 
+                "line": 7
+            }, 
+            "name": "offset"
+        }, 
+        {
+            "type": "Datetime", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 13
+            }, 
+            "name": "tmp"
+        }, 
+        {
+            "type": "Date", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 8, 
+                "line": 15
+            }, 
+            "name": "justDate"
+        }, 
+        {
+            "type": "Datetime", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 20
+            }, 
+            "name": "tmp"
+        }, 
+        {
+            "type": "Date", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 8, 
+                "line": 22
+            }, 
+            "name": "justDate"
+        }
+    ], 
+    "constructors": [
+        {
+            "modifiers": [], 
+            "name": "Datetime_Date_Testing", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 9, 
+                "line": 5
+            }, 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "Datetime_Date_Testing", 
+            "parameters": [
+                {
+                    "type": "Datetime", 
+                    "name": "start"
+                }, 
+                {
+                    "type": "Integer", 
+                    "name": "offset"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 9, 
+                "line": 7
+            }, 
+            "type": null
+        }
+    ], 
+    "namespace": null, 
+    "name": "Datetime_Date_Testing", 
+    "tableDeclaration": {
+        "type": "Datetime_Date_Testing", 
+        "modifiers": [], 
+        "references": [], 
+        "location": {
+            "column": 14, 
+            "line": 1
+        }, 
+        "name": "Datetime_Date_Testing"
+    }, 
+    "key": "01pF0000003fQ4J", 
+    "id": "01pF0000003fQ4J", 
+    "externalReferences": []
+}

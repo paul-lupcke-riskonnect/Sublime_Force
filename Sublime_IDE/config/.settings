@@ -1,0 +1,19 @@
+{
+    "username": "paul.lupcke@riskonnect.com", 
+    "environment": "developer", 
+    "project_name": "Sublime_IDE", 
+    "workspace": "/Users/paul.lupcke/Sublime_Force", 
+    "org_url": "", 
+    "namespace": "", 
+    "id": "M024MX5B6FJ554KUHIO98R5NZ0IBJ6EN", 
+    "metadata_container": "1dcF00000009YtbIAE", 
+    "subscription": [
+        "ApexClass", 
+        "ApexComponent", 
+        "ApexPage", 
+        "ApexTrigger", 
+        "CustomObject", 
+        "Profile", 
+        "StaticResource"
+    ]
+}
