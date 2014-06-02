@@ -1,0 +1,19 @@
+{
+    "username": "paul@riskonnect.com", 
+    "environment": "production", 
+    "project_name": "DiffEnv", 
+    "workspace": "/Users/paul.lupcke/Sublime_Force2", 
+    "org_url": "", 
+    "namespace": "", 
+    "id": "1OKHULLL8ZXDZDFXVFB9MCZ5B9ZRYUL6", 
+    "metadata_container": "1dcF0000000UTLXIA4", 
+    "subscription": [
+        "ApexClass", 
+        "ApexComponent", 
+        "ApexPage", 
+        "ApexTrigger", 
+        "CustomObject", 
+        "Profile", 
+        "StaticResource"
+    ]
+}

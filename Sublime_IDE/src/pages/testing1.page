@@ -23,8 +23,9 @@ Run
 <apex:param name="arg1" value="" assignTo="{!value}" />
 </apex:actionFunction>
 
-<apex:inputText >
-<apex:actionSupport action="{!timesTwo}" event="onfocus" reRender="result" status="status"/> </apex:inputText>
+<apex:inputText id="test1" value="{!test2}">
+	<apex:actionSupport action="{!timesTwo}" event="onfocus" reRender="result" status="status"/> 
+</apex:inputText>
 
 </apex:form>
 </apex:page>
