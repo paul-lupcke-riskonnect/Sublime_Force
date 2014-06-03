@@ -1,0 +1,962 @@
+{
+    "properties": [], 
+    "methods": [
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "APUtestSaveMethod", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 35
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "APUtestSaveMultiple", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 67
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "APUtestSaveMasiveContact", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 89
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "APUtestSaveMasiveMethodOpportunities", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 119
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "APUtestSaveMasiveMethodPart1", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 148
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "APUtestSaveMasiveMethodPart2", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 184
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "APUtestCancel", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 221
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "APUtestRelatedObjectId", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 266
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "APUtestHoursOption", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 292
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "APUtestGetRecordOwnerId", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 304
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "APUtestGenerateObjectFeed", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 367
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "testparseMultiSelect", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 32, 
+                "line": 409
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "APUtestDeleteActionPlans", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 32, 
+                "line": 421
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "STATIC"
+            ], 
+            "name": "apptask", 
+            "parameters": [
+                {
+                    "type": "ActionPlan__c", 
+                    "name": "ap"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 34, 
+                "line": 444
+            }, 
+            "returnType": "APTaskTemplate__c", 
+            "type": null
+        }
+    ], 
+    "innerClasses": [], 
+    "variables": [
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 39
+            }, 
+            "name": "ge"
+        }, 
+        {
+            "type": "ActionPlan__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 41
+            }, 
+            "name": "ap"
+        }, 
+        {
+            "type": "ActionPlansUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 46
+            }, 
+            "name": "apu"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 10, 
+                "line": 51
+            }, 
+            "name": "str"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 15, 
+                "line": 54
+            }, 
+            "name": "strl"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 55
+            }, 
+            "name": "apl"
+        }, 
+        {
+            "type": "ActionPlan__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 59
+            }, 
+            "name": "rap"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 70
+            }, 
+            "name": "ge"
+        }, 
+        {
+            "type": "ActionPlan__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 71
+            }, 
+            "name": "ap"
+        }, 
+        {
+            "type": "ActionPlansUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 77
+            }, 
+            "name": "apu"
+        }, 
+        {
+            "type": "ActionPlan__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 82
+            }, 
+            "name": "rap"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 92
+            }, 
+            "name": "ge"
+        }, 
+        {
+            "type": "ActionPlan__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 94
+            }, 
+            "name": "ap"
+        }, 
+        {
+            "type": "ActionPlansUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 102
+            }, 
+            "name": "apu"
+        }, 
+        {
+            "type": "ActionPlanTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 25, 
+                "line": 108
+            }, 
+            "name": "apt"
+        }, 
+        {
+            "type": "ActionPlansUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 110
+            }, 
+            "name": "apu2"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 122
+            }, 
+            "name": "ge"
+        }, 
+        {
+            "type": "ActionPlan__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 124
+            }, 
+            "name": "ap"
+        }, 
+        {
+            "type": "ActionPlansUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 131
+            }, 
+            "name": "apu"
+        }, 
+        {
+            "type": "ActionPlanTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 25, 
+                "line": 137
+            }, 
+            "name": "apt"
+        }, 
+        {
+            "type": "Map", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 150
+            }, 
+            "name": "objectDetails"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 156
+            }, 
+            "name": "ge"
+        }, 
+        {
+            "type": "ActionPlan__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 157
+            }, 
+            "name": "ap"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 14, 
+                "line": 158
+            }, 
+            "name": "k"
+        }, 
+        {
+            "type": "ActionPlansUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 25, 
+                "line": 167
+            }, 
+            "name": "apu"
+        }, 
+        {
+            "type": "ActionPlanTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 173
+            }, 
+            "name": "apt"
+        }, 
+        {
+            "type": "Map", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 186
+            }, 
+            "name": "objectDetails"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 192
+            }, 
+            "name": "ge"
+        }, 
+        {
+            "type": "ActionPlan__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 193
+            }, 
+            "name": "ap"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 14, 
+                "line": 194
+            }, 
+            "name": "k"
+        }, 
+        {
+            "type": "ActionPlansUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 25, 
+                "line": 203
+            }, 
+            "name": "apu"
+        }, 
+        {
+            "type": "ActionPlanTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 209
+            }, 
+            "name": "apt"
+        }, 
+        {
+            "type": "ActionPlansUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 223
+            }, 
+            "name": "apu"
+        }, 
+        {
+            "type": "PageReference", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 224
+            }, 
+            "name": "page"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 227
+            }, 
+            "name": "ge"
+        }, 
+        {
+            "type": "ActionPlan__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 229
+            }, 
+            "name": "ap"
+        }, 
+        {
+            "type": "ActionPlanTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 25, 
+                "line": 259
+            }, 
+            "name": "apt"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 269
+            }, 
+            "name": "ge"
+        }, 
+        {
+            "type": "ActionPlan__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 271
+            }, 
+            "name": "ap"
+        }, 
+        {
+            "type": "ActionPlansUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 272
+            }, 
+            "name": "apu"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 10, 
+                "line": 273
+            }, 
+            "name": "id"
+        }, 
+        {
+            "type": "ActionPlansUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 295
+            }, 
+            "name": "apu"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 296
+            }, 
+            "name": "options"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 308
+            }, 
+            "name": "ge"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 15, 
+                "line": 309
+            }, 
+            "name": "oIds"
+        }, 
+        {
+            "type": "ActionPlan__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 311
+            }, 
+            "name": "ap"
+        }, 
+        {
+            "type": "ActionPlansUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 312
+            }, 
+            "name": "apu"
+        }, 
+        {
+            "type": "Account", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 11, 
+                "line": 313
+            }, 
+            "name": "a"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 10, 
+                "line": 316
+            }, 
+            "name": "owner"
+        }, 
+        {
+            "type": "Case", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 8, 
+                "line": 321
+            }, 
+            "name": "c"
+        }, 
+        {
+            "type": "Contact", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 11, 
+                "line": 330
+            }, 
+            "name": "contact"
+        }, 
+        {
+            "type": "Contract", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 339
+            }, 
+            "name": "contract"
+        }, 
+        {
+            "type": "Lead", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 8, 
+                "line": 348
+            }, 
+            "name": "l"
+        }, 
+        {
+            "type": "Opportunity", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 15, 
+                "line": 357
+            }, 
+            "name": "o"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 371
+            }, 
+            "name": "ge"
+        }, 
+        {
+            "type": "ActionPlan__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 373
+            }, 
+            "name": "ap"
+        }, 
+        {
+            "type": "ActionPlansUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 374
+            }, 
+            "name": "apu"
+        }, 
+        {
+            "type": "ActionPlansUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 410
+            }, 
+            "name": "ge"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 411
+            }, 
+            "name": "results"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 423
+            }, 
+            "name": "ge"
+        }, 
+        {
+            "type": "ActionPlan__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 424
+            }, 
+            "name": "ap"
+        }, 
+        {
+            "type": "ActionPlan__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 425
+            }, 
+            "name": "ap2"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 426
+            }, 
+            "name": "lAp"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 10, 
+                "line": 429
+            }, 
+            "name": "url"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 10, 
+                "line": 430
+            }, 
+            "name": "records"
+        }, 
+        {
+            "type": "ActionPlansUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 432
+            }, 
+            "name": "apu"
+        }, 
+        {
+            "type": "PageReference", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 436
+            }, 
+            "name": "page"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 439
+            }, 
+            "name": "lAp2"
+        }, 
+        {
+            "type": "ActionPlan__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 58, 
+                "line": 444
+            }, 
+            "name": "ap"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 446
+            }, 
+            "name": "ge"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 447
+            }, 
+            "name": "at"
+        }
+    ], 
+    "constructors": [], 
+    "namespace": null, 
+    "name": "ActionPlansUtilitiesTest", 
+    "tableDeclaration": {
+        "type": "ActionPlansUtilitiesTest", 
+        "modifiers": [], 
+        "references": [], 
+        "location": {
+            "column": 27, 
+            "line": 33
+        }, 
+        "name": "ActionPlansUtilitiesTest"
+    }, 
+    "key": "01pF0000003Qcqc", 
+    "id": "01pF0000003Qcqc", 
+    "externalReferences": []
+}

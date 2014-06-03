@@ -98,6 +98,16 @@ public with sharing class ActionPlansUtilities{
                     from ActionPlan__c a limit 1000 ];
     }
     
+    private List<String> parseMultiSelect(String input){
+        List<String> values;
+        String cleaned = input.replace('[', '');
+        cleaned = cleaned.replace(']', '');
+        values = cleaned.split(',');
+        if(values[0]=='') values.clear();
+        System.debug(values + ':' + values.size());
+        return values;
+    }
+
     /**
     * Checks if Action Plan Tasks has cycling dependency.
     * @return exists
@@ -107,24 +117,30 @@ public with sharing class ActionPlansUtilities{
         this.errorMsg 	= '';
     	Boolean exists 	= false;
     	Integer index 	= 0;
-        
+
         for( APTaskTemplate__c t : this.apTasks ){
             if( t.Dependent__c != 'None' && t.Dependent__c != null ){
-                Integer tempIndex   	= Integer.valueOf( t.Dependent__c );
-                APTaskTemplate__c link 	= this.apTasks[tempIndex];
+
+                List<String> selectedValues = parseMultiSelect(t.Dependent__c);
+
+                for( String i : selectedValues){
+                    Integer tempIndex       = Integer.valueOf( i );
+                    APTaskTemplate__c link  = this.apTasks[tempIndex];
                 
                 
                 //task can not depend on themselves
-                if(tempIndex == index){
-                	this.errorMsg = Label.ap_ItselfDependencyError;	
-                	return true;
+                    if(tempIndex == index){
+                        this.errorMsg = Label.ap_ItselfDependencyError; 
+                        return true;
+                    }
+                    
+                    
+                    if( this.dependantCycle( t, link, index ) ){
+                        this.errorMsg = Label.ap_Errors_RemoveCyclicDependency; 
+                        return true;
+                    }
                 }
                 
-                
-                if( this.dependantCycle( t, link, index ) ){
-                	this.errorMsg = Label.ap_Errors_RemoveCyclicDependency;	
-                	return true;
-                }
             }
             index++;
         }

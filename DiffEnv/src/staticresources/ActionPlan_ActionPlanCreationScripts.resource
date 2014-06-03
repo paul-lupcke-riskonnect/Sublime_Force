@@ -45,6 +45,19 @@ ActionPlanCreationScripts = {
         	}
         } 
     },
+    keepDependentClean : function (dependent){
+    	var x = document.getElementById(dependent);
+    	window.alert(x);
+    	if(dependent.indexOf('None')>-1){
+    		document.getElementById( dependent ).value = 'None';
+    	}
+    	else{
+    		window.alert('Please deselect none before other options.')
+    	}
+		//var index = ( dependent.split( ":" ) );
+		//window.alert(index.toString());
+
+    },
 	updateRemindersOption : function (obj){
 
 		if (obj.checked){

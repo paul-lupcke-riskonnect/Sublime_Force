@@ -406,6 +406,18 @@ public with sharing class ActionPlansUtilitiesTest {
 		test.stopTest();
 	}
 	
+	public static testMethod void testparseMultiSelect(){
+		ActionPlansUtilities ge =  new ActionPlansUtilities();
+		List<String> results = ge.parseMultiSelect('[1,2,3]');
+		System.assert(results.size() == 3);
+		System.debug(results.isEmpty());
+		results = ge.parseMultiSelect('[1]');
+		System.assert(results.size() == 1);
+		results = ge.parseMultiSelect('[]');
+		System.assert(results.size() == 0);
+		
+	}
+
 	public static testMethod void APUtestDeleteActionPlans() {
 		
 		ActionPlansTestUtilities ge =  new ActionPlansTestUtilities();
