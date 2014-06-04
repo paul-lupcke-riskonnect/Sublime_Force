@@ -193,10 +193,10 @@
                     "name": "input"
                 }
             ], 
-            "visibility": "PRIVATE", 
+            "visibility": "PUBLIC", 
             "references": [], 
             "location": {
-                "column": 26, 
+                "column": 25, 
                 "line": 101
             }, 
             "returnType": "LIST", 
@@ -211,6 +211,19 @@
             "location": {
                 "column": 20, 
                 "line": 115
+            }, 
+            "returnType": "Boolean", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "dependentCycleWorker", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 150
             }, 
             "returnType": "Boolean", 
             "type": null
@@ -236,7 +249,7 @@
             "references": [], 
             "location": {
                 "column": 21, 
-                "line": 157
+                "line": 202
             }, 
             "returnType": "Boolean", 
             "type": null
@@ -249,7 +262,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 202
+                "line": 248
             }, 
             "returnType": "String", 
             "type": null
@@ -262,7 +275,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 257
+                "line": 303
             }, 
             "returnType": "void", 
             "type": null
@@ -275,7 +288,7 @@
             "references": [], 
             "location": {
                 "column": 26, 
-                "line": 278
+                "line": 324
             }, 
             "returnType": "PageReference", 
             "type": null
@@ -288,7 +301,7 @@
             "references": [], 
             "location": {
                 "column": 26, 
-                "line": 302
+                "line": 348
             }, 
             "returnType": "PageReference", 
             "type": null
@@ -301,7 +314,7 @@
             "references": [], 
             "location": {
                 "column": 26, 
-                "line": 321
+                "line": 367
             }, 
             "returnType": "PageReference", 
             "type": null
@@ -314,7 +327,7 @@
             "references": [], 
             "location": {
                 "column": 26, 
-                "line": 477
+                "line": 523
             }, 
             "returnType": "PageReference", 
             "type": null
@@ -327,7 +340,7 @@
             "references": [], 
             "location": {
                 "column": 26, 
-                "line": 489
+                "line": 535
             }, 
             "returnType": "PageReference", 
             "type": null
@@ -340,7 +353,7 @@
             "references": [], 
             "location": {
                 "column": 36, 
-                "line": 537
+                "line": 583
             }, 
             "returnType": "LIST", 
             "type": null
@@ -353,7 +366,7 @@
             "references": [], 
             "location": {
                 "column": 20, 
-                "line": 622
+                "line": 668
             }, 
             "returnType": "Boolean", 
             "type": null
@@ -366,7 +379,7 @@
             "references": [], 
             "location": {
                 "column": 20, 
-                "line": 652
+                "line": 698
             }, 
             "returnType": "Boolean", 
             "type": null
@@ -379,7 +392,7 @@
             "references": [], 
             "location": {
                 "column": 20, 
-                "line": 704
+                "line": 750
             }, 
             "returnType": "Integer", 
             "type": null
@@ -392,7 +405,7 @@
             "references": [], 
             "location": {
                 "column": 31, 
-                "line": 712
+                "line": 758
             }, 
             "returnType": "LIST", 
             "type": null
@@ -405,7 +418,7 @@
             "references": [], 
             "location": {
                 "column": 20, 
-                "line": 734
+                "line": 780
             }, 
             "returnType": "Integer", 
             "type": null
@@ -418,7 +431,7 @@
             "references": [], 
             "location": {
                 "column": 26, 
-                "line": 750
+                "line": 796
             }, 
             "returnType": "PageReference", 
             "type": null
@@ -431,7 +444,7 @@
             "references": [], 
             "location": {
                 "column": 20, 
-                "line": 778
+                "line": 824
             }, 
             "returnType": "Boolean", 
             "type": null
@@ -444,7 +457,7 @@
             "references": [], 
             "location": {
                 "column": 37, 
-                "line": 792
+                "line": 838
             }, 
             "returnType": "Action_Plans_Settings__c", 
             "type": null
@@ -462,7 +475,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 805
+                "line": 851
             }, 
             "returnType": "String", 
             "type": null
@@ -480,7 +493,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 815
+                "line": 861
             }, 
             "returnType": "String", 
             "type": null
@@ -498,7 +511,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 825
+                "line": 871
             }, 
             "returnType": "void", 
             "type": null
@@ -516,7 +529,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 896
+                "line": 942
             }, 
             "returnType": "String", 
             "type": null
@@ -534,7 +547,7 @@
             "references": [], 
             "location": {
                 "column": 20, 
-                "line": 920
+                "line": 966
             }, 
             "returnType": "Boolean", 
             "type": null
@@ -552,7 +565,7 @@
             "references": [], 
             "location": {
                 "column": 20, 
-                "line": 937
+                "line": 983
             }, 
             "returnType": "Boolean", 
             "type": null
@@ -565,7 +578,7 @@
             "references": [], 
             "location": {
                 "column": 31, 
-                "line": 971
+                "line": 1017
             }, 
             "returnType": "LIST", 
             "type": null
@@ -583,7 +596,7 @@
             "references": [], 
             "location": {
                 "column": 35, 
-                "line": 1031
+                "line": 1077
             }, 
             "returnType": "LIST", 
             "type": null
@@ -596,7 +609,7 @@
             "references": [], 
             "location": {
                 "column": 20, 
-                "line": 1047
+                "line": 1093
             }, 
             "returnType": "Boolean", 
             "type": null
@@ -609,7 +622,7 @@
             "references": [], 
             "location": {
                 "column": 31, 
-                "line": 1059
+                "line": 1105
             }, 
             "returnType": "LIST", 
             "type": null
@@ -622,7 +635,7 @@
             "references": [], 
             "location": {
                 "column": 25, 
-                "line": 1077
+                "line": 1123
             }, 
             "returnType": "SelectOption", 
             "type": null
@@ -635,7 +648,7 @@
             "references": [], 
             "location": {
                 "column": 15, 
-                "line": 1085
+                "line": 1131
             }, 
             "returnType": "Id", 
             "type": null
@@ -653,7 +666,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 1102
+                "line": 1148
             }, 
             "returnType": "String", 
             "type": null
@@ -675,7 +688,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 1112
+                "line": 1158
             }, 
             "returnType": "void", 
             "type": null
@@ -697,7 +710,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 1134
+                "line": 1180
             }, 
             "returnType": "String", 
             "type": null
@@ -715,7 +728,7 @@
             "references": [], 
             "location": {
                 "column": 20, 
-                "line": 1152
+                "line": 1198
             }, 
             "returnType": "Boolean", 
             "type": null
@@ -728,7 +741,7 @@
             "references": [], 
             "location": {
                 "column": 20, 
-                "line": 1176
+                "line": 1222
             }, 
             "returnType": "Boolean", 
             "type": null
@@ -741,7 +754,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 1185
+                "line": 1231
             }, 
             "returnType": "String", 
             "type": null
@@ -754,7 +767,7 @@
             "references": [], 
             "location": {
                 "column": 26, 
-                "line": 1204
+                "line": 1250
             }, 
             "returnType": "PageReference", 
             "type": null
@@ -772,7 +785,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 1229
+                "line": 1275
             }, 
             "returnType": "String", 
             "type": null
@@ -805,7 +818,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 50, 
+                "column": 49, 
                 "line": 101
             }, 
             "name": "input"
@@ -901,12 +914,112 @@
             "name": "link"
         }, 
         {
+            "type": "Map", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 35, 
+                "line": 152
+            }, 
+            "name": "children"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 153
+            }, 
+            "name": "l"
+        }, 
+        {
+            "type": "Set", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 156
+            }, 
+            "name": "parent"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 30, 
+                "line": 158
+            }, 
+            "name": "selectedValues"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 159
+            }, 
+            "name": "p"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 160
+            }, 
+            "name": "tempIndex"
+        }, 
+        {
+            "type": "Set", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 173
+            }, 
+            "name": "looker"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 174
+            }, 
+            "name": "holder"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 179
+            }, 
+            "name": "x"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 183
+            }, 
+            "name": "j"
+        }, 
+        {
             "type": "APTaskTemplate__c", 
             "modifiers": [], 
             "references": [], 
             "location": {
                 "column": 55, 
-                "line": 157
+                "line": 202
             }, 
             "name": "originTask"
         }, 
@@ -916,7 +1029,7 @@
             "references": [], 
             "location": {
                 "column": 85, 
-                "line": 157
+                "line": 202
             }, 
             "name": "destinyTask"
         }, 
@@ -926,7 +1039,7 @@
             "references": [], 
             "location": {
                 "column": 106, 
-                "line": 157
+                "line": 202
             }, 
             "name": "index"
         }, 
@@ -936,7 +1049,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 159
+                "line": 204
             }, 
             "name": "hasDependency"
         }, 
@@ -946,9 +1059,19 @@
             "references": [], 
             "location": {
                 "column": 22, 
-                "line": 160
+                "line": 205
             }, 
             "name": "visitedTasks"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 206
+            }, 
+            "name": "selectedDestinyValues"
         }, 
         {
             "type": "Integer", 
@@ -956,7 +1079,7 @@
             "references": [], 
             "location": {
                 "column": 25, 
-                "line": 174
+                "line": 220
             }, 
             "name": "tempIndexDestiny"
         }, 
@@ -966,7 +1089,7 @@
             "references": [], 
             "location": {
                 "column": 29, 
-                "line": 175
+                "line": 221
             }, 
             "name": "link"
         }, 
@@ -976,7 +1099,7 @@
             "references": [], 
             "location": {
                 "column": 21, 
-                "line": 184
+                "line": 230
             }, 
             "name": "tempIndex"
         }, 
@@ -986,7 +1109,7 @@
             "references": [], 
             "location": {
                 "column": 10, 
-                "line": 205
+                "line": 251
             }, 
             "name": "actionPlanId"
         }, 
@@ -996,7 +1119,7 @@
             "references": [], 
             "location": {
                 "column": 10, 
-                "line": 206
+                "line": 252
             }, 
             "name": "objId"
         }, 
@@ -1006,7 +1129,7 @@
             "references": [], 
             "location": {
                 "column": 10, 
-                "line": 207
+                "line": 253
             }, 
             "name": "objName"
         }, 
@@ -1016,7 +1139,7 @@
             "references": [], 
             "location": {
                 "column": 16, 
-                "line": 208
+                "line": 254
             }, 
             "name": "oIdsList"
         }, 
@@ -1026,7 +1149,7 @@
             "references": [], 
             "location": {
                 "column": 13, 
-                "line": 209
+                "line": 255
             }, 
             "name": "sp"
         }, 
@@ -1036,7 +1159,7 @@
             "references": [], 
             "location": {
                 "column": 29, 
-                "line": 239
+                "line": 285
             }, 
             "name": "taskBatch"
         }, 
@@ -1046,7 +1169,7 @@
             "references": [], 
             "location": {
                 "column": 38, 
-                "line": 242
+                "line": 288
             }, 
             "name": "taskBatch"
         }, 
@@ -1056,7 +1179,7 @@
             "references": [], 
             "location": {
                 "column": 25, 
-                "line": 260
+                "line": 306
             }, 
             "name": "taskToDelete"
         }, 
@@ -1066,7 +1189,7 @@
             "references": [], 
             "location": {
                 "column": 25, 
-                "line": 261
+                "line": 307
             }, 
             "name": "deleteApttIds"
         }, 
@@ -1076,7 +1199,7 @@
             "references": [], 
             "location": {
                 "column": 36, 
-                "line": 263
+                "line": 309
             }, 
             "name": "deleteAptt"
         }, 
@@ -1086,7 +1209,7 @@
             "references": [], 
             "location": {
                 "column": 13, 
-                "line": 280
+                "line": 326
             }, 
             "name": "newApId"
         }, 
@@ -1096,7 +1219,7 @@
             "references": [], 
             "location": {
                 "column": 16, 
-                "line": 291
+                "line": 337
             }, 
             "name": "ap_list"
         }, 
@@ -1106,7 +1229,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 292
+                "line": 338
             }, 
             "name": "newPage"
         }, 
@@ -1116,7 +1239,7 @@
             "references": [], 
             "location": {
                 "column": 16, 
-                "line": 304
+                "line": 350
             }, 
             "name": "oIds"
         }, 
@@ -1126,7 +1249,7 @@
             "references": [], 
             "location": {
                 "column": 22, 
-                "line": 305
+                "line": 351
             }, 
             "name": "oIdsList"
         }, 
@@ -1136,7 +1259,7 @@
             "references": [], 
             "location": {
                 "column": 16, 
-                "line": 323
+                "line": 369
             }, 
             "name": "oName"
         }, 
@@ -1146,7 +1269,7 @@
             "references": [], 
             "location": {
                 "column": 16, 
-                "line": 324
+                "line": 370
             }, 
             "name": "oIds"
         }, 
@@ -1156,7 +1279,7 @@
             "references": [], 
             "location": {
                 "column": 29, 
-                "line": 325
+                "line": 371
             }, 
             "name": "apList"
         }, 
@@ -1166,7 +1289,7 @@
             "references": [], 
             "location": {
                 "column": 33, 
-                "line": 326
+                "line": 372
             }, 
             "name": "aptList"
         }, 
@@ -1176,7 +1299,7 @@
             "references": [], 
             "location": {
                 "column": 18, 
-                "line": 327
+                "line": 373
             }, 
             "name": "sp"
         }, 
@@ -1186,7 +1309,7 @@
             "references": [], 
             "location": {
                 "column": 27, 
-                "line": 333
+                "line": 379
             }, 
             "name": "oIdsList"
         }, 
@@ -1196,7 +1319,7 @@
             "references": [], 
             "location": {
                 "column": 29, 
-                "line": 340
+                "line": 386
             }, 
             "name": "taskBatch"
         }, 
@@ -1206,7 +1329,7 @@
             "references": [], 
             "location": {
                 "column": 23, 
-                "line": 352
+                "line": 398
             }, 
             "name": "newPage"
         }, 
@@ -1216,7 +1339,7 @@
             "references": [], 
             "location": {
                 "column": 23, 
-                "line": 479
+                "line": 525
             }, 
             "name": "newPage"
         }, 
@@ -1226,7 +1349,7 @@
             "references": [], 
             "location": {
                 "column": 13, 
-                "line": 490
+                "line": 536
             }, 
             "name": "objectType"
         }, 
@@ -1236,7 +1359,7 @@
             "references": [], 
             "location": {
                 "column": 16, 
-                "line": 491
+                "line": 537
             }, 
             "name": "objectIds"
         }, 
@@ -1246,7 +1369,7 @@
             "references": [], 
             "location": {
                 "column": 13, 
-                "line": 492
+                "line": 538
             }, 
             "name": "templateId"
         }, 
@@ -1256,7 +1379,7 @@
             "references": [], 
             "location": {
                 "column": 13, 
-                "line": 493
+                "line": 539
             }, 
             "name": "retURL"
         }, 
@@ -1266,7 +1389,7 @@
             "references": [], 
             "location": {
                 "column": 13, 
-                "line": 494
+                "line": 540
             }, 
             "name": "id"
         }, 
@@ -1276,7 +1399,7 @@
             "references": [], 
             "location": {
                 "column": 13, 
-                "line": 495
+                "line": 541
             }, 
             "name": "pageRef"
         }, 
@@ -1286,7 +1409,7 @@
             "references": [], 
             "location": {
                 "column": 13, 
-                "line": 496
+                "line": 542
             }, 
             "name": "aPlanListUrl"
         }, 
@@ -1296,7 +1419,7 @@
             "references": [], 
             "location": {
                 "column": 20, 
-                "line": 507
+                "line": 553
             }, 
             "name": "oIdsList"
         }, 
@@ -1306,7 +1429,7 @@
             "references": [], 
             "location": {
                 "column": 20, 
-                "line": 527
+                "line": 573
             }, 
             "name": "previousPage"
         }, 
@@ -1316,7 +1439,7 @@
             "references": [], 
             "location": {
                 "column": 24, 
-                "line": 541
+                "line": 587
             }, 
             "name": "tempApId"
         }, 
@@ -1326,7 +1449,7 @@
             "references": [], 
             "location": {
                 "column": 42, 
-                "line": 551
+                "line": 597
             }, 
             "name": "mySettings"
         }, 
@@ -1336,7 +1459,7 @@
             "references": [], 
             "location": {
                 "column": 24, 
-                "line": 552
+                "line": 598
             }, 
             "name": "userId"
         }, 
@@ -1346,7 +1469,7 @@
             "references": [], 
             "location": {
                 "column": 41, 
-                "line": 553
+                "line": 599
             }, 
             "name": "aptTask"
         }, 
@@ -1356,7 +1479,7 @@
             "references": [], 
             "location": {
                 "column": 39, 
-                "line": 568
+                "line": 614
             }, 
             "name": "t"
         }, 
@@ -1366,7 +1489,7 @@
             "references": [], 
             "location": {
                 "column": 21, 
-                "line": 584
+                "line": 630
             }, 
             "name": "TempApId"
         }, 
@@ -1376,7 +1499,7 @@
             "references": [], 
             "location": {
                 "column": 24, 
-                "line": 587
+                "line": 633
             }, 
             "name": "tmp_remainderDefaultTime"
         }, 
@@ -1386,7 +1509,7 @@
             "references": [], 
             "location": {
                 "column": 40, 
-                "line": 588
+                "line": 634
             }, 
             "name": "t"
         }, 
@@ -1396,7 +1519,7 @@
             "references": [], 
             "location": {
                 "column": 35, 
-                "line": 597
+                "line": 643
             }, 
             "name": "t"
         }, 
@@ -1406,7 +1529,7 @@
             "references": [], 
             "location": {
                 "column": 41, 
-                "line": 605
+                "line": 651
             }, 
             "name": "tC"
         }, 
@@ -1416,7 +1539,7 @@
             "references": [], 
             "location": {
                 "column": 40, 
-                "line": 610
+                "line": 656
             }, 
             "name": "t"
         }, 
@@ -1426,7 +1549,7 @@
             "references": [], 
             "location": {
                 "column": 14, 
-                "line": 624
+                "line": 670
             }, 
             "name": "hasNoErrors"
         }, 
@@ -1436,7 +1559,7 @@
             "references": [], 
             "location": {
                 "column": 28, 
-                "line": 629
+                "line": 675
             }, 
             "name": "t"
         }, 
@@ -1446,7 +1569,7 @@
             "references": [], 
             "location": {
                 "column": 38, 
-                "line": 636
+                "line": 682
             }, 
             "name": "mySettings"
         }, 
@@ -1456,7 +1579,7 @@
             "references": [], 
             "location": {
                 "column": 36, 
-                "line": 637
+                "line": 683
             }, 
             "name": "apt"
         }, 
@@ -1466,7 +1589,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 654
+                "line": 700
             }, 
             "name": "removedTask"
         }, 
@@ -1476,7 +1599,7 @@
             "references": [], 
             "location": {
                 "column": 21, 
-                "line": 656
+                "line": 702
             }, 
             "name": "taskIndex"
         }, 
@@ -1486,7 +1609,7 @@
             "references": [], 
             "location": {
                 "column": 31, 
-                "line": 662
+                "line": 708
             }, 
             "name": "apTask"
         }, 
@@ -1496,7 +1619,7 @@
             "references": [], 
             "location": {
                 "column": 21, 
-                "line": 663
+                "line": 709
             }, 
             "name": "dependentApTask"
         }, 
@@ -1506,7 +1629,7 @@
             "references": [], 
             "location": {
                 "column": 26, 
-                "line": 666
+                "line": 712
             }, 
             "name": "i"
         }, 
@@ -1516,7 +1639,7 @@
             "references": [], 
             "location": {
                 "column": 28, 
-                "line": 714
+                "line": 760
             }, 
             "name": "options"
         }, 
@@ -1526,7 +1649,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 716
+                "line": 762
             }, 
             "name": "i"
         }, 
@@ -1536,7 +1659,7 @@
             "references": [], 
             "location": {
                 "column": 36, 
-                "line": 719
+                "line": 765
             }, 
             "name": "t"
         }, 
@@ -1546,7 +1669,7 @@
             "references": [], 
             "location": {
                 "column": 33, 
-                "line": 736
+                "line": 782
             }, 
             "name": "ts"
         }, 
@@ -1556,7 +1679,7 @@
             "references": [], 
             "location": {
                 "column": 16, 
-                "line": 737
+                "line": 783
             }, 
             "name": "tempApId"
         }, 
@@ -1566,7 +1689,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 752
+                "line": 798
             }, 
             "name": "sp"
         }, 
@@ -1576,7 +1699,7 @@
             "references": [], 
             "location": {
                 "column": 22, 
-                "line": 754
+                "line": 800
             }, 
             "name": "recordIds"
         }, 
@@ -1586,7 +1709,7 @@
             "references": [], 
             "location": {
                 "column": 36, 
-                "line": 759
+                "line": 805
             }, 
             "name": "taskBatch"
         }, 
@@ -1596,7 +1719,7 @@
             "references": [], 
             "location": {
                 "column": 16, 
-                "line": 767
+                "line": 813
             }, 
             "name": "aPlanListUrl"
         }, 
@@ -1606,7 +1729,7 @@
             "references": [], 
             "location": {
                 "column": 23, 
-                "line": 768
+                "line": 814
             }, 
             "name": "newPage"
         }, 
@@ -1616,7 +1739,7 @@
             "references": [], 
             "location": {
                 "column": 35, 
-                "line": 780
+                "line": 826
             }, 
             "name": "TempApt"
         }, 
@@ -1626,7 +1749,7 @@
             "references": [], 
             "location": {
                 "column": 31, 
-                "line": 793
+                "line": 839
             }, 
             "name": "instance"
         }, 
@@ -1636,7 +1759,7 @@
             "references": [], 
             "location": {
                 "column": 46, 
-                "line": 805
+                "line": 851
             }, 
             "name": "objName"
         }, 
@@ -1646,7 +1769,7 @@
             "references": [], 
             "location": {
                 "column": 35, 
-                "line": 806
+                "line": 852
             }, 
             "name": "obj"
         }, 
@@ -1656,7 +1779,7 @@
             "references": [], 
             "location": {
                 "column": 45, 
-                "line": 815
+                "line": 861
             }, 
             "name": "objName"
         }, 
@@ -1666,7 +1789,7 @@
             "references": [], 
             "location": {
                 "column": 35, 
-                "line": 816
+                "line": 862
             }, 
             "name": "obj"
         }, 
@@ -1676,7 +1799,7 @@
             "references": [], 
             "location": {
                 "column": 44, 
-                "line": 825
+                "line": 871
             }, 
             "name": "apId"
         }, 
@@ -1686,7 +1809,7 @@
             "references": [], 
             "location": {
                 "column": 13, 
-                "line": 827
+                "line": 873
             }, 
             "name": "objId"
         }, 
@@ -1696,7 +1819,7 @@
             "references": [], 
             "location": {
                 "column": 13, 
-                "line": 828
+                "line": 874
             }, 
             "name": "objName"
         }, 
@@ -1706,7 +1829,7 @@
             "references": [], 
             "location": {
                 "column": 14, 
-                "line": 829
+                "line": 875
             }, 
             "name": "chatter_enabled"
         }, 
@@ -1716,7 +1839,7 @@
             "references": [], 
             "location": {
                 "column": 35, 
-                "line": 830
+                "line": 876
             }, 
             "name": "r"
         }, 
@@ -1726,7 +1849,7 @@
             "references": [], 
             "location": {
                 "column": 20, 
-                "line": 832
+                "line": 878
             }, 
             "name": "ap"
         }, 
@@ -1736,7 +1859,7 @@
             "references": [], 
             "location": {
                 "column": 20, 
-                "line": 880
+                "line": 926
             }, 
             "name": "token"
         }, 
@@ -1746,7 +1869,7 @@
             "references": [], 
             "location": {
                 "column": 16, 
-                "line": 881
+                "line": 927
             }, 
             "name": "objPost"
         }, 
@@ -1756,7 +1879,7 @@
             "references": [], 
             "location": {
                 "column": 51, 
-                "line": 896
+                "line": 942
             }, 
             "name": "ap"
         }, 
@@ -1766,7 +1889,7 @@
             "references": [], 
             "location": {
                 "column": 13, 
-                "line": 898
+                "line": 944
             }, 
             "name": "recoveredValue"
         }, 
@@ -1776,7 +1899,7 @@
             "references": [], 
             "location": {
                 "column": 13, 
-                "line": 899
+                "line": 945
             }, 
             "name": "objId"
         }, 
@@ -1786,7 +1909,7 @@
             "references": [], 
             "location": {
                 "column": 55, 
-                "line": 920
+                "line": 966
             }, 
             "name": "ap"
         }, 
@@ -1796,7 +1919,7 @@
             "references": [], 
             "location": {
                 "column": 13, 
-                "line": 922
+                "line": 968
             }, 
             "name": "objName"
         }, 
@@ -1806,7 +1929,7 @@
             "references": [], 
             "location": {
                 "column": 42, 
-                "line": 937
+                "line": 983
             }, 
             "name": "objName"
         }, 
@@ -1816,7 +1939,7 @@
             "references": [], 
             "location": {
                 "column": 35, 
-                "line": 938
+                "line": 984
             }, 
             "name": "obj"
         }, 
@@ -1826,7 +1949,7 @@
             "references": [], 
             "location": {
                 "column": 24, 
-                "line": 973
+                "line": 1019
             }, 
             "name": "options"
         }, 
@@ -1836,7 +1959,7 @@
             "references": [], 
             "location": {
                 "column": 78, 
-                "line": 1031
+                "line": 1077
             }, 
             "name": "actionPlanId"
         }, 
@@ -1846,7 +1969,7 @@
             "references": [], 
             "location": {
                 "column": 29, 
-                "line": 1033
+                "line": 1079
             }, 
             "name": "myList"
         }, 
@@ -1856,7 +1979,7 @@
             "references": [], 
             "location": {
                 "column": 14, 
-                "line": 1048
+                "line": 1094
             }, 
             "name": "hasRelated"
         }, 
@@ -1866,7 +1989,7 @@
             "references": [], 
             "location": {
                 "column": 32, 
-                "line": 1061
+                "line": 1107
             }, 
             "name": "options"
         }, 
@@ -1876,7 +1999,7 @@
             "references": [], 
             "location": {
                 "column": 9, 
-                "line": 1086
+                "line": 1132
             }, 
             "name": "currentId"
         }, 
@@ -1886,7 +2009,7 @@
             "references": [], 
             "location": {
                 "column": 37, 
-                "line": 1102
+                "line": 1148
             }, 
             "name": "longId"
         }, 
@@ -1896,7 +2019,7 @@
             "references": [], 
             "location": {
                 "column": 13, 
-                "line": 1103
+                "line": 1149
             }, 
             "name": "longIdString"
         }, 
@@ -1906,7 +2029,7 @@
             "references": [], 
             "location": {
                 "column": 63, 
-                "line": 1112
+                "line": 1158
             }, 
             "name": "relatedObjIds"
         }, 
@@ -1916,7 +2039,7 @@
             "references": [], 
             "location": {
                 "column": 85, 
-                "line": 1112
+                "line": 1158
             }, 
             "name": "relatedObjectName"
         }, 
@@ -1926,7 +2049,7 @@
             "references": [], 
             "location": {
                 "column": 10, 
-                "line": 1114
+                "line": 1160
             }, 
             "name": "shortId"
         }, 
@@ -1936,7 +2059,7 @@
             "references": [], 
             "location": {
                 "column": 10, 
-                "line": 1115
+                "line": 1161
             }, 
             "name": "queryRetrieveOwnerIds"
         }, 
@@ -1946,7 +2069,7 @@
             "references": [], 
             "location": {
                 "column": 23, 
-                "line": 1121
+                "line": 1167
             }, 
             "name": "obj"
         }, 
@@ -1956,7 +2079,7 @@
             "references": [], 
             "location": {
                 "column": 38, 
-                "line": 1134
+                "line": 1180
             }, 
             "name": "stringList"
         }, 
@@ -1966,7 +2089,7 @@
             "references": [], 
             "location": {
                 "column": 57, 
-                "line": 1134
+                "line": 1180
             }, 
             "name": "separator"
         }, 
@@ -1976,7 +2099,7 @@
             "references": [], 
             "location": {
                 "column": 10, 
-                "line": 1136
+                "line": 1182
             }, 
             "name": "result"
         }, 
@@ -1986,7 +2109,7 @@
             "references": [], 
             "location": {
                 "column": 15, 
-                "line": 1137
+                "line": 1183
             }, 
             "name": "elem"
         }, 
@@ -1996,7 +2119,7 @@
             "references": [], 
             "location": {
                 "column": 48, 
-                "line": 1152
+                "line": 1198
             }, 
             "name": "apTaskId"
         }, 
@@ -2006,7 +2129,7 @@
             "references": [], 
             "location": {
                 "column": 14, 
-                "line": 1153
+                "line": 1199
             }, 
             "name": "result"
         }, 
@@ -2016,7 +2139,7 @@
             "references": [], 
             "location": {
                 "column": 18, 
-                "line": 1154
+                "line": 1200
             }, 
             "name": "rejectStatus"
         }, 
@@ -2026,7 +2149,7 @@
             "references": [], 
             "location": {
                 "column": 30, 
-                "line": 1156
+                "line": 1202
             }, 
             "name": "aptList"
         }, 
@@ -2036,7 +2159,7 @@
             "references": [], 
             "location": {
                 "column": 39, 
-                "line": 1177
+                "line": 1223
             }, 
             "name": "fieldsMap"
         }, 
@@ -2046,7 +2169,7 @@
             "references": [], 
             "location": {
                 "column": 39, 
-                "line": 1186
+                "line": 1232
             }, 
             "name": "fieldsMap"
         }, 
@@ -2056,7 +2179,7 @@
             "references": [], 
             "location": {
                 "column": 11, 
-                "line": 1187
+                "line": 1233
             }, 
             "name": "defaultTime"
         }, 
@@ -2066,7 +2189,7 @@
             "references": [], 
             "location": {
                 "column": 28, 
-                "line": 1189
+                "line": 1235
             }, 
             "name": "uP"
         }, 
@@ -2076,7 +2199,7 @@
             "references": [], 
             "location": {
                 "column": 13, 
-                "line": 1205
+                "line": 1251
             }, 
             "name": "retURL"
         }, 
@@ -2086,7 +2209,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 1206
+                "line": 1252
             }, 
             "name": "recordIds"
         }, 
@@ -2096,7 +2219,7 @@
             "references": [], 
             "location": {
                 "column": 14, 
-                "line": 1211
+                "line": 1257
             }, 
             "name": "records"
         }, 
@@ -2106,7 +2229,7 @@
             "references": [], 
             "location": {
                 "column": 28, 
-                "line": 1214
+                "line": 1260
             }, 
             "name": "aPBatch"
         }, 
@@ -2116,7 +2239,7 @@
             "references": [], 
             "location": {
                 "column": 20, 
-                "line": 1219
+                "line": 1265
             }, 
             "name": "pageRef"
         }, 
@@ -2126,7 +2249,7 @@
             "references": [], 
             "location": {
                 "column": 68, 
-                "line": 1229
+                "line": 1275
             }, 
             "name": "actionPlanTemplate"
         }, 
@@ -2136,7 +2259,7 @@
             "references": [], 
             "location": {
                 "column": 13, 
-                "line": 1231
+                "line": 1277
             }, 
             "name": "aPName"
         }

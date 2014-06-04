@@ -1,0 +1,1958 @@
+{
+    "properties": [
+        {
+            "modifiers": [], 
+            "name": "taskIndex", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 37, 
+                "line": 35
+            }, 
+            "type": "Double"
+        }, 
+        {
+            "modifiers": [], 
+            "name": "actionPlan", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 37, 
+                "line": 36
+            }, 
+            "type": "ActionPlan__c"
+        }, 
+        {
+            "modifiers": [], 
+            "name": "actionPlans", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 37, 
+                "line": 37
+            }, 
+            "type": "ActionPlansUtilities"
+        }, 
+        {
+            "modifiers": [], 
+            "name": "actionPlanId", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 37, 
+                "line": 38
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [], 
+            "name": "templateId", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 37, 
+                "line": 39
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [], 
+            "name": "relatedObjIds", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 37, 
+                "line": 40
+            }, 
+            "type": "LIST"
+        }, 
+        {
+            "modifiers": [], 
+            "name": "relatedObjName", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 37, 
+                "line": 41
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [], 
+            "name": "relatedObjNameList", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 37, 
+                "line": 42
+            }, 
+            "type": "LIST"
+        }, 
+        {
+            "modifiers": [], 
+            "name": "hasRelated", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 37, 
+                "line": 43
+            }, 
+            "type": "Boolean"
+        }, 
+        {
+            "modifiers": [], 
+            "name": "hasRelatedObject", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 37, 
+                "line": 44
+            }, 
+            "type": "Boolean"
+        }, 
+        {
+            "modifiers": [], 
+            "name": "relatedObjectSelected", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 37, 
+                "line": 45
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [], 
+            "name": "defaultSettings", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 37, 
+                "line": 46
+            }, 
+            "type": "Action_Plans_Settings__c"
+        }, 
+        {
+            "modifiers": [], 
+            "name": "throwError", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 37, 
+                "line": 47
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [], 
+            "name": "addedTask", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 37, 
+                "line": 48
+            }, 
+            "type": "Boolean"
+        }, 
+        {
+            "modifiers": [], 
+            "name": "displayReminder", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 37, 
+                "line": 49
+            }, 
+            "type": "Boolean"
+        }, 
+        {
+            "modifiers": [], 
+            "name": "mapTasksListBkp", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 41, 
+                "line": 50
+            }, 
+            "type": "Map"
+        }, 
+        {
+            "modifiers": [], 
+            "name": "refId", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 19, 
+                "line": 161
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [], 
+            "name": "refType", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 19, 
+                "line": 174
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [], 
+            "name": "aPTemplateExists", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 187
+            }, 
+            "type": "Boolean"
+        }
+    ], 
+    "methods": [
+        {
+            "modifiers": [], 
+            "name": "initEditActionPlan", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 84
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "initCloneActionPlan", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 104
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "initNewActionPlanFromTemplate", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 124
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "initNewActionPlan", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 147
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "save", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 211
+            }, 
+            "returnType": "PageReference", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "saveAndNew", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 236
+            }, 
+            "returnType": "PageReference", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "cancel", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 244
+            }, 
+            "returnType": "PageReference", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "getCompleted", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 252
+            }, 
+            "returnType": "Integer", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "addTask", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 263
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "removeTask", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 272
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "getTasks", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 32, 
+                "line": 280
+            }, 
+            "returnType": "LIST", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "getUnassignedDefaultsToRecordOwner", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 340
+            }, 
+            "returnType": "Boolean", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "getDisplayTemplateLookup", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 350
+            }, 
+            "returnType": "Boolean", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "getTaskSize", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 358
+            }, 
+            "returnType": "Integer", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "getSubjectItems", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 31, 
+                "line": 366
+            }, 
+            "returnType": "LIST", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "referedObjectInit", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 373
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "referedObjectOwnerInit", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 393
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "retrieveNameRelatedObject", 
+            "parameters": [
+                {
+                    "type": "LIST", 
+                    "name": "relatedObjIds"
+                }, 
+                {
+                    "type": "String", 
+                    "name": "relatedObjectName"
+                }
+            ], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 424
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "getErrorMsg", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 19, 
+                "line": 484
+            }, 
+            "returnType": "String", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "calculateAPTaskIndexValue", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 19, 
+                "line": 492
+            }, 
+            "returnType": "Double", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "calculateAPTTaskIndexValue", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 19, 
+                "line": 511
+            }, 
+            "returnType": "Double", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "getRelatedObjectOptions", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 31, 
+                "line": 529
+            }, 
+            "returnType": "LIST", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "refreshRelatedObjectsLookUp", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 536
+            }, 
+            "returnType": "PageReference", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "constructorTests", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 35, 
+                "line": 563
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "testActionPlanSave", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 35, 
+                "line": 600
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "testActionPlanSaveAndNew", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 35, 
+                "line": 645
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "checkCompletedTasks", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 35, 
+                "line": 687
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "testAddNewTask", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 35, 
+                "line": 704
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "testRemoveActionPlanTask", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 35, 
+                "line": 730
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "checkActionPlanTaskList", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 35, 
+                "line": 752
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "checkActionPlanTaskListSize", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 35, 
+                "line": 769
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "checkSubjectItems", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 35, 
+                "line": 789
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "testCyclicDependencyTaskSuccess", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 35, 
+                "line": 813
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "testCyclicDependencyTasksFail", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 35, 
+                "line": 864
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "checkReferedObject", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 35, 
+                "line": 909
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "test_aPTemplateExists", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 35, 
+                "line": 966
+            }, 
+            "returnType": "void", 
+            "type": null
+        }
+    ], 
+    "innerClasses": [
+        {
+            "properties": [
+                {
+                    "modifiers": [], 
+                    "name": "task", 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 34, 
+                        "line": 548
+                    }, 
+                    "type": "APTaskTemplate__c"
+                }, 
+                {
+                    "modifiers": [], 
+                    "name": "position", 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 29, 
+                        "line": 549
+                    }, 
+                    "type": "Integer"
+                }, 
+                {
+                    "modifiers": [], 
+                    "name": "isLast", 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 29, 
+                        "line": 550
+                    }, 
+                    "type": "Boolean"
+                }, 
+                {
+                    "modifiers": [], 
+                    "name": "displayLookUp", 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 29, 
+                        "line": 551
+                    }, 
+                    "type": "Boolean"
+                }, 
+                {
+                    "modifiers": [], 
+                    "name": "userRequired", 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 29, 
+                        "line": 552
+                    }, 
+                    "type": "Boolean"
+                }
+            ], 
+            "methods": [], 
+            "innerClasses": [], 
+            "variables": [
+                {
+                    "type": "APTaskTemplate__c", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 49, 
+                        "line": 554
+                    }, 
+                    "name": "apTask"
+                }, 
+                {
+                    "type": "Integer", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 65, 
+                        "line": 554
+                    }, 
+                    "name": "pos"
+                }, 
+                {
+                    "type": "Boolean", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 78, 
+                        "line": 554
+                    }, 
+                    "name": "looKp"
+                }, 
+                {
+                    "type": "Boolean", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 93, 
+                        "line": 554
+                    }, 
+                    "name": "userReq"
+                }
+            ], 
+            "constructors": [
+                {
+                    "modifiers": [], 
+                    "name": "ApTaskWrapper", 
+                    "parameters": [
+                        {
+                            "type": "APTaskTemplate__c", 
+                            "name": "apTask"
+                        }, 
+                        {
+                            "type": "Integer", 
+                            "name": "pos"
+                        }, 
+                        {
+                            "type": "Boolean", 
+                            "name": "looKp"
+                        }, 
+                        {
+                            "type": "Boolean", 
+                            "name": "userReq"
+                        }
+                    ], 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 16, 
+                        "line": 554
+                    }, 
+                    "type": null
+                }
+            ], 
+            "namespace": null, 
+            "name": "ApTaskWrapper", 
+            "tableDeclaration": {
+                "type": "ApTaskWrapper", 
+                "modifiers": [], 
+                "references": [], 
+                "location": {
+                    "column": 18, 
+                    "line": 546
+                }, 
+                "name": "ApTaskWrapper"
+            }, 
+            "key": null, 
+            "id": null, 
+            "externalReferences": []
+        }
+    ], 
+    "variables": [
+        {
+            "type": "StandardController", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 71, 
+                "line": 55
+            }, 
+            "name": "stdController"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 67
+            }, 
+            "name": "clone"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 87
+            }, 
+            "name": "listAP"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 109
+            }, 
+            "name": "tcAux"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 110
+            }, 
+            "name": "tC"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 32, 
+                "line": 116
+            }, 
+            "name": "t"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 37, 
+                "line": 128
+            }, 
+            "name": "listAPT"
+        }, 
+        {
+            "type": "ActionPlanTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 35, 
+                "line": 133
+            }, 
+            "name": "actionPlanTemplate"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 190
+            }, 
+            "name": "objectType"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 191
+            }, 
+            "name": "objectIds"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 25, 
+                "line": 192
+            }, 
+            "name": "count"
+        }, 
+        {
+            "type": "PageReference", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 214
+            }, 
+            "name": "pageRef"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 253
+            }, 
+            "name": "i"
+        }, 
+        {
+            "type": "ApTaskWrapper", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 282
+            }, 
+            "name": "apTaskWrapper"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 283
+            }, 
+            "name": "tasksList"
+        }, 
+        {
+            "type": "Boolean", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 284
+            }, 
+            "name": "userRequired"
+        }, 
+        {
+            "type": "Boolean", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 285
+            }, 
+            "name": "displayLookUp"
+        }, 
+        {
+            "type": "ApTaskWrapper", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 286
+            }, 
+            "name": "tmpAptask"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 289
+            }, 
+            "name": "i"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 36, 
+                "line": 292
+            }, 
+            "name": "aptTaskTemplate"
+        }, 
+        {
+            "type": "Action_Plans_Settings__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 34, 
+                "line": 341
+            }, 
+            "name": "settings"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 375
+            }, 
+            "name": "nameParam"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 376
+            }, 
+            "name": "idsParam"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 395
+            }, 
+            "name": "nameParam"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 396
+            }, 
+            "name": "idsParam"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 58, 
+                "line": 424
+            }, 
+            "name": "relatedObjIds"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 80, 
+                "line": 424
+            }, 
+            "name": "relatedObjectName"
+        }, 
+        {
+            "type": "Account", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 428
+            }, 
+            "name": "acc"
+        }, 
+        {
+            "type": "Lead", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 434
+            }, 
+            "name": "lead"
+        }, 
+        {
+            "type": "Contact", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 440
+            }, 
+            "name": "cont"
+        }, 
+        {
+            "type": "Opportunity", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 30, 
+                "line": 446
+            }, 
+            "name": "opp"
+        }, 
+        {
+            "type": "Case", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 453
+            }, 
+            "name": "cases"
+        }, 
+        {
+            "type": "Campaign", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 460
+            }, 
+            "name": "camp"
+        }, 
+        {
+            "type": "Contract", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 467
+            }, 
+            "name": "contr"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 494
+            }, 
+            "name": "apTasks"
+        }, 
+        {
+            "type": "Double", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 497
+            }, 
+            "name": "maxIndex"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 32, 
+                "line": 498
+            }, 
+            "name": "tsk"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 34, 
+                "line": 513
+            }, 
+            "name": "aptTasks"
+        }, 
+        {
+            "type": "Double", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 516
+            }, 
+            "name": "maxIndex"
+        }, 
+        {
+            "type": "APTTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 517
+            }, 
+            "name": "tsk"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 34, 
+                "line": 567
+            }, 
+            "name": "testUtil"
+        }, 
+        {
+            "type": "ActionPlan__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 568
+            }, 
+            "name": "actionPlan"
+        }, 
+        {
+            "type": "ActionPlanCreationController", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 38, 
+                "line": 571
+            }, 
+            "name": "apCreateController"
+        }, 
+        {
+            "type": "ActionPlanTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 31, 
+                "line": 580
+            }, 
+            "name": "apTemplate"
+        }, 
+        {
+            "type": "Contact", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 587
+            }, 
+            "name": "contact"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 593
+            }, 
+            "name": "refid"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 594
+            }, 
+            "name": "reftype"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 603
+            }, 
+            "name": "apList"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 34, 
+                "line": 608
+            }, 
+            "name": "testUtil"
+        }, 
+        {
+            "type": "ActionPlan__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 609
+            }, 
+            "name": "actionPlan"
+        }, 
+        {
+            "type": "Contact", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 611
+            }, 
+            "name": "contact"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 617
+            }, 
+            "name": "apTask"
+        }, 
+        {
+            "type": "ActionPlanCreationController", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 38, 
+                "line": 628
+            }, 
+            "name": "apCreateController"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 636
+            }, 
+            "name": "results"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 648
+            }, 
+            "name": "apList"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 34, 
+                "line": 653
+            }, 
+            "name": "testUtil"
+        }, 
+        {
+            "type": "ActionPlan__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 654
+            }, 
+            "name": "actionPlan"
+        }, 
+        {
+            "type": "Contact", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 656
+            }, 
+            "name": "contact"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 662
+            }, 
+            "name": "apTask"
+        }, 
+        {
+            "type": "ActionPlanCreationController", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 38, 
+                "line": 673
+            }, 
+            "name": "apCreateController"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 679
+            }, 
+            "name": "results"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 34, 
+                "line": 691
+            }, 
+            "name": "testUtil"
+        }, 
+        {
+            "type": "ActionPlan__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 692
+            }, 
+            "name": "actionPlan"
+        }, 
+        {
+            "type": "ActionPlanCreationController", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 38, 
+                "line": 695
+            }, 
+            "name": "apCreateController"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 697
+            }, 
+            "name": "numTasksComplete"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 34, 
+                "line": 708
+            }, 
+            "name": "testUtil"
+        }, 
+        {
+            "type": "ActionPlan__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 709
+            }, 
+            "name": "actionPlan"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 711
+            }, 
+            "name": "apTask"
+        }, 
+        {
+            "type": "ActionPlanCreationController", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 38, 
+                "line": 722
+            }, 
+            "name": "apCreateController"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 34, 
+                "line": 734
+            }, 
+            "name": "testUtil"
+        }, 
+        {
+            "type": "ActionPlan__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 735
+            }, 
+            "name": "actionPlan"
+        }, 
+        {
+            "type": "ActionPlanCreationController", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 38, 
+                "line": 739
+            }, 
+            "name": "apCreateController"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 34, 
+                "line": 756
+            }, 
+            "name": "testUtil"
+        }, 
+        {
+            "type": "ActionPlan__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 757
+            }, 
+            "name": "actionPlan"
+        }, 
+        {
+            "type": "ActionPlanCreationController", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 38, 
+                "line": 760
+            }, 
+            "name": "apCreateController"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 762
+            }, 
+            "name": "apTaskList"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 34, 
+                "line": 773
+            }, 
+            "name": "testUtil"
+        }, 
+        {
+            "type": "ActionPlan__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 774
+            }, 
+            "name": "actionPlan"
+        }, 
+        {
+            "type": "ActionPlanCreationController", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 38, 
+                "line": 777
+            }, 
+            "name": "apCreateController"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 779
+            }, 
+            "name": "apTaskList"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 780
+            }, 
+            "name": "numTasks"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 34, 
+                "line": 793
+            }, 
+            "name": "testUtil"
+        }, 
+        {
+            "type": "ActionPlan__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 794
+            }, 
+            "name": "actionPlan"
+        }, 
+        {
+            "type": "ActionPlanCreationController", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 38, 
+                "line": 797
+            }, 
+            "name": "apCreateController"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 805
+            }, 
+            "name": "options"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 34, 
+                "line": 817
+            }, 
+            "name": "testUtil"
+        }, 
+        {
+            "type": "ActionPlan__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 819
+            }, 
+            "name": "actionPlan"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 821
+            }, 
+            "name": "newAPTask1"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 822
+            }, 
+            "name": "newAPTask2"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 823
+            }, 
+            "name": "newAPTask3"
+        }, 
+        {
+            "type": "ActionPlanCreationController", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 38, 
+                "line": 850
+            }, 
+            "name": "apCreateController"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 34, 
+                "line": 868
+            }, 
+            "name": "testUtil"
+        }, 
+        {
+            "type": "ActionPlan__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 870
+            }, 
+            "name": "actionPlan"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 872
+            }, 
+            "name": "newAPTask1"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 873
+            }, 
+            "name": "newAPTask2"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 874
+            }, 
+            "name": "newAPTask3"
+        }, 
+        {
+            "type": "ActionPlanCreationController", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 38, 
+                "line": 895
+            }, 
+            "name": "apCreateController"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 34, 
+                "line": 913
+            }, 
+            "name": "testUtil"
+        }, 
+        {
+            "type": "Contact", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 915
+            }, 
+            "name": "contact"
+        }, 
+        {
+            "type": "Account", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 916
+            }, 
+            "name": "account"
+        }, 
+        {
+            "type": "Lead", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 14, 
+                "line": 917
+            }, 
+            "name": "lead"
+        }, 
+        {
+            "type": "Opportunity", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 918
+            }, 
+            "name": "opportunity"
+        }, 
+        {
+            "type": "ActionPlanCreationController", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 38, 
+                "line": 924
+            }, 
+            "name": "apCreateController"
+        }, 
+        {
+            "type": "ActionPlanCreationController", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 38, 
+                "line": 969
+            }, 
+            "name": "apCreateController"
+        }
+    ], 
+    "constructors": [
+        {
+            "modifiers": [], 
+            "name": "ActionPlanCreationController", 
+            "parameters": [
+                {
+                    "type": "StandardController", 
+                    "name": "stdController"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 55
+            }, 
+            "type": null
+        }
+    ], 
+    "namespace": null, 
+    "name": "ActionPlanCreationController", 
+    "tableDeclaration": {
+        "type": "ActionPlanCreationController", 
+        "modifiers": [], 
+        "references": [], 
+        "location": {
+            "column": 27, 
+            "line": 33
+        }, 
+        "name": "ActionPlanCreationController"
+    }, 
+    "key": "01pF0000003QcqI", 
+    "id": "01pF0000003QcqI", 
+    "externalReferences": []
+}

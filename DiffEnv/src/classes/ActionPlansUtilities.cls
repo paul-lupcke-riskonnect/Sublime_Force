@@ -98,7 +98,7 @@ public with sharing class ActionPlansUtilities{
                     from ActionPlan__c a limit 1000 ];
     }
     
-    private List<String> parseMultiSelect(String input){
+    public List<String> parseMultiSelect(String input){
         List<String> values;
         String cleaned = input.replace('[', '');
         cleaned = cleaned.replace(']', '');
@@ -147,6 +147,51 @@ public with sharing class ActionPlansUtilities{
         return exists;
     }
     
+    public Boolean dependentCycleWorker(){
+        //// Set up the high level vars.
+        Map<Integer,Set<Integer>> children = new Map<Integer,Set<Integer>>();
+        Integer l=0;
+        //// Set up the data lib.
+        for( ;l<this.apTasks.size();++l){
+            Set<Integer> parent = new Set<Integer>();
+            if( this.apTasks[l].Dependent__c != 'None' && this.apTasks[l].Dependent__c != null ){
+                List<String> selectedValues = parseMultiSelect(this.apTasks[l].Dependent__c);
+                for( String p : selectedValues){
+                    Integer tempIndex       = Integer.valueOf( p );
+                    parent.add(tempIndex);
+                }
+            }
+            System.debug('Storing '+l+' with:'+parent+':');
+            children.put(l,parent);
+        }
+
+
+        //// Looking for circular reference.
+
+        while(l>0){
+            --l;
+            Set<Integer> looker = new Set<Integer>();
+            List<Integer> holder = new List<Integer>();
+            if(children.containsKey(l)==false){
+                System.debug('How did this happen?????:'+l+':');
+            }
+            looker.addAll(children.get(l));
+            Integer x=0;
+            while(x<(this.apTasks.size()*2)){
+                holder.addAll(looker);
+                looker.clear();
+                for(Integer j=0; j<holder.size(); ++j){
+                    looker.addAll(children.get(holder[j]));
+                }
+                if(looker.contains(l)) return false;
+                ++x;
+            }
+            
+        }
+
+        return true;
+    }
+
     /**
     * Check for cyclic dependent tasks
     * @param originTask
@@ -158,6 +203,7 @@ public with sharing class ActionPlansUtilities{
         
         Boolean hasDependency = false;
         Set<Integer> visitedTasks = new Set<Integer>();
+        List<String> selectedDestinyValues;
         
         while( !hasDependency ){
         	

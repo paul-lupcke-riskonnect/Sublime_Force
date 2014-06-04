@@ -418,6 +418,31 @@ public with sharing class ActionPlansUtilitiesTest {
 		
 	}
 
+	public static testMethod void testCircularDependants(){
+		ActionPlansUtilities ge =  new ActionPlansUtilities();
+		List<APTaskTemplate__c> values = new List<APTaskTemplate__c>();
+
+		ActionPlansTestUtilities ge2 =  new ActionPlansTestUtilities();
+		ActionPlan__c ap 	= ge2.createNewActionPlan( 'accounts', 0 );
+		APTaskTemplate__c at = new APTaskTemplate__c();
+   		at.Action_Plan__c 	 = ap.Id;
+   		at.Dependent__c		 = 'None';
+   		at.DaysFromStart__c  = 2.0;
+   		at.User__c			 = ge2.createTestUser().Id;
+   		at.SendEmail__c		 = false;
+   		at.Subject__c		 = 'Test ';
+   		at.Type__c			 = 'Email';
+   		at.Priority__c		 = 'Low';
+   		at.Comments__c		 = 'Test';
+   		at.Reminder__c		 = true;
+   		at.Minutes_Reminder__c = '510';
+
+   		values.add(at);
+   		ge.apTasks = values;
+
+		ge.dependentCycleWorker();
+	}
+
 	public static testMethod void APUtestDeleteActionPlans() {
 		
 		ActionPlansTestUtilities ge =  new ActionPlansTestUtilities();
