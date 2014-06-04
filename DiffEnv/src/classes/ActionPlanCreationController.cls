@@ -218,6 +218,9 @@ public with sharing class ActionPlanCreationController{
                 referedObjectOwnerInit();
                 pageRef = this.actionPlans.saveHandler();   
             }
+            else{
+                this.throwError = 'bad';
+            }
         }
         catch( FieldCustomValidationException e ){
             this.throwError = e.getCustomMessage(); 

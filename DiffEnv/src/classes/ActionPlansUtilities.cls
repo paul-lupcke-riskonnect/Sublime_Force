@@ -98,13 +98,15 @@ public with sharing class ActionPlansUtilities{
                     from ActionPlan__c a limit 1000 ];
     }
     
-    public List<String> parseMultiSelect(String input){
+    public static List<String> parseMultiSelect(String input){
         List<String> values;
         String cleaned = input.replace('[', '');
         cleaned = cleaned.replace(']', '');
+        cleaned = cleaned.replace(' ', '');
+        cleaned = cleaned.replace('NONE,','');
         values = cleaned.split(',');
         if(values[0]=='') values.clear();
-        System.debug(values + ':' + values.size());
+        System.debug('Parsing Multiselect:: '+values + ':' + values.size());
         return values;
     }
 
@@ -115,36 +117,50 @@ public with sharing class ActionPlansUtilities{
     public Boolean checkCycleDependent(){
     	
         this.errorMsg 	= '';
-    	Boolean exists 	= false;
     	Integer index 	= 0;
+        System.debug('Pre-checking:'+this.apTasks.size()+':');
+        for(Integer k=0;k<this.apTasks.size();++k){
+            System.debug('Displaying:::'+this.apTasks[k]);
+        }
+
 
         for( APTaskTemplate__c t : this.apTasks ){
+            System.debug('Check 1:'+t+':');
             if( t.Dependent__c != 'None' && t.Dependent__c != null ){
-
+                System.debug('Check 2:'+t+':');
                 List<String> selectedValues = parseMultiSelect(t.Dependent__c);
 
                 for( String i : selectedValues){
+                    System.debug('TEST::'+i+'::');
                     Integer tempIndex       = Integer.valueOf( i );
                     APTaskTemplate__c link  = this.apTasks[tempIndex];
                 
                 
                 //task can not depend on themselves
                     if(tempIndex == index){
-                        this.errorMsg = Label.ap_ItselfDependencyError; 
+                        this.errorMsg = Label.ap_ItselfDependencyError;
+                        System.debug('ERROR -- Self dependency');
                         return true;
                     }
                     
                     
-                    if( this.dependantCycle( t, link, index ) ){
-                        this.errorMsg = Label.ap_Errors_RemoveCyclicDependency; 
-                        return true;
-                    }
+                    
                 }
                 
             }
             index++;
         }
-        return exists;
+        System.debug('Post-checking:'+this.apTasks.size()+':');
+        for(Integer k=0;k<this.apTasks.size();++k){
+            System.debug('Displaying:::'+this.apTasks[k]);
+        }
+
+        if( this.dependentCycleWorker() ){
+            this.errorMsg = Label.ap_Errors_RemoveCyclicDependency;
+            System.debug('ERROR -- Circular dependency');
+            return true;
+        }
+        return false;
     }
     
     public Boolean dependentCycleWorker(){
@@ -183,13 +199,13 @@ public with sharing class ActionPlansUtilities{
                 for(Integer j=0; j<holder.size(); ++j){
                     looker.addAll(children.get(holder[j]));
                 }
-                if(looker.contains(l)) return false;
+                if(looker.contains(l)) return true;
                 ++x;
             }
             
         }
 
-        return true;
+        return false;
     }
 
     /**

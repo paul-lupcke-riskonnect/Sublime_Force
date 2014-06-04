@@ -406,7 +406,7 @@ public with sharing class ActionPlansUtilitiesTest {
 		test.stopTest();
 	}
 	
-	public static testMethod void testparseMultiSelect(){
+	/*public static testMethod void testparseMultiSelect(){
 		ActionPlansUtilities ge =  new ActionPlansUtilities();
 		List<String> results = ge.parseMultiSelect('[1,2,3]');
 		System.assert(results.size() == 3);
@@ -416,9 +416,9 @@ public with sharing class ActionPlansUtilitiesTest {
 		results = ge.parseMultiSelect('[]');
 		System.assert(results.size() == 0);
 		
-	}
+	}*/
 
-	public static testMethod void testCircularDependants(){
+	/*public static testMethod void testCircularDependants(){
 		ActionPlansUtilities ge =  new ActionPlansUtilities();
 		List<APTaskTemplate__c> values = new List<APTaskTemplate__c>();
 
@@ -441,7 +441,138 @@ public with sharing class ActionPlansUtilitiesTest {
    		ge.apTasks = values;
 
 		ge.dependentCycleWorker();
-	}
+	}*/
+
+	public static testMethod void testCyclicDependencyTasksPass(){
+        Test.StartTest();
+        
+        ActionPlansTestUtilities testUtil = new ActionPlansTestUtilities();
+        
+        ActionPlan__c actionPlan = testUtil.createNewActionPlan( 'accounts', 0 );
+        
+        APTaskTemplate__c newAPTask1 = new APTaskTemplate__c();
+        APTaskTemplate__c newAPTask2 = new APTaskTemplate__c();
+        APTaskTemplate__c newAPTask3 = new APTaskTemplate__c();
+        APTaskTemplate__c newAPTask4 = new APTaskTemplate__c();
+        APTaskTemplate__c newAPTask5 = new APTaskTemplate__c();
+        
+        newAPTask1.Subject__c           = testUtil.createRandomWord();
+        newAPTask1.DaysFromStart__c     = 2;
+        newAPTask1.Dependent__c         = '[]';
+        newAPTask1.Type__c              = 'Email';
+        newAPTask1.Priority__c          = 'High';
+        newAPTask1.Action_Plan__c       = actionPlan.Id;
+        upsert newAPTask1;
+        
+        newAPTask2.Subject__c           = testUtil.createRandomWord();
+        newAPTask2.DaysFromStart__c     = 2;
+        newAPTask2.Dependent__c         = '[0]';
+        newAPTask2.Type__c              = 'Email';
+        newAPTask2.Priority__c          = 'High';
+        newAPTask2.Action_Plan__c       = actionPlan.Id;
+        upsert newAPTask2;
+        
+        newAPTask3.Subject__c           = testUtil.createRandomWord();
+        newAPTask3.DaysFromStart__c     = 2;
+        newAPTask3.Dependent__c         = '[1,0]';
+        newAPTask3.Type__c              = 'Email';
+        newAPTask3.Priority__c          = 'High';
+        newAPTask3.Action_Plan__c       = actionPlan.Id;
+        upsert newAPTask3;
+
+        newAPTask4.Subject__c           = testUtil.createRandomWord();
+        newAPTask4.DaysFromStart__c     = 2;
+        newAPTask4.Dependent__c         = '[2,0]';
+        newAPTask4.Type__c              = 'Email';
+        newAPTask4.Priority__c          = 'High';
+        newAPTask4.Action_Plan__c       = actionPlan.Id;
+        upsert newAPTask4;
+        
+        newAPTask5.Subject__c           = testUtil.createRandomWord();
+        newAPTask5.DaysFromStart__c     = 2;
+        newAPTask5.Dependent__c         = '[3]';
+        newAPTask5.Type__c              = 'Email';
+        newAPTask5.Priority__c          = 'High';
+        newAPTask5.Action_Plan__c       = actionPlan.Id;
+        upsert newAPTask5;
+        
+        System.currentPageReference().getParameters().put( 'id', actionPlan.Id );
+        ActionPlanCreationController apCreateController = new ActionPlanCreationController( new Apexpages.StandardController( actionPlan ) );
+        
+        apCreateController.actionPlans.apTasks = new List<APTaskTemplate__c>();
+        apCreateController.actionPlans.apTasks.add( newAPTask1 );
+        apCreateController.actionPlans.apTasks.add( newAPTask2 );
+        apCreateController.actionPlans.apTasks.add( newAPTask3 );
+        apCreateController.actionPlans.apTasks.add( newAPTask4 );
+        apCreateController.actionPlans.apTasks.add( newAPTask5 );
+        
+        apCreateController.save();
+        
+        System.assert( apCreateController.getErrorMsg() == '' );
+        
+        Test.StopTest();
+    }
+
+	public static testMethod void testCyclicDependencyTasksFail(){
+        System.debug('Testing cyclic dependencys');
+        Test.StartTest();
+        
+        ActionPlansTestUtilities testUtil = new ActionPlansTestUtilities();
+        
+        ActionPlan__c actionPlan = testUtil.createNewActionPlan( 'accounts', 0 );
+        
+        APTaskTemplate__c newAPTask1 = new APTaskTemplate__c();
+        APTaskTemplate__c newAPTask2 = new APTaskTemplate__c();
+        APTaskTemplate__c newAPTask3 = new APTaskTemplate__c();
+        APTaskTemplate__c newAPTask4 = new APTaskTemplate__c();
+        APTaskTemplate__c newAPTask5 = new APTaskTemplate__c();
+        
+        newAPTask1.Subject__c           = testUtil.createRandomWord();
+        newAPTask1.DaysFromStart__c     = 2;
+        newAPTask1.Dependent__c         = '[3]';
+        newAPTask1.Type__c              = 'Email';
+        newAPTask1.Priority__c          = 'Hight';
+        
+        newAPTask2.Subject__c           = testUtil.createRandomWord();
+        newAPTask2.DaysFromStart__c     = 2;
+        newAPTask2.Dependent__c         = '[0]';
+        newAPTask2.Type__c              = 'Email';
+        newAPTask2.Priority__c          = 'Hight';
+        
+        newAPTask3.Subject__c           = testUtil.createRandomWord();
+        newAPTask3.DaysFromStart__c     = 2;
+        newAPTask3.Dependent__c         = '[0,1]';
+        newAPTask3.Type__c              = 'Email';
+        newAPTask3.Priority__c          = 'Hight';
+
+        newAPTask4.Subject__c           = testUtil.createRandomWord();
+        newAPTask4.DaysFromStart__c     = 2;
+        newAPTask4.Dependent__c         = '[4]';
+        newAPTask4.Type__c              = 'Email';
+        newAPTask4.Priority__c          = 'Hight';
+        
+        newAPTask5.Subject__c           = testUtil.createRandomWord();
+        newAPTask5.DaysFromStart__c     = 2;
+        newAPTask5.Dependent__c         = '[1,2]';
+        newAPTask5.Type__c              = 'Email';
+        newAPTask5.Priority__c          = 'Hight';
+        
+        System.currentPageReference().getParameters().put( 'id', actionPlan.Id );
+        ActionPlanCreationController apCreateController = new ActionPlanCreationController( new Apexpages.StandardController( actionPlan ) );
+        
+        apCreateController.actionPlans.apTasks = new List<APTaskTemplate__c>();
+        apCreateController.actionPlans.apTasks.add( newAPTask1 );
+        apCreateController.actionPlans.apTasks.add( newAPTask2 );
+        apCreateController.actionPlans.apTasks.add( newAPTask3 );
+        apCreateController.actionPlans.apTasks.add( newAPTask4 );
+        apCreateController.actionPlans.apTasks.add( newAPTask5 );
+        
+        apCreateController.save();
+        
+        System.assert( apCreateController.getErrorMsg() != null );
+        
+        Test.StopTest();
+    }
 
 	public static testMethod void APUtestDeleteActionPlans() {
 		

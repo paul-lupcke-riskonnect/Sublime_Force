@@ -182,13 +182,13 @@
                 "TEST", 
                 "STATIC"
             ], 
-            "name": "testparseMultiSelect", 
+            "name": "testCyclicDependencyTasksPass", 
             "parameters": [], 
             "visibility": "PUBLIC", 
             "references": [], 
             "location": {
                 "column": 32, 
-                "line": 409
+                "line": 446
             }, 
             "returnType": "void", 
             "type": null
@@ -198,13 +198,13 @@
                 "TEST", 
                 "STATIC"
             ], 
-            "name": "testCircularDependants", 
+            "name": "testCyclicDependencyTasksFail", 
             "parameters": [], 
             "visibility": "PUBLIC", 
             "references": [], 
             "location": {
                 "column": 32, 
-                "line": 421
+                "line": 516
             }, 
             "returnType": "void", 
             "type": null
@@ -220,7 +220,7 @@
             "references": [], 
             "location": {
                 "column": 32, 
-                "line": 446
+                "line": 577
             }, 
             "returnType": "void", 
             "type": null
@@ -240,7 +240,7 @@
             "references": [], 
             "location": {
                 "column": 34, 
-                "line": 469
+                "line": 600
             }, 
             "returnType": "APTaskTemplate__c", 
             "type": null
@@ -819,74 +819,164 @@
             "name": "apu"
         }, 
         {
-            "type": "ActionPlansUtilities", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 24, 
-                "line": 410
-            }, 
-            "name": "ge"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 16, 
-                "line": 411
-            }, 
-            "name": "results"
-        }, 
-        {
-            "type": "ActionPlansUtilities", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 24, 
-                "line": 422
-            }, 
-            "name": "ge"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 27, 
-                "line": 423
-            }, 
-            "name": "values"
-        }, 
-        {
             "type": "ActionPlansTestUtilities", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 28, 
-                "line": 425
+                "column": 34, 
+                "line": 449
             }, 
-            "name": "ge2"
+            "name": "testUtil"
         }, 
         {
             "type": "ActionPlan__c", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 17, 
-                "line": 426
+                "column": 23, 
+                "line": 451
             }, 
-            "name": "ap"
+            "name": "actionPlan"
         }, 
         {
             "type": "APTaskTemplate__c", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 21, 
-                "line": 427
+                "column": 27, 
+                "line": 453
             }, 
-            "name": "at"
+            "name": "newAPTask1"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 454
+            }, 
+            "name": "newAPTask2"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 455
+            }, 
+            "name": "newAPTask3"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 456
+            }, 
+            "name": "newAPTask4"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 457
+            }, 
+            "name": "newAPTask5"
+        }, 
+        {
+            "type": "ActionPlanCreationController", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 38, 
+                "line": 500
+            }, 
+            "name": "apCreateController"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 34, 
+                "line": 520
+            }, 
+            "name": "testUtil"
+        }, 
+        {
+            "type": "ActionPlan__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 522
+            }, 
+            "name": "actionPlan"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 524
+            }, 
+            "name": "newAPTask1"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 525
+            }, 
+            "name": "newAPTask2"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 526
+            }, 
+            "name": "newAPTask3"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 527
+            }, 
+            "name": "newAPTask4"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 528
+            }, 
+            "name": "newAPTask5"
+        }, 
+        {
+            "type": "ActionPlanCreationController", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 38, 
+                "line": 561
+            }, 
+            "name": "apCreateController"
         }, 
         {
             "type": "ActionPlansTestUtilities", 
@@ -894,7 +984,7 @@
             "references": [], 
             "location": {
                 "column": 28, 
-                "line": 448
+                "line": 579
             }, 
             "name": "ge"
         }, 
@@ -904,7 +994,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 449
+                "line": 580
             }, 
             "name": "ap"
         }, 
@@ -914,7 +1004,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 450
+                "line": 581
             }, 
             "name": "ap2"
         }, 
@@ -924,7 +1014,7 @@
             "references": [], 
             "location": {
                 "column": 23, 
-                "line": 451
+                "line": 582
             }, 
             "name": "lAp"
         }, 
@@ -934,7 +1024,7 @@
             "references": [], 
             "location": {
                 "column": 10, 
-                "line": 454
+                "line": 585
             }, 
             "name": "url"
         }, 
@@ -944,7 +1034,7 @@
             "references": [], 
             "location": {
                 "column": 10, 
-                "line": 455
+                "line": 586
             }, 
             "name": "records"
         }, 
@@ -954,7 +1044,7 @@
             "references": [], 
             "location": {
                 "column": 24, 
-                "line": 457
+                "line": 588
             }, 
             "name": "apu"
         }, 
@@ -964,7 +1054,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 461
+                "line": 592
             }, 
             "name": "page"
         }, 
@@ -974,7 +1064,7 @@
             "references": [], 
             "location": {
                 "column": 23, 
-                "line": 464
+                "line": 595
             }, 
             "name": "lAp2"
         }, 
@@ -984,7 +1074,7 @@
             "references": [], 
             "location": {
                 "column": 58, 
-                "line": 469
+                "line": 600
             }, 
             "name": "ap"
         }, 
@@ -994,7 +1084,7 @@
             "references": [], 
             "location": {
                 "column": 28, 
-                "line": 471
+                "line": 602
             }, 
             "name": "ge"
         }, 
@@ -1004,7 +1094,7 @@
             "references": [], 
             "location": {
                 "column": 21, 
-                "line": 472
+                "line": 603
             }, 
             "name": "at"
         }

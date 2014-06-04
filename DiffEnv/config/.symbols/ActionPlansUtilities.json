@@ -186,31 +186,13 @@
         }, 
         {
             "modifiers": [], 
-            "name": "parseMultiSelect", 
-            "parameters": [
-                {
-                    "type": "String", 
-                    "name": "input"
-                }
-            ], 
-            "visibility": "PUBLIC", 
-            "references": [], 
-            "location": {
-                "column": 25, 
-                "line": 101
-            }, 
-            "returnType": "LIST", 
-            "type": null
-        }, 
-        {
-            "modifiers": [], 
             "name": "checkCycleDependent", 
             "parameters": [], 
             "visibility": "PUBLIC", 
             "references": [], 
             "location": {
                 "column": 20, 
-                "line": 115
+                "line": 117
             }, 
             "returnType": "Boolean", 
             "type": null
@@ -223,7 +205,7 @@
             "references": [], 
             "location": {
                 "column": 20, 
-                "line": 150
+                "line": 166
             }, 
             "returnType": "Boolean", 
             "type": null
@@ -249,7 +231,7 @@
             "references": [], 
             "location": {
                 "column": 21, 
-                "line": 202
+                "line": 218
             }, 
             "returnType": "Boolean", 
             "type": null
@@ -262,7 +244,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 248
+                "line": 264
             }, 
             "returnType": "String", 
             "type": null
@@ -275,7 +257,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 303
+                "line": 319
             }, 
             "returnType": "void", 
             "type": null
@@ -288,7 +270,7 @@
             "references": [], 
             "location": {
                 "column": 26, 
-                "line": 324
+                "line": 340
             }, 
             "returnType": "PageReference", 
             "type": null
@@ -301,7 +283,7 @@
             "references": [], 
             "location": {
                 "column": 26, 
-                "line": 348
+                "line": 364
             }, 
             "returnType": "PageReference", 
             "type": null
@@ -314,7 +296,7 @@
             "references": [], 
             "location": {
                 "column": 26, 
-                "line": 367
+                "line": 383
             }, 
             "returnType": "PageReference", 
             "type": null
@@ -327,7 +309,7 @@
             "references": [], 
             "location": {
                 "column": 26, 
-                "line": 523
+                "line": 539
             }, 
             "returnType": "PageReference", 
             "type": null
@@ -340,7 +322,7 @@
             "references": [], 
             "location": {
                 "column": 26, 
-                "line": 535
+                "line": 551
             }, 
             "returnType": "PageReference", 
             "type": null
@@ -353,7 +335,7 @@
             "references": [], 
             "location": {
                 "column": 36, 
-                "line": 583
+                "line": 599
             }, 
             "returnType": "LIST", 
             "type": null
@@ -366,7 +348,7 @@
             "references": [], 
             "location": {
                 "column": 20, 
-                "line": 668
+                "line": 684
             }, 
             "returnType": "Boolean", 
             "type": null
@@ -379,7 +361,7 @@
             "references": [], 
             "location": {
                 "column": 20, 
-                "line": 698
+                "line": 714
             }, 
             "returnType": "Boolean", 
             "type": null
@@ -392,7 +374,7 @@
             "references": [], 
             "location": {
                 "column": 20, 
-                "line": 750
+                "line": 766
             }, 
             "returnType": "Integer", 
             "type": null
@@ -405,7 +387,7 @@
             "references": [], 
             "location": {
                 "column": 31, 
-                "line": 758
+                "line": 774
             }, 
             "returnType": "LIST", 
             "type": null
@@ -418,7 +400,7 @@
             "references": [], 
             "location": {
                 "column": 20, 
-                "line": 780
+                "line": 796
             }, 
             "returnType": "Integer", 
             "type": null
@@ -431,7 +413,7 @@
             "references": [], 
             "location": {
                 "column": 26, 
-                "line": 796
+                "line": 812
             }, 
             "returnType": "PageReference", 
             "type": null
@@ -444,7 +426,7 @@
             "references": [], 
             "location": {
                 "column": 20, 
-                "line": 824
+                "line": 840
             }, 
             "returnType": "Boolean", 
             "type": null
@@ -457,7 +439,7 @@
             "references": [], 
             "location": {
                 "column": 37, 
-                "line": 838
+                "line": 854
             }, 
             "returnType": "Action_Plans_Settings__c", 
             "type": null
@@ -475,7 +457,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 851
+                "line": 867
             }, 
             "returnType": "String", 
             "type": null
@@ -493,7 +475,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 861
+                "line": 877
             }, 
             "returnType": "String", 
             "type": null
@@ -511,7 +493,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 871
+                "line": 887
             }, 
             "returnType": "void", 
             "type": null
@@ -529,7 +511,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 942
+                "line": 958
             }, 
             "returnType": "String", 
             "type": null
@@ -547,7 +529,7 @@
             "references": [], 
             "location": {
                 "column": 20, 
-                "line": 966
+                "line": 982
             }, 
             "returnType": "Boolean", 
             "type": null
@@ -565,7 +547,7 @@
             "references": [], 
             "location": {
                 "column": 20, 
-                "line": 983
+                "line": 999
             }, 
             "returnType": "Boolean", 
             "type": null
@@ -578,7 +560,7 @@
             "references": [], 
             "location": {
                 "column": 31, 
-                "line": 1017
+                "line": 1033
             }, 
             "returnType": "LIST", 
             "type": null
@@ -596,7 +578,7 @@
             "references": [], 
             "location": {
                 "column": 35, 
-                "line": 1077
+                "line": 1093
             }, 
             "returnType": "LIST", 
             "type": null
@@ -609,7 +591,7 @@
             "references": [], 
             "location": {
                 "column": 20, 
-                "line": 1093
+                "line": 1109
             }, 
             "returnType": "Boolean", 
             "type": null
@@ -622,7 +604,7 @@
             "references": [], 
             "location": {
                 "column": 31, 
-                "line": 1105
+                "line": 1121
             }, 
             "returnType": "LIST", 
             "type": null
@@ -635,7 +617,7 @@
             "references": [], 
             "location": {
                 "column": 25, 
-                "line": 1123
+                "line": 1139
             }, 
             "returnType": "SelectOption", 
             "type": null
@@ -648,7 +630,7 @@
             "references": [], 
             "location": {
                 "column": 15, 
-                "line": 1131
+                "line": 1147
             }, 
             "returnType": "Id", 
             "type": null
@@ -666,7 +648,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 1148
+                "line": 1164
             }, 
             "returnType": "String", 
             "type": null
@@ -688,7 +670,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 1158
+                "line": 1174
             }, 
             "returnType": "void", 
             "type": null
@@ -710,7 +692,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 1180
+                "line": 1196
             }, 
             "returnType": "String", 
             "type": null
@@ -728,7 +710,7 @@
             "references": [], 
             "location": {
                 "column": 20, 
-                "line": 1198
+                "line": 1214
             }, 
             "returnType": "Boolean", 
             "type": null
@@ -741,7 +723,7 @@
             "references": [], 
             "location": {
                 "column": 20, 
-                "line": 1222
+                "line": 1238
             }, 
             "returnType": "Boolean", 
             "type": null
@@ -754,7 +736,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 1231
+                "line": 1247
             }, 
             "returnType": "String", 
             "type": null
@@ -767,7 +749,7 @@
             "references": [], 
             "location": {
                 "column": 26, 
-                "line": 1250
+                "line": 1266
             }, 
             "returnType": "PageReference", 
             "type": null
@@ -785,9 +767,29 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 1275
+                "line": 1291
             }, 
             "returnType": "String", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "STATIC"
+            ], 
+            "name": "parseMultiSelect", 
+            "parameters": [
+                {
+                    "type": "String", 
+                    "name": "input"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 32, 
+                "line": 101
+            }, 
+            "returnType": "LIST", 
             "type": null
         }
     ], 
@@ -814,11 +816,1441 @@
             "name": "action"
         }, 
         {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 14, 
+                "line": 120
+            }, 
+            "name": "index"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 122
+            }, 
+            "name": "k"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 32, 
+                "line": 127
+            }, 
+            "name": "t"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 30, 
+                "line": 131
+            }, 
+            "name": "selectedValues"
+        }, 
+        {
             "type": "String", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 49, 
+                "column": 29, 
+                "line": 133
+            }, 
+            "name": "i"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 135
+            }, 
+            "name": "tempIndex"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 39, 
+                "line": 136
+            }, 
+            "name": "link"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 154
+            }, 
+            "name": "k"
+        }, 
+        {
+            "type": "Map", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 35, 
+                "line": 168
+            }, 
+            "name": "children"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 169
+            }, 
+            "name": "l"
+        }, 
+        {
+            "type": "Set", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 172
+            }, 
+            "name": "parent"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 30, 
+                "line": 174
+            }, 
+            "name": "selectedValues"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 175
+            }, 
+            "name": "p"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 176
+            }, 
+            "name": "tempIndex"
+        }, 
+        {
+            "type": "Set", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 189
+            }, 
+            "name": "looker"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 190
+            }, 
+            "name": "holder"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 195
+            }, 
+            "name": "x"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 199
+            }, 
+            "name": "j"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 55, 
+                "line": 218
+            }, 
+            "name": "originTask"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 85, 
+                "line": 218
+            }, 
+            "name": "destinyTask"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 106, 
+                "line": 218
+            }, 
+            "name": "index"
+        }, 
+        {
+            "type": "Boolean", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 220
+            }, 
+            "name": "hasDependency"
+        }, 
+        {
+            "type": "Set", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 221
+            }, 
+            "name": "visitedTasks"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 222
+            }, 
+            "name": "selectedDestinyValues"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 25, 
+                "line": 236
+            }, 
+            "name": "tempIndexDestiny"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 237
+            }, 
+            "name": "link"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 246
+            }, 
+            "name": "tempIndex"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 10, 
+                "line": 267
+            }, 
+            "name": "actionPlanId"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 10, 
+                "line": 268
+            }, 
+            "name": "objId"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 10, 
+                "line": 269
+            }, 
+            "name": "objName"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 270
+            }, 
+            "name": "oIdsList"
+        }, 
+        {
+            "type": "Savepoint", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 13, 
+                "line": 271
+            }, 
+            "name": "sp"
+        }, 
+        {
+            "type": "ActionPlansBatchBuilder", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 301
+            }, 
+            "name": "taskBatch"
+        }, 
+        {
+            "type": "ActionPlansBatchBuilderUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 38, 
+                "line": 304
+            }, 
+            "name": "taskBatch"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 25, 
+                "line": 322
+            }, 
+            "name": "taskToDelete"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 25, 
+                "line": 323
+            }, 
+            "name": "deleteApttIds"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 36, 
+                "line": 325
+            }, 
+            "name": "deleteAptt"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 13, 
+                "line": 342
+            }, 
+            "name": "newApId"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 353
+            }, 
+            "name": "ap_list"
+        }, 
+        {
+            "type": "PageReference", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 354
+            }, 
+            "name": "newPage"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 366
+            }, 
+            "name": "oIds"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 367
+            }, 
+            "name": "oIdsList"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 385
+            }, 
+            "name": "oName"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 386
+            }, 
+            "name": "oIds"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 387
+            }, 
+            "name": "apList"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 388
+            }, 
+            "name": "aptList"
+        }, 
+        {
+            "type": "Savepoint", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 389
+            }, 
+            "name": "sp"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 395
+            }, 
+            "name": "oIdsList"
+        }, 
+        {
+            "type": "ActionPlansBatchBuilder", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 402
+            }, 
+            "name": "taskBatch"
+        }, 
+        {
+            "type": "PageReference", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 414
+            }, 
+            "name": "newPage"
+        }, 
+        {
+            "type": "PageReference", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 541
+            }, 
+            "name": "newPage"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 13, 
+                "line": 552
+            }, 
+            "name": "objectType"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 553
+            }, 
+            "name": "objectIds"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 13, 
+                "line": 554
+            }, 
+            "name": "templateId"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 13, 
+                "line": 555
+            }, 
+            "name": "retURL"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 13, 
+                "line": 556
+            }, 
+            "name": "id"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 13, 
+                "line": 557
+            }, 
+            "name": "pageRef"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 13, 
+                "line": 558
+            }, 
+            "name": "aPlanListUrl"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 569
+            }, 
+            "name": "oIdsList"
+        }, 
+        {
+            "type": "PageReference", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 589
+            }, 
+            "name": "previousPage"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 603
+            }, 
+            "name": "tempApId"
+        }, 
+        {
+            "type": "Action_Plans_Settings__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 42, 
+                "line": 613
+            }, 
+            "name": "mySettings"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 614
+            }, 
+            "name": "userId"
+        }, 
+        {
+            "type": "APTTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 41, 
+                "line": 615
+            }, 
+            "name": "aptTask"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 39, 
+                "line": 630
+            }, 
+            "name": "t"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 646
+            }, 
+            "name": "TempApId"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 649
+            }, 
+            "name": "tmp_remainderDefaultTime"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 40, 
+                "line": 650
+            }, 
+            "name": "t"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 35, 
+                "line": 659
+            }, 
+            "name": "t"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 41, 
+                "line": 667
+            }, 
+            "name": "tC"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 40, 
+                "line": 672
+            }, 
+            "name": "t"
+        }, 
+        {
+            "type": "Boolean", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 14, 
+                "line": 686
+            }, 
+            "name": "hasNoErrors"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 691
+            }, 
+            "name": "t"
+        }, 
+        {
+            "type": "Action_Plans_Settings__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 38, 
+                "line": 698
+            }, 
+            "name": "mySettings"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 36, 
+                "line": 699
+            }, 
+            "name": "apt"
+        }, 
+        {
+            "type": "Boolean", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 716
+            }, 
+            "name": "removedTask"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 718
+            }, 
+            "name": "taskIndex"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 31, 
+                "line": 724
+            }, 
+            "name": "apTask"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 725
+            }, 
+            "name": "dependentApTask"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 728
+            }, 
+            "name": "i"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 776
+            }, 
+            "name": "options"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 778
+            }, 
+            "name": "i"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 36, 
+                "line": 781
+            }, 
+            "name": "t"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 798
+            }, 
+            "name": "ts"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 799
+            }, 
+            "name": "tempApId"
+        }, 
+        {
+            "type": "Savepoint", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 19, 
+                "line": 814
+            }, 
+            "name": "sp"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 816
+            }, 
+            "name": "recordIds"
+        }, 
+        {
+            "type": "ActionPlansBatchDeleteUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 36, 
+                "line": 821
+            }, 
+            "name": "taskBatch"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 829
+            }, 
+            "name": "aPlanListUrl"
+        }, 
+        {
+            "type": "PageReference", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 830
+            }, 
+            "name": "newPage"
+        }, 
+        {
+            "type": "ActionPlanTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 35, 
+                "line": 842
+            }, 
+            "name": "TempApt"
+        }, 
+        {
+            "type": "Action_Plans_Settings__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 31, 
+                "line": 855
+            }, 
+            "name": "instance"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 46, 
+                "line": 867
+            }, 
+            "name": "objName"
+        }, 
+        {
+            "type": "DescribeSObjectResult", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 35, 
+                "line": 868
+            }, 
+            "name": "obj"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 45, 
+                "line": 877
+            }, 
+            "name": "objName"
+        }, 
+        {
+            "type": "DescribeSObjectResult", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 35, 
+                "line": 878
+            }, 
+            "name": "obj"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 44, 
+                "line": 887
+            }, 
+            "name": "apId"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 13, 
+                "line": 889
+            }, 
+            "name": "objId"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 13, 
+                "line": 890
+            }, 
+            "name": "objName"
+        }, 
+        {
+            "type": "Boolean", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 14, 
+                "line": 891
+            }, 
+            "name": "chatter_enabled"
+        }, 
+        {
+            "type": "DescribeSObjectResult", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 35, 
+                "line": 892
+            }, 
+            "name": "r"
+        }, 
+        {
+            "type": "ActionPlan__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 894
+            }, 
+            "name": "ap"
+        }, 
+        {
+            "type": "SObjectType", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 942
+            }, 
+            "name": "token"
+        }, 
+        {
+            "type": "SObject", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 943
+            }, 
+            "name": "objPost"
+        }, 
+        {
+            "type": "ActionPlan__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 51, 
+                "line": 958
+            }, 
+            "name": "ap"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 13, 
+                "line": 960
+            }, 
+            "name": "recoveredValue"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 13, 
+                "line": 961
+            }, 
+            "name": "objId"
+        }, 
+        {
+            "type": "ActionPlan__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 55, 
+                "line": 982
+            }, 
+            "name": "ap"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 13, 
+                "line": 984
+            }, 
+            "name": "objName"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 42, 
+                "line": 999
+            }, 
+            "name": "objName"
+        }, 
+        {
+            "type": "DescribeSObjectResult", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 35, 
+                "line": 1000
+            }, 
+            "name": "obj"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 1035
+            }, 
+            "name": "options"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 78, 
+                "line": 1093
+            }, 
+            "name": "actionPlanId"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 1095
+            }, 
+            "name": "myList"
+        }, 
+        {
+            "type": "Boolean", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 14, 
+                "line": 1110
+            }, 
+            "name": "hasRelated"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 32, 
+                "line": 1123
+            }, 
+            "name": "options"
+        }, 
+        {
+            "type": "Id", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 9, 
+                "line": 1148
+            }, 
+            "name": "currentId"
+        }, 
+        {
+            "type": "Object", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 37, 
+                "line": 1164
+            }, 
+            "name": "longId"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 13, 
+                "line": 1165
+            }, 
+            "name": "longIdString"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 63, 
+                "line": 1174
+            }, 
+            "name": "relatedObjIds"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 85, 
+                "line": 1174
+            }, 
+            "name": "relatedObjectName"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 10, 
+                "line": 1176
+            }, 
+            "name": "shortId"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 10, 
+                "line": 1177
+            }, 
+            "name": "queryRetrieveOwnerIds"
+        }, 
+        {
+            "type": "SObject", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 1183
+            }, 
+            "name": "obj"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 38, 
+                "line": 1196
+            }, 
+            "name": "stringList"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 57, 
+                "line": 1196
+            }, 
+            "name": "separator"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 10, 
+                "line": 1198
+            }, 
+            "name": "result"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 15, 
+                "line": 1199
+            }, 
+            "name": "elem"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 48, 
+                "line": 1214
+            }, 
+            "name": "apTaskId"
+        }, 
+        {
+            "type": "Boolean", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 14, 
+                "line": 1215
+            }, 
+            "name": "result"
+        }, 
+        {
+            "type": "Set", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 1216
+            }, 
+            "name": "rejectStatus"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 30, 
+                "line": 1218
+            }, 
+            "name": "aptList"
+        }, 
+        {
+            "type": "Map", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 39, 
+                "line": 1239
+            }, 
+            "name": "fieldsMap"
+        }, 
+        {
+            "type": "Map", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 39, 
+                "line": 1248
+            }, 
+            "name": "fieldsMap"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 11, 
+                "line": 1249
+            }, 
+            "name": "defaultTime"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 1251
+            }, 
+            "name": "uP"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 13, 
+                "line": 1267
+            }, 
+            "name": "retURL"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 19, 
+                "line": 1268
+            }, 
+            "name": "recordIds"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 14, 
+                "line": 1273
+            }, 
+            "name": "records"
+        }, 
+        {
+            "type": "ActionPlansBatchDelete", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 1276
+            }, 
+            "name": "aPBatch"
+        }, 
+        {
+            "type": "PageReference", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 1281
+            }, 
+            "name": "pageRef"
+        }, 
+        {
+            "type": "ActionPlanTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 68, 
+                "line": 1291
+            }, 
+            "name": "actionPlanTemplate"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 13, 
+                "line": 1293
+            }, 
+            "name": "aPName"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 56, 
                 "line": 101
             }, 
             "name": "input"
@@ -842,1426 +2274,6 @@
                 "line": 103
             }, 
             "name": "cleaned"
-        }, 
-        {
-            "type": "Boolean", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 14, 
-                "line": 118
-            }, 
-            "name": "exists"
-        }, 
-        {
-            "type": "Integer", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 14, 
-                "line": 119
-            }, 
-            "name": "index"
-        }, 
-        {
-            "type": "APTaskTemplate__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 32, 
-                "line": 121
-            }, 
-            "name": "t"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 30, 
-                "line": 124
-            }, 
-            "name": "selectedValues"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 29, 
-                "line": 126
-            }, 
-            "name": "i"
-        }, 
-        {
-            "type": "Integer", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 29, 
-                "line": 127
-            }, 
-            "name": "tempIndex"
-        }, 
-        {
-            "type": "APTaskTemplate__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 39, 
-                "line": 128
-            }, 
-            "name": "link"
-        }, 
-        {
-            "type": "Map", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 35, 
-                "line": 152
-            }, 
-            "name": "children"
-        }, 
-        {
-            "type": "Integer", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 17, 
-                "line": 153
-            }, 
-            "name": "l"
-        }, 
-        {
-            "type": "Set", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 26, 
-                "line": 156
-            }, 
-            "name": "parent"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 30, 
-                "line": 158
-            }, 
-            "name": "selectedValues"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 29, 
-                "line": 159
-            }, 
-            "name": "p"
-        }, 
-        {
-            "type": "Integer", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 29, 
-                "line": 160
-            }, 
-            "name": "tempIndex"
-        }, 
-        {
-            "type": "Set", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 26, 
-                "line": 173
-            }, 
-            "name": "looker"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 27, 
-                "line": 174
-            }, 
-            "name": "holder"
-        }, 
-        {
-            "type": "Integer", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 21, 
-                "line": 179
-            }, 
-            "name": "x"
-        }, 
-        {
-            "type": "Integer", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 29, 
-                "line": 183
-            }, 
-            "name": "j"
-        }, 
-        {
-            "type": "APTaskTemplate__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 55, 
-                "line": 202
-            }, 
-            "name": "originTask"
-        }, 
-        {
-            "type": "APTaskTemplate__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 85, 
-                "line": 202
-            }, 
-            "name": "destinyTask"
-        }, 
-        {
-            "type": "Integer", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 106, 
-                "line": 202
-            }, 
-            "name": "index"
-        }, 
-        {
-            "type": "Boolean", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 17, 
-                "line": 204
-            }, 
-            "name": "hasDependency"
-        }, 
-        {
-            "type": "Set", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 22, 
-                "line": 205
-            }, 
-            "name": "visitedTasks"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 22, 
-                "line": 206
-            }, 
-            "name": "selectedDestinyValues"
-        }, 
-        {
-            "type": "Integer", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 25, 
-                "line": 220
-            }, 
-            "name": "tempIndexDestiny"
-        }, 
-        {
-            "type": "APTaskTemplate__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 29, 
-                "line": 221
-            }, 
-            "name": "link"
-        }, 
-        {
-            "type": "Integer", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 21, 
-                "line": 230
-            }, 
-            "name": "tempIndex"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 10, 
-                "line": 251
-            }, 
-            "name": "actionPlanId"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 10, 
-                "line": 252
-            }, 
-            "name": "objId"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 10, 
-                "line": 253
-            }, 
-            "name": "objName"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 16, 
-                "line": 254
-            }, 
-            "name": "oIdsList"
-        }, 
-        {
-            "type": "Savepoint", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 13, 
-                "line": 255
-            }, 
-            "name": "sp"
-        }, 
-        {
-            "type": "ActionPlansBatchBuilder", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 29, 
-                "line": 285
-            }, 
-            "name": "taskBatch"
-        }, 
-        {
-            "type": "ActionPlansBatchBuilderUtilities", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 38, 
-                "line": 288
-            }, 
-            "name": "taskBatch"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 25, 
-                "line": 306
-            }, 
-            "name": "taskToDelete"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 25, 
-                "line": 307
-            }, 
-            "name": "deleteApttIds"
-        }, 
-        {
-            "type": "APTaskTemplate__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 36, 
-                "line": 309
-            }, 
-            "name": "deleteAptt"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 13, 
-                "line": 326
-            }, 
-            "name": "newApId"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 16, 
-                "line": 337
-            }, 
-            "name": "ap_list"
-        }, 
-        {
-            "type": "PageReference", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 17, 
-                "line": 338
-            }, 
-            "name": "newPage"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 16, 
-                "line": 350
-            }, 
-            "name": "oIds"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 22, 
-                "line": 351
-            }, 
-            "name": "oIdsList"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 16, 
-                "line": 369
-            }, 
-            "name": "oName"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 16, 
-                "line": 370
-            }, 
-            "name": "oIds"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 29, 
-                "line": 371
-            }, 
-            "name": "apList"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 33, 
-                "line": 372
-            }, 
-            "name": "aptList"
-        }, 
-        {
-            "type": "Savepoint", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 18, 
-                "line": 373
-            }, 
-            "name": "sp"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 27, 
-                "line": 379
-            }, 
-            "name": "oIdsList"
-        }, 
-        {
-            "type": "ActionPlansBatchBuilder", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 29, 
-                "line": 386
-            }, 
-            "name": "taskBatch"
-        }, 
-        {
-            "type": "PageReference", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 23, 
-                "line": 398
-            }, 
-            "name": "newPage"
-        }, 
-        {
-            "type": "PageReference", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 23, 
-                "line": 525
-            }, 
-            "name": "newPage"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 13, 
-                "line": 536
-            }, 
-            "name": "objectType"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 16, 
-                "line": 537
-            }, 
-            "name": "objectIds"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 13, 
-                "line": 538
-            }, 
-            "name": "templateId"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 13, 
-                "line": 539
-            }, 
-            "name": "retURL"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 13, 
-                "line": 540
-            }, 
-            "name": "id"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 13, 
-                "line": 541
-            }, 
-            "name": "pageRef"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 13, 
-                "line": 542
-            }, 
-            "name": "aPlanListUrl"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 20, 
-                "line": 553
-            }, 
-            "name": "oIdsList"
-        }, 
-        {
-            "type": "PageReference", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 20, 
-                "line": 573
-            }, 
-            "name": "previousPage"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 24, 
-                "line": 587
-            }, 
-            "name": "tempApId"
-        }, 
-        {
-            "type": "Action_Plans_Settings__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 42, 
-                "line": 597
-            }, 
-            "name": "mySettings"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 24, 
-                "line": 598
-            }, 
-            "name": "userId"
-        }, 
-        {
-            "type": "APTTaskTemplate__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 41, 
-                "line": 599
-            }, 
-            "name": "aptTask"
-        }, 
-        {
-            "type": "APTaskTemplate__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 39, 
-                "line": 614
-            }, 
-            "name": "t"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 21, 
-                "line": 630
-            }, 
-            "name": "TempApId"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 24, 
-                "line": 633
-            }, 
-            "name": "tmp_remainderDefaultTime"
-        }, 
-        {
-            "type": "APTaskTemplate__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 40, 
-                "line": 634
-            }, 
-            "name": "t"
-        }, 
-        {
-            "type": "APTaskTemplate__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 35, 
-                "line": 643
-            }, 
-            "name": "t"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 41, 
-                "line": 651
-            }, 
-            "name": "tC"
-        }, 
-        {
-            "type": "APTaskTemplate__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 40, 
-                "line": 656
-            }, 
-            "name": "t"
-        }, 
-        {
-            "type": "Boolean", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 14, 
-                "line": 670
-            }, 
-            "name": "hasNoErrors"
-        }, 
-        {
-            "type": "APTaskTemplate__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 28, 
-                "line": 675
-            }, 
-            "name": "t"
-        }, 
-        {
-            "type": "Action_Plans_Settings__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 38, 
-                "line": 682
-            }, 
-            "name": "mySettings"
-        }, 
-        {
-            "type": "APTaskTemplate__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 36, 
-                "line": 683
-            }, 
-            "name": "apt"
-        }, 
-        {
-            "type": "Boolean", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 17, 
-                "line": 700
-            }, 
-            "name": "removedTask"
-        }, 
-        {
-            "type": "Integer", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 21, 
-                "line": 702
-            }, 
-            "name": "taskIndex"
-        }, 
-        {
-            "type": "APTaskTemplate__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 31, 
-                "line": 708
-            }, 
-            "name": "apTask"
-        }, 
-        {
-            "type": "Integer", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 21, 
-                "line": 709
-            }, 
-            "name": "dependentApTask"
-        }, 
-        {
-            "type": "Integer", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 26, 
-                "line": 712
-            }, 
-            "name": "i"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 28, 
-                "line": 760
-            }, 
-            "name": "options"
-        }, 
-        {
-            "type": "Integer", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 17, 
-                "line": 762
-            }, 
-            "name": "i"
-        }, 
-        {
-            "type": "APTaskTemplate__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 36, 
-                "line": 765
-            }, 
-            "name": "t"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 33, 
-                "line": 782
-            }, 
-            "name": "ts"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 16, 
-                "line": 783
-            }, 
-            "name": "tempApId"
-        }, 
-        {
-            "type": "Savepoint", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 19, 
-                "line": 798
-            }, 
-            "name": "sp"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 22, 
-                "line": 800
-            }, 
-            "name": "recordIds"
-        }, 
-        {
-            "type": "ActionPlansBatchDeleteUtilities", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 36, 
-                "line": 805
-            }, 
-            "name": "taskBatch"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 16, 
-                "line": 813
-            }, 
-            "name": "aPlanListUrl"
-        }, 
-        {
-            "type": "PageReference", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 23, 
-                "line": 814
-            }, 
-            "name": "newPage"
-        }, 
-        {
-            "type": "ActionPlanTemplate__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 35, 
-                "line": 826
-            }, 
-            "name": "TempApt"
-        }, 
-        {
-            "type": "Action_Plans_Settings__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 31, 
-                "line": 839
-            }, 
-            "name": "instance"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 46, 
-                "line": 851
-            }, 
-            "name": "objName"
-        }, 
-        {
-            "type": "DescribeSObjectResult", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 35, 
-                "line": 852
-            }, 
-            "name": "obj"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 45, 
-                "line": 861
-            }, 
-            "name": "objName"
-        }, 
-        {
-            "type": "DescribeSObjectResult", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 35, 
-                "line": 862
-            }, 
-            "name": "obj"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 44, 
-                "line": 871
-            }, 
-            "name": "apId"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 13, 
-                "line": 873
-            }, 
-            "name": "objId"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 13, 
-                "line": 874
-            }, 
-            "name": "objName"
-        }, 
-        {
-            "type": "Boolean", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 14, 
-                "line": 875
-            }, 
-            "name": "chatter_enabled"
-        }, 
-        {
-            "type": "DescribeSObjectResult", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 35, 
-                "line": 876
-            }, 
-            "name": "r"
-        }, 
-        {
-            "type": "ActionPlan__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 20, 
-                "line": 878
-            }, 
-            "name": "ap"
-        }, 
-        {
-            "type": "SObjectType", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 20, 
-                "line": 926
-            }, 
-            "name": "token"
-        }, 
-        {
-            "type": "SObject", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 16, 
-                "line": 927
-            }, 
-            "name": "objPost"
-        }, 
-        {
-            "type": "ActionPlan__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 51, 
-                "line": 942
-            }, 
-            "name": "ap"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 13, 
-                "line": 944
-            }, 
-            "name": "recoveredValue"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 13, 
-                "line": 945
-            }, 
-            "name": "objId"
-        }, 
-        {
-            "type": "ActionPlan__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 55, 
-                "line": 966
-            }, 
-            "name": "ap"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 13, 
-                "line": 968
-            }, 
-            "name": "objName"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 42, 
-                "line": 983
-            }, 
-            "name": "objName"
-        }, 
-        {
-            "type": "DescribeSObjectResult", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 35, 
-                "line": 984
-            }, 
-            "name": "obj"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 24, 
-                "line": 1019
-            }, 
-            "name": "options"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 78, 
-                "line": 1077
-            }, 
-            "name": "actionPlanId"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 29, 
-                "line": 1079
-            }, 
-            "name": "myList"
-        }, 
-        {
-            "type": "Boolean", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 14, 
-                "line": 1094
-            }, 
-            "name": "hasRelated"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 32, 
-                "line": 1107
-            }, 
-            "name": "options"
-        }, 
-        {
-            "type": "Id", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 9, 
-                "line": 1132
-            }, 
-            "name": "currentId"
-        }, 
-        {
-            "type": "Object", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 37, 
-                "line": 1148
-            }, 
-            "name": "longId"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 13, 
-                "line": 1149
-            }, 
-            "name": "longIdString"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 63, 
-                "line": 1158
-            }, 
-            "name": "relatedObjIds"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 85, 
-                "line": 1158
-            }, 
-            "name": "relatedObjectName"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 10, 
-                "line": 1160
-            }, 
-            "name": "shortId"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 10, 
-                "line": 1161
-            }, 
-            "name": "queryRetrieveOwnerIds"
-        }, 
-        {
-            "type": "SObject", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 23, 
-                "line": 1167
-            }, 
-            "name": "obj"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 38, 
-                "line": 1180
-            }, 
-            "name": "stringList"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 57, 
-                "line": 1180
-            }, 
-            "name": "separator"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 10, 
-                "line": 1182
-            }, 
-            "name": "result"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 15, 
-                "line": 1183
-            }, 
-            "name": "elem"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 48, 
-                "line": 1198
-            }, 
-            "name": "apTaskId"
-        }, 
-        {
-            "type": "Boolean", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 14, 
-                "line": 1199
-            }, 
-            "name": "result"
-        }, 
-        {
-            "type": "Set", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 18, 
-                "line": 1200
-            }, 
-            "name": "rejectStatus"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 30, 
-                "line": 1202
-            }, 
-            "name": "aptList"
-        }, 
-        {
-            "type": "Map", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 39, 
-                "line": 1223
-            }, 
-            "name": "fieldsMap"
-        }, 
-        {
-            "type": "Map", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 39, 
-                "line": 1232
-            }, 
-            "name": "fieldsMap"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 11, 
-                "line": 1233
-            }, 
-            "name": "defaultTime"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 28, 
-                "line": 1235
-            }, 
-            "name": "uP"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 13, 
-                "line": 1251
-            }, 
-            "name": "retURL"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 19, 
-                "line": 1252
-            }, 
-            "name": "recordIds"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 14, 
-                "line": 1257
-            }, 
-            "name": "records"
-        }, 
-        {
-            "type": "ActionPlansBatchDelete", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 28, 
-                "line": 1260
-            }, 
-            "name": "aPBatch"
-        }, 
-        {
-            "type": "PageReference", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 20, 
-                "line": 1265
-            }, 
-            "name": "pageRef"
-        }, 
-        {
-            "type": "ActionPlanTemplate__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 68, 
-                "line": 1275
-            }, 
-            "name": "actionPlanTemplate"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 13, 
-                "line": 1277
-            }, 
-            "name": "aPName"
         }
     ], 
     "constructors": [

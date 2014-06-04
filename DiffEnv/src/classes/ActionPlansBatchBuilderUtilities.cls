@@ -171,10 +171,13 @@ public with sharing class ActionPlansBatchBuilderUtilities {
 					t.Status__c = 'Not Started';
 				} 
 
-				if( t.Dependent__c != 'None' && t.Dependent__c != null ){
-					Integer tempIndex   = Integer.valueOf( t.Dependent__c );
-					t.APTaskTemplate__c = aptList[tempIndex].Id;
-					t.ActivityDate__c = null;    
+				if( t.Dependent__c != '[]' && t.Dependent__c != null ){
+					List<String> selectedValues = ActionPlansUtilities.parseMultiSelect(t.Dependent__c);
+					for(String val : selectedValues){
+						Integer tempIndex   = Integer.valueOf( val );
+						t.APTaskTemplate__c = aptList[tempIndex].Id;
+						t.ActivityDate__c = null;
+					}
 				}
 				else{ 
                         
@@ -182,7 +185,7 @@ public with sharing class ActionPlansBatchBuilderUtilities {
 					// create due date, calculate the due date of the tasks for skip weekends feature
 					   
 					//set dependency taskId to none if none was selected
-					if (t.Dependent__c == null){
+					if (t.Dependent__c == null || t.Dependent__c == '[]'){
 						t.Dependent__c = 'None';
 					}
                         
@@ -228,7 +231,7 @@ public with sharing class ActionPlansBatchBuilderUtilities {
         }
                
 		Task t;
-		for( APTaskTemplate__c t_t : aptTOTALList ) {  
+		for( APTaskTemplate__c t_t : aptTOTALList ) {
 			// check if task exists already
 			t = mapApTasks.get( t_t.Id); 
 			if (t == null){
@@ -263,6 +266,7 @@ public with sharing class ActionPlansBatchBuilderUtilities {
 			if ( apAux==null ){
 			    apAux = t_t.Action_Plan__r;
 			}
+
 			//link to Action Plan's Related To Object
 			if( apAux.Account__c != null ){
 			    t.WhatId = apAux.Account__c;
