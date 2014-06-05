@@ -48,6 +48,8 @@ public with sharing class ActionPlanCreationController{
     public Boolean                  addedTask               { get; set; }
     public Boolean                  displayReminder         { get; set; }
     private Map<String,ApTaskWrapper>   mapTasksListBkp;
+
+    public List<SelectOption>       selectedDependencies    { get; set; }
     
     /**
     * Constructor
@@ -62,6 +64,8 @@ public with sharing class ActionPlanCreationController{
         this.relatedObjIds      = new List<String>();
         this.mapTasksListBkp    = new Map<String,ApTaskWrapper>();
         this.actionPlan         = ( ActionPlan__c ) stdController.getRecord();
+        selectedDependencies    = new List<SelectOption>();
+
         
         this.actionPlanId       = System.currentPageReference().getParameters().get( 'id' );
         String clone            = System.currentPageReference().getParameters().get( 'clone' );
@@ -204,6 +208,15 @@ public with sharing class ActionPlanCreationController{
         set;
     }
     
+    private String combineSelectedDependents(){
+        String output = '';
+        for(SelectOption so : selectedDependencies){
+            System.debug('Value::'+so.getValue()+'::Label::'+so.getLabel()+'::');
+            //output += so.getValue();
+        }
+        return output;
+    }
+
     /**
     * Action which saves a new Action Plan
     * @return PageReference
@@ -214,6 +227,8 @@ public with sharing class ActionPlanCreationController{
         PageReference pageRef   = null;
         
         try{
+            //this.actionPlans.
+            this.combineSelectedDependents();
             if( !this.actionPlans.checkCycleDependent() ){
                 referedObjectOwnerInit();
                 pageRef = this.actionPlans.saveHandler();   
@@ -835,7 +850,7 @@ public with sharing class ActionPlanCreationController{
         
         newAPTask2.Subject__c           = testUtil.createRandomWord();
         newAPTask2.DaysFromStart__c     = 2;
-        newAPTask2.Dependent__c         = 'None';
+        newAPTask2.Dependent__c         = '[]';
         newAPTask2.Type__c              = 'Email';
         newAPTask2.Priority__c          = 'High';
         newAPTask2.Action_Plan__c       = actionPlan.Id;

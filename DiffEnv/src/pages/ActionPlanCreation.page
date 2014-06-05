@@ -282,12 +282,25 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
 		                        </apex:column>
 
 		                        <!--  Tasks depending status  -->		                        
-		                        <apex:column headerValue="{!$ObjectType.APTaskTemplate__c.fields.APTaskTemplate__c.label}" rendered="{!IF(TaskSize > 1, true, false)}"   headerClass="thirdN" >
-		                            <apex:selectList id="dependent" value="{!wrapTask.task.Dependent__c}" multiselect="true" size="1"  
+		                        <apex:column headerValue="{!$ObjectType.APTaskTemplate__c.fields.APTaskTemplate__c.label}" rendered="true" headerClass="thirdN" >
+		                            <!-- "{!IF(TaskSize > 1, true, false)}"-->
+
+		                            <!--<apex:selectList id="dependent" value="{!wrapTask.task.Dependent__c}" multiselect="true" size="1"  
 		                            onchange="javascript:ActionPlanCreationScripts.checkDependent('{!$Component.taskTable.dependent}');" onblur="javascript:ActionPlanCreationScripts.keepDependentClean('{!$Component.taskTable}');"
 		                            styleClass="selectDepending">
 		                                <apex:selectOptions value="{!SubjectItems}" />
-		                            </apex:selectList>
+		                            </apex:selectList>-->
+
+
+		                            <c:MultiselectPicklist id="dependent" leftLabel="Possible"
+						                leftOptions="{!SubjectItems}"
+						                rightLabel="Selected"
+						                rightOptions="{!selectedDependencies}"
+						                size="5"
+						                width="100px"
+						                />
+
+
 		                            <apex:inputHidden value="{!wrapTask.task.taskIndex__c}" id="theHiddenInput"/>
 		                        </apex:column>
 

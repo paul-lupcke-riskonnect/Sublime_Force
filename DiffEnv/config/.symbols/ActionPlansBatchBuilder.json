@@ -1,0 +1,244 @@
+{
+    "properties": [
+        {
+            "modifiers": [], 
+            "name": "taskBatch", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 38, 
+                "line": 35
+            }, 
+            "type": "ActionPlansBatchBuilderUtilities"
+        }
+    ], 
+    "methods": [
+        {
+            "modifiers": [], 
+            "name": "start", 
+            "parameters": [
+                {
+                    "type": "BatchableContext", 
+                    "name": "bc"
+                }
+            ], 
+            "visibility": "GLOBAL", 
+            "references": [], 
+            "location": {
+                "column": 30, 
+                "line": 49
+            }, 
+            "returnType": "Iterable", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "execute", 
+            "parameters": [
+                {
+                    "type": "BatchableContext", 
+                    "name": "bc"
+                }, 
+                {
+                    "type": "LIST", 
+                    "name": "data"
+                }
+            ], 
+            "visibility": "GLOBAL", 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 58
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "finish", 
+            "parameters": [
+                {
+                    "type": "BatchableContext", 
+                    "name": "BC"
+                }
+            ], 
+            "visibility": "GLOBAL", 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 89
+            }, 
+            "returnType": "void", 
+            "type": null
+        }
+    ], 
+    "innerClasses": [], 
+    "variables": [
+        {
+            "type": "ActionPlan__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 50, 
+                "line": 40
+            }, 
+            "name": "baseObj"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 82, 
+                "line": 40
+            }, 
+            "name": "aPTList"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 98, 
+                "line": 40
+            }, 
+            "name": "refType"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 120, 
+                "line": 40
+            }, 
+            "name": "oIdsLIst"
+        }, 
+        {
+            "type": "BatchableContext", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 63, 
+                "line": 49
+            }, 
+            "name": "bc"
+        }, 
+        {
+            "type": "BatchableContext", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 52, 
+                "line": 58
+            }, 
+            "name": "bc"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 70, 
+                "line": 58
+            }, 
+            "name": "data"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 63
+            }, 
+            "name": "str"
+        }, 
+        {
+            "type": "AsyncApexJob", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 68
+            }, 
+            "name": "a"
+        }, 
+        {
+            "type": "SingleEmailMessage", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 42, 
+                "line": 74
+            }, 
+            "name": "mail"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 75
+            }, 
+            "name": "toAddresses"
+        }, 
+        {
+            "type": "BatchableContext", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 50, 
+                "line": 89
+            }, 
+            "name": "BC"
+        }
+    ], 
+    "constructors": [
+        {
+            "modifiers": [], 
+            "name": "ActionPlansBatchBuilder", 
+            "parameters": [
+                {
+                    "type": "ActionPlan__c", 
+                    "name": "baseObj"
+                }, 
+                {
+                    "type": "LIST", 
+                    "name": "aPTList"
+                }, 
+                {
+                    "type": "String", 
+                    "name": "refType"
+                }, 
+                {
+                    "type": "LIST", 
+                    "name": "oIdsLIst"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 40
+            }, 
+            "type": null
+        }
+    ], 
+    "namespace": null, 
+    "name": "ActionPlansBatchBuilder", 
+    "tableDeclaration": {
+        "type": "ActionPlansBatchBuilder", 
+        "modifiers": [], 
+        "references": [], 
+        "location": {
+            "column": 27, 
+            "line": 33
+        }, 
+        "name": "ActionPlansBatchBuilder"
+    }, 
+    "key": "01pF0000003QcqP", 
+    "id": "01pF0000003QcqP", 
+    "externalReferences": []
+}

@@ -1,0 +1,329 @@
+{
+    "properties": [
+        {
+            "modifiers": [], 
+            "name": "templateId", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 35
+            }, 
+            "type": "String"
+        }
+    ], 
+    "methods": [
+        {
+            "modifiers": [], 
+            "name": "export", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 50
+            }, 
+            "returnType": "Document", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "saveToDocument", 
+            "parameters": [
+                {
+                    "type": "String", 
+                    "name": "name"
+                }, 
+                {
+                    "type": "String", 
+                    "name": "xml"
+                }
+            ], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 19, 
+                "line": 69
+            }, 
+            "returnType": "Document", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "buildXmlString", 
+            "parameters": [
+                {
+                    "type": "ActionPlanTemplate__c", 
+                    "name": "target"
+                }
+            ], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 87
+            }, 
+            "returnType": "String", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "writeElement", 
+            "parameters": [
+                {
+                    "type": "XmlStreamWriter", 
+                    "name": "out"
+                }, 
+                {
+                    "type": "String", 
+                    "name": "tag"
+                }, 
+                {
+                    "type": "String", 
+                    "name": "content"
+                }
+            ], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 15, 
+                "line": 157
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "exportTest", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 32, 
+                "line": 164
+            }, 
+            "returnType": "void", 
+            "type": null
+        }
+    ], 
+    "innerClasses": [], 
+    "variables": [
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 42, 
+                "line": 41
+            }, 
+            "name": "templateId"
+        }, 
+        {
+            "type": "ActionPlanTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 25, 
+                "line": 52
+            }, 
+            "name": "apTemplate"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 10, 
+                "line": 57
+            }, 
+            "name": "xml"
+        }, 
+        {
+            "type": "Document", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 58
+            }, 
+            "name": "doc"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 42, 
+                "line": 69
+            }, 
+            "name": "name"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 55, 
+                "line": 69
+            }, 
+            "name": "xml"
+        }, 
+        {
+            "type": "Document", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 71
+            }, 
+            "name": "doc"
+        }, 
+        {
+            "type": "ActionPlanTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 55, 
+                "line": 87
+            }, 
+            "name": "target"
+        }, 
+        {
+            "type": "XmlStreamWriter", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 19, 
+                "line": 89
+            }, 
+            "name": "out"
+        }, 
+        {
+            "type": "APTTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 114
+            }, 
+            "name": "currentTask"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 10, 
+                "line": 144
+            }, 
+            "name": "ret"
+        }, 
+        {
+            "type": "XmlStreamWriter", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 45, 
+                "line": 157
+            }, 
+            "name": "out"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 57, 
+                "line": 157
+            }, 
+            "name": "tag"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 69, 
+                "line": 157
+            }, 
+            "name": "content"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 168
+            }, 
+            "name": "testUtil"
+        }, 
+        {
+            "type": "ActionPlanTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 25, 
+                "line": 169
+            }, 
+            "name": "actionPlanTemplate"
+        }, 
+        {
+            "type": "ExportActionPlanTemplate", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 171
+            }, 
+            "name": "exportTemplate"
+        }, 
+        {
+            "type": "Document", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 172
+            }, 
+            "name": "doc"
+        }
+    ], 
+    "constructors": [
+        {
+            "modifiers": [], 
+            "name": "ExportActionPlanTemplate", 
+            "parameters": [
+                {
+                    "type": "String", 
+                    "name": "templateId"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 9, 
+                "line": 41
+            }, 
+            "type": null
+        }
+    ], 
+    "namespace": null, 
+    "name": "ExportActionPlanTemplate", 
+    "tableDeclaration": {
+        "type": "ExportActionPlanTemplate", 
+        "modifiers": [], 
+        "references": [], 
+        "location": {
+            "column": 27, 
+            "line": 33
+        }, 
+        "name": "ExportActionPlanTemplate"
+    }, 
+    "key": "01pF0000003Qcqd", 
+    "id": "01pF0000003Qcqd", 
+    "externalReferences": []
+}

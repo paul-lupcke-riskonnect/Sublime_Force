@@ -99,14 +99,24 @@ public with sharing class ActionPlansUtilities{
     }
     
     public static List<String> parseMultiSelect(String input){
+        //System.debug('Parsing Multiselect Input :: '+input + ':');
+        //System.debug('Parsing Multiselect Test :: '+input.contains('None')+':');
         List<String> values;
         String cleaned = input.replace('[', '');
         cleaned = cleaned.replace(']', '');
-        cleaned = cleaned.replace(' ', '');
         cleaned = cleaned.replace('NONE,','');
+        cleaned = cleaned.replace('None,','');
+        cleaned = cleaned.replace('none,','');
+        cleaned = cleaned.replace(' ', '');
         values = cleaned.split(',');
         if(values[0]=='') values.clear();
-        System.debug('Parsing Multiselect:: '+values + ':' + values.size());
+        System.debug('Parsing Multiselect Output:: '+values + ':' + values.size());
+        for(Integer i=0; i<values.size();++i){
+            if(values[i].contains('None')){
+                values.clear();
+                System.debug('Use the force');
+            }
+        }
         return values;
     }
 
@@ -126,12 +136,16 @@ public with sharing class ActionPlansUtilities{
 
         for( APTaskTemplate__c t : this.apTasks ){
             System.debug('Check 1:'+t+':');
-            if( t.Dependent__c != 'None' && t.Dependent__c != null ){
+            if( t.Dependent__c != '[]' && t.Dependent__c != null ){
                 System.debug('Check 2:'+t+':');
                 List<String> selectedValues = parseMultiSelect(t.Dependent__c);
 
                 for( String i : selectedValues){
                     System.debug('TEST::'+i+'::');
+                    if(i=='None')
+                        System.debug('It is None::'+i);
+                    else
+                        System.debug('It is not None::'+i);
                     Integer tempIndex       = Integer.valueOf( i );
                     APTaskTemplate__c link  = this.apTasks[tempIndex];
                 
@@ -170,7 +184,7 @@ public with sharing class ActionPlansUtilities{
         //// Set up the data lib.
         for( ;l<this.apTasks.size();++l){
             Set<Integer> parent = new Set<Integer>();
-            if( this.apTasks[l].Dependent__c != 'None' && this.apTasks[l].Dependent__c != null ){
+            if( this.apTasks[l].Dependent__c != '[]' && this.apTasks[l].Dependent__c != null ){
                 List<String> selectedValues = parseMultiSelect(this.apTasks[l].Dependent__c);
                 for( String p : selectedValues){
                     Integer tempIndex       = Integer.valueOf( p );
@@ -223,7 +237,7 @@ public with sharing class ActionPlansUtilities{
         
         while( !hasDependency ){
         	
-        	if (destinyTask.Dependent__c != 'None'){
+        	if (destinyTask.Dependent__c != '[]'){
         		if (visitedTasks.contains(Integer.valueOf( destinyTask.Dependent__c ))){
         			hasDependency = true;
 	        		break;
@@ -232,11 +246,11 @@ public with sharing class ActionPlansUtilities{
         		}
         	}
         	
-    		 if( destinyTask.Dependent__c != 'None' && destinyTask.Dependent__c != null  ){
+    		 if( destinyTask.Dependent__c != '[]' && destinyTask.Dependent__c != null  ){
                 Integer tempIndexDestiny 	= Integer.valueOf( destinyTask.Dependent__c );
         		APTaskTemplate__c link 		= this.apTasks[ tempIndexDestiny ];
         		
-        		if( link.Dependent__c != 'None' ){
+        		if( link.Dependent__c != '[]' ){
 	        		if( Integer.valueOf( link.Dependent__c ) == index ){
 	        			hasDependency = true;
 		        		break;
@@ -727,12 +741,12 @@ public with sharing class ActionPlansUtilities{
             //update the current dependent position from tasks below of deleted one.
             for( Integer i = 0; i < this.apTasks.size(); i++ ){
             	apTask = this.apTasks.get( i );
-            	if( apTask.Dependent__c != 'None' && apTask.Dependent__c != null ){
+            	if( apTask.Dependent__c != '[]' && apTask.Dependent__c != null ){
             		dependentApTask = Integer.valueOf( apTask.Dependent__c );
             		if( dependentApTask > taskIndex ){
             			apTask.Dependent__c = String.valueOf( dependentApTask - 1 );	
             		}else if( dependentApTask == taskIndex ){
-            			apTask.Dependent__c 		= 'None';
+            			apTask.Dependent__c 		= '[]';
             			apTask.APTaskTemplate__c    = null;
             		}
             	}
@@ -774,7 +788,7 @@ public with sharing class ActionPlansUtilities{
     public List<SelectOption> getSubjectItems(){
         
         List<SelectOption> options = new List<SelectOption>();
-        options.add( new SelectOption( 'None', '--'+ Label.ap_None +'--' ) );
+        //options.add( new SelectOption( 'None', '--'+ Label.ap_None +'--' ) );
         integer i = 0;
         
         if( this.apTasks != null ){

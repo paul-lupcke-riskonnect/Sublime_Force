@@ -1,0 +1,52 @@
+{
+    "properties": [], 
+    "methods": [
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "testMultiselectController", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 24
+            }, 
+            "returnType": "void", 
+            "type": null
+        }
+    ], 
+    "innerClasses": [], 
+    "variables": [
+        {
+            "type": "MultiselectController", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 31, 
+                "line": 25
+            }, 
+            "name": "c"
+        }
+    ], 
+    "constructors": [], 
+    "namespace": null, 
+    "name": "MultiselectControllerTest", 
+    "tableDeclaration": {
+        "type": "MultiselectControllerTest", 
+        "modifiers": [
+            "TEST"
+        ], 
+        "references": [], 
+        "location": {
+            "column": 15, 
+            "line": 23
+        }, 
+        "name": "MultiselectControllerTest"
+    }, 
+    "key": "01pF0000003Qyrd", 
+    "id": "01pF0000003Qyrd", 
+    "externalReferences": []
+}

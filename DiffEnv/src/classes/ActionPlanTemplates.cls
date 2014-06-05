@@ -141,7 +141,7 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
         
         // run through the tasks and take care of dependents
         for( APTTaskTemplate__c t : aptTasks ){
-            if( t.Dependent__c != 'None' && t.Dependent__c != null ){
+            if( t.Dependent__c != '[]' && t.Dependent__c != null ){
                 Integer tempIndex 		= Integer.valueOf( t.Dependent__c );
                 t.APTTaskTemplate__c 	= aptTasks[ tempIndex ].Id;
             }
@@ -304,12 +304,12 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
            //update the current dependent position from tasks below of deleted one.
             for( Integer i = 0; i < this.aptTasks.size(); i++ ){
             	aptTask = this.aptTasks.get( i );
-            	if( aptTask.Dependent__c != 'None' && aptTask.Dependent__c != null ){
+            	if( aptTask.Dependent__c != '[]' && aptTask.Dependent__c != null ){
             		dependentApTask = Integer.valueOf( aptTask.Dependent__c );
             		if( dependentApTask > taskIndex ){
             			aptTask.Dependent__c = String.valueOf( dependentApTask - 1 );	
             		}else if( dependentApTask == taskIndex ){
-            			aptTask.Dependent__c = 'None';
+            			aptTask.Dependent__c = '[]';
             			aptTask.APTTaskTemplate__c    = null;
             		}
             	}
@@ -348,7 +348,7 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
     public List<SelectOption> getTemplateSubjectItems(){
     	
         List<SelectOption> options = new List<SelectOption>();
-        options.add( new SelectOption( 'None', '--'+ Label.ap_None +'--' ) );
+        //options.add( new SelectOption( 'None', '--'+ Label.ap_None +'--' ) );
         integer i = 0;
         
         if( this.aptTasks != null ){
@@ -374,7 +374,7 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
     	Integer index 	= 0;
         
         for( APTTaskTemplate__c t : this.aptTasks ){
-            if( t.Dependent__c != 'None' && t.Dependent__c != null ){
+            if( t.Dependent__c != '[]' && t.Dependent__c != null ){
                 Integer tempIndex   	= Integer.valueOf( t.Dependent__c );
                 APTTaskTemplate__c link = this.aptTasks[tempIndex];
                 
@@ -408,7 +408,7 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
         
         while( !hasDependency ){
         	
-        	if (destinyTask.Dependent__c != 'None'){
+        	if (destinyTask.Dependent__c != '[]'){
         		if (visitedTasks.contains(Integer.valueOf( destinyTask.Dependent__c ))){
         			hasDependency = true;
 	        		break;
@@ -417,11 +417,11 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
         		}
         	}
         	
-			if( destinyTask.Dependent__c != 'None' && destinyTask.Dependent__c != null  ){
+			if( destinyTask.Dependent__c != '[]' && destinyTask.Dependent__c != null  ){
 				Integer tempIndexDestiny 	= Integer.valueOf( destinyTask.Dependent__c );
 				APTTaskTemplate__c link 		= this.aptTasks[ tempIndexDestiny ];
 	
-				if( link.Dependent__c != 'None' ){
+				if( link.Dependent__c != '[]' ){
 					if( Integer.valueOf( link.Dependent__c ) == index ){
 						hasDependency = true;
     					break;

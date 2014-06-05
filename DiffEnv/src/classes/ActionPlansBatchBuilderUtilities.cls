@@ -172,6 +172,7 @@ public with sharing class ActionPlansBatchBuilderUtilities {
 				} 
 
 				if( t.Dependent__c != '[]' && t.Dependent__c != null ){
+					System.debug('Test'+t.Dependent__c);
 					List<String> selectedValues = ActionPlansUtilities.parseMultiSelect(t.Dependent__c);
 					for(String val : selectedValues){
 						Integer tempIndex   = Integer.valueOf( val );
@@ -186,7 +187,7 @@ public with sharing class ActionPlansBatchBuilderUtilities {
 					   
 					//set dependency taskId to none if none was selected
 					if (t.Dependent__c == null || t.Dependent__c == '[]'){
-						t.Dependent__c = 'None';
+						t.Dependent__c = '';
 					}
                         
 					if( ap.SkipWeekends__c == true && ap.SkipDay__c != null){
@@ -307,7 +308,7 @@ public with sharing class ActionPlansBatchBuilderUtilities {
 			}
 			t.ActivityDate  = t_t.ActivityDate__c;  
                  
-            if( t_t.Dependent__c == 'None' ){
+            if( t_t.Dependent__c == '[]' ){
                 if( t_t.SendEmail__c == true ){
                     if( t.id == null )  {this.myNewTasksWithEmail.add( t );}
                     else                {this.myOldTasksWithEmail.add( t ); }

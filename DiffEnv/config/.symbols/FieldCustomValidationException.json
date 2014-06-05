@@ -1,0 +1,113 @@
+{
+    "properties": [
+        {
+            "modifiers": [], 
+            "name": "dmlException", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 35
+            }, 
+            "type": "DmlException"
+        }
+    ], 
+    "methods": [
+        {
+            "modifiers": [], 
+            "name": "getCustomMessage", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 45
+            }, 
+            "returnType": "String", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "testCustomMessage", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 32, 
+                "line": 53
+            }, 
+            "returnType": "void", 
+            "type": null
+        }
+    ], 
+    "innerClasses": [], 
+    "variables": [
+        {
+            "type": "DmlException", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 54, 
+                "line": 40
+            }, 
+            "name": "e"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 10, 
+                "line": 47
+            }, 
+            "name": "message"
+        }, 
+        {
+            "type": "Account", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 56
+            }, 
+            "name": "c"
+        }
+    ], 
+    "constructors": [
+        {
+            "modifiers": [], 
+            "name": "FieldCustomValidationException", 
+            "parameters": [
+                {
+                    "type": "DmlException", 
+                    "name": "e"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 9, 
+                "line": 40
+            }, 
+            "type": null
+        }
+    ], 
+    "namespace": null, 
+    "name": "FieldCustomValidationException", 
+    "tableDeclaration": {
+        "type": "FieldCustomValidationException", 
+        "modifiers": [], 
+        "references": [], 
+        "location": {
+            "column": 14, 
+            "line": 33
+        }, 
+        "name": "FieldCustomValidationException"
+    }, 
+    "key": "01pF0000003Qcqe", 
+    "id": "01pF0000003Qcqe", 
+    "externalReferences": []
+}

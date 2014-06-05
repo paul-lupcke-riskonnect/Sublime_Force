@@ -1,0 +1,164 @@
+{
+    "properties": [
+        {
+            "modifiers": [], 
+            "name": "leftOptions", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 7
+            }, 
+            "type": "LIST"
+        }, 
+        {
+            "modifiers": [], 
+            "name": "rightOptions", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 13
+            }, 
+            "type": "LIST"
+        }, 
+        {
+            "modifiers": [], 
+            "name": "leftOptionsHidden", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 19, 
+                "line": 38
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [], 
+            "name": "rightOptionsHidden", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 19, 
+                "line": 46
+            }, 
+            "type": "String"
+        }
+    ], 
+    "methods": [
+        {
+            "modifiers": [], 
+            "name": "setOptions", 
+            "parameters": [
+                {
+                    "type": "LIST", 
+                    "name": "options"
+                }, 
+                {
+                    "type": "String", 
+                    "name": "value"
+                }
+            ], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 27
+            }, 
+            "returnType": "void", 
+            "type": null
+        }
+    ], 
+    "innerClasses": [], 
+    "variables": [
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 8
+            }, 
+            "name": "tmp"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 14
+            }, 
+            "name": "tmp"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 44, 
+                "line": 27
+            }, 
+            "name": "options"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 60, 
+                "line": 27
+            }, 
+            "name": "value"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 29
+            }, 
+            "name": "parts"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 30
+            }, 
+            "name": "i"
+        }
+    ], 
+    "constructors": [
+        {
+            "modifiers": [], 
+            "name": "MultiselectController", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 20
+            }, 
+            "type": null
+        }
+    ], 
+    "namespace": null, 
+    "name": "MultiselectController", 
+    "tableDeclaration": {
+        "type": "MultiselectController", 
+        "modifiers": [], 
+        "references": [], 
+        "location": {
+            "column": 27, 
+            "line": 5
+        }, 
+        "name": "MultiselectController"
+    }, 
+    "key": "01pF0000003QyrE", 
+    "id": "01pF0000003QyrE", 
+    "externalReferences": []
+}

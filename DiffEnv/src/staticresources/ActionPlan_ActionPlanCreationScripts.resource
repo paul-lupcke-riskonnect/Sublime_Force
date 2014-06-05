@@ -27,7 +27,7 @@ ActionPlanCreationScripts = {
 		// check itself dependency
         if( index[5] == document.getElementById( dependent ).value ){
 			alert( AP_ITSELF_TASK_DEPENDENCY );
-            document.getElementById( dependent ).value = 'None';
+            document.getElementById( dependent ).value = '';
         }
         // check dependency cycles
         else{
@@ -40,7 +40,7 @@ ActionPlanCreationScripts = {
 				else{
 					cycle = true;
 					alert( AP_REMOVE_CYCLIC_DEPENDENCY );
-					document.getElementById( dependent ).value = 'None';	
+					document.getElementById( dependent ).value = '';	
 				}
         	}
         } 
@@ -49,7 +49,7 @@ ActionPlanCreationScripts = {
     	var x = document.getElementById(dependent);
     	window.alert(x);
     	if(dependent.indexOf('None')>-1){
-    		document.getElementById( dependent ).value = 'None';
+    		document.getElementById( dependent ).value = '';
     	}
     	else{
     		window.alert('Please deselect none before other options.')
@@ -363,7 +363,7 @@ ActionPlanCreationScripts = {
 		var dependentTasks = new Array();
 		var i = 0;
 		if( dependence != null ){
-			while( dependence.value != 'None' ){
+			while( dependence.value != '[]' ){
 				dependentTasks[i] 	= dependence.value;
 				dependence 			= document.getElementById( 'editPage:apForm:editBlock:taskSection:taskTable:' + dependence.value + ':dependent' );
 				i++;

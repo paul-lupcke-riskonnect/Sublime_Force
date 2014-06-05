@@ -1,0 +1,595 @@
+{
+    "properties": [
+        {
+            "modifiers": [], 
+            "name": "importedTasks", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 42, 
+                "line": 35
+            }, 
+            "type": "Map"
+        }, 
+        {
+            "modifiers": [], 
+            "name": "newTasks", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 42, 
+                "line": 36
+            }, 
+            "type": "Map"
+        }
+    ], 
+    "methods": [
+        {
+            "modifiers": [], 
+            "name": "processImportedDocument", 
+            "parameters": [
+                {
+                    "type": "Attachment", 
+                    "name": "document"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 53
+            }, 
+            "returnType": "String", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "readingMetaData", 
+            "parameters": [
+                {
+                    "type": "String", 
+                    "name": "xml"
+                }
+            ], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 15, 
+                "line": 107
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "importAPTemplate", 
+            "parameters": [
+                {
+                    "type": "String", 
+                    "name": "xml"
+                }
+            ], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 32, 
+                "line": 132
+            }, 
+            "returnType": "ActionPlanTemplate__c", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "importAPTtasks", 
+            "parameters": [
+                {
+                    "type": "String", 
+                    "name": "xml"
+                }, 
+                {
+                    "type": "String", 
+                    "name": "apTemplateId"
+                }
+            ], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 15, 
+                "line": 155
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "parseMetaData", 
+            "parameters": [
+                {
+                    "type": "XmlStreamReader", 
+                    "name": "reader"
+                }
+            ], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 175
+            }, 
+            "returnType": "Boolean", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "parseTemplate", 
+            "parameters": [
+                {
+                    "type": "XmlStreamReader", 
+                    "name": "reader"
+                }
+            ], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 32, 
+                "line": 231
+            }, 
+            "returnType": "ActionPlanTemplate__c", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "parseTemplateTask", 
+            "parameters": [
+                {
+                    "type": "XmlStreamReader", 
+                    "name": "reader"
+                }, 
+                {
+                    "type": "String", 
+                    "name": "apTemplateId"
+                }
+            ], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 15, 
+                "line": 282
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "setupDependentTasks", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 35, 
+                "line": 377
+            }, 
+            "returnType": "LIST", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "getDecodedString", 
+            "parameters": [
+                {
+                    "type": "XmlStreamReader", 
+                    "name": "reader"
+                }
+            ], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 410
+            }, 
+            "returnType": "String", 
+            "type": null
+        }
+    ], 
+    "innerClasses": [], 
+    "variables": [
+        {
+            "type": "Attachment", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 52, 
+                "line": 53
+            }, 
+            "name": "document"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 10, 
+                "line": 55
+            }, 
+            "name": "xml"
+        }, 
+        {
+            "type": "ActionPlanTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 25, 
+                "line": 56
+            }, 
+            "name": "apTemplate"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 94
+            }, 
+            "name": "updatedTasks"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 39, 
+                "line": 107
+            }, 
+            "name": "xml"
+        }, 
+        {
+            "type": "XmlStreamReader", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 19, 
+                "line": 109
+            }, 
+            "name": "reader"
+        }, 
+        {
+            "type": "Boolean", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 11, 
+                "line": 110
+            }, 
+            "name": "foundMetaData"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 57, 
+                "line": 132
+            }, 
+            "name": "xml"
+        }, 
+        {
+            "type": "ActionPlanTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 25, 
+                "line": 134
+            }, 
+            "name": "apTemplate"
+        }, 
+        {
+            "type": "XmlStreamReader", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 19, 
+                "line": 135
+            }, 
+            "name": "reader"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 38, 
+                "line": 155
+            }, 
+            "name": "xml"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 50, 
+                "line": 155
+            }, 
+            "name": "apTemplateId"
+        }, 
+        {
+            "type": "XmlStreamReader", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 19, 
+                "line": 157
+            }, 
+            "name": "reader"
+        }, 
+        {
+            "type": "XmlStreamReader", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 49, 
+                "line": 175
+            }, 
+            "name": "reader"
+        }, 
+        {
+            "type": "Boolean", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 11, 
+                "line": 177
+            }, 
+            "name": "correctMetaData"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 183
+            }, 
+            "name": "packageName"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 192
+            }, 
+            "name": "author"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 201
+            }, 
+            "name": "organization"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 210
+            }, 
+            "name": "createdDate"
+        }, 
+        {
+            "type": "XmlStreamReader", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 63, 
+                "line": 231
+            }, 
+            "name": "reader"
+        }, 
+        {
+            "type": "ActionPlanTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 25, 
+                "line": 233
+            }, 
+            "name": "apTemplateAux"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 244
+            }, 
+            "name": "descValue"
+        }, 
+        {
+            "type": "XmlStreamReader", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 50, 
+                "line": 282
+            }, 
+            "name": "reader"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 65, 
+                "line": 282
+            }, 
+            "name": "apTemplateId"
+        }, 
+        {
+            "type": "APTTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 284
+            }, 
+            "name": "apTaskAux"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 10, 
+                "line": 287
+            }, 
+            "name": "currentTaskOldId"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 313
+            }, 
+            "name": "referenceId"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 351
+            }, 
+            "name": "commentValue"
+        }, 
+        {
+            "type": "APTTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 368
+            }, 
+            "name": "clonedTask"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 380
+            }, 
+            "name": "updatedTasks"
+        }, 
+        {
+            "type": "Set", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 15, 
+                "line": 382
+            }, 
+            "name": "keys"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 15, 
+                "line": 384
+            }, 
+            "name": "key"
+        }, 
+        {
+            "type": "APTTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 385
+            }, 
+            "name": "auxNewTask"
+        }, 
+        {
+            "type": "APTTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 386
+            }, 
+            "name": "auxOldTask"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 13, 
+                "line": 391
+            }, 
+            "name": "auxRefId"
+        }, 
+        {
+            "type": "APTTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 25, 
+                "line": 393
+            }, 
+            "name": "auxRefTask"
+        }, 
+        {
+            "type": "XmlStreamReader", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 51, 
+                "line": 410
+            }, 
+            "name": "reader"
+        }
+    ], 
+    "constructors": [
+        {
+            "modifiers": [], 
+            "name": "ImportActionPlanTemplate", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 9, 
+                "line": 41
+            }, 
+            "type": null
+        }
+    ], 
+    "namespace": null, 
+    "name": "ImportActionPlanTemplate", 
+    "tableDeclaration": {
+        "type": "ImportActionPlanTemplate", 
+        "modifiers": [], 
+        "references": [], 
+        "location": {
+            "column": 27, 
+            "line": 33
+        }, 
+        "name": "ImportActionPlanTemplate"
+    }, 
+    "key": "01pF0000003Qcqf", 
+    "id": "01pF0000003Qcqf", 
+    "externalReferences": []
+}

@@ -17,6 +17,53 @@
         <name>ApexTrigger</name>
     </types>
     <types>
+        <members>APTTaskTemplate__c</members>
+        <members>APTaskTemplate__c</members>
+        <members>Account</members>
+        <members>AccountCleanInfo</members>
+        <members>AccountContactRole</members>
+        <members>ActionPlanTemplate__c</members>
+        <members>ActionPlan__c</members>
+        <members>Action_Plans_Settings__c</members>
+        <members>Activity</members>
+        <members>Asset</members>
+        <members>Campaign</members>
+        <members>CampaignMember</members>
+        <members>Case</members>
+        <members>CaseContactRole</members>
+        <members>Contact</members>
+        <members>ContactCleanInfo</members>
+        <members>ContentVersion</members>
+        <members>Contract</members>
+        <members>ContractContactRole</members>
+        <members>DandBCompany</members>
+        <members>Event</members>
+        <members>Idea</members>
+        <members>Lead</members>
+        <members>LeadCleanInfo</members>
+        <members>Opportunity</members>
+        <members>OpportunityCompetitor</members>
+        <members>OpportunityContactRole</members>
+        <members>OpportunityLineItem</members>
+        <members>Order</members>
+        <members>OrderItem</members>
+        <members>ParentChild__c</members>
+        <members>PartnerRole</members>
+        <members>Pricebook2</members>
+        <members>Product2</members>
+        <members>Site</members>
+        <members>SiteChangelist</members>
+        <members>SocialPersona</members>
+        <members>Solution</members>
+        <members>Task</members>
+        <members>User</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>Profile</name>
+    </types>
+    <types>
         <members>*</members>
         <name>StaticResource</name>
     </types>

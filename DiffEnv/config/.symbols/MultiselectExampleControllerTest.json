@@ -1,0 +1,92 @@
+{
+    "properties": [], 
+    "methods": [
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "testMultiselectExampleController", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 24
+            }, 
+            "returnType": "void", 
+            "type": null
+        }
+    ], 
+    "innerClasses": [], 
+    "variables": [
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 26
+            }, 
+            "name": "l"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 19, 
+                "line": 27
+            }, 
+            "name": "i"
+        }, 
+        {
+            "type": "Contact", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 15, 
+                "line": 28
+            }, 
+            "name": "c"
+        }, 
+        {
+            "type": "MultiselectExampleController", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 35, 
+                "line": 33
+            }, 
+            "name": "c"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 35
+            }, 
+            "name": "contacts"
+        }
+    ], 
+    "constructors": [], 
+    "namespace": null, 
+    "name": "MultiselectExampleControllerTest", 
+    "tableDeclaration": {
+        "type": "MultiselectExampleControllerTest", 
+        "modifiers": [
+            "TEST"
+        ], 
+        "references": [], 
+        "location": {
+            "column": 15, 
+            "line": 23
+        }, 
+        "name": "MultiselectExampleControllerTest"
+    }, 
+    "key": "01pF0000003Qyrf", 
+    "id": "01pF0000003Qyrf", 
+    "externalReferences": []
+}

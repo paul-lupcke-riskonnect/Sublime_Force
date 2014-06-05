@@ -22,7 +22,7 @@ ActionPlanTemplateCreationScripts = {
 		var visitedTasks = new Array();
         if (index[5] == document.getElementById(dependent).value){
 			alert ( AP_ITSELF_TASK_DEPENDENCY );
-            document.getElementById(dependent).value = 'None';
+            document.getElementById(dependent).value = '[]';
         }
         // check dependency cycles
         else{
@@ -35,7 +35,7 @@ ActionPlanTemplateCreationScripts = {
 				else{
 					cycle = true;
 					alert( AP_REMOVE_CYCLIC_DEPENDENCY );
-					document.getElementById( dependent ).value = 'None';	
+					document.getElementById( dependent ).value = '[]';	
 				}
         	}
         } 

@@ -1,0 +1,22 @@
+{
+    "properties": [], 
+    "methods": [], 
+    "innerClasses": [], 
+    "variables": [], 
+    "constructors": [], 
+    "namespace": null, 
+    "name": "ImportException", 
+    "tableDeclaration": {
+        "type": "ImportException", 
+        "modifiers": [], 
+        "references": [], 
+        "location": {
+            "column": 27, 
+            "line": 33
+        }, 
+        "name": "ImportException"
+    }, 
+    "key": "01pF0000003Qcqg", 
+    "id": "01pF0000003Qcqg", 
+    "externalReferences": []
+}

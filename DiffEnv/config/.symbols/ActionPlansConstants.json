@@ -1,0 +1,62 @@
+{
+    "properties": [
+        {
+            "modifiers": [
+                "STATIC"
+            ], 
+            "name": "maxAPTasks", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 30, 
+                "line": 36
+            }, 
+            "type": "Integer"
+        }, 
+        {
+            "modifiers": [
+                "STATIC"
+            ], 
+            "name": "maxAPObjects", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 30, 
+                "line": 39
+            }, 
+            "type": "Integer"
+        }, 
+        {
+            "modifiers": [
+                "STATIC"
+            ], 
+            "name": "maxAPToDelete", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 30, 
+                "line": 42
+            }, 
+            "type": "Integer"
+        }
+    ], 
+    "methods": [], 
+    "innerClasses": [], 
+    "variables": [], 
+    "constructors": [], 
+    "namespace": null, 
+    "name": "ActionPlansConstants", 
+    "tableDeclaration": {
+        "type": "ActionPlansConstants", 
+        "modifiers": [], 
+        "references": [], 
+        "location": {
+            "column": 27, 
+            "line": 33
+        }, 
+        "name": "ActionPlansConstants"
+    }, 
+    "key": "01pF0000003QcqX", 
+    "id": "01pF0000003QcqX", 
+    "externalReferences": []
+}
