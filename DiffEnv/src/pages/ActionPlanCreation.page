@@ -1,5 +1,5 @@
 <!--
-Action Plans v3
+Action Plans v3 
 Force.com Labs
 http://appexchange.salesforce.com/listingDetail?listingId=a0N30000003HcINEA0
 
@@ -114,12 +114,12 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
 	                
 	                <apex:pageBlockSectionItem id="StartDateReadonlySection" rendered="{!IF(Completed > 0, true, false)}">
 	                    <apex:outputLabel value="{!$Label.ap_PlanStartDate}"/>
-	                    <apex:outputField id="StartDateReadonly" value="{!actionPlan.StartDate__c}"/>
+	                    <apex:outputField id="StartDateReadonly" value="{!actionPlan.Start_Date_Time__c}"/>
 	                </apex:pageBlockSectionItem>
 	                
 	                <apex:pageBlockSectionItem id="StartDateSection" rendered="{!IF(Completed == 0, true, false)}">
 	                    <apex:outputLabel value="{!$Label.ap_PlanStartDate}" for="StartDate"/>
-	                    <apex:inputField id="StartDate" required="true" value="{!actionPlan.StartDate__c}" onclick="ActionPlanCreationScripts.showAgain();"/>
+	                    <apex:inputField id="StartDate" required="true" value="{!actionPlan.Start_Date_Time__c}" onclick="ActionPlanCreationScripts.showAgain();"/>
 	                </apex:pageBlockSectionItem> 
                 </apex:pageBlockSection>
                 
@@ -282,40 +282,43 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
 		                        </apex:column>
 
 		                        <!--  Tasks depending status  -->		                        
-		                        <apex:column headerValue="{!$ObjectType.APTaskTemplate__c.fields.APTaskTemplate__c.label}" rendered="true" headerClass="thirdN" >
-		                            <!-- "{!IF(TaskSize > 1, true, false)}"-->
+		                        <apex:column headerValue="{!$ObjectType.APTaskTemplate__c.fields.APTaskTemplate__c.label}" rendered="{!IF(TaskSize > 1, true, false)}" headerClass="thirdN" >
+		                            <!--
+		                            "{!IF(TaskSize > 1, true, false)}" 
+		                            onblur="javascript:ActionPlanCreationScripts.keepDependentClean('{!$Component.taskTable}');"
+		                            selectedDependencies
+		                            -->
 
 		                            <!--<apex:selectList id="dependent" value="{!wrapTask.task.Dependent__c}" multiselect="true" size="1"  
-		                            onchange="javascript:ActionPlanCreationScripts.checkDependent('{!$Component.taskTable.dependent}');" onblur="javascript:ActionPlanCreationScripts.keepDependentClean('{!$Component.taskTable}');"
+		                            onchange="javascript:ActionPlanCreationScripts.checkDependent('{!$Component.taskTable.dependent}');" 
 		                            styleClass="selectDepending">
 		                                <apex:selectOptions value="{!SubjectItems}" />
 		                            </apex:selectList>-->
 
 
-		                            <c:MultiselectPicklist id="dependent" leftLabel="Possible"
+		                            <c:MultiselectPicklist leftLabel="Possible"
 						                leftOptions="{!SubjectItems}"
 						                rightLabel="Selected"
-						                rightOptions="{!selectedDependencies}"
+						                rightOptions="{!savedDependencies}"
 						                size="5"
 						                width="100px"
 						                />
-
 
 		                            <apex:inputHidden value="{!wrapTask.task.taskIndex__c}" id="theHiddenInput"/>
 		                        </apex:column>
 
 		                        <!--  Tasks Days After  -->		                        
 		                        <apex:column headerClass="fourthN" >
-		                       		<apex:facet name="header">{!$ObjectType.APTaskTemplate__c.fields.DaysFromStart__c.label}
+		                       		<apex:facet name="header">{!$ObjectType.APTaskTemplate__c.fields.Hours_After__c.label}
 										<span id="daysAfterTtip_help" class="helpButton">
 											<img class="helpOrb" title="{!$Label.ap_days_after_msg}" src="/s.gif"/>
 										</span>
 									</apex:facet>
 		                       		
 		                       		<div style="float:left;width:50%;">
-		                       			<apex:inputField id="daysFromStart" onchange="javascript:ActionPlanCreationScripts.checkDays('{!$Component.taskTable.columnOne}');" value="{!wrapTask.task.DaysFromStart__c}" styleClass="days_input"/>
+		                       			<apex:inputField id="daysFromStart" onchange="javascript:ActionPlanCreationScripts.checkDays('{!$Component.taskTable.columnOne}');" value="{!wrapTask.task.Hours_After__c}" styleClass="days_input"/>
 		                       		</div>
-		                       		<div style="float:left">
+		                       		<!--<div style="float:left">
 		                        		<apex:image id="calendarDueDate" 
 			                        		onmouseover="javascript:ActionPlanCreationScripts.showCalendar('{!$Component.taskTable.columnOne}');" 
 			                        		onmouseout="javascript:ActionPlanCreationScripts.hideCalendar();" 
@@ -324,7 +327,7 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
 			                        		style="float:left">
 		                        		</apex:image>
 		                       		</div>
-		            				<div style="display:none"><apex:inputField id="activityDate" value="{!wrapTask.task.ActivityDate__c}"/></div>                   
+		            				<div style="display:none"><apex:inputField id="activityDate" value="{!wrapTask.task.Due_By__c}"/></div> -->                  
 		                        </apex:column>
 		                   
 		                        <!--  Tasks Assigned TO  -->			                        

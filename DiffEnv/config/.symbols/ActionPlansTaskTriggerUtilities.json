@@ -131,7 +131,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 195
+                "line": 196
             }, 
             "returnType": "void", 
             "type": null
@@ -148,10 +148,10 @@
             "visibility": "PRIVATE", 
             "references": [], 
             "location": {
-                "column": 19, 
-                "line": 282
+                "column": 23, 
+                "line": 283
             }, 
-            "returnType": "Date", 
+            "returnType": "Datetime", 
             "type": null
         }, 
         {
@@ -167,7 +167,7 @@
             "references": [], 
             "location": {
                 "column": 37, 
-                "line": 300
+                "line": 301
             }, 
             "returnType": "Map", 
             "type": null
@@ -207,7 +207,7 @@
             "references": [], 
             "location": {
                 "column": 24, 
-                "line": 321
+                "line": 322
             }, 
             "returnType": "void", 
             "type": null
@@ -227,7 +227,7 @@
             "references": [], 
             "location": {
                 "column": 24, 
-                "line": 339
+                "line": 340
             }, 
             "returnType": "void", 
             "type": null
@@ -247,7 +247,7 @@
             "references": [], 
             "location": {
                 "column": 24, 
-                "line": 352
+                "line": 353
             }, 
             "returnType": "void", 
             "type": null
@@ -267,7 +267,7 @@
             "references": [], 
             "location": {
                 "column": 24, 
-                "line": 365
+                "line": 366
             }, 
             "returnType": "void", 
             "type": null
@@ -291,7 +291,7 @@
             "references": [], 
             "location": {
                 "column": 25, 
-                "line": 379
+                "line": 380
             }, 
             "returnType": "void", 
             "type": null
@@ -311,7 +311,7 @@
             "references": [], 
             "location": {
                 "column": 24, 
-                "line": 456
+                "line": 457
             }, 
             "returnType": "void", 
             "type": null
@@ -410,12 +410,22 @@
             "name": "lt"
         }, 
         {
+            "type": "Datetime", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 164
+            }, 
+            "name": "tmp"
+        }, 
+        {
             "type": "Date", 
             "modifiers": [], 
             "references": [], 
             "location": {
                 "column": 22, 
-                "line": 164
+                "line": 165
             }, 
             "name": "dueDate"
         }, 
@@ -425,7 +435,7 @@
             "references": [], 
             "location": {
                 "column": 25, 
-                "line": 165
+                "line": 166
             }, 
             "name": "addDays"
         }, 
@@ -435,7 +445,7 @@
             "references": [], 
             "location": {
                 "column": 22, 
-                "line": 168
+                "line": 169
             }, 
             "name": "refDate"
         }, 
@@ -445,27 +455,27 @@
             "references": [], 
             "location": {
                 "column": 25, 
-                "line": 170
+                "line": 171
             }, 
             "name": "dayOfWeek"
         }, 
         {
-            "type": "Date", 
+            "type": "Datetime", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 22, 
-                "line": 175
+                "column": 26, 
+                "line": 176
             }, 
             "name": "d"
         }, 
         {
-            "type": "Date", 
+            "type": "Datetime", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 22, 
-                "line": 179
+                "column": 26, 
+                "line": 180
             }, 
             "name": "d"
         }, 
@@ -475,7 +485,7 @@
             "references": [], 
             "location": {
                 "column": 14, 
-                "line": 196
+                "line": 197
             }, 
             "name": "t2"
         }, 
@@ -485,7 +495,7 @@
             "references": [], 
             "location": {
                 "column": 32, 
-                "line": 199
+                "line": 200
             }, 
             "name": "dependentAptt"
         }, 
@@ -495,17 +505,17 @@
             "references": [], 
             "location": {
                 "column": 24, 
-                "line": 202
+                "line": 203
             }, 
             "name": "lt"
         }, 
         {
-            "type": "Date", 
+            "type": "Datetime", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 18, 
-                "line": 215
+                "column": 22, 
+                "line": 216
             }, 
             "name": "d"
         }, 
@@ -514,18 +524,18 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 51, 
-                "line": 282
+                "column": 55, 
+                "line": 283
             }, 
             "name": "aptTaskId"
         }, 
         {
-            "type": "Date", 
+            "type": "Datetime", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 8, 
-                "line": 283
+                "column": 12, 
+                "line": 284
             }, 
             "name": "d"
         }, 
@@ -535,7 +545,7 @@
             "references": [], 
             "location": {
                 "column": 21, 
-                "line": 284
+                "line": 285
             }, 
             "name": "lAPT"
         }, 
@@ -545,7 +555,7 @@
             "references": [], 
             "location": {
                 "column": 93, 
-                "line": 300
+                "line": 301
             }, 
             "name": "aptTasks"
         }, 
@@ -555,7 +565,7 @@
             "references": [], 
             "location": {
                 "column": 14, 
-                "line": 302
+                "line": 303
             }, 
             "name": "usersSet"
         }, 
@@ -565,7 +575,7 @@
             "references": [], 
             "location": {
                 "column": 26, 
-                "line": 303
+                "line": 304
             }, 
             "name": "apTask"
         }, 
@@ -575,7 +585,7 @@
             "references": [], 
             "location": {
                 "column": 26, 
-                "line": 306
+                "line": 307
             }, 
             "name": "userPrefsMap"
         }, 
@@ -585,7 +595,7 @@
             "references": [], 
             "location": {
                 "column": 26, 
-                "line": 309
+                "line": 310
             }, 
             "name": "userPrefbyUserMap"
         }, 
@@ -595,7 +605,7 @@
             "references": [], 
             "location": {
                 "column": 23, 
-                "line": 310
+                "line": 311
             }, 
             "name": "userPref"
         }, 
@@ -635,7 +645,7 @@
             "references": [], 
             "location": {
                 "column": 58, 
-                "line": 321
+                "line": 322
             }, 
             "name": "cTasks"
         }, 
@@ -645,7 +655,7 @@
             "references": [], 
             "location": {
                 "column": 38, 
-                "line": 323
+                "line": 324
             }, 
             "name": "apUtils"
         }, 
@@ -655,7 +665,7 @@
             "references": [], 
             "location": {
                 "column": 52, 
-                "line": 339
+                "line": 340
             }, 
             "name": "aPTasks"
         }, 
@@ -665,7 +675,7 @@
             "references": [], 
             "location": {
                 "column": 45, 
-                "line": 352
+                "line": 353
             }, 
             "name": "apttIds"
         }, 
@@ -675,7 +685,7 @@
             "references": [], 
             "location": {
                 "column": 61, 
-                "line": 365
+                "line": 366
             }, 
             "name": "aPlansIds"
         }, 
@@ -685,7 +695,7 @@
             "references": [], 
             "location": {
                 "column": 27, 
-                "line": 366
+                "line": 367
             }, 
             "name": "apUtil"
         }, 
@@ -695,7 +705,7 @@
             "references": [], 
             "location": {
                 "column": 25, 
-                "line": 368
+                "line": 369
             }, 
             "name": "apId"
         }, 
@@ -705,7 +715,7 @@
             "references": [], 
             "location": {
                 "column": 80, 
-                "line": 379
+                "line": 380
             }, 
             "name": "apTasks"
         }, 
@@ -715,7 +725,7 @@
             "references": [], 
             "location": {
                 "column": 96, 
-                "line": 379
+                "line": 380
             }, 
             "name": "tmp_taskIndex"
         }, 
@@ -725,7 +735,7 @@
             "references": [], 
             "location": {
                 "column": 22, 
-                "line": 380
+                "line": 381
             }, 
             "name": "pendingIdsToDelete"
         }, 
@@ -735,7 +745,7 @@
             "references": [], 
             "location": {
                 "column": 11, 
-                "line": 382
+                "line": 383
             }, 
             "name": "taskIndex"
         }, 
@@ -745,7 +755,7 @@
             "references": [], 
             "location": {
                 "column": 27, 
-                "line": 383
+                "line": 384
             }, 
             "name": "apTask"
         }, 
@@ -755,7 +765,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 384
+                "line": 385
             }, 
             "name": "dependentApTask"
         }, 
@@ -765,7 +775,7 @@
             "references": [], 
             "location": {
                 "column": 16, 
-                "line": 386
+                "line": 387
             }, 
             "name": "t_i"
         }, 
@@ -775,7 +785,7 @@
             "references": [], 
             "location": {
                 "column": 22, 
-                "line": 395
+                "line": 396
             }, 
             "name": "i"
         }, 
@@ -785,7 +795,7 @@
             "references": [], 
             "location": {
                 "column": 41, 
-                "line": 420
+                "line": 421
             }, 
             "name": "apUtils"
         }, 
@@ -795,7 +805,7 @@
             "references": [], 
             "location": {
                 "column": 33, 
-                "line": 434
+                "line": 435
             }, 
             "name": "dmlo"
         }, 
@@ -805,7 +815,7 @@
             "references": [], 
             "location": {
                 "column": 65, 
-                "line": 456
+                "line": 457
             }, 
             "name": "cTasks"
         }, 
@@ -815,7 +825,7 @@
             "references": [], 
             "location": {
                 "column": 39, 
-                "line": 461
+                "line": 462
             }, 
             "name": "apUtils"
         }, 
@@ -825,7 +835,7 @@
             "references": [], 
             "location": {
                 "column": 37, 
-                "line": 462
+                "line": 463
             }, 
             "name": "apIdsMaps"
         }, 
@@ -835,7 +845,7 @@
             "references": [], 
             "location": {
                 "column": 32, 
-                "line": 463
+                "line": 464
             }, 
             "name": "lAPT"
         }, 
@@ -845,7 +855,7 @@
             "references": [], 
             "location": {
                 "column": 26, 
-                "line": 468
+                "line": 469
             }, 
             "name": "ap"
         }, 
@@ -855,7 +865,7 @@
             "references": [], 
             "location": {
                 "column": 32, 
-                "line": 472
+                "line": 473
             }, 
             "name": "tmp_lAPT"
         }, 
@@ -865,7 +875,7 @@
             "references": [], 
             "location": {
                 "column": 25, 
-                "line": 473
+                "line": 474
             }, 
             "name": "aux"
         }, 
@@ -875,7 +885,7 @@
             "references": [], 
             "location": {
                 "column": 18, 
-                "line": 474
+                "line": 475
             }, 
             "name": "apId"
         }

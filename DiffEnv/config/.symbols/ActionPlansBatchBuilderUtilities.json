@@ -436,7 +436,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 15, 
+                "column": 12, 
                 "line": 194
             }, 
             "name": "dueDate"
@@ -447,7 +447,7 @@
             "references": [], 
             "location": {
                 "column": 18, 
-                "line": 195
+                "line": 197
             }, 
             "name": "addDays"
         }, 
@@ -457,7 +457,7 @@
             "references": [], 
             "location": {
                 "column": 15, 
-                "line": 198
+                "line": 200
             }, 
             "name": "refDate"
         }, 
@@ -467,9 +467,29 @@
             "references": [], 
             "location": {
                 "column": 18, 
-                "line": 199
+                "line": 201
             }, 
             "name": "dayOfWeek"
+        }, 
+        {
+            "type": "Date", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 15, 
+                "line": 213
+            }, 
+            "name": "tmp"
+        }, 
+        {
+            "type": "Date", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 15, 
+                "line": 219
+            }, 
+            "name": "tmp"
         }, 
         {
             "type": "Task", 
@@ -477,7 +497,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 230
+                "line": 235
             }, 
             "name": "task_tmp"
         }, 
@@ -487,7 +507,7 @@
             "references": [], 
             "location": {
                 "column": 8, 
-                "line": 234
+                "line": 239
             }, 
             "name": "t"
         }, 
@@ -497,7 +517,7 @@
             "references": [], 
             "location": {
                 "column": 26, 
-                "line": 235
+                "line": 240
             }, 
             "name": "t_t"
         }, 
@@ -507,7 +527,7 @@
             "references": [], 
             "location": {
                 "column": 22, 
-                "line": 262
+                "line": 267
             }, 
             "name": "apt"
         }, 
@@ -517,7 +537,7 @@
             "references": [], 
             "location": {
                 "column": 29, 
-                "line": 328
+                "line": 334
             }, 
             "name": "dmlo"
         }, 
@@ -527,7 +547,7 @@
             "references": [], 
             "location": {
                 "column": 29, 
-                "line": 329
+                "line": 335
             }, 
             "name": "dmlo2"
         }, 
@@ -537,7 +557,7 @@
             "references": [], 
             "location": {
                 "column": 38, 
-                "line": 357
+                "line": 363
             }, 
             "name": "mySettings"
         }, 
@@ -547,7 +567,7 @@
             "references": [], 
             "location": {
                 "column": 21, 
-                "line": 361
+                "line": 367
             }, 
             "name": "isEnabledForFeed"
         }

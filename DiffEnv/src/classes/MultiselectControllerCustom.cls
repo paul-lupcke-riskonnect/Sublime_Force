@@ -2,7 +2,7 @@
  * MultiselectController synchronizes the values of the hidden elements to the
  * SelectOption lists.
  */
-public with sharing class MultiselectController {
+public with sharing class MultiselectControllerCustom {
     // SelectOption lists for public consumption
     public SelectOption[] leftOptions { get; 
         set{SelectOption[] tmp = value;
@@ -10,12 +10,16 @@ public with sharing class MultiselectController {
         this.leftOptions=tmp;
         }
     }
-    public List<SelectOption[]> rightOptions { get; set;}
+    public SelectOption[] rightOptions { get; set{
+        SelectOption[] tmp = value;
+        if(tmp==null){tmp=new SelectOption[]{};}
+        this.rightOptions=tmp;
+        }
+    }
     
-    public MultiselectController(){
+    public MultiselectControllerCustom(){
         leftOptions = new SelectOption[]{};
-        rightOptions = new List<SelectOption[]>();
-        //rightOptions[0] = '';
+        rightOptions = new SelectOption[]{};
     }
 
     // Parse &-separated values and labels from value and 
@@ -25,14 +29,6 @@ public with sharing class MultiselectController {
         String[] parts = value.split('&');
         for (Integer i=0; i<parts.size()/2; i++) {
             options.add(new SelectOption(EncodingUtil.urlDecode(parts[i*2], 'UTF-8'), 
-              EncodingUtil.urlDecode(parts[(i*2)+1], 'UTF-8')));
-        }
-    }
-    private void setOptions(List<SelectOption[]> options, String value) {
-        options.add(new SelectOption[]{});
-        String[] parts = value.split('&');
-        for (Integer i=0; i<parts.size()/2; i++) {
-            options[(options.size()-1)].add(new SelectOption(EncodingUtil.urlDecode(parts[i*2], 'UTF-8'), 
               EncodingUtil.urlDecode(parts[(i*2)+1], 'UTF-8')));
         }
     }
@@ -49,7 +45,7 @@ public with sharing class MultiselectController {
     // right list
     public String rightOptionsHidden { get; set {
            rightOptionsHidden = value;
-           setOptions(this.rightOptions, value);
+           setOptions(rightOptions, value);
         }
     }
 }

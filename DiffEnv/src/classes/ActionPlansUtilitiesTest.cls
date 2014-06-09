@@ -427,7 +427,7 @@ public with sharing class ActionPlansUtilitiesTest {
 		APTaskTemplate__c at = new APTaskTemplate__c();
    		at.Action_Plan__c 	 = ap.Id;
    		at.Dependent__c		 = 'None';
-   		at.DaysFromStart__c  = 2.0;
+   		at.Hours_After__c  = 2.0;
    		at.User__c			 = ge2.createTestUser().Id;
    		at.SendEmail__c		 = false;
    		at.Subject__c		 = 'Test ';
@@ -457,7 +457,7 @@ public with sharing class ActionPlansUtilitiesTest {
         APTaskTemplate__c newAPTask5 = new APTaskTemplate__c();
         
         newAPTask1.Subject__c           = testUtil.createRandomWord();
-        newAPTask1.DaysFromStart__c     = 2;
+        newAPTask1.Hours_After__c     = 2;
         newAPTask1.Dependent__c         = '[]';
         newAPTask1.Type__c              = 'Email';
         newAPTask1.Priority__c          = 'High';
@@ -465,7 +465,7 @@ public with sharing class ActionPlansUtilitiesTest {
         upsert newAPTask1;
         
         newAPTask2.Subject__c           = testUtil.createRandomWord();
-        newAPTask2.DaysFromStart__c     = 2;
+        newAPTask2.Hours_After__c     = 2;
         newAPTask2.Dependent__c         = '[0]';
         newAPTask2.Type__c              = 'Email';
         newAPTask2.Priority__c          = 'High';
@@ -473,7 +473,7 @@ public with sharing class ActionPlansUtilitiesTest {
         upsert newAPTask2;
         
         newAPTask3.Subject__c           = testUtil.createRandomWord();
-        newAPTask3.DaysFromStart__c     = 2;
+        newAPTask3.Hours_After__c     = 2;
         newAPTask3.Dependent__c         = '[1,0]';
         newAPTask3.Type__c              = 'Email';
         newAPTask3.Priority__c          = 'High';
@@ -481,7 +481,7 @@ public with sharing class ActionPlansUtilitiesTest {
         upsert newAPTask3;
 
         newAPTask4.Subject__c           = testUtil.createRandomWord();
-        newAPTask4.DaysFromStart__c     = 2;
+        newAPTask4.Hours_After__c     = 2;
         newAPTask4.Dependent__c         = '[2,0]';
         newAPTask4.Type__c              = 'Email';
         newAPTask4.Priority__c          = 'High';
@@ -489,7 +489,7 @@ public with sharing class ActionPlansUtilitiesTest {
         upsert newAPTask4;
         
         newAPTask5.Subject__c           = testUtil.createRandomWord();
-        newAPTask5.DaysFromStart__c     = 2;
+        newAPTask5.Hours_After__c     = 2;
         newAPTask5.Dependent__c         = '[3]';
         newAPTask5.Type__c              = 'Email';
         newAPTask5.Priority__c          = 'High';
@@ -528,31 +528,31 @@ public with sharing class ActionPlansUtilitiesTest {
         APTaskTemplate__c newAPTask5 = new APTaskTemplate__c();
         
         newAPTask1.Subject__c           = testUtil.createRandomWord();
-        newAPTask1.DaysFromStart__c     = 2;
+        newAPTask1.Hours_After__c     = 2;
         newAPTask1.Dependent__c         = '[3]';
         newAPTask1.Type__c              = 'Email';
         newAPTask1.Priority__c          = 'Hight';
         
         newAPTask2.Subject__c           = testUtil.createRandomWord();
-        newAPTask2.DaysFromStart__c     = 2;
+        newAPTask2.Hours_After__c     = 2;
         newAPTask2.Dependent__c         = '[0]';
         newAPTask2.Type__c              = 'Email';
         newAPTask2.Priority__c          = 'Hight';
         
         newAPTask3.Subject__c           = testUtil.createRandomWord();
-        newAPTask3.DaysFromStart__c     = 2;
+        newAPTask3.Hours_After__c     = 2;
         newAPTask3.Dependent__c         = '[0,1]';
         newAPTask3.Type__c              = 'Email';
         newAPTask3.Priority__c          = 'Hight';
 
         newAPTask4.Subject__c           = testUtil.createRandomWord();
-        newAPTask4.DaysFromStart__c     = 2;
+        newAPTask4.Hours_After__c     = 2;
         newAPTask4.Dependent__c         = '[4]';
         newAPTask4.Type__c              = 'Email';
         newAPTask4.Priority__c          = 'Hight';
         
         newAPTask5.Subject__c           = testUtil.createRandomWord();
-        newAPTask5.DaysFromStart__c     = 2;
+        newAPTask5.Hours_After__c     = 2;
         newAPTask5.Dependent__c         = '[1,2]';
         newAPTask5.Type__c              = 'Email';
         newAPTask5.Priority__c          = 'Hight';
@@ -603,7 +603,7 @@ public with sharing class ActionPlansUtilitiesTest {
 		APTaskTemplate__c at = new APTaskTemplate__c();
    		at.Action_Plan__c 	 = ap.Id;
    		at.Dependent__c		 = 'None';
-   		at.DaysFromStart__c  = 2.0;
+   		at.Hours_After__c  = 2.0;
    		at.User__c			 = ge.createTestUser().Id;
    		at.SendEmail__c		 = false;
    		at.Subject__c		 = 'Test ';

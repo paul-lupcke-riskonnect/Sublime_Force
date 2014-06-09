@@ -47,7 +47,7 @@ public with sharing class ActionPlansBatchBuilderTest {
 			APTaskTemplate__c at = new APTaskTemplate__c();
 	   		at.Action_Plan__c 	 = ap.Id;
 	   		at.Dependent__c		 = 'None';
-	   		at.DaysFromStart__c  = 2.0;
+	   		at.Hours_After__c  = 2.0;
 	   		at.User__c			 = u.Id;
 	   		at.SendEmail__c		 = false;
 	   		at.Subject__c		 = 'Test ';
@@ -62,7 +62,7 @@ public with sharing class ActionPlansBatchBuilderTest {
 	   		at = new APTaskTemplate__c();
 	   		at.Action_Plan__c 	 = ap.Id;
 	   		at.Dependent__c		 = 'None';
-	   		at.DaysFromStart__c  = 2.0;
+	   		at.Hours_After__c  = 2.0;
 	   		at.User__c			 = u.Id;
 	   		at.SendEmail__c		 = true;
 	   		at.Subject__c		 = 'Test ';
@@ -121,7 +121,7 @@ public with sharing class ActionPlansBatchBuilderTest {
 			APTaskTemplate__c at = new APTaskTemplate__c();
 	   		at.Action_Plan__c 	 = ap.Id;
 	   		at.Dependent__c		 = 'None';
-	   		at.DaysFromStart__c  = 2.0;
+	   		at.Hours_After__c  = 2.0;
 	   		at.User__c			 = u.Id;
 	   		at.SendEmail__c		 = false;
 	   		at.Subject__c		 = 'Test ';
@@ -136,7 +136,7 @@ public with sharing class ActionPlansBatchBuilderTest {
 	   		at = new APTaskTemplate__c();
 	   		at.Action_Plan__c 	 = ap.Id;
 	   		at.Dependent__c		 = 'None';
-	   		at.DaysFromStart__c  = 2.0;
+	   		at.Hours_After__c  = 2.0;
 	   		at.User__c			 = u.Id;
 	   		at.SendEmail__c		 = true;
 	   		at.Subject__c		 = 'Test ';
@@ -184,7 +184,7 @@ public with sharing class ActionPlansBatchBuilderTest {
 			APTaskTemplate__c at = new APTaskTemplate__c();
 	   		at.Action_Plan__c 	 = ap.Id;
 	   		at.Dependent__c		 = 'None';
-	   		at.DaysFromStart__c  = 2.0;
+	   		at.Hours_After__c  = 2.0;
 	   		at.User__c			 = ge.createTestUser().Id;
 	   		at.SendEmail__c		 = false;
 	   		at.Subject__c		 = 'Test ';
@@ -199,7 +199,7 @@ public with sharing class ActionPlansBatchBuilderTest {
 	   		at = new APTaskTemplate__c();
 	   		at.Action_Plan__c 	 = ap.Id;
 	   		at.Dependent__c		 = 'None';
-	   		at.DaysFromStart__c  = 2.0;
+	   		at.Hours_After__c  = 2.0;
 	   		at.User__c			 = ge.createTestUser().Id;
 	   		at.SendEmail__c		 = true;
 	   		at.Subject__c		 = 'Test ';
@@ -264,7 +264,7 @@ public with sharing class ActionPlansBatchBuilderTest {
 			APTaskTemplate__c at = new APTaskTemplate__c();
 	   		at.Action_Plan__c 	 = ap.Id;
 	   		at.Dependent__c		 = 'None';
-	   		at.DaysFromStart__c  = 2.0;
+	   		at.Hours_After__c  = 2.0;
 	   		at.User__c			 = ge.createTestUser().Id;
 	   		at.SendEmail__c		 = false;
 	   		at.Subject__c		 = 'Test ';
@@ -279,7 +279,7 @@ public with sharing class ActionPlansBatchBuilderTest {
 	   		at = new APTaskTemplate__c();
 	   		at.Action_Plan__c 	 = ap.Id;
 	   		at.Dependent__c		 = 'None';
-	   		at.DaysFromStart__c  = 2.0;
+	   		at.Hours_After__c  = 2.0;
 	   		at.User__c			 = ge.createTestUser().Id;
 	   		at.SendEmail__c		 = true;
 	   		at.Subject__c		 = 'Test ';

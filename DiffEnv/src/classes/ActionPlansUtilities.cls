@@ -30,6 +30,8 @@ OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISE
 OF THE POSSIBILITY OF SUCH DAMAGE.
 
 */
+
+
 public with sharing class ActionPlansUtilities{
     
     public Double					taskIndexOrder { get; set; }
@@ -45,7 +47,8 @@ public with sharing class ActionPlansUtilities{
     public List<String>             relatedObjIds;
     public String                   relatedObjName;
     public Map<String, String> 		relatedObjOwnerList	{ get; set; }
-    
+
+    public class MyException extends Exception{}
     /**
     * Constructor
     */
@@ -92,7 +95,7 @@ public with sharing class ActionPlansUtilities{
     */
     public List<ActionPlan__c> getActionPlans(){
         
-        return [ select a.Id, a.Name, a.CreatedById, a.StartDate__c, a.Action_Plan_Template__r.Name, a.Action_Plan_Template__r.Id, 
+        return [ select a.Id, a.Name, a.CreatedById, a.Start_Date_Time__c, a.Action_Plan_Template__r.Name, a.Action_Plan_Template__r.Id, 
                     a.Action_Plan_Template__c, a.Account__c, a.Contact__c, a.Lead__c, a.Opportunity__c ,
                     a.Contract__c, a.Case__c, a.Campaign__c 
                     from ActionPlan__c a limit 1000 ];
@@ -141,11 +144,6 @@ public with sharing class ActionPlansUtilities{
                 List<String> selectedValues = parseMultiSelect(t.Dependent__c);
 
                 for( String i : selectedValues){
-                    System.debug('TEST::'+i+'::');
-                    if(i=='None')
-                        System.debug('It is None::'+i);
-                    else
-                        System.debug('It is not None::'+i);
                     Integer tempIndex       = Integer.valueOf( i );
                     APTaskTemplate__c link  = this.apTasks[tempIndex];
                 
@@ -347,6 +345,29 @@ public with sharing class ActionPlansUtilities{
         }
     }
     
+    public void setDependencies(List<SelectOption[]> input){
+        if(input.size()!=apTasks.size()){
+            System.debug('List size mismatch::Input:'+input.size()+'!='+apTasks.size()+':tasks');
+            throw new MyException('List sizes do not match');
+        }
+        else{
+            System.debug('Everything is fine with list sizes');
+            for(Integer i=0;i<input.size();++i){
+                String val = '';
+                if(input[i].size()>0){
+                    val += input[i][0].getValue();
+                    for(Integer j=1;j<input[i].size();++j){
+                        val += ','+input[i][j].getValue();
+                    }
+                }
+                this.apTasks[i].Dependent__c = val;
+                System.debug('Check Dependent__c::'+this.apTasks[i]+'::');
+            }
+            //update this.apTasks;
+            // now need to update the list of apTasks to push dependents on database.
+        }
+    }
+
 /**
     * Saves Action Plan Instance and tasks and redirects to that detail page
     * @return newPage
@@ -468,8 +489,8 @@ public with sharing class ActionPlansUtilities{
                 
                 if( ap.SkipWeekends__c == true ){
                     
-                    Date dueDate    = ap.StartDate__c.addDays( t.DaysFromStart__c.intValue() );
-                    Integer addDays = t.DaysFromStart__c.intValue();
+                    Date dueDate    = ap.Start_Date_Time__c.addDays( t.Hours_After__c.intValue() );
+                    Integer addDays = t.Hours_After__c.intValue();
                     
                     // find if the due date fall on a Saturday or Sunday.  Add 1 day for Sunday and 2 for Saturday
                     Date refDate        = Date.newInstance(1900, 1, 7);  // Jan 7 1900 = Sun
@@ -485,10 +506,10 @@ public with sharing class ActionPlansUtilities{
                         addDays = ( dayOfWeek == 0 ) ? addDays + 1 : addDays ;
                         addDays = ( dayOfWeek == 6 ) ? addDays + 2 : addDays ; 
                     }
-                    t.ActivityDate__c = ap.StartDate__c.addDays( addDays );
+                    t.Due_By__c = ap.Start_Date_Time__c.addDays( addDays );
                 } 
                 else{
-                    t.ActivityDate__c = ap.StartDate__c.addDays( t.DaysFromStart__c.intValue() );
+                    t.Due_By__c = ap.Start_Date_Time__c.addDays( t.Hours_After__c.intValue() );
                 }
             }
         }
@@ -617,7 +638,7 @@ public with sharing class ActionPlansUtilities{
                 String tempApId = ApexPages.currentPage().getParameters().get( 'templateId' );
                  
                 aptTasks = [ select a.Type__c, a.Subject__c, a.Priority__c, a.Dependent__c, a.Name, a.User__c, a.User__r.Name, a.Id, 
-                                a.DaysFromStart__c, a.CreatedById, a.Action_Plan_Template__c, a.APTTaskTemplate__r.Subject__c, 
+                                a.Hours_After__c, a.CreatedById, a.Action_Plan_Template__c, a.APTTaskTemplate__r.Subject__c, 
                                 a.Reminder__c, a.SendEmail__c, a.Comments__c, a.taskIndex__c
                                 From APTTaskTemplate__c a
                                 where a.Action_Plan_Template__c =: TempApId order by taskIndex__c ASC ];
@@ -648,7 +669,7 @@ public with sharing class ActionPlansUtilities{
                     t.Dependent__c      	= aptTask.Dependent__c;
                     t.taskIndex__c			= aptTask.taskIndex__c;
                     t.Name             	 	= aptTask.Name;
-                    t.DaysFromStart__c  	= aptTask.DaysFromStart__c;
+                    t.Hours_After__c  	= aptTask.Hours_After__c;
                     t.User__c           	= userId;
                     t.Reminder__c       	= aptTask.Reminder__c;
                     t.Minutes_Reminder__c	= this.getReminderDefaultTime();
@@ -692,6 +713,12 @@ public with sharing class ActionPlansUtilities{
         return this.apTasks;
     }
     
+    /*public void updateDependents(String value){
+        System.debug('#'+(this.apTasks.size()-1)+'='+value);
+        this.apTasks[(this.apTasks.size()-1)].Dependent__c = value;
+        //update database???  --- BANANA ---
+    }*/
+
     /**
     * Creates a blank Task object and adds it to List<Task>
     */
@@ -713,7 +740,7 @@ public with sharing class ActionPlansUtilities{
             for( APTaskTemplate__c apt : apTasks ) {
             	
             	hasNoErrors = ( ( apt.User__c != null || mySettings.Unassigned_Task_Default__c ) && apt.Subject__c != null );
-            	if( apt.DaysFromStart__c < 1 ) { apt.DaysFromStart__c = 1; }
+            	if( apt.Hours_After__c < 1 ) { apt.Hours_After__c = 1; }
             }
             if( hasNoErrors ){  this.apTasks.add( t ); }
              
@@ -814,7 +841,7 @@ public with sharing class ActionPlansUtilities{
         
         ts = [ select t.Id 
                 From APTaskTemplate__c t 
-                where t.Status__c = 'Completed' and t.ActivityDate__c != null and t.Action_Plan__c =: tempApId ];
+                where t.Status__c = 'Completed' and t.Due_By__c != null and t.Action_Plan__c =: tempApId ];
         
         return ( ts != null ) ? ts.size() : 0;
     }
@@ -1107,8 +1134,8 @@ public with sharing class ActionPlansUtilities{
   	public List<APTaskTemplate__c> retrieveTaskFromExistingActionPlan( String actionPlanId ){
   		
   		List<APTaskTemplate__c> myList = new List<APTaskTemplate__c>();
-  		myList = [ select a.Type__c, a.Subject__c, a.ActivityDate__c, a.Priority__c, a.Status__c, a.Dependent__c, 
-                    a.Name, a.User__c, a.User__r.Name, a.Id, a.DaysFromStart__c, a.CreatedById, a.APTaskTemplate__r.Name, 
+  		myList = [ select a.Type__c, a.Subject__c, a.Due_By__c, a.Priority__c, a.Status__c, a.Dependent__c, 
+                    a.Name, a.User__c, a.User__r.Name, a.Id, a.Hours_After__c, a.CreatedById, a.APTaskTemplate__r.Name, 
                     a.APTaskTemplate__r.Subject__c, a.APTaskTemplate__c, a.Action_Plan__c, a.Reminder__c,
                     a.SendEmail__c, a.Comments__c, a.Minutes_Reminder__c , a.taskIndex__c, a.Time_Reminder__c
                     from APTaskTemplate__c a 

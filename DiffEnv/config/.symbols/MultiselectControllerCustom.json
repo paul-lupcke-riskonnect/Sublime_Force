@@ -17,7 +17,7 @@
             "visibility": "PUBLIC", 
             "references": [], 
             "location": {
-                "column": 33, 
+                "column": 27, 
                 "line": 13
             }, 
             "type": "LIST"
@@ -29,7 +29,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 42
+                "line": 38
             }, 
             "type": "String"
         }, 
@@ -40,7 +40,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 50
+                "line": 46
             }, 
             "type": "String"
         }
@@ -63,29 +63,7 @@
             "references": [], 
             "location": {
                 "column": 18, 
-                "line": 23
-            }, 
-            "returnType": "void", 
-            "type": null
-        }, 
-        {
-            "modifiers": [], 
-            "name": "setOptions", 
-            "parameters": [
-                {
-                    "type": "LIST", 
-                    "name": "options"
-                }, 
-                {
-                    "type": "String", 
-                    "name": "value"
-                }
-            ], 
-            "visibility": "PRIVATE", 
-            "references": [], 
-            "location": {
-                "column": 18, 
-                "line": 31
+                "line": 27
             }, 
             "returnType": "void", 
             "type": null
@@ -108,8 +86,18 @@
             "modifiers": [], 
             "references": [], 
             "location": {
+                "column": 24, 
+                "line": 14
+            }, 
+            "name": "tmp"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
                 "column": 44, 
-                "line": 23
+                "line": 27
             }, 
             "name": "options"
         }, 
@@ -119,7 +107,7 @@
             "references": [], 
             "location": {
                 "column": 60, 
-                "line": 23
+                "line": 27
             }, 
             "name": "value"
         }, 
@@ -129,7 +117,7 @@
             "references": [], 
             "location": {
                 "column": 18, 
-                "line": 25
+                "line": 29
             }, 
             "name": "parts"
         }, 
@@ -139,47 +127,7 @@
             "references": [], 
             "location": {
                 "column": 22, 
-                "line": 26
-            }, 
-            "name": "i"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 50, 
-                "line": 31
-            }, 
-            "name": "options"
-        }, 
-        {
-            "type": "String", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 66, 
-                "line": 31
-            }, 
-            "name": "value"
-        }, 
-        {
-            "type": "LIST", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 18, 
-                "line": 33
-            }, 
-            "name": "parts"
-        }, 
-        {
-            "type": "Integer", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 22, 
-                "line": 34
+                "line": 30
             }, 
             "name": "i"
         }
@@ -187,30 +135,30 @@
     "constructors": [
         {
             "modifiers": [], 
-            "name": "MultiselectController", 
+            "name": "MultiselectControllerCustom", 
             "parameters": [], 
             "visibility": "PUBLIC", 
             "references": [], 
             "location": {
                 "column": 12, 
-                "line": 15
+                "line": 20
             }, 
             "type": null
         }
     ], 
     "namespace": null, 
-    "name": "MultiselectController", 
+    "name": "MultiselectControllerCustom", 
     "tableDeclaration": {
-        "type": "MultiselectController", 
+        "type": "MultiselectControllerCustom", 
         "modifiers": [], 
         "references": [], 
         "location": {
             "column": 27, 
             "line": 5
         }, 
-        "name": "MultiselectController"
+        "name": "MultiselectControllerCustom"
     }, 
-    "key": "01pF0000003QyrE", 
-    "id": "01pF0000003QyrE", 
+    "key": "01pF0000003R3QW", 
+    "id": "01pF0000003R3QW", 
     "externalReferences": []
 }

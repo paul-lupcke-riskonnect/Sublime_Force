@@ -273,7 +273,7 @@ public with sharing class ActionPlansTestUtilities{
  		
  		ActionPlan__c newActionPlan = new ActionPlan__c();
  		newActionPlan.Name			= this.createRandomWord();
- 		newActionPlan.StartDate__c 	= Date.today();
+ 		newActionPlan.Start_Date_Time__c 	= Date.today();
  		newActionPlan.OwnerId		= Userinfo.getUserId();
  		
  		if( 'accounts'.equalsIgnoreCase( relatedObject ) ){
@@ -328,7 +328,7 @@ public with sharing class ActionPlansTestUtilities{
  		
  		APTaskTemplate__c newAPTask = new APTaskTemplate__c();
  		newAPTask.Subject__c 		= this.createRandomWord();
- 		newAPTask.DaysFromStart__c 	= days;
+ 		newAPTask.Hours_After__c 	= days;
  		newAPTask.Action_Plan__c 	= actionPlan.Id;
  		newAPTask.User__c 			= user.Id;
  		newAPTask.Type__c 			= category;
@@ -380,7 +380,7 @@ public with sharing class ActionPlansTestUtilities{
  		
  		newAPTTask.Action_Plan_Template__c 	= apTemplate.Id;
  		newAPTTask.Subject__c 				= this.createRandomWord();
- 		newAPTTask.DaysFromStart__c 		= days;
+ 		newAPTTask.Hours_After__c 		= days;
  		newAPTTask.Dependent__c				= '[]';
  		if( user != null ){
  			newAPTTask.User__c = user.Id;
@@ -411,7 +411,7 @@ public with sharing class ActionPlansTestUtilities{
 			APTaskTemplate__c at = new APTaskTemplate__c();
 	   		at.Action_Plan__c 	 = ap.Id;
 	   		at.Dependent__c		 = '[]';
-	   		at.DaysFromStart__c  = 2.0;
+	   		at.Hours_After__c  = 2.0;
 	   		at.User__c			 = this.createTestUser().Id;
 	   		at.SendEmail__c		 = false;
 	   		at.Subject__c		 = 'Test ';
@@ -426,7 +426,7 @@ public with sharing class ActionPlansTestUtilities{
 	   		at = new APTaskTemplate__c();
 	   		at.Action_Plan__c 	 = ap.Id;
 	   		at.Dependent__c		 = '[]';
-	   		at.DaysFromStart__c  = 2.0;
+	   		at.Hours_After__c  = 2.0;
 	   		at.User__c			 = this.createTestUser().Id;
 	   		at.SendEmail__c		 = true;
 	   		at.Subject__c		 = 'Test ';

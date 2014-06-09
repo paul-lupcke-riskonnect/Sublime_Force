@@ -50,7 +50,7 @@ public with sharing class ExportActionPlanTemplate{
 	public Document export(){
 		
 		ActionPlanTemplate__c apTemplate = [ Select a.SkipWeekends__c, a.SkipDay__c, a.Name, a.Id, a.Description__c,
-												( Select Id, Name, Action_Plan_Template__c, APTTaskTemplate__c, Comments__c, DaysFromStart__c, Dependent__c, 
+												( Select Id, Name, Action_Plan_Template__c, APTTaskTemplate__c, Comments__c, Hours_After__c, Dependent__c, 
 													Priority__c, Reminder__c, SendEmail__c, Subject__c, Type__c, Minutes_Reminder__c , taskIndex__c From apTasks__r )
 												From ActionPlanTemplate__c a where a.Id =: this.templateId ];
 		
@@ -125,7 +125,7 @@ public with sharing class ExportActionPlanTemplate{
 				writeElement( out, 'taskIndex', '' + String.valueOf( currentTask.TaskIndex__c ) );
 			}
 			writeElement( out, 'apttemplate', '' + currentTask.APTTaskTemplate__c );
-			writeElement( out, 'daysFromStart', '' + String.valueOf( currentTask.DaysFromStart__c ) );
+			writeElement( out, 'daysFromStart', '' + String.valueOf( currentTask.Hours_After__c ) );
 			writeElement( out, 'category', '' + currentTask.Type__c );
 			writeElement( out, 'priority', '' + currentTask.Priority__c );
 			writeElement( out, 'sendEmail', '' + String.valueOf( currentTask.SendEmail__c ) );
