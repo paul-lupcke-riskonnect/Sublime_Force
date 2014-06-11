@@ -50,7 +50,7 @@ global with sharing class ActionPlansBatchTaskBuilder implements Database.Batcha
     global Database.QueryLocator start( Database.BatchableContext bc ){
         //Add Action Plan custom object reference Field.
         String soql = 'Select a.User__c, a.Type__c, a.Subject__c, a.Status__c, a.SendEmail__c, a.Reminder__c, a.Minutes_Reminder__c,'+
-                      'a.Priority__c, a.Name, a.Id, a.Dependent__c, a.Comments__c, a.Due_By__c,'+
+                      'a.Priority__c, a.Name, a.Id, a.Dependent__c, a.Comments__c, a.ActivityDate__c,'+
                       'a.Action_Plan__c, a.Action_Plan__r.Account__c , a.Action_Plan__r.Contact__c, '+
                       'a.Action_Plan__r.Campaign__c , a.Action_Plan__r.Case__c , a.Action_Plan__r.Contract__c, '+
                       'a.Action_Plan__r.Lead__c, a.Action_Plan__r.Opportunity__c, '+
@@ -98,11 +98,11 @@ global with sharing class ActionPlansBatchTaskBuilder implements Database.Batcha
             } 
             
             //set reminder based on user's default reminder setting
-            if( apTask.Reminder__c == true && apTask.Due_By__c != null ){
+            if( apTask.Reminder__c == true && apTask.ActivityDate__c != null ){
                 
                 t.isReminderSet = apTask.Reminder__c;
                 
-                t.ReminderDateTime = Datetime.newInstance( apTask.Due_By__c.year(), apTask.Due_By__c.month(), apTask.Due_By__c.day(), 0, 0, 0 );
+                t.ReminderDateTime = Datetime.newInstance( apTask.ActivityDate__c.year(), apTask.ActivityDate__c.month(), apTask.ActivityDate__c.day(), 0, 0, 0 );
                 t.ReminderDateTime = t.ReminderDateTime.addMinutes( Integer.valueOf( apTask.Minutes_Reminder__c ) );                          
             }              
                 
@@ -144,9 +144,9 @@ global with sharing class ActionPlansBatchTaskBuilder implements Database.Batcha
             
             t.Type          = apTask.Type__c;
             t.Status        = 'Not Started';
-            t.Time_Due__c  = apTask.Due_By__c;  
+            t.ActivityDate  = apTask.ActivityDate__c;  
             
-            if( apTask.Dependent__c == '[]' ){
+            if( apTask.Dependent__c == 'None' ){
 	            if( apTask.SendEmail__c == true ){
 	                this.myTasksWithEmail.add( t ); 
 	            }

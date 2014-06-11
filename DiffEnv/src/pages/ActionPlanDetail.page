@@ -84,7 +84,7 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
                     <apex:outputText value="{!$Label.ap_PlanStartDate}" />
                     <apex:outputText >
                     	<apex:pageBlockSectionItem >
-                    		<apex:outputField value="{!actionPlan.Start_Date_Time__c}" />
+                    		<apex:outputField value="{!actionPlan.StartDate__c}" />
                     	</apex:pageBlockSectionItem>
                     </apex:outputText>
                     <apex:outputText >&nbsp;</apex:outputText>
@@ -119,16 +119,16 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
                     <apex:column id="dependency" headerValue="{!$ObjectType.APTaskTemplate__c.fields.APTaskTemplate__c.label}" headerClass="dependencyColumn">
                     	<apex:outputText >{!task.APTaskTemplate__r.Subject__c}</apex:outputText>
                     </apex:column>
-                    <apex:column value="{!task.Hours_After__c}" headerClass="daysCol">
-						<apex:facet name="header">{!$ObjectType.APTaskTemplate__c.fields.Hours_After__c.label}
+                    <apex:column value="{!task.DaysFromStart__c}" headerClass="daysCol">
+						<apex:facet name="header">{!$ObjectType.APTaskTemplate__c.fields.DaysFromStart__c.label}
 							<span id="daysAfterTtip_help" class="helpButton">
 								<img class="helpOrb" title="{!$Label.ap_days_after_msg}" src="/s.gif"/>
 							</span>
 						</apex:facet>
                    </apex:column>
-                    <apex:column headerValue="{!$ObjectType.APTaskTemplate__c.fields.Due_By__c.label}" headerClass="dateCol">
-                        <span style="color:#cc0000"><apex:outputField value="{!task.Due_By__c}" rendered="{!IF(task.Due_By__c < TODAY() && task.Status__c != 'Completed', true, false)}" /></span>
-                        <apex:outputField value="{!task.Due_By__c}" rendered="{!IF(task.Due_By__c >= TODAY() || task.Status__c == 'Completed', true, false)}" />
+                    <apex:column headerValue="{!$ObjectType.APTaskTemplate__c.fields.ActivityDate__c.label}" headerClass="dateCol">
+                        <span style="color:#cc0000"><apex:outputField value="{!task.ActivityDate__c}" rendered="{!IF(task.ActivityDate__c < TODAY() && task.Status__c != 'Completed', true, false)}" /></span>
+                        <apex:outputField value="{!task.ActivityDate__c}" rendered="{!IF(task.ActivityDate__c >= TODAY() || task.Status__c == 'Completed', true, false)}" />
                     </apex:column>
                     <apex:column headerValue="{!$ObjectType.APTaskTemplate__c.fields.User__c.label}" styleClass="assigned_to_field" >
                     	<apex:outputField value="{!task.User__c}"  />

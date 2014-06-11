@@ -118,7 +118,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 133
+                "line": 134
             }, 
             "returnType": "void", 
             "type": null
@@ -148,10 +148,10 @@
             "visibility": "PRIVATE", 
             "references": [], 
             "location": {
-                "column": 23, 
+                "column": 19, 
                 "line": 283
             }, 
-            "returnType": "Datetime", 
+            "returnType": "Date", 
             "type": null
         }, 
         {
@@ -375,7 +375,7 @@
             "references": [], 
             "location": {
                 "column": 27, 
-                "line": 134
+                "line": 135
             }, 
             "name": "updList"
         }, 
@@ -385,7 +385,7 @@
             "references": [], 
             "location": {
                 "column": 8, 
-                "line": 135
+                "line": 136
             }, 
             "name": "auxTask"
         }, 
@@ -395,7 +395,7 @@
             "references": [], 
             "location": {
                 "column": 32, 
-                "line": 138
+                "line": 139
             }, 
             "name": "dependentAptts"
         }, 
@@ -405,19 +405,9 @@
             "references": [], 
             "location": {
                 "column": 24, 
-                "line": 142
+                "line": 143
             }, 
             "name": "lt"
-        }, 
-        {
-            "type": "Datetime", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 26, 
-                "line": 164
-            }, 
-            "name": "tmp"
         }, 
         {
             "type": "Date", 
@@ -460,21 +450,21 @@
             "name": "dayOfWeek"
         }, 
         {
-            "type": "Datetime", 
+            "type": "Date", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 26, 
+                "column": 22, 
                 "line": 176
             }, 
             "name": "d"
         }, 
         {
-            "type": "Datetime", 
+            "type": "Date", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 26, 
+                "column": 22, 
                 "line": 180
             }, 
             "name": "d"
@@ -510,11 +500,11 @@
             "name": "lt"
         }, 
         {
-            "type": "Datetime", 
+            "type": "Date", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 22, 
+                "column": 18, 
                 "line": 216
             }, 
             "name": "d"
@@ -524,17 +514,17 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 55, 
+                "column": 51, 
                 "line": 283
             }, 
             "name": "aptTaskId"
         }, 
         {
-            "type": "Datetime", 
+            "type": "Date", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 12, 
+                "column": 8, 
                 "line": 284
             }, 
             "name": "d"
@@ -916,7 +906,7 @@
         }, 
         "name": "ActionPlansTaskTriggerUtilities"
     }, 
-    "key": "01pF0000003QcqY", 
-    "id": "01pF0000003QcqY", 
+    "key": "01pF0000003RBx7", 
+    "id": "01pF0000003RBx7", 
     "externalReferences": []
 }

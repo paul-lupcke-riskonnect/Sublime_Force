@@ -35,6 +35,13 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>Time_Due__c</fullName>
+        <externalId>false</externalId>
+        <label>Time Due</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
     <listViews>
         <fullName>AllActivities</fullName>
         <filterScope>Team</filterScope>

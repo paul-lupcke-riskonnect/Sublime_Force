@@ -6,7 +6,7 @@
             "visibility": "PUBLIC", 
             "references": [], 
             "location": {
-                "column": 23, 
+                "column": 37, 
                 "line": 37
             }, 
             "type": "Double"
@@ -138,7 +138,7 @@
             "visibility": "PUBLIC", 
             "references": [], 
             "location": {
-                "column": 34, 
+                "column": 37, 
                 "line": 49
             }, 
             "type": "Map"
@@ -595,7 +595,7 @@
             "visibility": "PUBLIC", 
             "references": [], 
             "location": {
-                "column": 35, 
+                "column": 36, 
                 "line": 1134
             }, 
             "returnType": "LIST", 
@@ -709,7 +709,7 @@
             "visibility": "PRIVATE", 
             "references": [], 
             "location": {
-                "column": 17, 
+                "column": 20, 
                 "line": 1237
             }, 
             "returnType": "String", 
@@ -741,7 +741,7 @@
             "references": [], 
             "location": {
                 "column": 20, 
-                "line": 1279
+                "line": 1331
             }, 
             "returnType": "Boolean", 
             "type": null
@@ -754,7 +754,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 1288
+                "line": 1340
             }, 
             "returnType": "String", 
             "type": null
@@ -767,7 +767,7 @@
             "references": [], 
             "location": {
                 "column": 26, 
-                "line": 1307
+                "line": 1359
             }, 
             "returnType": "PageReference", 
             "type": null
@@ -785,7 +785,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 1332
+                "line": 1384
             }, 
             "returnType": "String", 
             "type": null
@@ -861,7 +861,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 14, 
+                "column": 17, 
                 "line": 133
             }, 
             "name": "index"
@@ -1111,7 +1111,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 29, 
+                "column": 35, 
                 "line": 249
             }, 
             "name": "link"
@@ -1121,7 +1121,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 21, 
+                "column": 33, 
                 "line": 258
             }, 
             "name": "tempIndex"
@@ -1131,7 +1131,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 10, 
+                "column": 16, 
                 "line": 279
             }, 
             "name": "actionPlanId"
@@ -1141,7 +1141,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 10, 
+                "column": 16, 
                 "line": 280
             }, 
             "name": "objId"
@@ -1151,7 +1151,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 10, 
+                "column": 16, 
                 "line": 281
             }, 
             "name": "objName"
@@ -1161,7 +1161,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 16, 
+                "column": 22, 
                 "line": 282
             }, 
             "name": "oIdsList"
@@ -1171,7 +1171,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 13, 
+                "column": 19, 
                 "line": 283
             }, 
             "name": "sp"
@@ -1181,7 +1181,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 29, 
+                "column": 41, 
                 "line": 313
             }, 
             "name": "taskBatch"
@@ -1191,7 +1191,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 38, 
+                "column": 50, 
                 "line": 316
             }, 
             "name": "taskBatch"
@@ -1271,7 +1271,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 13, 
+                "column": 16, 
                 "line": 377
             }, 
             "name": "newApId"
@@ -1291,7 +1291,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 17, 
+                "column": 23, 
                 "line": 389
             }, 
             "name": "newPage"
@@ -1361,7 +1361,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 18, 
+                "column": 19, 
                 "line": 424
             }, 
             "name": "sp"
@@ -1371,7 +1371,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 27, 
+                "column": 30, 
                 "line": 430
             }, 
             "name": "oIdsList"
@@ -1381,7 +1381,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 29, 
+                "column": 41, 
                 "line": 437
             }, 
             "name": "taskBatch"
@@ -1411,7 +1411,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 13, 
+                "column": 16, 
                 "line": 587
             }, 
             "name": "objectType"
@@ -1431,7 +1431,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 13, 
+                "column": 16, 
                 "line": 589
             }, 
             "name": "templateId"
@@ -1441,7 +1441,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 13, 
+                "column": 16, 
                 "line": 590
             }, 
             "name": "retURL"
@@ -1451,7 +1451,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 13, 
+                "column": 16, 
                 "line": 591
             }, 
             "name": "id"
@@ -1461,7 +1461,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 13, 
+                "column": 16, 
                 "line": 592
             }, 
             "name": "pageRef"
@@ -1471,7 +1471,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 13, 
+                "column": 16, 
                 "line": 593
             }, 
             "name": "aPlanListUrl"
@@ -1481,7 +1481,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 20, 
+                "column": 26, 
                 "line": 604
             }, 
             "name": "oIdsList"
@@ -1491,7 +1491,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 20, 
+                "column": 23, 
                 "line": 624
             }, 
             "name": "previousPage"
@@ -1551,7 +1551,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 21, 
+                "column": 24, 
                 "line": 681
             }, 
             "name": "TempApId"
@@ -1611,7 +1611,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 14, 
+                "column": 17, 
                 "line": 727
             }, 
             "name": "hasNoErrors"
@@ -1621,7 +1621,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 28, 
+                "column": 31, 
                 "line": 732
             }, 
             "name": "t"
@@ -1771,7 +1771,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 36, 
+                "column": 45, 
                 "line": 862
             }, 
             "name": "taskBatch"
@@ -1811,7 +1811,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 31, 
+                "column": 34, 
                 "line": 896
             }, 
             "name": "instance"
@@ -1831,7 +1831,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 35, 
+                "column": 38, 
                 "line": 909
             }, 
             "name": "obj"
@@ -1851,7 +1851,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 35, 
+                "column": 38, 
                 "line": 919
             }, 
             "name": "obj"
@@ -1871,7 +1871,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 13, 
+                "column": 16, 
                 "line": 930
             }, 
             "name": "objId"
@@ -1881,7 +1881,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 13, 
+                "column": 16, 
                 "line": 931
             }, 
             "name": "objName"
@@ -1891,7 +1891,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 14, 
+                "column": 17, 
                 "line": 932
             }, 
             "name": "chatter_enabled"
@@ -1901,7 +1901,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 35, 
+                "column": 38, 
                 "line": 933
             }, 
             "name": "r"
@@ -1911,7 +1911,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 20, 
+                "column": 23, 
                 "line": 935
             }, 
             "name": "ap"
@@ -1921,7 +1921,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 20, 
+                "column": 26, 
                 "line": 983
             }, 
             "name": "token"
@@ -1931,7 +1931,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 16, 
+                "column": 22, 
                 "line": 984
             }, 
             "name": "objPost"
@@ -1951,7 +1951,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 13, 
+                "column": 16, 
                 "line": 1001
             }, 
             "name": "recoveredValue"
@@ -1961,7 +1961,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 13, 
+                "column": 16, 
                 "line": 1002
             }, 
             "name": "objId"
@@ -1981,7 +1981,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 13, 
+                "column": 16, 
                 "line": 1025
             }, 
             "name": "objName"
@@ -2001,7 +2001,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 35, 
+                "column": 38, 
                 "line": 1041
             }, 
             "name": "obj"
@@ -2011,7 +2011,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 24, 
+                "column": 28, 
                 "line": 1076
             }, 
             "name": "options"
@@ -2021,7 +2021,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 78, 
+                "column": 79, 
                 "line": 1134
             }, 
             "name": "actionPlanId"
@@ -2031,7 +2031,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 29, 
+                "column": 33, 
                 "line": 1136
             }, 
             "name": "myList"
@@ -2041,7 +2041,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 14, 
+                "column": 17, 
                 "line": 1151
             }, 
             "name": "hasRelated"
@@ -2061,7 +2061,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 9, 
+                "column": 12, 
                 "line": 1189
             }, 
             "name": "currentId"
@@ -2081,7 +2081,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 13, 
+                "column": 16, 
                 "line": 1206
             }, 
             "name": "longIdString"
@@ -2111,7 +2111,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 10, 
+                "column": 16, 
                 "line": 1217
             }, 
             "name": "shortId"
@@ -2121,7 +2121,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 10, 
+                "column": 16, 
                 "line": 1218
             }, 
             "name": "queryRetrieveOwnerIds"
@@ -2131,7 +2131,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 23, 
+                "column": 26, 
                 "line": 1224
             }, 
             "name": "obj"
@@ -2141,7 +2141,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 38, 
+                "column": 41, 
                 "line": 1237
             }, 
             "name": "stringList"
@@ -2151,7 +2151,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 57, 
+                "column": 60, 
                 "line": 1237
             }, 
             "name": "separator"
@@ -2161,7 +2161,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 10, 
+                "column": 16, 
                 "line": 1239
             }, 
             "name": "result"
@@ -2171,7 +2171,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 15, 
+                "column": 21, 
                 "line": 1240
             }, 
             "name": "elem"
@@ -2191,7 +2191,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 14, 
+                "column": 17, 
                 "line": 1256
             }, 
             "name": "result"
@@ -2201,7 +2201,7 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 18, 
+                "column": 21, 
                 "line": 1257
             }, 
             "name": "rejectStatus"
@@ -2211,18 +2211,108 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 30, 
+                "column": 33, 
+                "line": 1258
+            }, 
+            "name": "currentAP"
+        }, 
+        {
+            "type": "Set", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 33, 
                 "line": 1259
             }, 
+            "name": "nonComplete"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 1261
+            }, 
             "name": "aptList"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 1265
+            }, 
+            "name": "actionPlan"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 1266
+            }, 
+            "name": "dependencies"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 1267
+            }, 
+            "name": "dependenciesI"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 1269
+            }, 
+            "name": "i"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 1277
+            }, 
+            "name": "d"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 1281
+            }, 
+            "name": "i"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 1288
+            }, 
+            "name": "i"
         }, 
         {
             "type": "Map", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 39, 
-                "line": 1280
+                "column": 42, 
+                "line": 1332
             }, 
             "name": "fieldsMap"
         }, 
@@ -2231,8 +2321,8 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 39, 
-                "line": 1289
+                "column": 42, 
+                "line": 1341
             }, 
             "name": "fieldsMap"
         }, 
@@ -2241,8 +2331,8 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 11, 
-                "line": 1290
+                "column": 16, 
+                "line": 1342
             }, 
             "name": "defaultTime"
         }, 
@@ -2251,8 +2341,8 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 28, 
-                "line": 1292
+                "column": 30, 
+                "line": 1344
             }, 
             "name": "uP"
         }, 
@@ -2261,8 +2351,8 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 13, 
-                "line": 1308
+                "column": 16, 
+                "line": 1360
             }, 
             "name": "retURL"
         }, 
@@ -2271,8 +2361,8 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 19, 
-                "line": 1309
+                "column": 22, 
+                "line": 1361
             }, 
             "name": "recordIds"
         }, 
@@ -2281,8 +2371,8 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 14, 
-                "line": 1314
+                "column": 20, 
+                "line": 1366
             }, 
             "name": "records"
         }, 
@@ -2291,8 +2381,8 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 28, 
-                "line": 1317
+                "column": 40, 
+                "line": 1369
             }, 
             "name": "aPBatch"
         }, 
@@ -2301,8 +2391,8 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 20, 
-                "line": 1322
+                "column": 23, 
+                "line": 1374
             }, 
             "name": "pageRef"
         }, 
@@ -2312,7 +2402,7 @@
             "references": [], 
             "location": {
                 "column": 68, 
-                "line": 1332
+                "line": 1384
             }, 
             "name": "actionPlanTemplate"
         }, 
@@ -2321,8 +2411,8 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 13, 
-                "line": 1334
+                "column": 16, 
+                "line": 1386
             }, 
             "name": "aPName"
         }, 
@@ -2427,7 +2517,7 @@
         }, 
         "name": "ActionPlansUtilities"
     }, 
-    "key": "01pF0000003Qcqb", 
-    "id": "01pF0000003Qcqb", 
+    "key": "01pF0000003RBxA", 
+    "id": "01pF0000003RBxA", 
     "externalReferences": []
 }

@@ -29,6 +29,7 @@ public with sharing class MultiselectController {
         }
     }
     private void setOptions(List<SelectOption[]> options, String value) {
+        //options.clear();
         options.add(new SelectOption[]{});
         String[] parts = value.split('&');
         for (Integer i=0; i<parts.size()/2; i++) {

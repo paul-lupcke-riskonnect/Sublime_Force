@@ -236,7 +236,7 @@ public with sharing class ActionPlanTemplateCreationController{
     	APTTaskTemplate__c newAPTTask = new APTTaskTemplate__c();
  		
  		newAPTTask.Subject__c 			= testUtil.createRandomWord();
- 		newAPTTask.Hours_After__c 	= 2;
+ 		newAPTTask.DaysFromStart__c 	= 2;
  		newAPTTask.Type__c 				= 'Email';
  		newAPTTask.Priority__c 			= 'Hight';
  		
@@ -357,13 +357,13 @@ public with sharing class ActionPlanTemplateCreationController{
  		APTTaskTemplate__c newAPTTask2 	= new APTTaskTemplate__c();
  		
  		newAPTTask.Subject__c 			= testUtil.createRandomWord();
- 		newAPTTask.Hours_After__c 	= 2;
+ 		newAPTTask.DaysFromStart__c 	= 2;
  		newAPTTask.Dependent__c			= 'None';
  		newAPTTask.Type__c 				= 'Email';
  		newAPTTask.Priority__c 			= 'High';
  		
  		newAPTTask2.Subject__c 			= testUtil.createRandomWord();
- 		newAPTTask2.Hours_After__c 	= 2;
+ 		newAPTTask2.DaysFromStart__c 	= 2;
  		newAPTTask2.Dependent__c		= 'None';
  		newAPTTask2.Type__c 			= 'Email';
  		newAPTTask2.Priority__c 		= 'High';
@@ -394,19 +394,19 @@ public with sharing class ActionPlanTemplateCreationController{
  		APTTaskTemplate__c newAPTTask3 	= new APTTaskTemplate__c();
  		
  		newAPTTask.Subject__c 			= testUtil.createRandomWord();
- 		newAPTTask.Hours_After__c 	= 2;
+ 		newAPTTask.DaysFromStart__c 	= 2;
  		newAPTTask.Dependent__c			= '2';
  		newAPTTask.Type__c 				= 'Email';
  		newAPTTask.Priority__c 			= 'Hight';
  		
  		newAPTTask2.Subject__c 			= testUtil.createRandomWord();
- 		newAPTTask2.Hours_After__c 	= 2;
+ 		newAPTTask2.DaysFromStart__c 	= 2;
  		newAPTTask2.Dependent__c		= '0';
  		newAPTTask2.Type__c 			= 'Email';
  		newAPTTask2.Priority__c 		= 'Hight';
  		
  		newAPTTask3.Subject__c 			= testUtil.createRandomWord();
- 		newAPTTask3.Hours_After__c 	= 2;
+ 		newAPTTask3.DaysFromStart__c 	= 2;
  		newAPTTask3.Dependent__c		= '1';
  		newAPTTask3.Type__c 			= 'Email';
  		newAPTTask3.Priority__c 		= 'Hight';
