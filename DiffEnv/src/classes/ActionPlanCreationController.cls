@@ -86,7 +86,7 @@ public with sharing class ActionPlanCreationController{
     public void initEditActionPlan(){
 
         //Add your Custom object in the SOQL Query
-        List<ActionPlan__c> listAP = [ select a.Id, a.Name, a.CreatedById, a.StartDate__c, a.Action_Plan_Template__r.Name, 
+        List<ActionPlan__c> listAP = [ select a.Id, a.Name, a.CreatedById, a.Start_Date_Time__c, a.Action_Plan_Template__r.Name, 
                                 a.Action_Plan_Template__r.Id, a.Action_Plan_Template__c, a.Account__c, a.Contact__c, 
                                 a.Lead__c, a.Opportunity__c, a.Contract__c, a.Case__c, a.Campaign__c ,
                                 a.SkipWeekends__c, a.SkipDay__c
@@ -105,7 +105,7 @@ public with sharing class ActionPlanCreationController{
     */
     public void initCloneActionPlan(){
         
-        this.actionPlan.StartDate__c    = Date.today();
+        this.actionPlan.Start_Date_Time__c    = Date.today();
         this.actionPlans = new ActionPlansUtilities( this.actionPlan );
         
         List<APTaskTemplate__c> tcAux   = this.actionPlans.getTasks();
@@ -148,7 +148,12 @@ public with sharing class ActionPlanCreationController{
     */
     public void initNewActionPlan(){
         
-        this.actionPlan.StartDate__c    = Date.today();
+        this.actionPlan.Start_Date_Time__c    = System.now();
+
+        //Datetime cDT = System.now();
+        //String longDate = cDT.format('yyyy-MM-dd  HH:mm:ss  XXX');
+        //System.debug(longDate);
+
         this.actionPlans                = new ActionPlansUtilities( this.actionPlan );   
         if( refId != null ){    
             this.hasRelated = true;
@@ -621,13 +626,13 @@ public with sharing class ActionPlanCreationController{
         
         actionPlan.Name         = testUtil.createRandomWord();
         actionPlan.Contact__c   = contact.Id;
-        actionPlan.StartDate__c = Date.today();
+        actionPlan.Start_Date_Time__c = System.now();//Date.today();
         
         APTaskTemplate__c apTask = new APTaskTemplate__c();
         
         apTask.Subject__c           = testUtil.createRandomWord();
         apTask.User__c              = testUtil.createTestUser().Id;
-        apTask.DaysFromStart__c     = 2;
+        apTask.Hours_After_Start__c     = 2;
         apTask.Type__c              = 'Email';
         apTask.Priority__c          = 'Hight';
                 
@@ -666,13 +671,13 @@ public with sharing class ActionPlanCreationController{
         
         actionPlan.Name         = testUtil.createRandomWord();
         actionPlan.Contact__c   = contact.Id;
-        actionPlan.StartDate__c = Date.today();
+        actionPlan.Start_Date_Time__c = System.now();//Date.today();
         
         APTaskTemplate__c apTask = new APTaskTemplate__c();
         
         apTask.Subject__c           = testUtil.createRandomWord();
         apTask.User__c              = testUtil.createTestUser().Id;
-        apTask.DaysFromStart__c     = 2;
+        apTask.Hours_After_Start__c     = 2;
         apTask.Type__c              = 'Email';
         apTask.Priority__c          = 'Hight';
                 
@@ -722,7 +727,7 @@ public with sharing class ActionPlanCreationController{
         apTask.Action_Plan__c       = actionPlan.Id;
         apTask.Subject__c           = testUtil.createRandomWord();
         apTask.User__c              = testUtil.createTestUser().Id;
-        apTask.DaysFromStart__c     = 2;
+        apTask.Hours_After_Start__c     = 2;
         apTask.Type__c              = 'Email';
         apTask.Priority__c          = 'Hight';
                 
@@ -747,7 +752,7 @@ public with sharing class ActionPlanCreationController{
         System.currentPageReference().getParameters().put( 'remove', '1' );
         ActionPlanCreationController apCreateController = new ActionPlanCreationController( new Apexpages.StandardController( actionPlan ) );
         apCreateController.actionPlans.apTasks = [ select a.Type__c, a.Subject__c, a.ActivityDate__c, a.Priority__c, a.Status__c, a.Dependent__c, 
-                                                        a.Name, a.User__c, a.User__r.Name, a.Id, a.DaysFromStart__c, a.CreatedById, a.APTaskTemplate__r.Name, 
+                                                        a.Name, a.User__c, a.User__r.Name, a.Id, a.Hours_After_Start__c, a.CreatedById, a.APTaskTemplate__r.Name, 
                                                         a.APTaskTemplate__r.Subject__c, a.APTaskTemplate__c, a.Action_Plan__c, a.Reminder__c, 
                                                         a.SendEmail__c, a.Comments__c 
                                                         from APTaskTemplate__c a 
@@ -805,7 +810,7 @@ public with sharing class ActionPlanCreationController{
         System.currentPageReference().getParameters().put( 'id', actionPlan.Id );
         ActionPlanCreationController apCreateController = new ActionPlanCreationController( new Apexpages.StandardController( actionPlan ) );
         apCreateController.actionPlans.apTasks = [ select a.Type__c, a.Subject__c, a.ActivityDate__c, a.Priority__c, a.Status__c, a.Dependent__c, 
-                                                        a.Name, a.User__c, a.User__r.Name, a.Id, a.DaysFromStart__c, a.CreatedById, a.APTaskTemplate__r.Name, 
+                                                        a.Name, a.User__c, a.User__r.Name, a.Id, a.Hours_After_Start__c, a.CreatedById, a.APTaskTemplate__r.Name, 
                                                         a.APTaskTemplate__r.Subject__c, a.APTaskTemplate__c, a.Action_Plan__c, a.Reminder__c, 
                                                         a.SendEmail__c, a.Comments__c 
                                                         from APTaskTemplate__c a 
@@ -832,7 +837,7 @@ public with sharing class ActionPlanCreationController{
         APTaskTemplate__c newAPTask3 = new APTaskTemplate__c();
         
         newAPTask1.Subject__c           = testUtil.createRandomWord();
-        newAPTask1.DaysFromStart__c     = 2;
+        newAPTask1.Hours_After_Start__c     = 2;
         newAPTask1.Dependent__c         = '2';
         newAPTask1.Type__c              = 'Email';
         newAPTask1.Priority__c          = 'High';
@@ -840,7 +845,7 @@ public with sharing class ActionPlanCreationController{
         upsert newAPTask1;
         
         newAPTask2.Subject__c           = testUtil.createRandomWord();
-        newAPTask2.DaysFromStart__c     = 2;
+        newAPTask2.Hours_After_Start__c     = 2;
         newAPTask2.Dependent__c         = 'None';
         newAPTask2.Type__c              = 'Email';
         newAPTask2.Priority__c          = 'High';
@@ -848,7 +853,7 @@ public with sharing class ActionPlanCreationController{
         upsert newAPTask2;
         
         newAPTask3.Subject__c           = testUtil.createRandomWord();
-        newAPTask3.DaysFromStart__c     = 2;
+        newAPTask3.Hours_After_Start__c     = 2;
         newAPTask3.Dependent__c         = '1';
         newAPTask3.Type__c              = 'Email';
         newAPTask3.Priority__c          = 'High';
@@ -883,19 +888,19 @@ public with sharing class ActionPlanCreationController{
         APTaskTemplate__c newAPTask3 = new APTaskTemplate__c();
         
         newAPTask1.Subject__c           = testUtil.createRandomWord();
-        newAPTask1.DaysFromStart__c     = 2;
+        newAPTask1.Hours_After_Start__c     = 2;
         newAPTask1.Dependent__c         = '2';
         newAPTask1.Type__c              = 'Email';
         newAPTask1.Priority__c          = 'Hight';
         
         newAPTask2.Subject__c           = testUtil.createRandomWord();
-        newAPTask2.DaysFromStart__c     = 2;
+        newAPTask2.Hours_After_Start__c     = 2;
         newAPTask2.Dependent__c         = '0';
         newAPTask2.Type__c              = 'Email';
         newAPTask2.Priority__c          = 'Hight';
         
         newAPTask3.Subject__c           = testUtil.createRandomWord();
-        newAPTask3.DaysFromStart__c     = 2;
+        newAPTask3.Hours_After_Start__c     = 2;
         newAPTask3.Dependent__c         = '1';
         newAPTask3.Type__c              = 'Email';
         newAPTask3.Priority__c          = 'Hight';

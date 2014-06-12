@@ -318,7 +318,7 @@ public with sharing class ImportActionPlanTemplate{
 			//handle daysFromStart field
 			if( reader.getEventType() == XMLTag.START_ELEMENT && reader.getLocalName() == 'daysFromStart' ){
 				reader.next();
-				apTaskAux.DaysFromStart__c = Decimal.valueOf( getDecodedString( reader ) );
+				apTaskAux.Hours_After_Start__c = Decimal.valueOf( getDecodedString( reader ) );
 			}
 			//handle category field
 			if( reader.getEventType() == XMLTag.START_ELEMENT && reader.getLocalName() == 'category' ){

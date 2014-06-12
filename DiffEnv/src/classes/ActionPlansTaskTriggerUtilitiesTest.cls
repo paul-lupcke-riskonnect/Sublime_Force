@@ -54,7 +54,7 @@ private class ActionPlansTaskTriggerUtilitiesTest {
 		   	for( Integer i = 0; i < 4; i++ ){
 		   		APTaskTemplate__c at = new APTaskTemplate__c();
 		   		at.Action_Plan__c 	 = ap.Id;
-		   		at.DaysFromStart__c  = 2.0;
+		   		at.Hours_After_Start__c  = 2.0;
 		   		at.User__c			 = ge.createTestUser().Id;
 		   		if (i == 0){
 		   			at.SendEmail__c		 = true;
@@ -109,7 +109,7 @@ private class ActionPlansTaskTriggerUtilitiesTest {
 		   	for( Integer i = 0; i < 4; i++ ){
 		   		APTaskTemplate__c at = new APTaskTemplate__c();
 		   		at.Action_Plan__c 	 = ap.Id;
-		   		at.DaysFromStart__c  = 2.0;
+		   		at.Hours_After_Start__c  = 2.0;
 		   		at.User__c			 = ge.createTestUser().Id;
 		   		at.SendEmail__c		 = false;
 		   		at.Subject__c		 = 'Test '+ i;
@@ -157,7 +157,7 @@ private class ActionPlansTaskTriggerUtilitiesTest {
 		   	for( Integer i = 0; i < 4; i++ ){
 		   		APTaskTemplate__c at = new APTaskTemplate__c();
 		   		at.Action_Plan__c 	 = ap.Id;
-		   		at.DaysFromStart__c  = 2.0;
+		   		at.Hours_After_Start__c  = 2.0;
 		   		at.User__c			 = ge.createTestUser().Id;
 		   		at.SendEmail__c		 = false;
 		   		at.Subject__c		 = 'Test '+ i;
@@ -306,7 +306,7 @@ private class ActionPlansTaskTriggerUtilitiesTest {
 		   	for( Integer i = 0; i < 4; i++ ){
 		   		APTaskTemplate__c at = new APTaskTemplate__c();
 		   		at.Action_Plan__c 	 = ap.Id;
-		   		at.DaysFromStart__c  = 2.0;
+		   		at.Hours_After_Start__c  = 2.0;
 		   		at.User__c			 = ge.createTestUser().Id;
 		   		if (i == 0){
 		   			at.SendEmail__c		 = true;
@@ -357,7 +357,7 @@ private class ActionPlansTaskTriggerUtilitiesTest {
 		//Task Template 1
 		APTaskTemplate__c at = new APTaskTemplate__c();
 		at.Action_Plan__c 	 = ap.Id;
-		at.DaysFromStart__c  = 2.0;
+		at.Hours_After_Start__c  = 2.0;
 		at.User__c				= ge.createTestUser().Id;
 		at.SendEmail__c			= true;
 		at.Subject__c			= 'Test ';
@@ -369,7 +369,7 @@ private class ActionPlansTaskTriggerUtilitiesTest {
 		//Task Template 2
 		APTaskTemplate__c at2 = new APTaskTemplate__c();
 		at2.Action_Plan__c		= ap.Id;
-		at2.DaysFromStart__c	= 2.0;
+		at2.Hours_After_Start__c	= 2.0;
 		at2.User__c				= ge.createTestUser().Id;
 		at2.SendEmail__c		= true;
 		at2.Subject__c			= 'Test2' ;

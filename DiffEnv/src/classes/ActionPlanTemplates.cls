@@ -126,10 +126,10 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
             if( t.Action_Plan_Template__c == null ){
             	t.Action_Plan_Template__c = apt.Id;
             } 
-            if( t.DaysFromStart__c < 1 ){
-            	 t.DaysFromStart__c = 1; 
+            if( t.Hours_After_Start__c < 1 ){
+            	 t.Hours_After_Start__c = 1; 
            	}
-            t.DaysFromStart__c = math.abs( t.DaysFromStart__c );
+            t.Hours_After_Start__c = math.abs( t.Hours_After_Start__c );
         }
         
         try{
@@ -215,7 +215,7 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
             
             if( TempApId != null ) {
                 aptTasks = [ select a.Type__c, a.Subject__c, a.Priority__c, a.Dependent__c, a.Name, a.User__c, taskIndex__c,
-            				 a.User__r.Name, a.Id, a.DaysFromStart__c, a.CreatedById, a.Action_Plan_Template__c, a.APTTaskTemplate__c,
+            				 a.User__r.Name, a.Id, a.Hours_After_Start__c, a.CreatedById, a.Action_Plan_Template__c, a.APTTaskTemplate__c,
             				 a.APTTaskTemplate__r.Subject__c, a.Reminder__c, a.SendEmail__c, a.Comments__c
             				 From APTTaskTemplate__c a 
             				 where a.Action_Plan_Template__c =: TempApId  order by taskIndex__c ASC ];
@@ -267,8 +267,8 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
                 hasNoErrors = true;
                 for( APTTaskTemplate__c apt : aptTasks ){
                 	hasNoErrors = ( apt.Priority__c != null && apt.Subject__c != null );
-                	if( apt.DaysFromStart__c < 1 ) {
-	                	apt.DaysFromStart__c = 1;
+                	if( apt.Hours_After_Start__c < 1 ) {
+	                	apt.Hours_After_Start__c = 1;
 	                }
                 }
                 if( hasNoErrors ){
@@ -623,7 +623,7 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
 		ActionPlanTemplates apTemplate = new ActionPlanTemplates( actionPlanTemplate );
 		apTemplate.aptTasks = new List<APTTaskTemplate__c>();
 		apTemplate.aptTasks = [ select a.Type__c, a.Subject__c, a.Priority__c, a.Dependent__c, a.Name, a.User__c,
-                				 a.User__r.Name, a.Id, a.DaysFromStart__c, a.CreatedById, a.Action_Plan_Template__c, 
+                				 a.User__r.Name, a.Id, a.Hours_After_Start__c, a.CreatedById, a.Action_Plan_Template__c, 
                 				 a.APTTaskTemplate__r.Subject__c, a.Reminder__c, a.SendEmail__c, a.Comments__c 
                 				 From APTTaskTemplate__c a 
                 				 where a.Action_Plan_Template__c =: actionPlanTemplate.Id ];
@@ -638,7 +638,7 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
 		apTemplate 			= new ActionPlanTemplates( actionPlanTemplate );
 		apTemplate.aptTasks = new List<APTTaskTemplate__c>();
 		apTemplate.aptTasks = [ select a.Type__c, a.Subject__c, a.Priority__c, a.Dependent__c, a.Name, a.User__c,
-                				 a.User__r.Name, a.Id, a.DaysFromStart__c, a.CreatedById, a.Action_Plan_Template__c, 
+                				 a.User__r.Name, a.Id, a.Hours_After_Start__c, a.CreatedById, a.Action_Plan_Template__c, 
                 				 a.APTTaskTemplate__r.Subject__c, a.Reminder__c, a.SendEmail__c, a.Comments__c 
                 				 From APTTaskTemplate__c a 
                 				 where a.Action_Plan_Template__c =: actionPlanTemplate2.Id ];
@@ -665,7 +665,7 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
 		
 		apTemplate.aptTasks = new List<APTTaskTemplate__c>();
 		apTemplate.aptTasks = [ select a.Type__c, a.Subject__c, a.Priority__c, a.Dependent__c, a.Name, a.User__c,
-                				 a.User__r.Name, a.Id, a.DaysFromStart__c, a.CreatedById, a.Action_Plan_Template__c, 
+                				 a.User__r.Name, a.Id, a.Hours_After_Start__c, a.CreatedById, a.Action_Plan_Template__c, 
                 				 a.APTTaskTemplate__r.Subject__c, a.Reminder__c, a.SendEmail__c, a.Comments__c 
                 				 From APTTaskTemplate__c a 
                 				 where a.Action_Plan_Template__c =: actionPlanTemplate.Id ];
@@ -691,7 +691,7 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
 		
 		apTemplate.aptTasks = new List<APTTaskTemplate__c>();
 		apTemplate.aptTasks = [ select a.Type__c, a.Subject__c, a.Priority__c, a.Dependent__c, a.Name, a.User__c,
-                				 a.User__r.Name, a.Id, a.DaysFromStart__c, a.CreatedById, a.Action_Plan_Template__c, 
+                				 a.User__r.Name, a.Id, a.Hours_After_Start__c, a.CreatedById, a.Action_Plan_Template__c, 
                 				 a.APTTaskTemplate__r.Subject__c, a.Reminder__c, a.SendEmail__c, a.Comments__c 
                 				 From APTTaskTemplate__c a 
                 				 where a.Action_Plan_Template__c =: actionPlanTemplate.Id ];
@@ -717,7 +717,7 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
 		
 		apTemplate.aptTasks = new List<APTTaskTemplate__c>();
 		apTemplate.aptTasks = [ select a.Type__c, a.Subject__c, a.Priority__c, a.Dependent__c, a.Name, a.User__c,
-                				 a.User__r.Name, a.Id, a.DaysFromStart__c, a.CreatedById, a.Action_Plan_Template__c, 
+                				 a.User__r.Name, a.Id, a.Hours_After_Start__c, a.CreatedById, a.Action_Plan_Template__c, 
                 				 a.APTTaskTemplate__r.Subject__c, a.Reminder__c, a.SendEmail__c, a.Comments__c 
                 				 From APTTaskTemplate__c a 
                 				 where a.Action_Plan_Template__c =: actionPlanTemplate.Id ];
@@ -744,7 +744,7 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
 		
 		apTemplate.aptTasks = new List<APTTaskTemplate__c>();
 		apTemplate.aptTasks = [ select a.Type__c, a.Subject__c, a.Priority__c, a.Dependent__c, a.Name, a.User__c,
-                				 a.User__r.Name, a.Id, a.DaysFromStart__c, a.CreatedById, a.Action_Plan_Template__c, 
+                				 a.User__r.Name, a.Id, a.Hours_After_Start__c, a.CreatedById, a.Action_Plan_Template__c, 
                 				 a.APTTaskTemplate__r.Subject__c, a.Reminder__c, a.SendEmail__c, a.Comments__c 
                 				 From APTTaskTemplate__c a 
                 				 where a.Action_Plan_Template__c =: actionPlanTemplate.Id ];
@@ -772,13 +772,13 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
  		APTTaskTemplate__c newAPTTask2 	= new APTTaskTemplate__c();
  		
  		newAPTTask.Subject__c 			= testUtil.createRandomWord();
- 		newAPTTask.DaysFromStart__c 	= 2;
+ 		newAPTTask.Hours_After_Start__c 	= 2;
  		newAPTTask.Dependent__c			= 'None';
  		newAPTTask.Type__c 				= 'Email';
  		newAPTTask.Priority__c 			= 'High';
  		
  		newAPTTask2.Subject__c 			= testUtil.createRandomWord();
- 		newAPTTask2.DaysFromStart__c 	= 2;
+ 		newAPTTask2.Hours_After_Start__c 	= 2;
  		newAPTTask2.Dependent__c		= '0';
  		newAPTTask2.Type__c 			= 'Email';
  		newAPTTask2.Priority__c 		= 'High';
@@ -811,19 +811,19 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
  		APTTaskTemplate__c newAPTTask3 	= new APTTaskTemplate__c();
  		
  		newAPTTask.Subject__c 			= testUtil.createRandomWord();
- 		newAPTTask.DaysFromStart__c 	= 2;
+ 		newAPTTask.Hours_After_Start__c 	= 2;
  		newAPTTask.Dependent__c			= '1';
  		newAPTTask.Type__c 				= 'Email';
  		newAPTTask.Priority__c 			= 'High';
  		
  		newAPTTask2.Subject__c 			= testUtil.createRandomWord();
- 		newAPTTask2.DaysFromStart__c 	= 2;
+ 		newAPTTask2.Hours_After_Start__c 	= 2;
  		newAPTTask2.Dependent__c		= '2';
  		newAPTTask2.Type__c 			= 'Email';
  		newAPTTask2.Priority__c 		= 'High';
  		
  		newAPTTask3.Subject__c 			= testUtil.createRandomWord();
- 		newAPTTask3.DaysFromStart__c 	= 2;
+ 		newAPTTask3.Hours_After_Start__c 	= 2;
  		newAPTTask3.Dependent__c		= '0';
  		newAPTTask3.Type__c 			= 'Email';
  		newAPTTask3.Priority__c 		= 'High';
@@ -895,7 +895,7 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
    			//Enter to Task Catch()
    			apTemplate.pendingTemplateDeletes = new List<APTTaskTemplate__c>();
    			apTemplate.aptTasks.clear();
-			apTemplate.aptTasks.add( new APTTaskTemplate__c( DaysFromStart__c = 3 ) );	
+			apTemplate.aptTasks.add( new APTTaskTemplate__c( Hours_After_Start__c = 3 ) );	
    			apTemplate.saveTemplate();
    			
 			System.assert( !apTemplate.aptTasks.isEmpty());

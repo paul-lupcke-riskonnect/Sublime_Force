@@ -47,7 +47,7 @@ public with sharing class ActionPlanDetailController{
             this.actionPlanId = System.currentPageReference().getParameters().get( 'id' );
             
              //Add your Custom object in the SOQL Query
-            this.actionPlan = [ select a.Id, a.Name, a.CreatedById, a.StartDate__c, a.Action_Plan_Template__r.Name, 
+            this.actionPlan = [ select a.Id, a.Name, a.CreatedById, a.Start_Date_Time__c, a.Action_Plan_Template__r.Name, 
                                     a.Action_Plan_Template__r.Id, a.Action_Plan_Template__c, a.Account__c, a.Contact__c, 
                                     a.Lead__c, a.Opportunity__c,  a.Contract__c, a.Case__c, a.Campaign__c ,
                                     a.SkipWeekends__c, a.SkipDay__c, a.Owner.Name, 

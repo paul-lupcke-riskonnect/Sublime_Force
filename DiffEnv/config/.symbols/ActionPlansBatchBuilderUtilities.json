@@ -432,11 +432,11 @@
             "name": "tempIndex"
         }, 
         {
-            "type": "Date", 
+            "type": "Datetime", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 15, 
+                "column": 19, 
                 "line": 194
             }, 
             "name": "dueDate"
@@ -472,12 +472,32 @@
             "name": "dayOfWeek"
         }, 
         {
+            "type": "Datetime", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 19, 
+                "line": 212
+            }, 
+            "name": "tmp"
+        }, 
+        {
+            "type": "Datetime", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 19, 
+                "line": 219
+            }, 
+            "name": "tmp"
+        }, 
+        {
             "type": "Task", 
             "modifiers": [], 
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 230
+                "line": 261
             }, 
             "name": "task_tmp"
         }, 
@@ -487,7 +507,7 @@
             "references": [], 
             "location": {
                 "column": 8, 
-                "line": 234
+                "line": 265
             }, 
             "name": "t"
         }, 
@@ -497,7 +517,7 @@
             "references": [], 
             "location": {
                 "column": 26, 
-                "line": 235
+                "line": 266
             }, 
             "name": "t_t"
         }, 
@@ -507,7 +527,7 @@
             "references": [], 
             "location": {
                 "column": 22, 
-                "line": 262
+                "line": 293
             }, 
             "name": "apt"
         }, 
@@ -517,7 +537,7 @@
             "references": [], 
             "location": {
                 "column": 29, 
-                "line": 327
+                "line": 358
             }, 
             "name": "dmlo"
         }, 
@@ -527,7 +547,7 @@
             "references": [], 
             "location": {
                 "column": 29, 
-                "line": 328
+                "line": 359
             }, 
             "name": "dmlo2"
         }, 
@@ -537,7 +557,7 @@
             "references": [], 
             "location": {
                 "column": 38, 
-                "line": 356
+                "line": 387
             }, 
             "name": "mySettings"
         }, 
@@ -547,7 +567,7 @@
             "references": [], 
             "location": {
                 "column": 21, 
-                "line": 360
+                "line": 391
             }, 
             "name": "isEnabledForFeed"
         }

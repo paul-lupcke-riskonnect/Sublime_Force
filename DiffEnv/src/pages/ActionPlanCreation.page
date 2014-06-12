@@ -114,12 +114,12 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
 	                
 	                <apex:pageBlockSectionItem id="StartDateReadonlySection" rendered="{!IF(Completed > 0, true, false)}">
 	                    <apex:outputLabel value="{!$Label.ap_PlanStartDate}"/>
-	                    <apex:outputField id="StartDateReadonly" value="{!actionPlan.StartDate__c}"/>
+	                    <apex:outputField id="StartDateReadonly" value="{!actionPlan.Start_Date_Time__c}"/>
 	                </apex:pageBlockSectionItem>
 	                
 	                <apex:pageBlockSectionItem id="StartDateSection" rendered="{!IF(Completed == 0, true, false)}">
 	                    <apex:outputLabel value="{!$Label.ap_PlanStartDate}" for="StartDate"/>
-	                    <apex:inputField id="StartDate" required="true" value="{!actionPlan.StartDate__c}" onclick="ActionPlanCreationScripts.showAgain();"/>
+	                    <apex:inputField id="StartDate" required="true" value="{!actionPlan.Start_Date_Time__c}" onclick="ActionPlanCreationScripts.showAgain();"/>
 	                </apex:pageBlockSectionItem> 
                 </apex:pageBlockSection>
                 
@@ -298,16 +298,16 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
 
 		                        <!--  Tasks Days After  -->		                        
 		                        <apex:column headerClass="fourthN" >
-		                       		<apex:facet name="header">{!$ObjectType.APTaskTemplate__c.fields.DaysFromStart__c.label}
+		                       		<apex:facet name="header">{!$ObjectType.APTaskTemplate__c.fields.Hours_After_Start__c.label}
 										<span id="daysAfterTtip_help" class="helpButton">
 											<img class="helpOrb" title="{!$Label.ap_days_after_msg}" src="/s.gif"/>
 										</span>
 									</apex:facet>
 		                       		
 		                       		<div style="float:left;width:50%;">
-		                       			<apex:inputField id="daysFromStart" onchange="javascript:ActionPlanCreationScripts.checkDays('{!$Component.taskTable.columnOne}');" value="{!wrapTask.task.DaysFromStart__c}" styleClass="days_input"/>
+		                       			<apex:inputField id="daysFromStart" onchange="javascript:ActionPlanCreationScripts.checkDays('{!$Component.taskTable.columnOne}');" value="{!wrapTask.task.Hours_After_Start__c}" styleClass="days_input"/>
 		                       		</div>
-		                       		<div style="float:left">
+		                       		<!--<div style="float:left">
 		                        		<apex:image id="calendarDueDate" 
 			                        		onmouseover="javascript:ActionPlanCreationScripts.showCalendar('{!$Component.taskTable.columnOne}');" 
 			                        		onmouseout="javascript:ActionPlanCreationScripts.hideCalendar();" 
@@ -315,7 +315,7 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
 			                        		value="/s.gif"
 			                        		style="float:left">
 		                        		</apex:image>
-		                       		</div>
+		                       		</div>-->
 		            				<div style="display:none"><apex:inputField id="activityDate" value="{!wrapTask.task.ActivityDate__c}"/></div>                   
 		                        </apex:column>
 		                   

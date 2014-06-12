@@ -143,7 +143,7 @@ public with sharing class ActionPlansBatchBuilderUtilities {
 				    nt = t.clone(); 
 				    nt.Action_Plan__c       = ap.Id;
 				    nt.Name                 = t.Subject__c.substring( 0, math.min( taskTemplateNameLength, t.Subject__c.length() ) ) ;
-				    nt.DaysFromStart__c     = ( nt.DaysFromStart__c < 1 ) ? 1 : nt.DaysFromStart__c;
+				    nt.Hours_After_Start__c     = ( nt.Hours_After_Start__c < 1 ) ? 1 : nt.Hours_After_Start__c;
 				    nt.User__c              = ( nt.User__c != null ) ? nt.User__c : apUtil.getRecordOwnerId( ap );
 				    aptList.add( nt );
 				} 
@@ -151,7 +151,7 @@ public with sharing class ActionPlansBatchBuilderUtilities {
                     
 			}else{
 				for( APTaskTemplate__c t : this.baseAPTaskList ) {
-					t.DaysFromStart__c     = ( t.DaysFromStart__c < 1 ) ? 1 : t.DaysFromStart__c;
+					t.Hours_After_Start__c     = ( t.Hours_After_Start__c < 1 ) ? 1 : t.Hours_After_Start__c;
 					t.Name                 = t.Subject__c.substring( 0, math.min( taskTemplateNameLength, t.Subject__c.length() ) ) ;
 				}  
 				aptList = this.baseAPTaskList;
@@ -189,10 +189,41 @@ public with sharing class ActionPlansBatchBuilderUtilities {
 					if (t.Dependent__c == null){
 						t.Dependent__c = 'None';
 					}
-                        
-					if( ap.SkipWeekends__c == true && ap.SkipDay__c != null){
-					    Date dueDate    = ap.StartDate__c.addDays( t.DaysFromStart__c.intValue() );
-					    Integer addDays = t.DaysFromStart__c.intValue();
+                    
+					if( ap.SkipWeekends__c == true && ap.SkipDay__c != null){///BANANA will need to revisit in near future...
+					    Datetime dueDate    = ap.Start_Date_Time__c.addDays( t.Hours_After_Start__c.intValue() );
+					    Integer addDays = t.Hours_After_Start__c.intValue();
+					    
+					    // find if the due date fall on a Saturday or Sunday.  Add 1 day for Sunday and 2 for Saturday
+					    Date refDate        = Date.newInstance(1900, 1, 7);  // Jan 7 1900 = Sun
+					    Integer dayOfWeek   = Math.mod(refDate.daysBetween(dueDate.date()), 7); // 0 = Sun ... 6 = Sat
+					    
+					    if( ap.SkipDay__c.equalsIgnoreCase( Label.ap_Friday ) ){ 
+					        // push to friday
+					        addDays = ( dayOfWeek == 0 ) ? addDays - 2  : addDays ;
+					        addDays = ( dayOfWeek == 6 ) ? addDays - 1  : addDays ;
+					    } 
+					    else{ 
+					        // push to monday
+					        addDays = ( dayOfWeek == 0 ) ? addDays + 1  : addDays ;
+					        addDays = ( dayOfWeek == 6 ) ? addDays + 2  : addDays ; 
+					    }
+					    //t.ActivityDate__c = ap.Start_Date_Time__c.addDays( addDays );
+					    Datetime tmp = ap.Start_Date_Time__c.addDays( addDays );
+					    t.ActivityDate__c = tmp.date();
+					    
+					} 
+					else{
+					    
+					    //t.ActivityDate__c = ap.Start_Date_Time__c.addDays( t.Hours_After_Start__c.intValue() );
+					    Datetime tmp = ap.Start_Date_Time__c.addDays( t.Hours_After_Start__c.intValue() );
+					    t.ActivityDate__c = tmp.date();
+					    
+					}
+
+					/*if( ap.SkipWeekends__c == true && ap.SkipDay__c != null){///BANANA will need to revisit in near future...
+					    Date dueDate    = ap.StartDate__c.addDays( t.Hours_After_Start__c.intValue() );
+					    Integer addDays = t.Hours_After_Start__c.intValue();
 					    
 					    // find if the due date fall on a Saturday or Sunday.  Add 1 day for Sunday and 2 for Saturday
 					    Date refDate        = Date.newInstance(1900, 1, 7);  // Jan 7 1900 = Sun
@@ -213,9 +244,9 @@ public with sharing class ActionPlansBatchBuilderUtilities {
 					} 
 					else{
 					    
-					    t.ActivityDate__c = ap.StartDate__c.addDays( t.DaysFromStart__c.intValue() );
+					    t.ActivityDate__c = ap.StartDate__c.addDays( t.Hours_After_Start__c.intValue() );
 					    
-					}
+					}*/
 				}
                     
 				mapAP.put(t.Id,t);

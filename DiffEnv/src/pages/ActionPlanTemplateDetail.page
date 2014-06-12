@@ -98,8 +98,8 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
                 <apex:dataTable value="{!TemplateTasks}" var="task" id="theTable" styleClass="sortable">
                     <apex:column id="columnOne" headerValue="{!$ObjectType.APTTaskTemplate__c.fields.Subject__c.label}" value="{!task.Subject__c}" />
                     <apex:column headerValue="{!$ObjectType.APTTaskTemplate__c.fields.APTTaskTemplate__c.label}" value="{!task.APTTaskTemplate__r.Subject__c}"   />
-                    <apex:column value="{!task.DaysFromStart__c}" >
-                    	<apex:facet name="header">{!$ObjectType.APTTaskTemplate__c.fields.DaysFromStart__c.label}
+                    <apex:column value="{!task.Hours_After_Start__c}" >
+                    	<apex:facet name="header">{!$ObjectType.APTTaskTemplate__c.fields.Hours_After_Start__c.label}
 							<span id="daysAfterTtip_help" class="helpButton">
 								<img class="helpOrb" title="{!$Label.ap_days_after_msg}" src="/s.gif"/>
 							</span>

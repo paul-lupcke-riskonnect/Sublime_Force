@@ -95,7 +95,7 @@ public with sharing class ActionPlansUtilities{
     */
     public List<ActionPlan__c> getActionPlans(){
         
-        return [ select a.Id, a.Name, a.CreatedById, a.StartDate__c, a.Action_Plan_Template__r.Name, a.Action_Plan_Template__r.Id, 
+        return [ select a.Id, a.Name, a.CreatedById, a.Start_Date_Time__c, a.Action_Plan_Template__r.Name, a.Action_Plan_Template__r.Id, 
                     a.Action_Plan_Template__c, a.Account__c, a.Contact__c, a.Lead__c, a.Opportunity__c ,
                     a.Contract__c, a.Case__c, a.Campaign__c 
                     from ActionPlan__c a limit 1000 ];
@@ -489,8 +489,8 @@ public with sharing class ActionPlansUtilities{
                 
                 if( ap.SkipWeekends__c == true ){
                     
-                    Date dueDate    = ap.Start_Date_Time__c.addDays( t.DaysFromStart__c.intValue() );
-                    Integer addDays = t.DaysFromStart__c.intValue();
+                    Date dueDate    = ap.Start_Date_Time__c.addDays( t.Hours_After_Start__c.intValue() );
+                    Integer addDays = t.Hours_After_Start__c.intValue();
                     
                     // find if the due date fall on a Saturday or Sunday.  Add 1 day for Sunday and 2 for Saturday
                     Date refDate        = Date.newInstance(1900, 1, 7);  // Jan 7 1900 = Sun
@@ -509,7 +509,7 @@ public with sharing class ActionPlansUtilities{
                     t.ActivityDate__c = ap.Start_Date_Time__c.addDays( addDays );
                 } 
                 else{
-                    t.ActivityDate__c = ap.Start_Date_Time__c.addDays( t.DaysFromStart__c.intValue() );
+                    t.ActivityDate__c = ap.Start_Date_Time__c.addDays( t.Hours_After_Start__c.intValue() );
                 }
             }
         }
@@ -638,7 +638,7 @@ public with sharing class ActionPlansUtilities{
                 String tempApId = ApexPages.currentPage().getParameters().get( 'templateId' );
                  
                 aptTasks = [ select a.Type__c, a.Subject__c, a.Priority__c, a.Dependent__c, a.Name, a.User__c, a.User__r.Name, a.Id, 
-                                a.DaysFromStart__c, a.CreatedById, a.Action_Plan_Template__c, a.APTTaskTemplate__r.Subject__c, 
+                                a.Hours_After_Start__c, a.CreatedById, a.Action_Plan_Template__c, a.APTTaskTemplate__r.Subject__c, 
                                 a.Reminder__c, a.SendEmail__c, a.Comments__c, a.taskIndex__c
                                 From APTTaskTemplate__c a
                                 where a.Action_Plan_Template__c =: TempApId order by taskIndex__c ASC ];
@@ -669,7 +669,7 @@ public with sharing class ActionPlansUtilities{
                     t.Dependent__c          = aptTask.Dependent__c;
                     t.taskIndex__c          = aptTask.taskIndex__c;
                     t.Name                  = aptTask.Name;
-                    t.DaysFromStart__c    = aptTask.DaysFromStart__c;
+                    t.Hours_After_Start__c    = aptTask.Hours_After_Start__c;
                     t.User__c               = userId;
                     t.Reminder__c           = aptTask.Reminder__c;
                     t.Minutes_Reminder__c   = this.getReminderDefaultTime();
@@ -740,7 +740,7 @@ public with sharing class ActionPlansUtilities{
             for( APTaskTemplate__c apt : apTasks ) {
                 
                 hasNoErrors = ( ( apt.User__c != null || mySettings.Unassigned_Task_Default__c ) && apt.Subject__c != null );
-                if( apt.DaysFromStart__c < 1 ) { apt.DaysFromStart__c = 1; }
+                if( apt.Hours_After_Start__c < 1 ) { apt.Hours_After_Start__c = 1; }
             }
             if( hasNoErrors ){  this.apTasks.add( t ); }
              
@@ -1135,7 +1135,7 @@ public with sharing class ActionPlansUtilities{
         
         List<APTaskTemplate__c> myList = new List<APTaskTemplate__c>();
         myList = [ select a.Type__c, a.Subject__c, a.ActivityDate__c, a.Priority__c, a.Status__c, a.Dependent__c, 
-                    a.Name, a.User__c, a.User__r.Name, a.Id, a.DaysFromStart__c, a.CreatedById, a.APTaskTemplate__r.Name, 
+                    a.Name, a.User__c, a.User__r.Name, a.Id, a.Hours_After_Start__c, a.CreatedById, a.APTaskTemplate__r.Name, 
                     a.APTaskTemplate__r.Subject__c, a.APTaskTemplate__c, a.Action_Plan__c, a.Reminder__c,
                     a.SendEmail__c, a.Comments__c, a.Minutes_Reminder__c , a.taskIndex__c, a.Time_Reminder__c
                     from APTaskTemplate__c a 

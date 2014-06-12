@@ -129,14 +129,14 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
 		                        
 		                        <apex:column >
 		                        
-		                   			<apex:facet name="header">{!$ObjectType.APTTaskTemplate__c.fields.DaysFromStart__c.label}
+		                   			<apex:facet name="header">{!$ObjectType.APTTaskTemplate__c.fields.Hours_After_Start__c.label}
 										<span id="daysAfterTtip_help" class="helpButton">
 											<img class="helpOrb" title="{!$Label.ap_days_after_msg}" src="/s.gif"/>
 										</span>
 									</apex:facet>
 		                        
 		                        	<apex:pageBlockSectionItem >
-		                        		<apex:inputField required="true" value="{!wrapTask.task.DaysFromStart__c}" style="width:50px"/>
+		                        		<apex:inputField required="true" value="{!wrapTask.task.Hours_After_Start__c}" style="width:50px"/>
 		                       		</apex:pageBlockSectionItem>
 		                        </apex:column>
 		                        

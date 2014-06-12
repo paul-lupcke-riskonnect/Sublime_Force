@@ -112,7 +112,7 @@ public with sharing class ActionPlansTaskTriggerUtilities {
     /**
      * Get list of dependent Action Plans Template Task
      */
-    private void dependentActionPlansTemplateTask() {
+    private void dependentActionPlansTemplateTask() {///BANANA comeback and clean up
         
         System.debug('Closed Tasks::'+this.closedTasks+'::');
 
@@ -127,8 +127,8 @@ public with sharing class ActionPlansTaskTriggerUtilities {
         this.dependentAptts = [select a.Action_Plan__r.SkipWeekends__c, a.Action_Plan__r.Account__c, a.Priority__c, a.Status__c, 
                                  a.Action_Plan__r.Contact__c, a.Action_Plan__r.Lead__c, a.Action_Plan__r.Opportunity__c,
                                  a.Action_Plan__r.Contract__c, a.Action_Plan__r.Case__c, a.Action_Plan__r.Campaign__c ,
-                                 a.Action_Plan__r.StartDate__c, a.Action_Plan__c, a.Type__c, a.Subject__c, a.ActivityDate__c, 
-                                 a.Dependent__c, a.Name, a.User__c, a.User__r.Name, a.Id, a.DaysFromStart__c, a.CreatedById,
+                                 a.Action_Plan__r.Start_Date_Time__c, a.Action_Plan__c, a.Type__c, a.Subject__c, a.ActivityDate__c, 
+                                 a.Dependent__c, a.Name, a.User__c, a.User__r.Name, a.Id, a.Hours_After_Start__c, a.CreatedById,
                                  a.APTaskTemplate__r.Subject__c, a.APTaskTemplate__c, a.SendEmail__c,  a.APTaskTemplate__r.Name, 
                                  a.Reminder__c, a.Comments__c, a.Minutes_Reminder__c
                           from APTaskTemplate__c a where a.APTaskTemplate__c IN : this.closedTasks ];
@@ -136,8 +136,8 @@ public with sharing class ActionPlansTaskTriggerUtilities {
         unfinishedAptts = [select a.Action_Plan__r.SkipWeekends__c, a.Action_Plan__r.Account__c, a.Priority__c, a.Status__c, 
                                  a.Action_Plan__r.Contact__c, a.Action_Plan__r.Lead__c, a.Action_Plan__r.Opportunity__c,
                                  a.Action_Plan__r.Contract__c, a.Action_Plan__r.Case__c, a.Action_Plan__r.Campaign__c ,
-                                 a.Action_Plan__r.StartDate__c, a.Action_Plan__c, a.Type__c, a.Subject__c, a.ActivityDate__c, 
-                                 a.Dependent__c, a.Name, a.User__c, a.User__r.Name, a.Id, a.DaysFromStart__c, a.CreatedById,
+                                 a.Action_Plan__r.Start_Date_Time__c, a.Action_Plan__c, a.Type__c, a.Subject__c, a.ActivityDate__c, 
+                                 a.Dependent__c, a.Name, a.User__c, a.User__r.Name, a.Id, a.Hours_After_Start__c, a.CreatedById,
                                  a.APTaskTemplate__r.Subject__c, a.APTaskTemplate__c, a.SendEmail__c,  a.APTaskTemplate__r.Name, 
                                  a.Reminder__c, a.Comments__c, a.Minutes_Reminder__c, a.taskIndex__c
                           from APTaskTemplate__c a];
@@ -205,8 +205,8 @@ public with sharing class ActionPlansTaskTriggerUtilities {
         this.dependentAptts = [select a.Action_Plan__r.SkipWeekends__c, a.Action_Plan__r.Account__c, a.Priority__c, a.Status__c, 
                                  a.Action_Plan__r.Contact__c, a.Action_Plan__r.Lead__c, a.Action_Plan__r.Opportunity__c,
                                  a.Action_Plan__r.Contract__c, a.Action_Plan__r.Case__c, a.Action_Plan__r.Campaign__c ,
-                                 a.Action_Plan__r.StartDate__c, a.Action_Plan__c, a.Type__c, a.Subject__c, a.ActivityDate__c, 
-                                 a.Dependent__c, a.Name, a.User__c, a.User__r.Name, a.Id, a.DaysFromStart__c, a.CreatedById,
+                                 a.Action_Plan__r.Start_Date_Time__c, a.Action_Plan__c, a.Type__c, a.Subject__c, a.ActivityDate__c, 
+                                 a.Dependent__c, a.Name, a.User__c, a.User__r.Name, a.Id, a.Hours_After_Start__c, a.CreatedById,
                                  a.APTaskTemplate__r.Subject__c, a.APTaskTemplate__c, a.SendEmail__c,  a.APTaskTemplate__r.Name, 
                                  a.Reminder__c, a.Comments__c, a.Minutes_Reminder__c
                           from APTaskTemplate__c a where a.APTaskTemplate__c IN : this.closedTasks ];  
@@ -248,7 +248,7 @@ public with sharing class ActionPlansTaskTriggerUtilities {
             if( dependentAptts.Action_Plan__r.SkipWeekends__c ){
                 
                 Date dueDate        = this.getCompletedATPTaskDate(dependentAptts.Id);
-                Integer addDays     = dependentAptts.DaysFromStart__c.intValue();
+                Integer addDays     = dependentAptts.Hours_After_Start__c.intValue();
                 
                 // find if the due date fall on a Saturday or Sunday.  Add 1 day for Sunday and 2 for Saturday
                 Date refDate        = Date.newInstance( 1900, 1, 7 );  // Jan 7 1900 = Sun
@@ -263,7 +263,7 @@ public with sharing class ActionPlansTaskTriggerUtilities {
             } 
             else{
                 Date d = this.getCompletedATPTaskDate(dependentAptts.Id);
-            	dependentAptts.ActivityDate__c = d.addDays( dependentAptts.DaysFromStart__c.intValue() );
+            	dependentAptts.ActivityDate__c = d.addDays( dependentAptts.Hours_After_Start__c.intValue() );
             }
             
             this.newTaskMap.put( auxTask.TaskTemplateId__c, auxTask );
@@ -299,7 +299,7 @@ public with sharing class ActionPlansTaskTriggerUtilities {
             t2.TaskTemplateId__c = dependentAptt.Id;
             
             Date d = this.getCompletedATPTaskDate(dependentAptt.Id);
-            dependentAptt.ActivityDate__c = d.addDays( dependentAptt.DaysFromStart__c.intValue() );
+            dependentAptt.ActivityDate__c = d.addDays( dependentAptt.Hours_After_Start__c.intValue() );
             
             if( dependentAptt.Comments__c != null ){
                 t2.Description = dependentAptt.Comments__c;
