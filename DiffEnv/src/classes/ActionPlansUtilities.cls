@@ -506,10 +506,10 @@ public with sharing class ActionPlansUtilities{
                         addDays = ( dayOfWeek == 0 ) ? addDays + 1 : addDays ;
                         addDays = ( dayOfWeek == 6 ) ? addDays + 2 : addDays ; 
                     }
-                    t.ActivityDate__c = ap.Start_Date_Time__c.addDays( addDays );
+                    t.Due_Date_Time__c = ap.Start_Date_Time__c.addDays( addDays );
                 } 
                 else{
-                    t.ActivityDate__c = ap.Start_Date_Time__c.addDays( t.Hours_After_Start__c.intValue() );
+                    t.Due_Date_Time__c = ap.Start_Date_Time__c.addDays( t.Hours_After_Start__c.intValue() );
                 }
             }
         }
@@ -841,7 +841,7 @@ public with sharing class ActionPlansUtilities{
         
         ts = [ select t.Id 
                 From APTaskTemplate__c t 
-                where t.Status__c = 'Completed' and t.ActivityDate__c != null and t.Action_Plan__c =: tempApId ];
+                where t.Status__c = 'Completed' and t.Due_Date_Time__c != null and t.Action_Plan__c =: tempApId ];
         
         return ( ts != null ) ? ts.size() : 0;
     }
@@ -1134,7 +1134,7 @@ public with sharing class ActionPlansUtilities{
     public List<APTaskTemplate__c> retrieveTaskFromExistingActionPlan( String actionPlanId ){
         
         List<APTaskTemplate__c> myList = new List<APTaskTemplate__c>();
-        myList = [ select a.Type__c, a.Subject__c, a.ActivityDate__c, a.Priority__c, a.Status__c, a.Dependent__c, 
+        myList = [ select a.Type__c, a.Subject__c, a.Due_Date_Time__c, a.Priority__c, a.Status__c, a.Dependent__c, 
                     a.Name, a.User__c, a.User__r.Name, a.Id, a.Hours_After_Start__c, a.CreatedById, a.APTaskTemplate__r.Name, 
                     a.APTaskTemplate__r.Subject__c, a.APTaskTemplate__c, a.Action_Plan__c, a.Reminder__c,
                     a.SendEmail__c, a.Comments__c, a.Minutes_Reminder__c , a.taskIndex__c, a.Time_Reminder__c

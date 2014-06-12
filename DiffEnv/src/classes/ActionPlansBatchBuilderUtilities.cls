@@ -170,14 +170,14 @@ public with sharing class ActionPlansBatchBuilderUtilities {
 				if( t.Status__c == null ){
 					t.Status__c = 'Not Started';
 				} 
-
-				if( t.Dependent__c != '[]' && t.Dependent__c != null ){
-					System.debug('Test'+t.Dependent__c);
+				System.debug('Dependent__c:'+t.Dependent__c+':');
+				if( t.Dependent__c != '[]' && t.Dependent__c!= 'None' && t.Dependent__c != null ){
+					System.debug('Test '+t.Dependent__c);
 					List<String> selectedValues = ActionPlansUtilities.parseMultiSelect(t.Dependent__c);
 					for(String val : selectedValues){
 						Integer tempIndex   = Integer.valueOf( val );
 						t.APTaskTemplate__c = aptList[tempIndex].Id;
-						t.ActivityDate__c = null;
+						t.Due_Date_Time__c = null;
 					}
 				}
 				else{ 
@@ -191,33 +191,26 @@ public with sharing class ActionPlansBatchBuilderUtilities {
 					}
                     
 					if( ap.SkipWeekends__c == true && ap.SkipDay__c != null){///BANANA will need to revisit in near future...
-					    Datetime dueDate    = ap.Start_Date_Time__c.addDays( t.Hours_After_Start__c.intValue() );
-					    Integer addDays = t.Hours_After_Start__c.intValue();
+					    Datetime dueDate    = ap.Start_Date_Time__c.addHours( t.Hours_After_Start__c.intValue() );
+					    Integer addDays 	= 0;
 					    
 					    // find if the due date fall on a Saturday or Sunday.  Add 1 day for Sunday and 2 for Saturday
 					    Date refDate        = Date.newInstance(1900, 1, 7);  // Jan 7 1900 = Sun
 					    Integer dayOfWeek   = Math.mod(refDate.daysBetween(dueDate.date()), 7); // 0 = Sun ... 6 = Sat
 					    
-					    if( ap.SkipDay__c.equalsIgnoreCase( Label.ap_Friday ) ){ 
-					        // push to friday
-					        addDays = ( dayOfWeek == 0 ) ? addDays - 2  : addDays ;
-					        addDays = ( dayOfWeek == 6 ) ? addDays - 1  : addDays ;
-					    } 
-					    else{ 
-					        // push to monday
-					        addDays = ( dayOfWeek == 0 ) ? addDays + 1  : addDays ;
-					        addDays = ( dayOfWeek == 6 ) ? addDays + 2  : addDays ; 
-					    }
-					    //t.ActivityDate__c = ap.Start_Date_Time__c.addDays( addDays );
-					    Datetime tmp = ap.Start_Date_Time__c.addDays( addDays );
-					    t.ActivityDate__c = tmp.date();
+					    // push to monday
+				        addDays = ( dayOfWeek == 0 ) ? addDays + 1  : addDays ;
+				        addDays = ( dayOfWeek == 6 ) ? addDays + 2  : addDays ;
+
+					    t.Due_Date_Time__c = ap.Start_Date_Time__c.addDays( addDays );
+					    if(addDays!=0){
+		                    dueDate = Datetime.newInstance(dueDate.date(), Time.newInstance(8, 0, 0, 0));
+		                }
 					    
 					} 
 					else{
 					    
-					    //t.ActivityDate__c = ap.Start_Date_Time__c.addDays( t.Hours_After_Start__c.intValue() );
-					    Datetime tmp = ap.Start_Date_Time__c.addDays( t.Hours_After_Start__c.intValue() );
-					    t.ActivityDate__c = tmp.date();
+					    t.Due_Date_Time__c = ap.Start_Date_Time__c.addHours( t.Hours_After_Start__c.intValue() );
 					    
 					}
 
@@ -239,12 +232,12 @@ public with sharing class ActionPlansBatchBuilderUtilities {
 					        addDays = ( dayOfWeek == 0 ) ? addDays + 1  : addDays ;
 					        addDays = ( dayOfWeek == 6 ) ? addDays + 2  : addDays ; 
 					    }
-					    t.ActivityDate__c = ap.StartDate__c.addDays( addDays );
+					    t.Due_Date_Time__c = ap.StartDate__c.addDays( addDays );
 					    
 					} 
 					else{
 					    
-					    t.ActivityDate__c = ap.StartDate__c.addDays( t.Hours_After_Start__c.intValue() );
+					    t.Due_Date_Time__c = ap.StartDate__c.addDays( t.Hours_After_Start__c.intValue() );
 					    
 					}*/
 				}
@@ -280,10 +273,10 @@ public with sharing class ActionPlansBatchBuilderUtilities {
 			} 
             
 			//set reminder based on user's default reminder setting
-			if( t_t.Reminder__c == true && t_t.ActivityDate__c != null ){
+			if( t_t.Reminder__c == true && t_t.Due_Date_Time__c != null ){
 			    
 			    t.isReminderSet = t_t.Reminder__c;
-			    t.ReminderDateTime = Datetime.newInstance( t_t.ActivityDate__c.year(), t_t.ActivityDate__c.month(), t_t.ActivityDate__c.day(), 0, 0, 0 );
+			    t.ReminderDateTime = Datetime.newInstance( t_t.Due_Date_Time__c.year(), t_t.Due_Date_Time__c.month(), t_t.Due_Date_Time__c.day(), 0, 0, 0 );
 			    t.ReminderDateTime = t.ReminderDateTime.addMinutes( Integer.valueOf( t_t.Minutes_Reminder__c ) );                          
 			}
 			else{
@@ -336,7 +329,16 @@ public with sharing class ActionPlansBatchBuilderUtilities {
 			if (t.Id == null){
 			    t.Status        = 'Not Started';
 			}
-			t.ActivityDate  = t_t.ActivityDate__c;  
+			System.debug('Task '+t_t);
+			System.debug('Setting Task date/info '+t_t.Due_Date_Time__c);
+			if(t_t.Due_Date_Time__c!=null){
+				t.ActivityDate  = t_t.Due_Date_Time__c.date();
+				t.Time_Due__c	= t_t.Due_Date_Time__c;
+			} 
+			else{
+				t.ActivityDate  = null;
+				t.Time_Due__c	= null;
+			} 
                  
             if( t_t.Dependent__c == 'None' ){
                 if( t_t.SendEmail__c == true ){

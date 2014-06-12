@@ -127,7 +127,7 @@ public with sharing class ActionPlansTaskTriggerUtilities {
         this.dependentAptts = [select a.Action_Plan__r.SkipWeekends__c, a.Action_Plan__r.Account__c, a.Priority__c, a.Status__c, 
                                  a.Action_Plan__r.Contact__c, a.Action_Plan__r.Lead__c, a.Action_Plan__r.Opportunity__c,
                                  a.Action_Plan__r.Contract__c, a.Action_Plan__r.Case__c, a.Action_Plan__r.Campaign__c ,
-                                 a.Action_Plan__r.Start_Date_Time__c, a.Action_Plan__c, a.Type__c, a.Subject__c, a.ActivityDate__c, 
+                                 a.Action_Plan__r.Start_Date_Time__c, a.Action_Plan__c, a.Type__c, a.Subject__c, a.Due_Date_Time__c, 
                                  a.Dependent__c, a.Name, a.User__c, a.User__r.Name, a.Id, a.Hours_After_Start__c, a.CreatedById,
                                  a.APTaskTemplate__r.Subject__c, a.APTaskTemplate__c, a.SendEmail__c,  a.APTaskTemplate__r.Name, 
                                  a.Reminder__c, a.Comments__c, a.Minutes_Reminder__c
@@ -136,7 +136,7 @@ public with sharing class ActionPlansTaskTriggerUtilities {
         unfinishedAptts = [select a.Action_Plan__r.SkipWeekends__c, a.Action_Plan__r.Account__c, a.Priority__c, a.Status__c, 
                                  a.Action_Plan__r.Contact__c, a.Action_Plan__r.Lead__c, a.Action_Plan__r.Opportunity__c,
                                  a.Action_Plan__r.Contract__c, a.Action_Plan__r.Case__c, a.Action_Plan__r.Campaign__c ,
-                                 a.Action_Plan__r.Start_Date_Time__c, a.Action_Plan__c, a.Type__c, a.Subject__c, a.ActivityDate__c, 
+                                 a.Action_Plan__r.Start_Date_Time__c, a.Action_Plan__c, a.Type__c, a.Subject__c, a.Due_Date_Time__c, 
                                  a.Dependent__c, a.Name, a.User__c, a.User__r.Name, a.Id, a.Hours_After_Start__c, a.CreatedById,
                                  a.APTaskTemplate__r.Subject__c, a.APTaskTemplate__c, a.SendEmail__c,  a.APTaskTemplate__r.Name, 
                                  a.Reminder__c, a.Comments__c, a.Minutes_Reminder__c, a.taskIndex__c
@@ -205,7 +205,7 @@ public with sharing class ActionPlansTaskTriggerUtilities {
         this.dependentAptts = [select a.Action_Plan__r.SkipWeekends__c, a.Action_Plan__r.Account__c, a.Priority__c, a.Status__c, 
                                  a.Action_Plan__r.Contact__c, a.Action_Plan__r.Lead__c, a.Action_Plan__r.Opportunity__c,
                                  a.Action_Plan__r.Contract__c, a.Action_Plan__r.Case__c, a.Action_Plan__r.Campaign__c ,
-                                 a.Action_Plan__r.Start_Date_Time__c, a.Action_Plan__c, a.Type__c, a.Subject__c, a.ActivityDate__c, 
+                                 a.Action_Plan__r.Start_Date_Time__c, a.Action_Plan__c, a.Type__c, a.Subject__c, a.Due_Date_Time__c, 
                                  a.Dependent__c, a.Name, a.User__c, a.User__r.Name, a.Id, a.Hours_After_Start__c, a.CreatedById,
                                  a.APTaskTemplate__r.Subject__c, a.APTaskTemplate__c, a.SendEmail__c,  a.APTaskTemplate__r.Name, 
                                  a.Reminder__c, a.Comments__c, a.Minutes_Reminder__c
@@ -247,23 +247,30 @@ public with sharing class ActionPlansTaskTriggerUtilities {
             // calculate the due date of the tasks for skip weekends feature
             if( dependentAptts.Action_Plan__r.SkipWeekends__c ){
                 
-                Date dueDate        = this.getCompletedATPTaskDate(dependentAptts.Id);
-                Integer addDays     = dependentAptts.Hours_After_Start__c.intValue();
+                Datetime dueDate        = this.getCompletedATPTaskDate(dependentAptts.Id);
+                dueDate                 = dueDate.addHours(dependentAptts.Hours_After_Start__c.intValue());
+                Integer addDays         = 0;
                 
                 // find if the due date fall on a Saturday or Sunday.  Add 1 day for Sunday and 2 for Saturday
                 Date refDate        = Date.newInstance( 1900, 1, 7 );  // Jan 7 1900 = Sun
                
-                Integer dayOfWeek   = Math.mod( refDate.daysBetween( dueDate ), 7 ); // 0 = Sun ... 6 = Sat
+                Integer dayOfWeek   = Math.mod( refDate.daysBetween( dueDate.date() ), 7 ); // 0 = Sun ... 6 = Sat
                 
                 addDays = ( dayOfWeek == 0 )? addDays + 1 : addDays; 
                 addDays = ( dayOfWeek == 6 )? addDays + 2 : addDays;
                 
-                Date d = this.getCompletedATPTaskDate(dependentAptts.Id);
-                auxTask.ActivityDate = d.addDays( addDays );
+                dueDate = dueDate.addDays( addDays );
+                
+                if(addDays!=0){
+                    dueDate = Datetime.newInstance(dueDate.date(), Time.newInstance(8, 0, 0, 0));
+                }
+
+                auxTask.ActivityDate = dueDate.date();
+                auxTask.Time_Due__c = dueDate;
             } 
             else{
-                Date d = this.getCompletedATPTaskDate(dependentAptts.Id);
-            	dependentAptts.ActivityDate__c = d.addDays( dependentAptts.Hours_After_Start__c.intValue() );
+                Datetime d = this.getCompletedATPTaskDate(dependentAptts.Id);
+            	dependentAptts.Due_Date_Time__c = d.addHours( dependentAptts.Hours_After_Start__c.intValue() );
             }
             
             this.newTaskMap.put( auxTask.TaskTemplateId__c, auxTask );
@@ -298,8 +305,8 @@ public with sharing class ActionPlansTaskTriggerUtilities {
             t2.OwnerId           = dependentAptt.User__c;
             t2.TaskTemplateId__c = dependentAptt.Id;
             
-            Date d = this.getCompletedATPTaskDate(dependentAptt.Id);
-            dependentAptt.ActivityDate__c = d.addDays( dependentAptt.Hours_After_Start__c.intValue() );
+            Datetime d = this.getCompletedATPTaskDate(dependentAptt.Id);
+            dependentAptt.Due_Date_Time__c = d.addHours( dependentAptt.Hours_After_Start__c.intValue() );
             
             if( dependentAptt.Comments__c != null ){
                 t2.Description = dependentAptt.Comments__c;
@@ -308,7 +315,7 @@ public with sharing class ActionPlansTaskTriggerUtilities {
             //set reminder based on user's default reminder setting
             if( dependentAptt.Reminder__c ){
                 t2.isReminderSet 	= dependentAptt.Reminder__c;
-                t2.ReminderDateTime = datetime.newInstance( dependentAptt.ActivityDate__c.year(), dependentAptt.ActivityDate__c.month(), dependentAptt.ActivityDate__c.day(), 0, 0, 0 );
+                t2.ReminderDateTime = datetime.newInstance( dependentAptt.Due_Date_Time__c.year(), dependentAptt.Due_Date_Time__c.month(), dependentAptt.Due_Date_Time__c.day(), 0, 0, 0 );
                 t2.ReminderDateTime = t2.ReminderDateTime.addMinutes( Integer.valueOf( dependentAptt.Minutes_Reminder__c ) );
             } 
             
@@ -351,7 +358,8 @@ public with sharing class ActionPlansTaskTriggerUtilities {
                 
             t2.Type         = dependentAptt.Type__c;
             t2.Status       = 'Not Started';
-            t2.ActivityDate = dependentAptt.ActivityDate__c;
+            t2.ActivityDate = dependentAptt.Due_Date_Time__c.date();
+            t2.Time_Due__c  = dependentAptt.Due_Date_Time__c;
             
             this.newTaskMap.put( t2.TaskTemplateId__c, t2 );
             this.updateApttsList.add( dependentAptt ) ;
@@ -365,14 +373,14 @@ public with sharing class ActionPlansTaskTriggerUtilities {
         }
      }
      
-     private Date getCompletedATPTaskDate( String aptTaskId ){
-		Date d;
-		APTaskTemplate__c lAPT = [Select APTaskTemplate__r.id, APTaskTemplate__r.ActivityDate__c from APTaskTemplate__c where id =: aptTaskId];
+     private Datetime getCompletedATPTaskDate( String aptTaskId ){
+		Datetime d;
+		APTaskTemplate__c lAPT = [Select APTaskTemplate__r.id, APTaskTemplate__r.Due_Date_Time__c from APTaskTemplate__c where id =: aptTaskId];
 		
-		if ( lAPT != null &&  lAPT.APTaskTemplate__r.ActivityDate__c != null){
-			d = lAPT.APTaskTemplate__r.ActivityDate__c;
+		if ( lAPT != null &&  lAPT.APTaskTemplate__r.Due_Date_Time__c != null){
+			d = lAPT.APTaskTemplate__r.Due_Date_Time__c;
 		}else{
-			d = Date.today();
+			d = System.now();
 		}
 		
 		return d;

@@ -316,7 +316,7 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
 			                        		style="float:left">
 		                        		</apex:image>
 		                       		</div>-->
-		            				<div style="display:none"><apex:inputField id="activityDate" value="{!wrapTask.task.ActivityDate__c}"/></div>                   
+		            				<div style="display:none"><apex:inputField id="activityDate" value="{!wrapTask.task.Due_Date_Time__c}"/></div>                   
 		                        </apex:column>
 		                   
 		                        <!--  Tasks Assigned TO  -->			                        

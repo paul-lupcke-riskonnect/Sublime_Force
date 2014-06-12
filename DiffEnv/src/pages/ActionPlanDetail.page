@@ -126,9 +126,9 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
 							</span>
 						</apex:facet>
                    </apex:column>
-                    <apex:column headerValue="{!$ObjectType.APTaskTemplate__c.fields.ActivityDate__c.label}" headerClass="dateCol">
-                        <span style="color:#cc0000"><apex:outputField value="{!task.ActivityDate__c}" rendered="{!IF(task.ActivityDate__c < TODAY() && task.Status__c != 'Completed', true, false)}" /></span>
-                        <apex:outputField value="{!task.ActivityDate__c}" rendered="{!IF(task.ActivityDate__c >= TODAY() || task.Status__c == 'Completed', true, false)}" />
+                    <apex:column headerValue="{!$ObjectType.APTaskTemplate__c.fields.Due_Date_Time__c.label}" headerClass="dateCol">
+                        <span style="color:#cc0000"><apex:outputField value="{!task.Due_Date_Time__c}" rendered="{!IF(task.Due_Date_Time__c < TODAY() && task.Status__c != 'Completed', true, false)}" /></span>
+                        <apex:outputField value="{!task.Due_Date_Time__c}" rendered="{!IF(task.Due_Date_Time__c >= TODAY() || task.Status__c == 'Completed', true, false)}" />
                     </apex:column>
                     <apex:column headerValue="{!$ObjectType.APTaskTemplate__c.fields.User__c.label}" styleClass="assigned_to_field" >
                     	<apex:outputField value="{!task.User__c}"  />

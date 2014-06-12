@@ -25,7 +25,7 @@ private class MultiselectControllerTest {
         MultiselectController c = new MultiselectController();
         
         c.leftOptions = new List<SelectOption>();
-        c.rightOptions = new List<SelectOption>();
+        c.rightOptions = new List<List<SelectOption>>();
 
         c.leftOptionsHidden = 'A&a&b&b&C&c';
         c.rightOptionsHidden = '';
