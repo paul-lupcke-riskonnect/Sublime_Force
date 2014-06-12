@@ -114,6 +114,92 @@ public with sharing class ActionPlansTaskTriggerUtilities {
      */
     private void dependentActionPlansTemplateTask() {
         
+        System.debug('Closed Tasks::'+this.closedTasks+'::');
+
+        this.dependentAptts = new List<APTaskTemplate__c>();
+        List<APTaskTemplate__c> placeHolder_TMP     = new List<APTaskTemplate__c>();
+        List<APTaskTemplate__c> unfinishedAptts     = new List<APTaskTemplate__c>();
+        List<APTaskTemplate__c> finishedAptts       = new List<APTaskTemplate__c>();
+        List<List<String>>      dependent_fields    = new List<List<String>>();
+        Set<Integer>            taskIndexID         = new Set<Integer>();
+        //Add Action Plan custom object reference Field.
+        ////////////Selects any record who had this guy as a parent.
+        this.dependentAptts = [select a.Action_Plan__r.SkipWeekends__c, a.Action_Plan__r.Account__c, a.Priority__c, a.Status__c, 
+                                 a.Action_Plan__r.Contact__c, a.Action_Plan__r.Lead__c, a.Action_Plan__r.Opportunity__c,
+                                 a.Action_Plan__r.Contract__c, a.Action_Plan__r.Case__c, a.Action_Plan__r.Campaign__c ,
+                                 a.Action_Plan__r.StartDate__c, a.Action_Plan__c, a.Type__c, a.Subject__c, a.ActivityDate__c, 
+                                 a.Dependent__c, a.Name, a.User__c, a.User__r.Name, a.Id, a.DaysFromStart__c, a.CreatedById,
+                                 a.APTaskTemplate__r.Subject__c, a.APTaskTemplate__c, a.SendEmail__c,  a.APTaskTemplate__r.Name, 
+                                 a.Reminder__c, a.Comments__c, a.Minutes_Reminder__c
+                          from APTaskTemplate__c a where a.APTaskTemplate__c IN : this.closedTasks ];
+        /////////////Need to get all records that not have all pre-reqs meet
+        unfinishedAptts = [select a.Action_Plan__r.SkipWeekends__c, a.Action_Plan__r.Account__c, a.Priority__c, a.Status__c, 
+                                 a.Action_Plan__r.Contact__c, a.Action_Plan__r.Lead__c, a.Action_Plan__r.Opportunity__c,
+                                 a.Action_Plan__r.Contract__c, a.Action_Plan__r.Case__c, a.Action_Plan__r.Campaign__c ,
+                                 a.Action_Plan__r.StartDate__c, a.Action_Plan__c, a.Type__c, a.Subject__c, a.ActivityDate__c, 
+                                 a.Dependent__c, a.Name, a.User__c, a.User__r.Name, a.Id, a.DaysFromStart__c, a.CreatedById,
+                                 a.APTaskTemplate__r.Subject__c, a.APTaskTemplate__c, a.SendEmail__c,  a.APTaskTemplate__r.Name, 
+                                 a.Reminder__c, a.Comments__c, a.Minutes_Reminder__c, a.taskIndex__c
+                          from APTaskTemplate__c a];
+
+        Set<String> recentFinishedS = new Set<String>();
+        
+        Set<String> finishedTasks = new Set<String>(this.closedTasks);
+        for(Integer i=0;i<unfinishedAptts.size();++i){
+            if(finishedTasks.contains(unfinishedAptts[i].Id)){
+                if(unfinishedAptts[i].Status__c=='Completed'){
+                    recentFinishedS.add(unfinishedAptts[i].Action_Plan__c);
+                }
+                else{
+                    System.debug('This was not suppose to be able to happen.');
+                }
+            }
+        }
+        List<String> recentFinishedL = new List<String>(recentFinishedS);
+        List<Set<Integer>> completedTasks = new List<Set<Integer>>();
+        //List<List<APTaskTemplate__c>> taskGroups = new List<List<APTaskTemplate__c>>();
+        for(Integer i=0;i<recentFinishedL.size();++i){
+            completedTasks.add(new Set<Integer>());
+            //taskGroups.add(new List<APTaskTemplate__c>());
+            for(Integer j=0;j<unfinishedAptts.size();++j){
+                if(recentFinishedL[i]==unfinishedAptts[j].Action_Plan__c && unfinishedAptts[j].Status__c=='Completed'){
+                    completedTasks[i].add( Integer.valueOf(unfinishedAptts[j].taskIndex__c));
+                    unfinishedAptts.remove(j);
+                    --j;
+                }
+            }
+        }
+        System.debug('recentFinishedL::'+recentFinishedL+'::');
+        System.debug('completedTasks::'+completedTasks+'::');
+        Boolean addToFinish;
+        for(Integer i=0;i<recentFinishedL.size();++i){
+            for(Integer j=0;j<unfinishedAptts.size();++j){
+                if(recentFinishedL[i]==unfinishedAptts[j].Action_Plan__c){
+                    System.debug('Looking at AP:'+recentFinishedL[i]+'and task::'+unfinishedAptts[j]+'::');
+                    List<String> tmp = ActionPlansUtilities.parseMultiSelect(unfinishedAptts[j].Dependent__c);
+                    addToFinish=true;
+                    for(Integer k=0;k<tmp.size();++k){
+                        System.debug('Check::'+completedTasks[i]+':::'+tmp[k]+';;;;;'+completedTasks[i].contains( Integer.valueOf(tmp[k]))+'::');
+                        if(completedTasks[i].contains( Integer.valueOf(tmp[k]) )== false){
+                            addToFinish = false;
+                            System.debug('Set to false');
+                        }
+                    }
+                    if(addToFinish==true){
+                        System.debug('Adding to output'+unfinishedAptts[j]+'::');
+                        placeHolder_TMP.add(unfinishedAptts[j]);
+                    }
+                }
+            }
+        }     
+
+        System.debug('Initial list::'+this.dependentAptts+'::');
+        System.debug('Proper_List??::'+placeHolder_TMP+'::');
+        this.dependentAptts = placeHolder_TMP;
+
+    }
+    /*private void dependentActionPlansTemplateTask() {
+        
         this.dependentAptts = new List<APTaskTemplate__c>();
         //Add Action Plan custom object reference Field.
         this.dependentAptts = [select a.Action_Plan__r.SkipWeekends__c, a.Action_Plan__r.Account__c, a.Priority__c, a.Status__c, 
@@ -125,8 +211,7 @@ public with sharing class ActionPlansTaskTriggerUtilities {
                                  a.Reminder__c, a.Comments__c, a.Minutes_Reminder__c
                           from APTaskTemplate__c a where a.APTaskTemplate__c IN : this.closedTasks ];  
 
-    }
-    
+    }*/
     
     /**
      * Cycle through list of dependent Action Plans Template Task and create actual tasks
