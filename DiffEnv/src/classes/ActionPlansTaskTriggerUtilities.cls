@@ -243,7 +243,7 @@ public with sharing class ActionPlansTaskTriggerUtilities {
                  dependentAptts.Status__c = 'Not Started';//update status of Task Template
                  updList.add(dependentAptts);
             }
-            
+            Datetime d2 = System.now();
             // calculate the due date of the tasks for skip weekends feature
             if( dependentAptts.Action_Plan__r.SkipWeekends__c ){
                 
@@ -263,14 +263,20 @@ public with sharing class ActionPlansTaskTriggerUtilities {
                 
                 if(addDays!=0){
                     dueDate = Datetime.newInstance(dueDate.date(), Time.newInstance(8, 0, 0, 0));
+                    dependentAptts.Suggested_Due__c = dueDate;//BANANA2
                 }
 
                 auxTask.ActivityDate = dueDate.date();
                 auxTask.Time_Due__c = dueDate;
+                dependentAptts.Suggested_Due__c = d2.addHours( dependentAptts.Hours_After_Start__c.intValue() );//BANANA2
+                
             } 
             else{
+                //System.debug('Setting time in trigger utils | populateNewTaskMap');
                 Datetime d = this.getCompletedATPTaskDate(dependentAptts.Id);
             	dependentAptts.Due_Date_Time__c = d.addHours( dependentAptts.Hours_After_Start__c.intValue() );
+                dependentAptts.Suggested_Due__c = d2.addHours( dependentAptts.Hours_After_Start__c.intValue() );//BANANA2
+                //System.debug('Due_Date_Time__c:'+dependentAptts.Due_Date_Time__c+'  ::  Suggested_Due__c:'+dependentAptts.Suggested_Due__c +';');
             }
             
             this.newTaskMap.put( auxTask.TaskTemplateId__c, auxTask );
@@ -304,10 +310,13 @@ public with sharing class ActionPlansTaskTriggerUtilities {
             t2.Priority          = dependentAptt.Priority__c;
             t2.OwnerId           = dependentAptt.User__c;
             t2.TaskTemplateId__c = dependentAptt.Id;
-            
+            //System.debug('Setting time in trigger utils | populateUpdateApttsList');
             Datetime d = this.getCompletedATPTaskDate(dependentAptt.Id);
             dependentAptt.Due_Date_Time__c = d.addHours( dependentAptt.Hours_After_Start__c.intValue() );
-            
+            Datetime d2 = System.now();
+            dependentAptt.Suggested_Due__c = d2.addHours( dependentAptt.Hours_After_Start__c.intValue() );
+            //System.debug('Due_Date_Time__c:'+dependentAptt.Due_Date_Time__c+'  ::  Suggested_Due__c:'+dependentAptt.Suggested_Due__c +';');
+
             if( dependentAptt.Comments__c != null ){
                 t2.Description = dependentAptt.Comments__c;
             }

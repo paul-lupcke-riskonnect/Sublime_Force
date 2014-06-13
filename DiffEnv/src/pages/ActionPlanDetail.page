@@ -121,14 +121,19 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
                     </apex:column>
                     <apex:column value="{!task.Hours_After_Start__c}" headerClass="daysCol">
 						<apex:facet name="header">{!$ObjectType.APTaskTemplate__c.fields.Hours_After_Start__c.label}
-							<span id="daysAfterTtip_help" class="helpButton">
+							<!--<span id="daysAfterTtip_help" class="helpButton">
 								<img class="helpOrb" title="{!$Label.ap_days_after_msg}" src="/s.gif"/>
-							</span>
+							</span>-->
 						</apex:facet>
                    </apex:column>
                     <apex:column headerValue="{!$ObjectType.APTaskTemplate__c.fields.Due_Date_Time__c.label}" headerClass="dateCol">
                         <span style="color:#cc0000"><apex:outputField value="{!task.Due_Date_Time__c}" rendered="{!IF(task.Due_Date_Time__c < TODAY() && task.Status__c != 'Completed', true, false)}" /></span>
                         <apex:outputField value="{!task.Due_Date_Time__c}" rendered="{!IF(task.Due_Date_Time__c >= TODAY() || task.Status__c == 'Completed', true, false)}" />
+                    </apex:column>
+
+                    <apex:column headerValue="{!$ObjectType.APTaskTemplate__c.fields.Suggested_Due__c.label}" headerClass="dateCol">
+                        <span style="color:#cc0000"><apex:outputField value="{!task.Suggested_Due__c}" rendered="{!IF(task.Suggested_Due__c < TODAY() && task.Status__c != 'Completed', true, false)}" /></span>
+                        <apex:outputField value="{!task.Suggested_Due__c}" rendered="{!IF(task.Suggested_Due__c >= TODAY() || task.Status__c == 'Completed', true, false)}" />
                     </apex:column>
                     <apex:column headerValue="{!$ObjectType.APTaskTemplate__c.fields.User__c.label}" styleClass="assigned_to_field" >
                     	<apex:outputField value="{!task.User__c}"  />

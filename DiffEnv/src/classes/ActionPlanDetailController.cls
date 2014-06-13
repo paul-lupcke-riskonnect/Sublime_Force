@@ -71,7 +71,7 @@ public with sharing class ActionPlanDetailController{
     * Gets all tasks for a given ActionPlan
     */
     public List<APTaskTemplate__c> getTasks(){
-        
+        System.debug('Getting Tasks??');
         return this.actionPlanUtil.getTasks();
     }
     

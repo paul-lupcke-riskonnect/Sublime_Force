@@ -290,6 +290,7 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
 						                leftOptions="{!SubjectItems}"
 						                rightLabel="Selected"
 						                rightOptions="{!savedDependencies}"
+						                indexID="{!wrapTask.task.taskIndex__c}"
 						                size="5"
 						                width="100px"
 						                />

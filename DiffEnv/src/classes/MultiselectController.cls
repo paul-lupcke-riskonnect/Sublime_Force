@@ -11,10 +11,13 @@ public with sharing class MultiselectController {
         }
     }
     public List<SelectOption[]> rightOptions { get; set;}
+    public String indexID { get; set{System.debug('Setting value for Index ID:'+value+': right option ='+rightOptions+';'); indexID=value; }}
     
     public MultiselectController(){
+        System.debug('MultiselectController Constructor called.');
         leftOptions = new SelectOption[]{};
         rightOptions = new List<SelectOption[]>();
+        indexID = '';
         //rightOptions[0] = '';
     }
 

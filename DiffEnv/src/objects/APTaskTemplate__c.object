@@ -62,7 +62,7 @@
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
-        <fullName>ActivityDate__c</fullName>
+        <fullName>ActivityDate_old__c</fullName>
         <externalId>false</externalId>
         <label>Due Date</label>
         <required>false</required>
@@ -77,11 +77,11 @@
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
-        <fullName>DaysFromStart__c</fullName>
+        <fullName>DaysFromStart_old__c</fullName>
         <externalId>false</externalId>
         <label>Days After</label>
         <precision>3</precision>
-        <required>true</required>
+        <required>false</required>
         <scale>0</scale>
         <type>Number</type>
         <unique>false</unique>
@@ -93,6 +93,23 @@
         <length>255</length>
         <required>false</required>
         <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Due_Date_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>Due Date &amp; Time</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Hours_After_Start__c</fullName>
+        <externalId>false</externalId>
+        <label>Hours After</label>
+        <precision>3</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <type>Number</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -179,6 +196,13 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Suggested_Due__c</fullName>
+        <externalId>false</externalId>
+        <label>Suggested Due Date &amp; Time</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>Time_Reminder__c</fullName>
         <externalId>false</externalId>
         <formula>IF(Reminder__c ,IF(MOD(FLOOR(VALUE(Minutes_Reminder__c) / 60),12) == 0,&apos;12&apos;,TEXT(MOD(FLOOR(VALUE(Minutes_Reminder__c) / 60),12))) &amp; &apos;:&apos; &amp; IF(MOD(VALUE(Minutes_Reminder__c) ,60)==0,&apos;00&apos;,TEXT(MOD(VALUE(Minutes_Reminder__c) ,60)))+&apos; &apos;+ IF( VALUE(Minutes_Reminder__c)&gt;=720, &apos;PM&apos;,&apos;AM&apos;),&apos;&apos;)</formula>
@@ -234,6 +258,26 @@
         <unique>false</unique>
     </fields>
     <label>AP Task</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>OBJECT_ID</columns>
+        <columns>Subject__c</columns>
+        <columns>Action_Plan__c</columns>
+        <columns>User__c</columns>
+        <columns>Type__c</columns>
+        <columns>Hours_After_Start__c</columns>
+        <columns>Dependent__c</columns>
+        <columns>ActivityDate_old__c</columns>
+        <columns>Due_Date_Time__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Reminder__c</columns>
+        <columns>SendEmail__c</columns>
+        <columns>Status__c</columns>
+        <columns>APTaskTemplate__c</columns>
+        <columns>taskIndex__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
     <nameField>
         <label>APTaskTemplate Name</label>
         <type>Text</type>
@@ -244,8 +288,8 @@
     <validationRules>
         <fullName>DaysGreaterThanZero</fullName>
         <active>true</active>
-        <errorConditionFormula>DaysFromStart__c  &lt;= 0</errorConditionFormula>
-        <errorDisplayField>DaysFromStart__c</errorDisplayField>
+        <errorConditionFormula>Hours_After_Start__c  &lt;= 0</errorConditionFormula>
+        <errorDisplayField>Hours_After_Start__c</errorDisplayField>
         <errorMessage>You must enter a positive value</errorMessage>
     </validationRules>
 </CustomObject>

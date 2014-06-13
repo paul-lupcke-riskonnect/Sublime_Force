@@ -189,7 +189,7 @@ public with sharing class ActionPlansBatchBuilderUtilities {
 					if (t.Dependent__c == null){
 						t.Dependent__c = 'None';
 					}
-                    
+                    Datetime d2 	   = System.now();
 					if( ap.SkipWeekends__c == true && ap.SkipDay__c != null){///BANANA will need to revisit in near future...
 					    Datetime dueDate    = ap.Start_Date_Time__c.addHours( t.Hours_After_Start__c.intValue() );
 					    Integer addDays 	= 0;
@@ -202,15 +202,22 @@ public with sharing class ActionPlansBatchBuilderUtilities {
 				        addDays = ( dayOfWeek == 0 ) ? addDays + 1  : addDays ;
 				        addDays = ( dayOfWeek == 6 ) ? addDays + 2  : addDays ;
 
-					    t.Due_Date_Time__c = ap.Start_Date_Time__c.addDays( addDays );
+					    dueDate = ap.Start_Date_Time__c.addDays( addDays );
+
+					    t.Suggested_Due__c = d2.addHours( t.Hours_After_Start__c.intValue() );
 					    if(addDays!=0){
 		                    dueDate = Datetime.newInstance(dueDate.date(), Time.newInstance(8, 0, 0, 0));
+		                    t.Suggested_Due__c = dueDate;
 		                }
 					    
+		                t.Due_Date_Time__c = dueDate;
+
 					} 
 					else{
-					    
+					    //System.debug('Setting time in builder utils');
 					    t.Due_Date_Time__c = ap.Start_Date_Time__c.addHours( t.Hours_After_Start__c.intValue() );
+					    t.Suggested_Due__c = d2.addHours( t.Hours_After_Start__c.intValue() );
+					    //System.debug('Due_Date_Time__c:'+t.Due_Date_Time__c+'  ::  Suggested_Due__c:'+t.Suggested_Due__c +';');
 					    
 					}
 

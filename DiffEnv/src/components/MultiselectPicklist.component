@@ -29,6 +29,9 @@
   <apex:attribute name="rightOptions"
     description="Options list for right listbox." type="String[]"
     required="true" assignTo="{!rightOptions}" />
+  <apex:attribute name="indexID"
+    description="Options list for right listbox." type="String"
+    required="true" assignTo="{!indexID}" />
 
   <apex:outputPanel id="multiselectPanel" layout="block" styleClass="duelingListBox">
     <table class="layout">

@@ -71,12 +71,12 @@
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
-        <fullName>DaysFromStart__c</fullName>
+        <fullName>DaysFromStart_old__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>test</inlineHelpText>
         <label>Days After</label>
         <precision>3</precision>
-        <required>true</required>
+        <required>false</required>
         <scale>0</scale>
         <type>Number</type>
         <unique>false</unique>
@@ -88,6 +88,16 @@
         <length>255</length>
         <required>false</required>
         <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Hours_After_Start__c</fullName>
+        <externalId>false</externalId>
+        <label>Hours After</label>
+        <precision>3</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <type>Number</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -210,8 +220,8 @@
     <validationRules>
         <fullName>DaysGreaterThanZero</fullName>
         <active>true</active>
-        <errorConditionFormula>DaysFromStart__c  &lt;= 0</errorConditionFormula>
-        <errorDisplayField>DaysFromStart__c</errorDisplayField>
+        <errorConditionFormula>Hours_After_Start__c  &lt;= 0</errorConditionFormula>
+        <errorDisplayField>Hours_After_Start__c</errorDisplayField>
         <errorMessage>You must enter a positive number</errorMessage>
     </validationRules>
 </CustomObject>

@@ -145,7 +145,7 @@ global with sharing class ActionPlansBatchTaskBuilder implements Database.Batcha
             t.Type          = apTask.Type__c;
             t.Status        = 'Not Started';
             t.ActivityDate  = apTask.Due_Date_Time__c.date();
-            t.Time_Due__c   = apTask.Due_Date_Time__c;  
+            t.Time_Due__c   = apTask.Due_Date_Time__c;
             
             if( apTask.Dependent__c == 'None' ){
 	            if( apTask.SendEmail__c == true ){

@@ -145,13 +145,18 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>APTTaskTemplate__c.DaysFromStart__c</field>
+        <field>APTTaskTemplate__c.DaysFromStart_old__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>APTTaskTemplate__c.Dependent__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>APTTaskTemplate__c.Hours_After_Start__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -210,7 +215,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>APTaskTemplate__c.ActivityDate__c</field>
+        <field>APTaskTemplate__c.ActivityDate_old__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -220,13 +225,23 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>APTaskTemplate__c.DaysFromStart__c</field>
+        <field>APTaskTemplate__c.DaysFromStart_old__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>APTaskTemplate__c.Dependent__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>APTaskTemplate__c.Due_Date_Time__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>APTaskTemplate__c.Hours_After_Start__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -256,6 +271,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>APTaskTemplate__c.Subject__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>APTaskTemplate__c.Suggested_Due__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -540,7 +560,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>ActionPlan__c.StartDate__c</field>
+        <field>ActionPlan__c.StartDate_old__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ActionPlan__c.Start_Date_Time__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

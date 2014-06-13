@@ -1166,7 +1166,7 @@ public with sharing class ActionPlansUtilities{
     public List<APTaskTemplate__c> retrieveTaskFromExistingActionPlan( String actionPlanId ){
         
         List<APTaskTemplate__c> myList = new List<APTaskTemplate__c>();
-        myList = [ select a.Type__c, a.Subject__c, a.Due_Date_Time__c, a.Priority__c, a.Status__c, a.Dependent__c, 
+        myList = [ select a.Type__c, a.Subject__c, a.Due_Date_Time__c, a.Suggested_Due__c, a.Priority__c, a.Status__c, a.Dependent__c, 
                     a.Name, a.User__c, a.User__r.Name, a.Id, a.Hours_After_Start__c, a.CreatedById, a.APTaskTemplate__r.Name, 
                     a.APTaskTemplate__r.Subject__c, a.APTaskTemplate__c, a.Action_Plan__c, a.Reminder__c,
                     a.SendEmail__c, a.Comments__c, a.Minutes_Reminder__c , a.taskIndex__c, a.Time_Reminder__c
