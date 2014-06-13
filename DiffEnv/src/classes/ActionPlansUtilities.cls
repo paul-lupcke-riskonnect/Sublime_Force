@@ -346,7 +346,7 @@ public with sharing class ActionPlansUtilities{
     }
     
     public void setDependencies(List<SelectOption[]> input){
-        if(input.size()!=apTasks.size()){
+        if(input.size()!=apTasks.size() && apTasks.size()!=1){
             System.debug('List size mismatch::Input:'+input.size()+'!='+apTasks.size()+':tasks');
             throw new MyException('List sizes do not match');
         }
@@ -822,6 +822,38 @@ public with sharing class ActionPlansUtilities{
             for( APTaskTemplate__c t : this.apTasks ){
                 if( t.Subject__c != null ){
                      options.add(new SelectOption( string.valueOf(i), t.Subject__c+' ('+ (i+1) +')') );
+                }
+                i++;
+            }
+        }
+        //getSelectedSubjectItems();
+        return options;
+    }
+
+
+
+    public List<List<SelectOption>> getSelectedSubjectItems(){
+        
+        List<List<SelectOption>> options = new List<List<SelectOption>>();
+        //options.add( new SelectOption( 'None', '--'+ Label.ap_None +'--' ) );
+        integer i = 0;
+        Map<String, String> taskMap = new Map<String, String>();
+        for( APTaskTemplate__c t : this.apTasks ){
+            //taskMap.add(string.valueof(t.taskIndex__c), t.Subject__c);
+        }
+        System.debug('New request');
+        if( this.apTasks != null ){
+            for( APTaskTemplate__c t : this.apTasks ){
+                System.debug('Test '+i+':'+t.taskIndex__c);
+                options.add(new List<SelectOption>());
+                if(t.Dependent__c!=null){
+                    List<String> tmp = ActionPlansUtilities.parseMultiSelect(t.Dependent__c);
+                    for(String s : tmp){
+
+                    }
+                    if( t.Subject__c != null ){
+                         options[options.size()-1].add(new SelectOption( string.valueOf(i), t.Subject__c+' ('+ (i+1) +')') );
+                    }
                 }
                 i++;
             }
