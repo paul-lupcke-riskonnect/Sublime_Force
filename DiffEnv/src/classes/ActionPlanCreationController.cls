@@ -65,6 +65,7 @@ public with sharing class ActionPlanCreationController{
         this.actionPlan         = ( ActionPlan__c ) stdController.getRecord();
         this.savedDependencies         = new List<SelectOption[]>();
 
+
         this.actionPlanId       = System.currentPageReference().getParameters().get( 'id' );
         String clone            = System.currentPageReference().getParameters().get( 'clone' );
         
@@ -78,6 +79,9 @@ public with sharing class ActionPlanCreationController{
         
         this.defaultSettings    = this.actionPlans.getCustomSetting();
         this.displayReminder    = this.actionPlans.getDisplayReminder();
+
+        System.debug('Testing pull:'+this.getSubjectItems()+':');
+        this.savedDependencies.add(this.getSubjectItems());
     }    
 
     /**
@@ -275,6 +279,7 @@ public with sharing class ActionPlanCreationController{
     */
     public void addTask(){
         savedDependencies.clear();
+        this.savedDependencies.add(this.getSubjectItems());
         this.taskIndex++;
         this.actionPlans.taskIndexOrder = this.taskIndex;
         this.addedTask = this.actionPlans.addTask();
@@ -381,6 +386,10 @@ public with sharing class ActionPlanCreationController{
         return this.actionPlans.getSubjectItems();
     }
     
+    public List<SelectOption> getSelectedItems(){
+        return this.actionPlans.getSelectedItems();
+    }
+
     /**
     * Set the Refered object to Create New Action Plan 
     */

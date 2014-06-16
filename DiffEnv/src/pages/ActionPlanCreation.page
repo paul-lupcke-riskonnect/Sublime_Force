@@ -285,12 +285,24 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
 		                        <apex:column headerValue="{!$ObjectType.APTaskTemplate__c.fields.APTaskTemplate__c.label}" rendered="{!IF(TaskSize > 1, true, false)}"   headerClass="thirdN" >
 		                            <!--<apex:selectList id="dependent" value="{!wrapTask.task.Dependent__c}" multiselect="false" size="1"  onchange="javascript:ActionPlanCreationScripts.checkDependent('{!$Component.taskTable.dependent}');" styleClass="selectDepending">
 		                                <apex:selectOptions value="{!SubjectItems}" />
-		                            </apex:selectList>-->
-		                            <c:MultiselectPicklist leftLabel="Possible"
-						                leftOptions="{!SubjectItems}"
+		                            </apex:selectList>
+
+
+									leftOptions="{!SubjectItems}"
+									rightOptions="{!SubjectItems}"
+						            rightSelection="{!savedDependencies}"
+						            leftSelection="{!savedDependencies}"
+		                            -->
+		                            <c:MultiselectPicklist
+		                            	indexID="{!wrapTask.task.taskIndex__c}"
+						                rightSelection="{!savedDependencies}"
+						            	leftSelection="{!savedDependencies}"
+						            	
+		                            	leftLabel="Possible"
+						                
 						                rightLabel="Selected"
-						                rightOptions="{!savedDependencies}"
-						                indexID="{!wrapTask.task.taskIndex__c}"
+						                
+						                
 						                size="5"
 						                width="100px"
 						                />

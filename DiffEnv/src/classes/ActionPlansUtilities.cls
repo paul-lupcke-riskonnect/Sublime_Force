@@ -346,23 +346,25 @@ public with sharing class ActionPlansUtilities{
     }
     
     public void setDependencies(List<SelectOption[]> input){
-        if(input.size()!=apTasks.size() && apTasks.size()!=1){
+        if(input.size()!=apTasks.size()+1 && apTasks.size()!=1){
             System.debug('List size mismatch::Input:'+input.size()+'!='+apTasks.size()+':tasks');
+            System.debug('Input contains:'+input+':');
             throw new MyException('List sizes do not match');
         }
         else{
             System.debug('Everything is fine with list sizes');
-            for(Integer i=0;i<input.size();++i){
+            for(Integer i=0;i<input.size()-1;++i){
                 String val = '';
-                if(input[i].size()>0){
-                    val += input[i][0].getValue();
-                    for(Integer j=1;j<input[i].size();++j){
-                        val += ','+input[i][j].getValue();
+                if(input[i+1].size()>0){
+                    val += input[i+1][0].getValue();
+                    for(Integer j=1;j<input[i+1].size();++j){
+                        val += ','+input[i+1][j].getValue();
                     }
                 }
                 this.apTasks[i].Dependent__c = val;
                 System.debug('Check Dependent__c::'+this.apTasks[i]+'::');
             }
+
             //update this.apTasks;
             // now need to update the list of apTasks to push dependents on database.
         }
@@ -830,6 +832,22 @@ public with sharing class ActionPlansUtilities{
         return options;
     }
 
+    public List<SelectOption> getSelectedItems(){
+        List<SelectOption> options = new List<SelectOption>();
+        //options.add( new SelectOption( 'None', '--'+ Label.ap_None +'--' ) );
+        integer i = 0;
+        
+        if( this.apTasks != null ){
+            for( APTaskTemplate__c t : this.apTasks ){
+                if( t.Subject__c != null ){
+                     options.add(new SelectOption( string.valueOf(i), t.Subject__c+' ('+ (i+1) +')') );
+                }
+                i++;
+            }
+        }
+        //getSelectedSubjectItems();
+        return options;
+    }
 
 
     public List<List<SelectOption>> getSelectedSubjectItems(){

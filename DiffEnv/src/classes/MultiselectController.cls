@@ -10,13 +10,49 @@ public with sharing class MultiselectController {
         this.leftOptions=tmp;
         }
     }
-    public List<SelectOption[]> rightOptions { get; set;}
-    public String indexID { get; set{System.debug('Setting value for Index ID:'+value+': right option ='+rightOptions+';'); indexID=value; }}
+    public SelectOption[] rightOptions { get; 
+        set{SelectOption[] tmp = value;
+        if(tmp==null){tmp=new SelectOption[]{};}
+        this.rightOptions=tmp;
+        }
+    }
+    public List<SelectOption[]> rightSelection { 
+        get; 
+        set{
+            System.debug('Setting rightSelection'+value+':');
+            rightSelection=value;
+        }
+    }
+    public List<SelectOption[]> leftSelection { 
+        get; 
+        set{
+            System.debug('Setting leftSelection:'+value+':');
+            leftSelection=value;
+            if(leftSelection.size()>0){
+                leftOptions=leftSelection[0];
+                System.debug('Setting left option to:'+leftOptions);
+            }
+        }
+    }
+    public String indexID {
+        get;
+        set{
+            System.debug('Setting value for Index ID:'+value+':');
+            if(value!=null){
+                indexID=value;
+            }
+            else{
+                indexID='0.0';
+            }
+        }
+    }
     
     public MultiselectController(){
         System.debug('MultiselectController Constructor called.');
+        leftSelection = new List<SelectOption[]>();
+        rightSelection = new List<SelectOption[]>();
         leftOptions = new SelectOption[]{};
-        rightOptions = new List<SelectOption[]>();
+        rightOptions = new SelectOption[]{};
         indexID = '';
         //rightOptions[0] = '';
     }
@@ -53,7 +89,8 @@ public with sharing class MultiselectController {
     // right list
     public String rightOptionsHidden { get; set {
            rightOptionsHidden = value;
-           setOptions(this.rightOptions, value);
+           setOptions(rightOptions, value);
+           setOptions(rightSelection, value);
         }
     }
 }
