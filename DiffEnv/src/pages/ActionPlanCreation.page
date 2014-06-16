@@ -295,9 +295,10 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
 		                            -->
 		                            <c:MultiselectPicklist
 		                            	indexID="{!wrapTask.task.taskIndex__c}"
+		                            	leftSelection="{!possibleOptions}"
 						                rightSelection="{!savedDependencies}"
-						            	leftSelection="{!savedDependencies}"
 						            	
+
 		                            	leftLabel="Possible"
 						                
 						                rightLabel="Selected"

@@ -19,25 +19,53 @@ public with sharing class MultiselectController {
     public List<SelectOption[]> rightSelection { 
         get; 
         set{
-            System.debug('Setting rightSelection'+value+':');
+            //System.debug('Setting rightSelection'+value+':');
             rightSelection=value;
         }
     }
     public List<SelectOption[]> leftSelection { 
         get; 
         set{
-            System.debug('Setting leftSelection:'+value+':');
+            //System.debug('Setting leftSelection:'+value+':');
             leftSelection=value;
             if(leftSelection.size()>0){
                 leftOptions=leftSelection[0];
-                System.debug('Setting left option to:'+leftOptions);
+                //System.debug('Setting left option to:'+leftOptions);
+                //System.debug('For giggles:'+rightOptions);
+                //System.debug('For giggles2:'+rightSelection);
+                
+                leftOptions = cleaned(leftSelection[0],rightOptions);
             }
         }
     }
+
+    private SelectOption[] cleaned (SelectOption[] all, SelectOption[] sel){
+        SelectOption[] retVal = new SelectOption[]{};
+        Boolean addFlag;
+        for(Integer i=0;i<all.size();++i){
+            addFlag=true;
+            System.debug('All:'+all+':: Size:'+all.size()+';');
+            System.debug('Sel:'+sel+':: Size:'+sel.size()+';');
+            for(Integer j=0;j<sel.size();++j){
+                System.debug('I:'+i+':: J:'+j);
+                if(all[i].getValue()==sel[j].getValue()){
+                    System.debug('Removing I:'+i);
+                    addFlag=false;
+                    //all.remove(i);
+                    //--i;
+                }
+            }
+            if(addFlag==true){
+                retVal.add(all[i]);
+            }
+        }
+        return retVal;
+    }
+
     public String indexID {
         get;
         set{
-            System.debug('Setting value for Index ID:'+value+':');
+            //System.debug('Setting value for Index ID:'+value+':');
             if(value!=null){
                 indexID=value;
             }
@@ -48,7 +76,7 @@ public with sharing class MultiselectController {
     }
     
     public MultiselectController(){
-        System.debug('MultiselectController Constructor called.');
+        //System.debug('MultiselectController Constructor called.');
         leftSelection = new List<SelectOption[]>();
         rightSelection = new List<SelectOption[]>();
         leftOptions = new SelectOption[]{};

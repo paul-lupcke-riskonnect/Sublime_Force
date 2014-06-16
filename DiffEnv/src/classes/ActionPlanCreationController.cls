@@ -49,7 +49,9 @@ public with sharing class ActionPlanCreationController{
     public Boolean                  displayReminder         { get; set; }
     private Map<String,ApTaskWrapper>   mapTasksListBkp;
     
-    public List<SelectOption[]>     savedDependencies       {get; set; }
+    public List<SelectOption[]>     savedDependencies       { get; set; }
+    public List<SelectOption[]>     possibleOptions       { get; set; }
+    public List<SelectOption[]>     selectedOptions       { get; set; }
     /**
     * Constructor
     */
@@ -64,6 +66,8 @@ public with sharing class ActionPlanCreationController{
         this.mapTasksListBkp    = new Map<String,ApTaskWrapper>();
         this.actionPlan         = ( ActionPlan__c ) stdController.getRecord();
         this.savedDependencies         = new List<SelectOption[]>();
+        this.possibleOptions         = new List<SelectOption[]>();
+        this.selectedOptions         = new List<SelectOption[]>();
 
 
         this.actionPlanId       = System.currentPageReference().getParameters().get( 'id' );
@@ -80,8 +84,6 @@ public with sharing class ActionPlanCreationController{
         this.defaultSettings    = this.actionPlans.getCustomSetting();
         this.displayReminder    = this.actionPlans.getDisplayReminder();
 
-        System.debug('Testing pull:'+this.getSubjectItems()+':');
-        this.savedDependencies.add(this.getSubjectItems());
     }    
 
     /**
@@ -226,7 +228,7 @@ public with sharing class ActionPlanCreationController{
         
         try{
             //if ( this.actionPlanId != null ){
-            this.actionPlans.setDependencies(savedDependencies);
+            this.actionPlans.setDependencies2(savedDependencies);
             //}
             if( !this.actionPlans.checkCycleDependent() ){
                 referedObjectOwnerInit();
@@ -278,8 +280,10 @@ public with sharing class ActionPlanCreationController{
     * Creates a blank Task object and adds it to List<Task>
     */
     public void addTask(){
-        savedDependencies.clear();
-        this.savedDependencies.add(this.getSubjectItems());
+        //this.actionPlans.setDependencies2(savedDependencies);
+        this.savedDependencies.clear();
+        this.possibleOptions.clear();
+        this.possibleOptions.add(this.getSubjectItems());
         this.taskIndex++;
         this.actionPlans.taskIndexOrder = this.taskIndex;
         this.addedTask = this.actionPlans.addTask();

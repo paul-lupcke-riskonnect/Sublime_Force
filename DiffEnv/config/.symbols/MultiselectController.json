@@ -51,7 +51,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 37
+                "line": 65
             }, 
             "type": "String"
         }, 
@@ -62,7 +62,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 82
+                "line": 110
             }, 
             "type": "String"
         }, 
@@ -73,12 +73,34 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 90
+                "line": 118
             }, 
             "type": "String"
         }
     ], 
     "methods": [
+        {
+            "modifiers": [], 
+            "name": "cleaned", 
+            "parameters": [
+                {
+                    "type": "LIST", 
+                    "name": "all"
+                }, 
+                {
+                    "type": "LIST", 
+                    "name": "sel"
+                }
+            ], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 42
+            }, 
+            "returnType": "LIST", 
+            "type": null
+        }, 
         {
             "modifiers": [], 
             "name": "setOptions", 
@@ -96,7 +118,7 @@
             "references": [], 
             "location": {
                 "column": 18, 
-                "line": 62
+                "line": 90
             }, 
             "returnType": "void", 
             "type": null
@@ -118,7 +140,7 @@
             "references": [], 
             "location": {
                 "column": 18, 
-                "line": 70
+                "line": 98
             }, 
             "returnType": "void", 
             "type": null
@@ -151,8 +173,68 @@
             "modifiers": [], 
             "references": [], 
             "location": {
+                "column": 52, 
+                "line": 42
+            }, 
+            "name": "all"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 72, 
+                "line": 42
+            }, 
+            "name": "sel"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 43
+            }, 
+            "name": "retVal"
+        }, 
+        {
+            "type": "Boolean", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 44
+            }, 
+            "name": "addFlag"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 45
+            }, 
+            "name": "i"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 25, 
+                "line": 49
+            }, 
+            "name": "j"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
                 "column": 44, 
-                "line": 62
+                "line": 90
             }, 
             "name": "options"
         }, 
@@ -162,7 +244,7 @@
             "references": [], 
             "location": {
                 "column": 60, 
-                "line": 62
+                "line": 90
             }, 
             "name": "value"
         }, 
@@ -172,7 +254,7 @@
             "references": [], 
             "location": {
                 "column": 18, 
-                "line": 64
+                "line": 92
             }, 
             "name": "parts"
         }, 
@@ -182,7 +264,7 @@
             "references": [], 
             "location": {
                 "column": 22, 
-                "line": 65
+                "line": 93
             }, 
             "name": "i"
         }, 
@@ -192,7 +274,7 @@
             "references": [], 
             "location": {
                 "column": 50, 
-                "line": 70
+                "line": 98
             }, 
             "name": "options"
         }, 
@@ -202,7 +284,7 @@
             "references": [], 
             "location": {
                 "column": 66, 
-                "line": 70
+                "line": 98
             }, 
             "name": "value"
         }, 
@@ -212,7 +294,7 @@
             "references": [], 
             "location": {
                 "column": 18, 
-                "line": 73
+                "line": 101
             }, 
             "name": "parts"
         }, 
@@ -222,7 +304,7 @@
             "references": [], 
             "location": {
                 "column": 22, 
-                "line": 74
+                "line": 102
             }, 
             "name": "i"
         }
@@ -236,7 +318,7 @@
             "references": [], 
             "location": {
                 "column": 12, 
-                "line": 50
+                "line": 78
             }, 
             "type": null
         }

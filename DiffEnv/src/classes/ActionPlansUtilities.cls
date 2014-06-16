@@ -370,6 +370,31 @@ public with sharing class ActionPlansUtilities{
         }
     }
 
+    public void setDependencies2(List<SelectOption[]> input){
+        if(input.size()!=apTasks.size() && apTasks.size()!=1){
+            System.debug('List size mismatch::Input:'+input.size()+'!='+apTasks.size()+':tasks');
+            System.debug('Input contains:'+input+':');
+            throw new MyException('List sizes do not match');
+        }
+        else{
+            System.debug('Everything is fine with list sizes');
+            for(Integer i=0;i<input.size();++i){
+                String val = '';
+                if(input[i].size()>0){
+                    val += input[i][0].getValue();
+                    for(Integer j=1;j<input[i].size();++j){
+                        val += ','+input[i][j].getValue();
+                    }
+                }
+                this.apTasks[i].Dependent__c = val;
+                System.debug('Check Dependent__c::'+this.apTasks[i]+'::');
+            }
+
+            //update this.apTasks;
+            // now need to update the list of apTasks to push dependents on database.
+        }
+    }
+
 /**
     * Saves Action Plan Instance and tasks and redirects to that detail page
     * @return newPage
