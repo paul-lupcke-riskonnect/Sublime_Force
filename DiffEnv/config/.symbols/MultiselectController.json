@@ -24,12 +24,23 @@
         }, 
         {
             "modifiers": [], 
+            "name": "removeOptions", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 19
+            }, 
+            "type": "LIST"
+        }, 
+        {
+            "modifiers": [], 
             "name": "rightSelection", 
             "visibility": "PUBLIC", 
             "references": [], 
             "location": {
                 "column": 33, 
-                "line": 19
+                "line": 64
             }, 
             "type": "LIST"
         }, 
@@ -40,7 +51,7 @@
             "references": [], 
             "location": {
                 "column": 33, 
-                "line": 26
+                "line": 71
             }, 
             "type": "LIST"
         }, 
@@ -51,7 +62,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 65
+                "line": 110
             }, 
             "type": "String"
         }, 
@@ -62,7 +73,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 110
+                "line": 155
             }, 
             "type": "String"
         }, 
@@ -73,7 +84,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 118
+                "line": 163
             }, 
             "type": "String"
         }
@@ -96,7 +107,7 @@
             "references": [], 
             "location": {
                 "column": 28, 
-                "line": 42
+                "line": 87
             }, 
             "returnType": "LIST", 
             "type": null
@@ -118,7 +129,7 @@
             "references": [], 
             "location": {
                 "column": 18, 
-                "line": 90
+                "line": 135
             }, 
             "returnType": "void", 
             "type": null
@@ -140,7 +151,7 @@
             "references": [], 
             "location": {
                 "column": 18, 
-                "line": 98
+                "line": 143
             }, 
             "returnType": "void", 
             "type": null
@@ -174,7 +185,7 @@
             "references": [], 
             "location": {
                 "column": 52, 
-                "line": 42
+                "line": 87
             }, 
             "name": "all"
         }, 
@@ -184,7 +195,7 @@
             "references": [], 
             "location": {
                 "column": 72, 
-                "line": 42
+                "line": 87
             }, 
             "name": "sel"
         }, 
@@ -194,7 +205,7 @@
             "references": [], 
             "location": {
                 "column": 24, 
-                "line": 43
+                "line": 88
             }, 
             "name": "retVal"
         }, 
@@ -204,7 +215,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 44
+                "line": 89
             }, 
             "name": "addFlag"
         }, 
@@ -214,7 +225,7 @@
             "references": [], 
             "location": {
                 "column": 21, 
-                "line": 45
+                "line": 90
             }, 
             "name": "i"
         }, 
@@ -224,7 +235,7 @@
             "references": [], 
             "location": {
                 "column": 25, 
-                "line": 49
+                "line": 94
             }, 
             "name": "j"
         }, 
@@ -234,7 +245,7 @@
             "references": [], 
             "location": {
                 "column": 44, 
-                "line": 90
+                "line": 135
             }, 
             "name": "options"
         }, 
@@ -244,7 +255,7 @@
             "references": [], 
             "location": {
                 "column": 60, 
-                "line": 90
+                "line": 135
             }, 
             "name": "value"
         }, 
@@ -254,7 +265,7 @@
             "references": [], 
             "location": {
                 "column": 18, 
-                "line": 92
+                "line": 137
             }, 
             "name": "parts"
         }, 
@@ -264,7 +275,7 @@
             "references": [], 
             "location": {
                 "column": 22, 
-                "line": 93
+                "line": 138
             }, 
             "name": "i"
         }, 
@@ -274,7 +285,7 @@
             "references": [], 
             "location": {
                 "column": 50, 
-                "line": 98
+                "line": 143
             }, 
             "name": "options"
         }, 
@@ -284,7 +295,7 @@
             "references": [], 
             "location": {
                 "column": 66, 
-                "line": 98
+                "line": 143
             }, 
             "name": "value"
         }, 
@@ -294,7 +305,7 @@
             "references": [], 
             "location": {
                 "column": 18, 
-                "line": 101
+                "line": 146
             }, 
             "name": "parts"
         }, 
@@ -304,7 +315,7 @@
             "references": [], 
             "location": {
                 "column": 22, 
-                "line": 102
+                "line": 147
             }, 
             "name": "i"
         }
@@ -318,7 +329,7 @@
             "references": [], 
             "location": {
                 "column": 12, 
-                "line": 78
+                "line": 123
             }, 
             "type": null
         }

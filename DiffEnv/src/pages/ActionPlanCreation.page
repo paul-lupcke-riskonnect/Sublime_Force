@@ -261,12 +261,12 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
 	                	</div>
 	                	<div>
 		                    <apex:dataTable value="{!Tasks}" var="wrapTask" id="taskTable" columnClasses="first,second,third,fourth,fifth,sixth,septh,eight,ninth,tenth" styleClass="taskTable" >
-		                       <!--  Tasks delete actions  -->
+		                       <!--  Tasks delete actions  rendered="{!Tasks.size > 1}" -->
 		                       <apex:column id="columnOne" headerValue=""  >
 		                             <apex:commandLink rerender="taskTable, taskStatus, nameSection, lookupSectionOutPanel, templateLookupSection" 
 		                             				   immediate="{!wrapTask.isLast}"
 		                             				   action="{!removeTask}" 
-		                             				   rendered="{!Tasks.size > 1}" 
+		                             				   rerender="taskList, taskStatus, nameSection, lookupSectionOutPanel, templateLookupSection" 
 		                             				   onclick="if (ActionPlanCreationScripts.confirmTaskDeletion('{!$Component.taskTable.dependent}')) return false;javascript:ActionPlanCreationScripts.showTasksListLoader();" 
 		                             				   oncomplete="showErrors(); ActionPlanCreationScripts.checkReminderPicklists(); ActionPlanCreationScripts.hideTasksListLoader();"> 
 		                                  <img src="{!$Resource.ActionPlans_cross}" alt="{!$Label.ap_Remove} "/>
@@ -297,7 +297,7 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
 		                            	indexID="{!wrapTask.task.taskIndex__c}"
 		                            	leftSelection="{!possibleOptions}"
 						                rightSelection="{!savedDependencies}"
-						            	
+						            	removeOptions="{!removeOptions}"
 
 		                            	leftLabel="Possible"
 						                

@@ -30,6 +30,9 @@
     description="Options list for right listbox." type="SelectOption[]"
     required="false" assignTo="{!rightOptions}" />-->
 
+  <apex:attribute name="removeOptions"
+    description="Options list for left listbox." type="String[]"
+    required="false" assignTo="{!removeOptions}" />
   <apex:attribute name="leftSelection"
     description="Options list for left listbox." type="String[]"
     required="false" assignTo="{!leftSelection}" />

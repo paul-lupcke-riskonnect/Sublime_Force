@@ -50,8 +50,9 @@ public with sharing class ActionPlanCreationController{
     private Map<String,ApTaskWrapper>   mapTasksListBkp;
     
     public List<SelectOption[]>     savedDependencies       { get; set; }
-    public List<SelectOption[]>     possibleOptions       { get; set; }
-    public List<SelectOption[]>     selectedOptions       { get; set; }
+    public List<SelectOption[]>     possibleOptions         { get; set; }
+    public List<SelectOption[]>     selectedOptions         { get; set; }
+    public List<Integer>       removeOptions           { get; set; }
     /**
     * Constructor
     */
@@ -65,9 +66,10 @@ public with sharing class ActionPlanCreationController{
         this.relatedObjIds      = new List<String>();
         this.mapTasksListBkp    = new Map<String,ApTaskWrapper>();
         this.actionPlan         = ( ActionPlan__c ) stdController.getRecord();
-        this.savedDependencies         = new List<SelectOption[]>();
+        this.savedDependencies       = new List<SelectOption[]>();
         this.possibleOptions         = new List<SelectOption[]>();
         this.selectedOptions         = new List<SelectOption[]>();
+        this.removeOptions           = new List<Integer>();
 
 
         this.actionPlanId       = System.currentPageReference().getParameters().get( 'id' );
@@ -104,6 +106,8 @@ public with sharing class ActionPlanCreationController{
         this.actionPlans                = new ActionPlansUtilities( this.actionPlan );
         this.hasRelatedObject           = this.actionPlans.hasRelatedObject();
         this.taskIndex                  = this.calculateAPTaskIndexValue();
+        this.possibleOptions.add(this.getSubjectItems());
+
     }
 
     /**
@@ -228,6 +232,7 @@ public with sharing class ActionPlanCreationController{
         
         try{
             //if ( this.actionPlanId != null ){
+
             this.actionPlans.setDependencies2(savedDependencies);
             //}
             if( !this.actionPlans.checkCycleDependent() ){
@@ -236,6 +241,7 @@ public with sharing class ActionPlanCreationController{
             }
             else{
                 savedDependencies.clear();
+                this.removeOptions.clear();
             }
         }
         catch( FieldCustomValidationException e ){
@@ -280,9 +286,9 @@ public with sharing class ActionPlanCreationController{
     * Creates a blank Task object and adds it to List<Task>
     */
     public void addTask(){
-        //this.actionPlans.setDependencies2(savedDependencies);
         this.savedDependencies.clear();
         this.possibleOptions.clear();
+        this.removeOptions.clear();
         this.possibleOptions.add(this.getSubjectItems());
         this.taskIndex++;
         this.actionPlans.taskIndexOrder = this.taskIndex;
@@ -293,7 +299,14 @@ public with sharing class ActionPlanCreationController{
     * Action for removing a existing task
     */
     public void removeTask(){
-        addedTask = !actionPlans.removeTask();
+        this.savedDependencies.clear();
+        this.possibleOptions.clear();
+        this.removeOptions.clear();
+        //this.possibleOptions.add(this.getSubjectItems());
+        addedTask = !actionPlans.removeTask(removeOptions);
+        //System.debug('remove options :'+removeOptions+':');
+        this.possibleOptions.add(this.getSubjectItems());
+        //this.possibleOptions[0].add(new SelectOption('500','5000(500)'));
     }
     
     /**

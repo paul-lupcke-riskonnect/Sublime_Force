@@ -16,6 +16,51 @@ public with sharing class MultiselectController {
         this.rightOptions=tmp;
         }
     }
+    public List<Integer> removeOptions{
+        get;
+        set{
+            /*if(value.size()>0){
+                System.debug('Value :'+value+':');
+                Boolean lowerRemaining=false;
+                for(Integer j=0;j<rightOptions.size();++j){
+                    if(lowerRemaining==true){
+                        System.debug('Lowering remaining');//This is not corrent... poo
+                        rightOptions[j].setValue( String.valueOf( ( Integer.valueOf( rightOptions[j].getValue() )-1 ) ));
+                    }
+                    if(value[0]==Integer.valueOf( rightOptions[j].getValue()) && lowerRemaining==false){
+                        System.debug('Found R match removing :'+rightOptions[j]+':');
+                        rightOptions.remove(j);
+                        --j;
+                        lowerRemaining=true;
+
+                    }
+                    
+                }
+                for(Integer j=0;j<leftOptions.size();++j){
+                    System.debug('leftOptions:'+leftOptions+':');
+                }
+                lowerRemaining=false;
+                for(Integer j=0;j<leftOptions.size();++j){
+                    if(lowerRemaining==true){
+                        System.debug('Lowering remaining');//This is not corrent... poo
+                        System.debug('Left option value:'+leftOptions[j].getValue()+':');
+                        System.debug('Left Int reduced option value:'+(Integer.valueOf( leftOptions[j].getValue() )-1) +':');
+                        System.debug('Left String reduced option value:'+String.valueOf( ( Integer.valueOf( leftOptions[j].getValue() )-1 ) )+':');
+                        leftOptions[j].setValue( String.valueOf( ( Integer.valueOf( leftOptions[j].getValue() )-1 ) ));
+                    }
+                    if(value[0]==Integer.valueOf( leftOptions[j].getValue()) && lowerRemaining==false){
+                        System.debug('J:'+j+':');
+                        System.debug('Found L option val:'+leftOptions[j].getValue()+':');
+                        System.debug('Found L match removing :'+leftOptions[j]+':');
+                        leftOptions.remove(j);
+                        --j;
+                        lowerRemaining=true;
+                    }
+                    
+                }
+            }*/
+        }
+    }
     public List<SelectOption[]> rightSelection { 
         get; 
         set{
@@ -26,7 +71,7 @@ public with sharing class MultiselectController {
     public List<SelectOption[]> leftSelection { 
         get; 
         set{
-            //System.debug('Setting leftSelection:'+value+':');
+            System.debug('Setting leftSelection:'+value+':');
             leftSelection=value;
             if(leftSelection.size()>0){
                 leftOptions=leftSelection[0];
@@ -44,12 +89,12 @@ public with sharing class MultiselectController {
         Boolean addFlag;
         for(Integer i=0;i<all.size();++i){
             addFlag=true;
-            System.debug('All:'+all+':: Size:'+all.size()+';');
-            System.debug('Sel:'+sel+':: Size:'+sel.size()+';');
+            //System.debug('All:'+all+':: Size:'+all.size()+';');
+            //System.debug('Sel:'+sel+':: Size:'+sel.size()+';');
             for(Integer j=0;j<sel.size();++j){
-                System.debug('I:'+i+':: J:'+j);
+                //System.debug('I:'+i+':: J:'+j);
                 if(all[i].getValue()==sel[j].getValue()){
-                    System.debug('Removing I:'+i);
+                    //System.debug('Removing I:'+i);
                     addFlag=false;
                     //all.remove(i);
                     //--i;

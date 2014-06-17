@@ -779,7 +779,66 @@ public with sharing class ActionPlansUtilities{
     /**
     * Remove a specific index in the List<Task>
     */
-    public Boolean removeTask(){
+    public Boolean removeTask(List<Integer> vals){
+        
+        Boolean removedTask = false;
+        if( ApexPages.currentPage().getParameters().get( 'remove' ) != null ){
+            Integer taskIndex       = Integer.valueOf( ApexPages.currentPage().getParameters().get( 'remove' ) );
+            vals.add(taskIndex);
+            //check for dependent children and clear them since the parent is being removed.
+            apTasks[ taskIndex ].APTaskTemplate__c    = null;
+            apTasks[ taskIndex ].Dependent__c         = null;
+            
+            APTaskTemplate__c apTask;
+            Integer dependentApTask;
+
+            //update the current dependent position from tasks below of deleted one.
+            for( Integer i = 0; i < this.apTasks.size(); i++ ){
+                apTask = this.apTasks.get( i );
+                if( apTask.Dependent__c != '[]' && apTask.Dependent__c != 'None' && apTask.Dependent__c != null ){
+                    List<String> tmp = ActionPlansUtilities.parseMultiSelect( apTask.Dependent__c );
+                    String newDependent = '';
+                    for(Integer j=0;j<tmp.size();++j){
+                        dependentApTask = Integer.valueOf( tmp[j] );
+                        if( dependentApTask > taskIndex ){
+                            newDependent += String.valueOf( dependentApTask - 1 );    
+                        }else if( dependentApTask == taskIndex ){
+                            apTask.Dependent__c         = '[]';
+                            newDependent                = '[]';
+                            apTask.APTaskTemplate__c    = null;
+                            break;
+                        }
+                    }
+                    if(newDependent==''){
+                        apTask.Dependent__c = '[]';
+                    }
+                    else{
+                        apTask.Dependent__c = newDependent;
+                    }
+                }
+            }
+            
+            // before remove check if it's exists in the DB, if so, add to pendingDeletes to be deleted on save.
+            if( this.apTasks[taskIndex].Id != null ){
+                if( pendingDeletes == null ){
+                    pendingDeletes = new List<APTaskTemplate__c>();
+                } 
+                pendingDeletes.add( this.apTasks[taskIndex] );
+            }
+            
+            apTasks.remove( taskIndex );
+            
+            // clear errorMsg if it's set.
+            if( this.apTasks.size() < taskLimit ){
+                 errorMsg = null;
+            }
+            removedTask = true;
+        }
+        
+        
+        return removedTask;
+    }
+    /*public Boolean removeTask(){
         
         Boolean removedTask = false;
         if( ApexPages.currentPage().getParameters().get( 'remove' ) != null ){
@@ -795,7 +854,7 @@ public with sharing class ActionPlansUtilities{
             //update the current dependent position from tasks below of deleted one.
             for( Integer i = 0; i < this.apTasks.size(); i++ ){
                 apTask = this.apTasks.get( i );
-                if( apTask.Dependent__c != '[]' && apTask.Dependent__c != null ){
+                if( apTask.Dependent__c != '[]' && apTask.Dependent__c != 'None' && apTask.Dependent__c != null ){
                     dependentApTask = Integer.valueOf( apTask.Dependent__c );
                     if( dependentApTask > taskIndex ){
                         apTask.Dependent__c = String.valueOf( dependentApTask - 1 );    
@@ -825,7 +884,7 @@ public with sharing class ActionPlansUtilities{
         
         
         return removedTask;
-    }
+    }*/
     
     /**
     * Retrieves size of APT Template Tasks List.
@@ -848,7 +907,8 @@ public with sharing class ActionPlansUtilities{
         if( this.apTasks != null ){
             for( APTaskTemplate__c t : this.apTasks ){
                 if( t.Subject__c != null ){
-                     options.add(new SelectOption( string.valueOf(i), t.Subject__c+' ('+ (i+1) +')') );
+                    //System.debug('ActionPlansUtilities::getSubjectItems  I:'+i+':');
+                    options.add(new SelectOption( string.valueOf(i), t.Subject__c+' ('+ (i+1) +')') );
                 }
                 i++;
             }

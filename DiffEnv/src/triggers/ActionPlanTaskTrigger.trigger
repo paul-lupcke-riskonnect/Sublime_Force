@@ -62,7 +62,8 @@ trigger ActionPlanTaskTrigger on Task ( after update, after delete , before dele
 					tmp.Name  = t.Subject.substring( 0, math.min( taskTemplateNameLength, t.Subject.length() ) ) ;//t.Subject;
 					tmp.Comments__c = t.Description;
 					tmp.Priority__c = t.Priority;
-					tmp.User__c		= t.OwnerId; 
+					tmp.User__c		= t.OwnerId;
+					tmp.Completed__c = System.now();
 					lUpsert.add(tmp);	
 				}
 			}
