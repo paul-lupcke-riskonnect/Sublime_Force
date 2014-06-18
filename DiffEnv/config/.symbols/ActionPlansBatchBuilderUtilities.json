@@ -173,7 +173,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 111
+                "line": 112
             }, 
             "returnType": "void", 
             "type": null
@@ -257,7 +257,7 @@
             "references": [], 
             "location": {
                 "column": 27, 
-                "line": 113
+                "line": 114
             }, 
             "name": "aptList"
         }, 
@@ -267,7 +267,7 @@
             "references": [], 
             "location": {
                 "column": 27, 
-                "line": 114
+                "line": 115
             }, 
             "name": "aptTOTALList"
         }, 
@@ -277,7 +277,7 @@
             "references": [], 
             "location": {
                 "column": 16, 
-                "line": 115
+                "line": 116
             }, 
             "name": "aptTOTALListId"
         }, 
@@ -287,7 +287,7 @@
             "references": [], 
             "location": {
                 "column": 33, 
-                "line": 116
+                "line": 117
             }, 
             "name": "mapAP"
         }, 
@@ -297,7 +297,7 @@
             "references": [], 
             "location": {
                 "column": 29, 
-                "line": 117
+                "line": 118
             }, 
             "name": "mapIDAP"
         }, 
@@ -307,7 +307,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 118
+                "line": 119
             }, 
             "name": "apAux"
         }, 
@@ -317,7 +317,7 @@
             "references": [], 
             "location": {
                 "column": 26, 
-                "line": 119
+                "line": 120
             }, 
             "name": "mapApTasks"
         }, 
@@ -327,7 +327,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 120
+                "line": 121
             }, 
             "name": "taskTemplateNameLength"
         }, 
@@ -337,7 +337,7 @@
             "references": [], 
             "location": {
                 "column": 24, 
-                "line": 127
+                "line": 129
             }, 
             "name": "apUtil"
         }, 
@@ -347,7 +347,7 @@
             "references": [], 
             "location": {
                 "column": 21, 
-                "line": 134
+                "line": 138
             }, 
             "name": "ap"
         }, 
@@ -357,7 +357,7 @@
             "references": [], 
             "location": {
                 "column": 12, 
-                "line": 140
+                "line": 144
             }, 
             "name": "taskName"
         }, 
@@ -367,7 +367,7 @@
             "references": [], 
             "location": {
                 "column": 28, 
-                "line": 141
+                "line": 145
             }, 
             "name": "t"
         }, 
@@ -377,7 +377,7 @@
             "references": [], 
             "location": {
                 "column": 27, 
-                "line": 142
+                "line": 146
             }, 
             "name": "nt"
         }, 
@@ -387,7 +387,7 @@
             "references": [], 
             "location": {
                 "column": 28, 
-                "line": 153
+                "line": 157
             }, 
             "name": "t"
         }, 
@@ -397,7 +397,7 @@
             "references": [], 
             "location": {
                 "column": 26, 
-                "line": 162
+                "line": 166
             }, 
             "name": "t"
         }, 
@@ -407,7 +407,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 176
+                "line": 180
             }, 
             "name": "selectedValues"
         }, 
@@ -417,7 +417,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 177
+                "line": 181
             }, 
             "name": "val"
         }, 
@@ -427,7 +427,7 @@
             "references": [], 
             "location": {
                 "column": 15, 
-                "line": 178
+                "line": 182
             }, 
             "name": "tempIndex"
         }, 
@@ -437,49 +437,19 @@
             "references": [], 
             "location": {
                 "column": 30, 
-                "line": 192
+                "line": 196
             }, 
-            "name": "d2"
+            "name": "currentTime"
         }, 
         {
-            "type": "Datetime", 
+            "type": "Map", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 19, 
-                "line": 194
+                "column": 53, 
+                "line": 197
             }, 
-            "name": "dueDate"
-        }, 
-        {
-            "type": "Integer", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 18, 
-                "line": 195
-            }, 
-            "name": "addDays"
-        }, 
-        {
-            "type": "Date", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 15, 
-                "line": 198
-            }, 
-            "name": "refDate"
-        }, 
-        {
-            "type": "Integer", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 18, 
-                "line": 199
-            }, 
-            "name": "dayOfWeek"
+            "name": "workingHours"
         }, 
         {
             "type": "Task", 
@@ -487,7 +457,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 261
+                "line": 273
             }, 
             "name": "task_tmp"
         }, 
@@ -497,7 +467,7 @@
             "references": [], 
             "location": {
                 "column": 8, 
-                "line": 265
+                "line": 277
             }, 
             "name": "t"
         }, 
@@ -507,7 +477,7 @@
             "references": [], 
             "location": {
                 "column": 26, 
-                "line": 266
+                "line": 278
             }, 
             "name": "t_t"
         }, 
@@ -517,7 +487,7 @@
             "references": [], 
             "location": {
                 "column": 22, 
-                "line": 293
+                "line": 305
             }, 
             "name": "apt"
         }, 
@@ -527,7 +497,7 @@
             "references": [], 
             "location": {
                 "column": 29, 
-                "line": 367
+                "line": 379
             }, 
             "name": "dmlo"
         }, 
@@ -537,7 +507,7 @@
             "references": [], 
             "location": {
                 "column": 29, 
-                "line": 368
+                "line": 380
             }, 
             "name": "dmlo2"
         }, 
@@ -547,7 +517,7 @@
             "references": [], 
             "location": {
                 "column": 38, 
-                "line": 396
+                "line": 408
             }, 
             "name": "mySettings"
         }, 
@@ -557,7 +527,7 @@
             "references": [], 
             "location": {
                 "column": 21, 
-                "line": 400
+                "line": 412
             }, 
             "name": "isEnabledForFeed"
         }

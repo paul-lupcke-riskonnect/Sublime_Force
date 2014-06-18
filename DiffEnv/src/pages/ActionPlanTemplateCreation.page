@@ -121,9 +121,23 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
 		                        </apex:column>
 		                        
 		                        <apex:column headerValue="{!$ObjectType.APTTaskTemplate__c.fields.APTTaskTemplate__c.label}" rendered="{!IF(TemplateTaskSize > 1, true, false)}">
-		                            <apex:selectList id="dependent" value="{!wrapTask.task.Dependent__c}" multiselect="false" size="1" style="width:85px;" onchange="javascript:ActionPlanTemplateCreationScripts.checkDependent('{!$Component.taskTable.dependent}');">
+		                            <!--<apex:selectList id="dependent" value="{!wrapTask.task.Dependent__c}" multiselect="false" size="1" style="width:85px;" onchange="javascript:ActionPlanTemplateCreationScripts.checkDependent('{!$Component.taskTable.dependent}');">
 		                                <apex:selectOptions value="{!TemplateSubjectItems}" />
-		                            </apex:selectList>
+		                            </apex:selectList>-->
+		                            <c:MultiselectPicklist
+		                            	indexID="{!wrapTask.task.taskIndex__c}"
+		                            	leftSelection="{!possibleOptions}"
+						                rightSelection="{!savedDependencies}"
+						            	removeOptions="{!removeOptions}"
+
+		                            	leftLabel="Possible"
+						                
+						                rightLabel="Selected"
+						                
+						                
+						                size="5"
+						                width="100px"
+						                />
 		                          <apex:inputHidden value="{!wrapTask.task.taskIndex__c}" id="theHiddenInput"/>
 		                        </apex:column>
 		                        

@@ -38,6 +38,11 @@ public with sharing class ActionPlanTemplateCreationController{
 	public String           		actionPlanTemplateId	{ get; set; }
 	public Boolean					addedTask				{ get; set; }
 	public Boolean					displayReminder			{ get; set; }
+
+    public List<SelectOption[]>     savedDependencies       { get; set; }
+    public List<SelectOption[]>     possibleOptions         { get; set; }
+    public List<SelectOption[]>     selectedOptions         { get; set; }
+    public List<Integer>       removeOptions           { get; set; }
 	
 	/**
      * Constructor
@@ -49,6 +54,11 @@ public with sharing class ActionPlanTemplateCreationController{
 
         this.taskIndex = 0;
         this.addedTask = false;
+
+        this.savedDependencies       = new List<SelectOption[]>();
+        this.possibleOptions         = new List<SelectOption[]>();
+        this.selectedOptions         = new List<SelectOption[]>();
+        this.removeOptions           = new List<Integer>();
         
         if( System.currentPageReference().getParameters().get( 'id' ) != null ){
         	
@@ -95,7 +105,11 @@ public with sharing class ActionPlanTemplateCreationController{
 	 * Call method addTemplateTask() inside the class ActionPlanTemplates
 	 */
 	public void addTemplateTask(){
-		
+        this.savedDependencies.clear();
+        this.possibleOptions.clear();
+        this.removeOptions.clear();
+        this.possibleOptions.add(this.getTemplateSubjectItems());
+
 		this.taskIndex++;
 		this.actionPlanTemplates.taskIndexOrder = this.taskIndex;
 		this.addedTask = actionPlanTemplates.addTemplateTask();
@@ -105,7 +119,12 @@ public with sharing class ActionPlanTemplateCreationController{
 	 * Call method removeTemplateTask() inside the class ActionPlanTemplates
 	 */
 	public void removeTemplateTask(){
+        this.savedDependencies.clear();
+        this.possibleOptions.clear();
+        this.removeOptions.clear();
+        
 		addedTask = !actionPlanTemplates.removeTemplateTask();
+        this.possibleOptions.add(this.getTemplateSubjectItems());
 	}
 	
 	/**
@@ -150,11 +169,15 @@ public with sharing class ActionPlanTemplateCreationController{
     * @return PageReference
     */
     public PageReference checkCycleDependent(){
-    	
+        System.debug('Attempting to save dependencies from page');
+    	this.actionPlanTemplates.setDependencies2(savedDependencies);
+        System.debug('saved dependencies from page');
     	if( this.actionPlanTemplates.checkCycleDependent() ){
+            this.savedDependencies.clear();
     		return null;
     	}
     	else{
+            System.debug('saving template');
     		return this.saveTemplate();
     	}
     }

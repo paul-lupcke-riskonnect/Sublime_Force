@@ -333,6 +333,66 @@
             }, 
             {
                 "leaf": true, 
+                "title": "MultiselectController", 
+                "checked": false, 
+                "id": "ApexClass.MultiselectController", 
+                "text": "MultiselectController", 
+                "level": 2, 
+                "isFolder": false, 
+                "children": [], 
+                "select": false, 
+                "cls": ""
+            }, 
+            {
+                "leaf": true, 
+                "title": "MultiselectControllerCustom", 
+                "checked": false, 
+                "id": "ApexClass.MultiselectControllerCustom", 
+                "text": "MultiselectControllerCustom", 
+                "level": 2, 
+                "isFolder": false, 
+                "children": [], 
+                "select": false, 
+                "cls": ""
+            }, 
+            {
+                "leaf": true, 
+                "title": "MultiselectControllerTest", 
+                "checked": false, 
+                "id": "ApexClass.MultiselectControllerTest", 
+                "text": "MultiselectControllerTest", 
+                "level": 2, 
+                "isFolder": false, 
+                "children": [], 
+                "select": false, 
+                "cls": ""
+            }, 
+            {
+                "leaf": true, 
+                "title": "MultiselectExampleController", 
+                "checked": false, 
+                "id": "ApexClass.MultiselectExampleController", 
+                "text": "MultiselectExampleController", 
+                "level": 2, 
+                "isFolder": false, 
+                "children": [], 
+                "select": false, 
+                "cls": ""
+            }, 
+            {
+                "leaf": true, 
+                "title": "MultiselectExampleControllerTest", 
+                "checked": false, 
+                "id": "ApexClass.MultiselectExampleControllerTest", 
+                "text": "MultiselectExampleControllerTest", 
+                "level": 2, 
+                "isFolder": false, 
+                "children": [], 
+                "select": false, 
+                "cls": ""
+            }, 
+            {
+                "leaf": true, 
                 "title": "ProcessorControl", 
                 "checked": false, 
                 "id": "ApexClass.ProcessorControl", 
@@ -366,7 +426,20 @@
             "directoryName": "components", 
             "metaFile": true
         }, 
-        "children": [], 
+        "children": [
+            {
+                "leaf": true, 
+                "title": "MultiselectPicklist", 
+                "checked": false, 
+                "id": "ApexComponent.MultiselectPicklist", 
+                "text": "MultiselectPicklist", 
+                "level": 2, 
+                "isFolder": false, 
+                "children": [], 
+                "select": false, 
+                "cls": ""
+            }
+        ], 
         "select": false, 
         "cls": "folder"
     }, 
@@ -528,6 +601,18 @@
                 "checked": false, 
                 "id": "ApexPage.ActionPlansDelete", 
                 "text": "ActionPlansDelete", 
+                "level": 2, 
+                "isFolder": false, 
+                "children": [], 
+                "select": false, 
+                "cls": ""
+            }, 
+            {
+                "leaf": true, 
+                "title": "MultiselectExample", 
+                "checked": false, 
+                "id": "ApexPage.MultiselectExample", 
+                "text": "MultiselectExample", 
                 "level": 2, 
                 "isFolder": false, 
                 "children": [], 
@@ -764,10 +849,10 @@
                                 "leaf": true, 
                                 "checked": false, 
                                 "level": 4, 
-                                "text": "DaysFromStart__c", 
-                                "title": "DaysFromStart__c", 
+                                "text": "DaysFromStart_old__c", 
+                                "title": "DaysFromStart_old__c", 
                                 "isFolder": false, 
-                                "id": "CustomObject.APTTaskTemplate__c.fields.DaysFromStart__c", 
+                                "id": "CustomObject.APTTaskTemplate__c.fields.DaysFromStart_old__c", 
                                 "select": false
                             }, 
                             {
@@ -778,6 +863,16 @@
                                 "title": "Dependent__c", 
                                 "isFolder": false, 
                                 "id": "CustomObject.APTTaskTemplate__c.fields.Dependent__c", 
+                                "select": false
+                            }, 
+                            {
+                                "leaf": true, 
+                                "checked": false, 
+                                "level": 4, 
+                                "text": "Hours_After_Start__c", 
+                                "title": "Hours_After_Start__c", 
+                                "isFolder": false, 
+                                "id": "CustomObject.APTTaskTemplate__c.fields.Hours_After_Start__c", 
                                 "select": false
                             }, 
                             {
@@ -877,6 +972,28 @@
                     {
                         "checked": false, 
                         "level": 3, 
+                        "id": "CustomObject.APTTaskTemplate__c.listViews", 
+                        "text": "listViews", 
+                        "title": "listViews", 
+                        "isFolder": true, 
+                        "children": [
+                            {
+                                "leaf": true, 
+                                "checked": false, 
+                                "level": 4, 
+                                "text": "All", 
+                                "title": "All", 
+                                "isFolder": false, 
+                                "id": "CustomObject.APTTaskTemplate__c.listViews.All", 
+                                "select": false
+                            }
+                        ], 
+                        "select": false, 
+                        "cls": "folder"
+                    }, 
+                    {
+                        "checked": false, 
+                        "level": 3, 
                         "id": "CustomObject.APTTaskTemplate__c.validationRules", 
                         "text": "validationRules", 
                         "title": "validationRules", 
@@ -941,10 +1058,10 @@
                                 "leaf": true, 
                                 "checked": false, 
                                 "level": 4, 
-                                "text": "ActivityDate__c", 
-                                "title": "ActivityDate__c", 
+                                "text": "ActivityDate_old__c", 
+                                "title": "ActivityDate_old__c", 
                                 "isFolder": false, 
-                                "id": "CustomObject.APTaskTemplate__c.fields.ActivityDate__c", 
+                                "id": "CustomObject.APTaskTemplate__c.fields.ActivityDate_old__c", 
                                 "select": false
                             }, 
                             {
@@ -961,10 +1078,20 @@
                                 "leaf": true, 
                                 "checked": false, 
                                 "level": 4, 
-                                "text": "DaysFromStart__c", 
-                                "title": "DaysFromStart__c", 
+                                "text": "Completed__c", 
+                                "title": "Completed__c", 
                                 "isFolder": false, 
-                                "id": "CustomObject.APTaskTemplate__c.fields.DaysFromStart__c", 
+                                "id": "CustomObject.APTaskTemplate__c.fields.Completed__c", 
+                                "select": false
+                            }, 
+                            {
+                                "leaf": true, 
+                                "checked": false, 
+                                "level": 4, 
+                                "text": "DaysFromStart_old__c", 
+                                "title": "DaysFromStart_old__c", 
+                                "isFolder": false, 
+                                "id": "CustomObject.APTaskTemplate__c.fields.DaysFromStart_old__c", 
                                 "select": false
                             }, 
                             {
@@ -975,6 +1102,26 @@
                                 "title": "Dependent__c", 
                                 "isFolder": false, 
                                 "id": "CustomObject.APTaskTemplate__c.fields.Dependent__c", 
+                                "select": false
+                            }, 
+                            {
+                                "leaf": true, 
+                                "checked": false, 
+                                "level": 4, 
+                                "text": "Due_Date_Time__c", 
+                                "title": "Due_Date_Time__c", 
+                                "isFolder": false, 
+                                "id": "CustomObject.APTaskTemplate__c.fields.Due_Date_Time__c", 
+                                "select": false
+                            }, 
+                            {
+                                "leaf": true, 
+                                "checked": false, 
+                                "level": 4, 
+                                "text": "Hours_After_Start__c", 
+                                "title": "Hours_After_Start__c", 
+                                "isFolder": false, 
+                                "id": "CustomObject.APTaskTemplate__c.fields.Hours_After_Start__c", 
                                 "select": false
                             }, 
                             {
@@ -1041,6 +1188,16 @@
                                 "leaf": true, 
                                 "checked": false, 
                                 "level": 4, 
+                                "text": "Suggested_Due__c", 
+                                "title": "Suggested_Due__c", 
+                                "isFolder": false, 
+                                "id": "CustomObject.APTaskTemplate__c.fields.Suggested_Due__c", 
+                                "select": false
+                            }, 
+                            {
+                                "leaf": true, 
+                                "checked": false, 
+                                "level": 4, 
                                 "text": "Time_Reminder__c", 
                                 "title": "Time_Reminder__c", 
                                 "isFolder": false, 
@@ -1075,6 +1232,28 @@
                                 "title": "taskIndex__c", 
                                 "isFolder": false, 
                                 "id": "CustomObject.APTaskTemplate__c.fields.taskIndex__c", 
+                                "select": false
+                            }
+                        ], 
+                        "select": false, 
+                        "cls": "folder"
+                    }, 
+                    {
+                        "checked": false, 
+                        "level": 3, 
+                        "id": "CustomObject.APTaskTemplate__c.listViews", 
+                        "text": "listViews", 
+                        "title": "listViews", 
+                        "isFolder": true, 
+                        "children": [
+                            {
+                                "leaf": true, 
+                                "checked": false, 
+                                "level": 4, 
+                                "text": "All", 
+                                "title": "All", 
+                                "isFolder": false, 
+                                "id": "CustomObject.APTaskTemplate__c.listViews.All", 
                                 "select": false
                             }
                         ], 
@@ -1714,10 +1893,20 @@
                                 "leaf": true, 
                                 "checked": false, 
                                 "level": 4, 
-                                "text": "StartDate__c", 
-                                "title": "StartDate__c", 
+                                "text": "StartDate_old__c", 
+                                "title": "StartDate_old__c", 
                                 "isFolder": false, 
-                                "id": "CustomObject.ActionPlan__c.fields.StartDate__c", 
+                                "id": "CustomObject.ActionPlan__c.fields.StartDate_old__c", 
+                                "select": false
+                            }, 
+                            {
+                                "leaf": true, 
+                                "checked": false, 
+                                "level": 4, 
+                                "text": "Start_Date_Time__c", 
+                                "title": "Start_Date_Time__c", 
+                                "isFolder": false, 
+                                "id": "CustomObject.ActionPlan__c.fields.Start_Date_Time__c", 
                                 "select": false
                             }, 
                             {
@@ -1985,6 +2174,16 @@
                                 "isFolder": false, 
                                 "id": "CustomObject.Activity.fields.TaskTemplateId__c", 
                                 "select": false
+                            }, 
+                            {
+                                "leaf": true, 
+                                "checked": false, 
+                                "level": 4, 
+                                "text": "Time_Due__c", 
+                                "title": "Time_Due__c", 
+                                "isFolder": false, 
+                                "id": "CustomObject.Activity.fields.Time_Due__c", 
+                                "select": false
                             }
                         ], 
                         "select": false, 
@@ -2133,6 +2332,83 @@
                                 "title": "AllAssets", 
                                 "isFolder": false, 
                                 "id": "CustomObject.Asset.listViews.AllAssets", 
+                                "select": false
+                            }
+                        ], 
+                        "select": false, 
+                        "cls": "folder"
+                    }
+                ], 
+                "select": false, 
+                "cls": "folder"
+            }, 
+            {
+                "leaf": false, 
+                "title": "Business_Hours__c", 
+                "checked": false, 
+                "id": "CustomObject.Business_Hours__c", 
+                "text": "Business_Hours__c", 
+                "level": 2, 
+                "isFolder": true, 
+                "children": [
+                    {
+                        "checked": false, 
+                        "level": 3, 
+                        "id": "CustomObject.Business_Hours__c.fields", 
+                        "text": "fields", 
+                        "title": "fields", 
+                        "isFolder": true, 
+                        "children": [
+                            {
+                                "leaf": true, 
+                                "checked": false, 
+                                "level": 4, 
+                                "text": "Day_End__c", 
+                                "title": "Day_End__c", 
+                                "isFolder": false, 
+                                "id": "CustomObject.Business_Hours__c.fields.Day_End__c", 
+                                "select": false
+                            }, 
+                            {
+                                "leaf": true, 
+                                "checked": false, 
+                                "level": 4, 
+                                "text": "Day_Start__c", 
+                                "title": "Day_Start__c", 
+                                "isFolder": false, 
+                                "id": "CustomObject.Business_Hours__c.fields.Day_Start__c", 
+                                "select": false
+                            }, 
+                            {
+                                "leaf": true, 
+                                "checked": false, 
+                                "level": 4, 
+                                "text": "Ignore_Day__c", 
+                                "title": "Ignore_Day__c", 
+                                "isFolder": false, 
+                                "id": "CustomObject.Business_Hours__c.fields.Ignore_Day__c", 
+                                "select": false
+                            }
+                        ], 
+                        "select": false, 
+                        "cls": "folder"
+                    }, 
+                    {
+                        "checked": false, 
+                        "level": 3, 
+                        "id": "CustomObject.Business_Hours__c.listViews", 
+                        "text": "listViews", 
+                        "title": "listViews", 
+                        "isFolder": true, 
+                        "children": [
+                            {
+                                "leaf": true, 
+                                "checked": false, 
+                                "level": 4, 
+                                "text": "All", 
+                                "title": "All", 
+                                "isFolder": false, 
+                                "id": "CustomObject.Business_Hours__c.listViews.All", 
                                 "select": false
                             }
                         ], 
@@ -4209,73 +4485,6 @@
             }, 
             {
                 "leaf": false, 
-                "title": "ParentChild__c", 
-                "checked": false, 
-                "id": "CustomObject.ParentChild__c", 
-                "text": "ParentChild__c", 
-                "level": 2, 
-                "isFolder": true, 
-                "children": [
-                    {
-                        "checked": false, 
-                        "level": 3, 
-                        "id": "CustomObject.ParentChild__c.fields", 
-                        "text": "fields", 
-                        "title": "fields", 
-                        "isFolder": true, 
-                        "children": [
-                            {
-                                "leaf": true, 
-                                "checked": false, 
-                                "level": 4, 
-                                "text": "Child__c", 
-                                "title": "Child__c", 
-                                "isFolder": false, 
-                                "id": "CustomObject.ParentChild__c.fields.Child__c", 
-                                "select": false
-                            }, 
-                            {
-                                "leaf": true, 
-                                "checked": false, 
-                                "level": 4, 
-                                "text": "Parent__c", 
-                                "title": "Parent__c", 
-                                "isFolder": false, 
-                                "id": "CustomObject.ParentChild__c.fields.Parent__c", 
-                                "select": false
-                            }
-                        ], 
-                        "select": false, 
-                        "cls": "folder"
-                    }, 
-                    {
-                        "checked": false, 
-                        "level": 3, 
-                        "id": "CustomObject.ParentChild__c.validationRules", 
-                        "text": "validationRules", 
-                        "title": "validationRules", 
-                        "isFolder": true, 
-                        "children": [
-                            {
-                                "leaf": true, 
-                                "checked": false, 
-                                "level": 4, 
-                                "text": "self_ref", 
-                                "title": "self_ref", 
-                                "isFolder": false, 
-                                "id": "CustomObject.ParentChild__c.validationRules.self_ref", 
-                                "select": false
-                            }
-                        ], 
-                        "select": false, 
-                        "cls": "folder"
-                    }
-                ], 
-                "select": false, 
-                "cls": "folder"
-            }, 
-            {
-                "leaf": false, 
                 "title": "PartnerRole", 
                 "checked": false, 
                 "id": "CustomObject.PartnerRole", 
@@ -4566,6 +4775,28 @@
                                 "title": "WhoId", 
                                 "isFolder": false, 
                                 "id": "CustomObject.Task.fields.WhoId", 
+                                "select": false
+                            }
+                        ], 
+                        "select": false, 
+                        "cls": "folder"
+                    }, 
+                    {
+                        "checked": false, 
+                        "level": 3, 
+                        "id": "CustomObject.Task.recordTypes", 
+                        "text": "recordTypes", 
+                        "title": "recordTypes", 
+                        "isFolder": true, 
+                        "children": [
+                            {
+                                "leaf": true, 
+                                "checked": false, 
+                                "level": 4, 
+                                "text": "test1", 
+                                "title": "test1", 
+                                "isFolder": false, 
+                                "id": "CustomObject.Task.recordTypes.test1", 
                                 "select": false
                             }
                         ], 

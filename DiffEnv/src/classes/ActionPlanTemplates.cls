@@ -40,6 +40,8 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
     public Integer                  		taskLimit;
     public String                   		errorMsg;
     
+
+    public class MyException extends Exception{}
     /**
     * Constructor
     * @param actionPT
@@ -94,7 +96,32 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
         
         return actionPlanTemplate;
     }
-    
+
+    public void setDependencies2(List<SelectOption[]> input){
+        if(input.size()!=aptTasks.size() && aptTasks.size()!=1){
+            System.debug('List size mismatch::Input:'+input.size()+'!='+aptTasks.size()+':tasks');
+            System.debug('Input contains:'+input+':');
+            throw new MyException('List sizes do not match');
+        }
+        else{
+            System.debug('Everything is fine with list sizes');
+            for(Integer i=0;i<input.size();++i){
+                String val = '';
+                if(input[i].size()>0){
+                    val += input[i][0].getValue();
+                    for(Integer j=1;j<input[i].size();++j){
+                        val += ','+input[i][j].getValue();
+                    }
+                }
+                this.aptTasks[i].Dependent__c = val;
+                System.debug('Check Dependent__c::'+this.aptTasks[i]+'::');
+            }
+
+            //update this.apTasks;
+            // now need to update the list of apTasks to push dependents on database.
+        }
+    }
+
     /** 
     * Saves Action Plan Template and all tasks, then redirects to the AP template list.
     * First check for pending templates for delete, in case that exists then delete those objects.
@@ -140,16 +167,27 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
         }
         
         // run through the tasks and take care of dependents
+        System.debug('Attempting to save dependencies');
         for( APTTaskTemplate__c t : aptTasks ){
-            if( t.Dependent__c != 'None' && t.Dependent__c != null ){
-                Integer tempIndex 		= Integer.valueOf( t.Dependent__c );
-                t.APTTaskTemplate__c 	= aptTasks[ tempIndex ].Id;
+            List<String> tmp;
+            if(t.Dependent__c==null){
+                tmp = new List<String>();
+                tmp.add('None');
             }
             else{
-            	t.APTTaskTemplate__c = null;
+                tmp = ActionPlansUtilities.parseMultiSelect(t.Dependent__c);
+            }
+            for(Integer i=0;i<tmp.size();++i){
+                if( t.Dependent__c != 'None' && t.Dependent__c != '[]' && t.Dependent__c != null ){
+                    Integer tempIndex 		= Integer.valueOf( tmp[i] );
+                    t.APTTaskTemplate__c 	= aptTasks[ tempIndex ].Id;
+                }
+                else{
+                	t.APTTaskTemplate__c = null;
+                }
             }
         }
-        
+        System.debug('Attempting to update/save dependencies');
         try{
             update aptTasks;
         }catch( exception e ){
@@ -304,15 +342,27 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
            //update the current dependent position from tasks below of deleted one.
             for( Integer i = 0; i < this.aptTasks.size(); i++ ){
             	aptTask = this.aptTasks.get( i );
-            	if( aptTask.Dependent__c != 'None' && aptTask.Dependent__c != null ){
-            		dependentApTask = Integer.valueOf( aptTask.Dependent__c );
-            		if( dependentApTask > taskIndex ){
-            			aptTask.Dependent__c = String.valueOf( dependentApTask - 1 );	
-            		}else if( dependentApTask == taskIndex ){
-            			aptTask.Dependent__c = 'None';
-            			aptTask.APTTaskTemplate__c    = null;
-            		}
-            	}
+            	if( aptTask.Dependent__c != 'None' && aptTask.Dependent__c != '[]' &&aptTask.Dependent__c != null ){
+                    List<String> tmp = ActionPlansUtilities.parseMultiSelect(aptTask.Dependent__c);
+                    String newDependent = '';
+                    for(Integer j=0;j<tmp.size();++j){
+                		dependentApTask = Integer.valueOf( tmp[j] );
+                		if( dependentApTask > taskIndex ){
+                			newDependent += String.valueOf( dependentApTask - 1 ); 	
+                		}else if( dependentApTask == taskIndex ){
+                            aptTask.Dependent__c         = 'None';
+                            newDependent                = 'None';
+                            aptTask.APTTaskTemplate__c    = null;
+                            break;
+                		}
+            	    }
+                    if(newDependent==''){
+                        aptTask.Dependent__c = 'None';
+                    }
+                    else{
+                        aptTask.Dependent__c = newDependent;
+                    }
+                }
             }
             
             // before remove check if it's exists in the DB, if so, add to pendingTemplateDeletes to be deleted on save.
@@ -348,7 +398,7 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
     public List<SelectOption> getTemplateSubjectItems(){
     	
         List<SelectOption> options = new List<SelectOption>();
-        options.add( new SelectOption( 'None', '--'+ Label.ap_None +'--' ) );
+        //options.add( new SelectOption( 'None', '--'+ Label.ap_None +'--' ) );
         integer i = 0;
         
         if( this.aptTasks != null ){
@@ -367,32 +417,127 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
     * Checks if Action Plans Tasks has cycling dependency.
     * @return exists
     */
-    public Boolean checkCycleDependent(){
 
-    	this.errorMsg 	= '';
-    	Boolean exists 	= false;
-    	Integer index 	= 0;
+    public Boolean checkCycleDependent_old(){
+
+        this.errorMsg   = '';
+        Boolean exists  = false;
+        Integer index   = 0;
         
         for( APTTaskTemplate__c t : this.aptTasks ){
             if( t.Dependent__c != 'None' && t.Dependent__c != null ){
-                Integer tempIndex   	= Integer.valueOf( t.Dependent__c );
+                Integer tempIndex       = Integer.valueOf( t.Dependent__c );
                 APTTaskTemplate__c link = this.aptTasks[tempIndex];
                 
                 //task can not depend on themselves
                 if(tempIndex == index){
-                	this.errorMsg = Label.ap_ItselfDependencyError;	
-                	return true;
+                    this.errorMsg = Label.ap_ItselfDependencyError; 
+                    return true;
                 }
                 
                 if( this.dependantCycle( t, link, index ) ){
-                	this.errorMsg = Label.ap_Errors_RemoveCyclicDependency;	
-                	return true;
+                    this.errorMsg = Label.ap_Errors_RemoveCyclicDependency; 
+                    return true;
                 }
             }
             index++;
         }
         return exists;
     }
+
+    public Boolean checkCycleDependent(){
+        
+        this.errorMsg   = '';
+        Integer index   = 0;
+        System.debug('Pre-checking:'+this.aptTasks.size()+':');
+        for(Integer k=0;k<this.aptTasks.size();++k){
+            System.debug('Displaying:::'+this.aptTasks[k]);
+        }
+
+
+        for( APTTaskTemplate__c t : this.aptTasks ){
+            System.debug('Check 1:'+t+':');
+            if( t.Dependent__c != '[]' && t.Dependent__c != null ){
+                System.debug('Check 2:'+t+':');
+                List<String> selectedValues = ActionPlansUtilities.parseMultiSelect(t.Dependent__c);
+
+                for( String i : selectedValues){
+                    Integer tempIndex       = Integer.valueOf( i );
+                    APTTaskTemplate__c link  = this.aptTasks[tempIndex];
+                
+                
+                //task can not depend on themselves
+                    if(tempIndex == index){
+                        this.errorMsg = Label.ap_ItselfDependencyError;
+                        System.debug('ERROR -- Self dependency');
+                        return true;
+                    }
+                    
+                    
+                    
+                }
+                
+            }
+            index++;
+        }
+        System.debug('Post-checking:'+this.aptTasks.size()+':');
+        for(Integer k=0;k<this.aptTasks.size();++k){
+            System.debug('Displaying:::'+this.aptTasks[k]);
+        }
+
+        if( this.dependentCycleWorker() ){
+            this.errorMsg = Label.ap_Errors_RemoveCyclicDependency;
+            System.debug('ERROR -- Circular dependency');
+            return true;
+        }
+        return false;
+    }
+    
+    public Boolean dependentCycleWorker(){
+        //// Set up the high level vars.
+        Map<Integer,Set<Integer>> children = new Map<Integer,Set<Integer>>();
+        Integer l=0;
+        //// Set up the data lib.
+        for( ;l<this.aptTasks.size();++l){
+            Set<Integer> parent = new Set<Integer>();
+            if( this.aptTasks[l].Dependent__c != '[]' && this.aptTasks[l].Dependent__c != null ){
+                List<String> selectedValues = ActionPlansUtilities.parseMultiSelect(this.aptTasks[l].Dependent__c);
+                for( String p : selectedValues){
+                    Integer tempIndex       = Integer.valueOf( p );
+                    parent.add(tempIndex);
+                }
+            }
+            System.debug('Storing '+l+' with:'+parent+':');
+            children.put(l,parent);
+        }
+
+
+        //// Looking for circular reference.
+
+        while(l>0){
+            --l;
+            Set<Integer> looker = new Set<Integer>();
+            List<Integer> holder = new List<Integer>();
+            if(children.containsKey(l)==false){
+                System.debug('How did this happen?????:'+l+':');
+            }
+            looker.addAll(children.get(l));
+            Integer x=0;
+            while(x<(this.aptTasks.size()*2)){
+                holder.addAll(looker);
+                looker.clear();
+                for(Integer j=0; j<holder.size(); ++j){
+                    looker.addAll(children.get(holder[j]));
+                }
+                if(looker.contains(l)) return true;
+                ++x;
+            }
+            
+        }
+
+        return false;
+    }
+
 	
 	/**
     * 

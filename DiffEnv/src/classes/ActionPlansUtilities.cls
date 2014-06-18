@@ -101,6 +101,85 @@ public with sharing class ActionPlansUtilities{
                     from ActionPlan__c a limit 1000 ];
     }
     
+    public static Datetime getTimeShift(Map<Integer, Business_Hours__c> bHours, Datetime input, Integer offset){
+        Datetime currentTime        = input;
+        Date refDate                = Date.newInstance(1900, 1, 7);
+        Integer dayOfWeek           = (Math.mod(refDate.daysBetween(currentTime.date()), 7) + 1);
+        System.debug('D2:'+currentTime+'::::Day of Week='+dayOfWeek+':');
+
+
+        Business_Hours__c start = bHours.get(dayOfWeek);
+        List<Integer> eod = ActionPlansUtilities.getNumberTime(start.Day_End__c);
+        System.debug('eod:'+eod+':');
+        if((eod[0]==currentTime.hour() && eod[1]<currentTime.minute()) || eod[0]<currentTime.hour()){
+            Integer counter = 0;
+            while(true){
+                if(dayOfWeek==7) { dayOfWeek = 1; }
+                else { ++dayOfWeek; }
+                ++counter;
+                if(bHours.get(dayOfWeek).Ignore_Day__c==false){break;}
+            }
+            currentTime = currentTime.addDays(counter);
+            eod = ActionPlansUtilities.getNumberTime( bHours.get(dayOfWeek).Day_Start__c );
+            currentTime = Datetime.newInstance(currentTime.year(), currentTime.month(), currentTime.day(), eod[0], eod[1], 0);
+            System.debug('Recursive Call-1');
+            currentTime = ActionPlansUtilities.getTimeShift(bHours, currentTime, offset);
+            //currentTime = currentTime.addHours(offset);
+        }
+        else{
+            Datetime tmpTime = currentTime;
+            tmpTime = tmpTime.addHours(offset);
+            if((eod[0]==tmpTime.hour() && eod[1]>tmpTime.minute()) || tmpTime.hour()>eod[0]){
+                Integer difference = tmpTime.hour()-eod[0];
+                Integer counter = 0;
+                while(true){
+                    if(dayOfWeek==7) { dayOfWeek = 1; }
+                    else { ++dayOfWeek; }
+                    ++counter;
+                    if(bHours.get(dayOfWeek).Ignore_Day__c==false){break;}
+                }
+                currentTime = currentTime.addDays(counter);
+                eod = ActionPlansUtilities.getNumberTime( bHours.get(dayOfWeek).Day_Start__c );
+                currentTime = Datetime.newInstance(currentTime.year(), currentTime.month(), currentTime.day(), eod[0], eod[1], 0);
+                System.debug('Recursive Call-2');
+                currentTime = ActionPlansUtilities.getTimeShift(bHours, currentTime, difference+1);
+                //currentTime = Datetime.newInstanceGmt(currentTime.year(), currentTime.month(), currentTime.day(), eod[0], eod[1], 0);
+                //currentTime = currentTime.addHours(difference+1);
+            }
+            else{
+                currentTime = tmpTime;
+            }
+            
+        }
+        return currentTime;
+    }
+
+    public static List<Integer> getNumberTime(String input){
+        List<Integer> output = new List<Integer>();
+        List<String> amVSpm = input.split(' ');
+        List<String> wholeORhalf = amVSpm[0].split(':');
+        Integer hour = Integer.valueOf(wholeORhalf[0]);
+        Integer minute = Integer.valueOf(wholeORhalf[1]);
+        if(amVSpm[1]=='PM'){ hour += 12; }
+        if(amVSpm[1]=='AM' && wholeORhalf[0]=='12'){ hour=0; }
+        output.add(hour);
+        output.add(minute);
+        return output;
+    }
+
+    public static Map<Integer, Business_Hours__c> getWorkingHours(){
+        List<Business_Hours__c> workingHours = [ select a.Name, a.Ignore_Day__c, a.Day_Start__c, a.Day_End__c
+                                from Business_Hours__c a];
+        Map<Integer, Business_Hours__c> retVal = new Map<Integer, Business_Hours__c>();
+
+        for(Integer i=0;i<workingHours.size();++i){
+            List<String> values = workingHours[i].Name.split(' ');
+            retVal.put(Integer.valueOf(values[0]), workingHours[i]);
+        }
+
+        return retVal;
+    }
+
     public static List<String> parseMultiSelect(String input){
         //System.debug('Parsing Multiselect Input :: '+input + ':');
         //System.debug('Parsing Multiselect Test :: '+input.contains('None')+':');

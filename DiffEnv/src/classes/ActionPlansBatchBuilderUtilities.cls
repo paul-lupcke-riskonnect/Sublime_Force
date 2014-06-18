@@ -108,6 +108,7 @@ public with sharing class ActionPlansBatchBuilderUtilities {
     }
     
     
+
      public  void generateActionPlans() {
         
 		List<APTaskTemplate__c> aptList 		= null;
@@ -119,6 +120,7 @@ public with sharing class ActionPlansBatchBuilderUtilities {
         Map<String,Task> mapApTasks 			= new Map<String,Task>();
         Integer taskTemplateNameLength			= APTaskTemplate__c.Name.getDescribe().getLength();
         
+        
         this.myOldTasksWithEmail    = new List<Task>();
         this.myNewTasksWithEmail    = new List<Task>();
         this.myTasksWithOutEmail    = new List<Task>();
@@ -129,7 +131,9 @@ public with sharing class ActionPlansBatchBuilderUtilities {
             
 		//insert ActionPlans to DB
 		upsert this.relActionPlans;
-            
+        
+		
+
 		//create ActionPlanTemplatetasks && tasks from base ActionPLan Task List
 		for(ActionPlan__c ap :  this.relActionPlans){
 			
@@ -189,8 +193,16 @@ public with sharing class ActionPlansBatchBuilderUtilities {
 					if (t.Dependent__c == null){
 						t.Dependent__c = 'None';
 					}
-                    Datetime d2 	   = System.now();
-					if( ap.SkipWeekends__c == true && ap.SkipDay__c != null){///BANANA will need to revisit in near future...
+                    Datetime currentTime 	   	= System.now();
+                    Map<Integer, Business_Hours__c> workingHours = ActionPlansUtilities.getWorkingHours();
+                    
+                    currentTime = ActionPlansUtilities.getTimeShift(workingHours, currentTime, t.Hours_After_Start__c.intValue());
+
+                    t.Due_Date_Time__c = currentTime;
+                    t.Suggested_Due__c = currentTime;
+                    System.debug('Day end:'+currentTime+':');
+                    //if(start.Day_End__c)
+					/*if( ap.SkipWeekends__c == true && ap.SkipDay__c != null){///BANANA will need to revisit in near future...
 					    Datetime dueDate    = ap.Start_Date_Time__c.addHours( t.Hours_After_Start__c.intValue() );
 					    Integer addDays 	= 0;
 					    
@@ -219,7 +231,7 @@ public with sharing class ActionPlansBatchBuilderUtilities {
 					    t.Suggested_Due__c = d2.addHours( t.Hours_After_Start__c.intValue() );
 					    //System.debug('Due_Date_Time__c:'+t.Due_Date_Time__c+'  ::  Suggested_Due__c:'+t.Suggested_Due__c +';');
 					    
-					}
+					}*/
 
 					/*if( ap.SkipWeekends__c == true && ap.SkipDay__c != null){///BANANA will need to revisit in near future...
 					    Date dueDate    = ap.StartDate__c.addDays( t.Hours_After_Start__c.intValue() );
