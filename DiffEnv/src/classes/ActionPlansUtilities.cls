@@ -105,12 +105,10 @@ public with sharing class ActionPlansUtilities{
         Datetime currentTime        = input;
         Date refDate                = Date.newInstance(1900, 1, 7);
         Integer dayOfWeek           = (Math.mod(refDate.daysBetween(currentTime.date()), 7) + 1);
-        System.debug('D2:'+currentTime+'::::Day of Week='+dayOfWeek+':');
-
-
         Business_Hours__c start = bHours.get(dayOfWeek);
         List<Integer> eod = ActionPlansUtilities.getNumberTime(start.Day_End__c);
-        System.debug('eod:'+eod+':');
+
+        //If the task is set to start after the end of the day automatically roll to the next day.
         if((eod[0]==currentTime.hour() && eod[1]<currentTime.minute()) || eod[0]<currentTime.hour()){
             Integer counter = 0;
             while(true){
@@ -122,13 +120,13 @@ public with sharing class ActionPlansUtilities{
             currentTime = currentTime.addDays(counter);
             eod = ActionPlansUtilities.getNumberTime( bHours.get(dayOfWeek).Day_Start__c );
             currentTime = Datetime.newInstance(currentTime.year(), currentTime.month(), currentTime.day(), eod[0], eod[1], 0);
-            System.debug('Recursive Call-1');
             currentTime = ActionPlansUtilities.getTimeShift(bHours, currentTime, offset);
-            //currentTime = currentTime.addHours(offset);
         }
+        //The task starts within business hours
         else{
             Datetime tmpTime = currentTime;
             tmpTime = tmpTime.addHours(offset);
+            //If the task ends outside the business hours - take the difference between hours needed and end of day and roll to the next day.
             if((eod[0]==tmpTime.hour() && eod[1]>tmpTime.minute()) || tmpTime.hour()>eod[0]){
                 Integer difference = tmpTime.hour()-eod[0];
                 Integer counter = 0;
@@ -141,11 +139,9 @@ public with sharing class ActionPlansUtilities{
                 currentTime = currentTime.addDays(counter);
                 eod = ActionPlansUtilities.getNumberTime( bHours.get(dayOfWeek).Day_Start__c );
                 currentTime = Datetime.newInstance(currentTime.year(), currentTime.month(), currentTime.day(), eod[0], eod[1], 0);
-                System.debug('Recursive Call-2');
                 currentTime = ActionPlansUtilities.getTimeShift(bHours, currentTime, difference+1);
-                //currentTime = Datetime.newInstanceGmt(currentTime.year(), currentTime.month(), currentTime.day(), eod[0], eod[1], 0);
-                //currentTime = currentTime.addHours(difference+1);
             }
+            //The task completes in business hours so just set the end time.
             else{
                 currentTime = tmpTime;
             }
@@ -154,6 +150,7 @@ public with sharing class ActionPlansUtilities{
         return currentTime;
     }
 
+    //Time parser for time in a string in the format of 'hh:mm AP'
     public static List<Integer> getNumberTime(String input){
         List<Integer> output = new List<Integer>();
         List<String> amVSpm = input.split(' ');
@@ -167,6 +164,7 @@ public with sharing class ActionPlansUtilities{
         return output;
     }
 
+    //Return a map of the business hours object
     public static Map<Integer, Business_Hours__c> getWorkingHours(){
         List<Business_Hours__c> workingHours = [ select a.Name, a.Ignore_Day__c, a.Day_Start__c, a.Day_End__c
                                 from Business_Hours__c a];
@@ -210,22 +208,14 @@ public with sharing class ActionPlansUtilities{
         
         this.errorMsg   = '';
         Integer index   = 0;
-        System.debug('Pre-checking:'+this.apTasks.size()+':');
-        for(Integer k=0;k<this.apTasks.size();++k){
-            System.debug('Displaying:::'+this.apTasks[k]);
-        }
-
 
         for( APTaskTemplate__c t : this.apTasks ){
-            System.debug('Check 1:'+t+':');
             if( t.Dependent__c != '[]' && t.Dependent__c != null ){
-                System.debug('Check 2:'+t+':');
                 List<String> selectedValues = parseMultiSelect(t.Dependent__c);
 
                 for( String i : selectedValues){
                     Integer tempIndex       = Integer.valueOf( i );
                     APTaskTemplate__c link  = this.apTasks[tempIndex];
-                
                 
                 //task can not depend on themselves
                     if(tempIndex == index){
@@ -233,22 +223,13 @@ public with sharing class ActionPlansUtilities{
                         System.debug('ERROR -- Self dependency');
                         return true;
                     }
-                    
-                    
-                    
                 }
-                
             }
             index++;
         }
-        System.debug('Post-checking:'+this.apTasks.size()+':');
-        for(Integer k=0;k<this.apTasks.size();++k){
-            System.debug('Displaying:::'+this.apTasks[k]);
-        }
-
+        //Checks for Circular dependencies
         if( this.dependentCycleWorker() ){
             this.errorMsg = Label.ap_Errors_RemoveCyclicDependency;
-            System.debug('ERROR -- Circular dependency');
             return true;
         }
         return false;
@@ -272,9 +253,7 @@ public with sharing class ActionPlansUtilities{
             children.put(l,parent);
         }
 
-
         //// Looking for circular reference.
-
         while(l>0){
             --l;
             Set<Integer> looker = new Set<Integer>();
