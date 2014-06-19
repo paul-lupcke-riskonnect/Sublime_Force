@@ -35,12 +35,23 @@
         }, 
         {
             "modifiers": [], 
+            "name": "returnValue", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 26
+            }, 
+            "type": "LIST"
+        }, 
+        {
+            "modifiers": [], 
             "name": "rightSelection", 
             "visibility": "PUBLIC", 
             "references": [], 
             "location": {
                 "column": 33, 
-                "line": 64
+                "line": 30
             }, 
             "type": "LIST"
         }, 
@@ -51,7 +62,7 @@
             "references": [], 
             "location": {
                 "column": 33, 
-                "line": 71
+                "line": 51
             }, 
             "type": "LIST"
         }, 
@@ -62,7 +73,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 110
+                "line": 105
             }, 
             "type": "String"
         }, 
@@ -73,7 +84,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 155
+                "line": 150
             }, 
             "type": "String"
         }, 
@@ -84,7 +95,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 163
+                "line": 158
             }, 
             "type": "String"
         }
@@ -107,7 +118,29 @@
             "references": [], 
             "location": {
                 "column": 28, 
-                "line": 87
+                "line": 71
+            }, 
+            "returnType": "LIST", 
+            "type": null
+        }, 
+        {
+            "modifiers": [], 
+            "name": "cleaned2", 
+            "parameters": [
+                {
+                    "type": "LIST", 
+                    "name": "all"
+                }, 
+                {
+                    "type": "LIST", 
+                    "name": "sel"
+                }
+            ], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 88
             }, 
             "returnType": "LIST", 
             "type": null
@@ -129,7 +162,7 @@
             "references": [], 
             "location": {
                 "column": 18, 
-                "line": 135
+                "line": 130
             }, 
             "returnType": "void", 
             "type": null
@@ -151,7 +184,7 @@
             "references": [], 
             "location": {
                 "column": 18, 
-                "line": 143
+                "line": 138
             }, 
             "returnType": "void", 
             "type": null
@@ -185,7 +218,7 @@
             "references": [], 
             "location": {
                 "column": 52, 
-                "line": 87
+                "line": 71
             }, 
             "name": "all"
         }, 
@@ -195,7 +228,7 @@
             "references": [], 
             "location": {
                 "column": 72, 
-                "line": 87
+                "line": 71
             }, 
             "name": "sel"
         }, 
@@ -205,7 +238,7 @@
             "references": [], 
             "location": {
                 "column": 24, 
-                "line": 88
+                "line": 72
             }, 
             "name": "retVal"
         }, 
@@ -215,7 +248,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 89
+                "line": 73
             }, 
             "name": "addFlag"
         }, 
@@ -225,7 +258,7 @@
             "references": [], 
             "location": {
                 "column": 21, 
-                "line": 90
+                "line": 74
             }, 
             "name": "i"
         }, 
@@ -235,7 +268,67 @@
             "references": [], 
             "location": {
                 "column": 25, 
-                "line": 94
+                "line": 76
+            }, 
+            "name": "j"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 53, 
+                "line": 88
+            }, 
+            "name": "all"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 72, 
+                "line": 88
+            }, 
+            "name": "sel"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 89
+            }, 
+            "name": "retVal"
+        }, 
+        {
+            "type": "Boolean", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 90
+            }, 
+            "name": "addFlag"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 91
+            }, 
+            "name": "i"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 25, 
+                "line": 93
             }, 
             "name": "j"
         }, 
@@ -245,7 +338,7 @@
             "references": [], 
             "location": {
                 "column": 44, 
-                "line": 135
+                "line": 130
             }, 
             "name": "options"
         }, 
@@ -255,7 +348,7 @@
             "references": [], 
             "location": {
                 "column": 60, 
-                "line": 135
+                "line": 130
             }, 
             "name": "value"
         }, 
@@ -265,7 +358,7 @@
             "references": [], 
             "location": {
                 "column": 18, 
-                "line": 137
+                "line": 132
             }, 
             "name": "parts"
         }, 
@@ -275,7 +368,7 @@
             "references": [], 
             "location": {
                 "column": 22, 
-                "line": 138
+                "line": 133
             }, 
             "name": "i"
         }, 
@@ -285,7 +378,7 @@
             "references": [], 
             "location": {
                 "column": 50, 
-                "line": 143
+                "line": 138
             }, 
             "name": "options"
         }, 
@@ -295,7 +388,7 @@
             "references": [], 
             "location": {
                 "column": 66, 
-                "line": 143
+                "line": 138
             }, 
             "name": "value"
         }, 
@@ -305,7 +398,7 @@
             "references": [], 
             "location": {
                 "column": 18, 
-                "line": 146
+                "line": 141
             }, 
             "name": "parts"
         }, 
@@ -315,7 +408,7 @@
             "references": [], 
             "location": {
                 "column": 22, 
-                "line": 147
+                "line": 142
             }, 
             "name": "i"
         }
@@ -329,7 +422,7 @@
             "references": [], 
             "location": {
                 "column": 12, 
-                "line": 123
+                "line": 118
             }, 
             "type": null
         }

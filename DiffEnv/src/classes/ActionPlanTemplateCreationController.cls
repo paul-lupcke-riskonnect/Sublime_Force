@@ -42,7 +42,7 @@ public with sharing class ActionPlanTemplateCreationController{
     public List<SelectOption[]>     savedDependencies       { get; set; }
     public List<SelectOption[]>     possibleOptions         { get; set; }
     public List<SelectOption[]>     selectedOptions         { get; set; }
-    public List<Integer>       removeOptions           { get; set; }
+    public List<Integer>            removeOptions           { get; set; }
 	
 	/**
      * Constructor
@@ -60,7 +60,7 @@ public with sharing class ActionPlanTemplateCreationController{
         this.selectedOptions         = new List<SelectOption[]>();
         this.removeOptions           = new List<Integer>();
         
-        if( System.currentPageReference().getParameters().get( 'id' ) != null ){
+        if( System.currentPageReference().getParameters().get( 'id' ) != null ){//Modified PAL
         	
 			this.actionPlanTemplateId 	= System.currentPageReference().getParameters().get( 'id' );
 			this.actionPlanTemplate 	= [ select a.Id, a.Name, a.Description__c, a.SkipWeekends__c, a.SkipDay__c, a.LastModifiedDate, 
@@ -69,6 +69,11 @@ public with sharing class ActionPlanTemplateCreationController{
 												Where a.Id =: this.actionPlanTemplateId limit 1 ];
 			
 			this.taskIndex = this.calculateTaskIndexValue();
+            Map<Integer, APTTaskTemplate__c> savedRecords = this.grabAPTasks();
+            List<List<SelectOption[]>> recordsToPush = this.generateFields(savedRecords);
+
+            this.possibleOptions = recordsToPush[0];
+            this.selectedOptions = recordsToPush[1];
 		}
 		else{
 			this.actionPlanTemplate = ( ActionPlanTemplate__c ) stdController.getRecord();
@@ -83,6 +88,59 @@ public with sharing class ActionPlanTemplateCreationController{
         this.actionPlanTemplates = new ActionPlanTemplates( this.actionPlanTemplate );
         this.actionPlanTemplates.taskIndexOrder = this.taskIndex;
         this.displayReminder = this.actionPlanTemplates.getDisplayReminder();
+    }
+
+    public Map<Integer, APTTaskTemplate__c> grabAPTasks(){//Custom PAL
+        
+        List<APTTaskTemplate__c> apTasks = [ select Id, Subject__c, Dependent__c, taskIndex__c from APTTaskTemplate__c 
+                                                where Action_Plan_Template__c =: this.actionPlanTemplateId ];
+        Map<Integer, APTTaskTemplate__c> retVal = new Map<Integer, APTTaskTemplate__c>();
+        for(APTTaskTemplate__c t: apTasks){
+            retVal.put(t.taskIndex__c.intValue(), t);
+        }
+        return retVal;
+    }
+
+    public List<List<SelectOption[]>> generateFields(Map<Integer, APTTaskTemplate__c> input){//Custom PAL
+        List<List<SelectOption[]>> retVal = new List<List<SelectOption[]>>();
+        List<SelectOption[]> leftField = new List<SelectOption[]>();
+        List<SelectOption[]> rightField = new List<SelectOption[]>();
+
+        List<Integer> all = new List<Integer>(input.keySet());
+        //System.debug('All size:'+all.size()+': ALL:'+all);
+        for(Integer i=0;i<all.size();++i){
+            APTTaskTemplate__c t = input.get(all[i]);
+            if(t.Dependent__c==null){
+                t.Dependent__c='None';
+            }
+            List<String> deps = ActionPlansUtilities.parseMultiSelect(t.Dependent__c);
+            leftField.add(new SelectOption[]{});
+            rightField.add(new SelectOption[]{});
+            for(Integer j=0;j<all.size();++j){
+                APTTaskTemplate__c listTask = input.get(all[j]);
+                Boolean leftList = true;
+                for(Integer k=0;k<deps.size();++k){
+                    if(listTask.taskIndex__c.intValue() == Integer.valueOf(deps[k])){
+                        leftList=false;
+                        break;
+                    }
+                }
+                if(leftList==true){
+                    //t.Subject__c+' ('+ (i+1) +')'
+                    leftField[leftField.size()-1].add( new SelectOption(String.valueOf(listTask.taskIndex__c.intValue()),
+                                                                        listTask.Subject__c+' ('+String.valueOf(listTask.taskIndex__c.intValue()+1)+')') );
+                }
+                else{
+                    rightField[leftField.size()-1].add( new SelectOption(String.valueOf(listTask.taskIndex__c.intValue()),
+                                                                        listTask.Subject__c+' ('+String.valueOf(listTask.taskIndex__c.intValue()+1)+')') );
+                }
+            }
+        }
+
+        retVal.add(leftField);
+        retVal.add(rightField);
+
+        return retVal;
     }
 
 	/**
@@ -108,6 +166,7 @@ public with sharing class ActionPlanTemplateCreationController{
         this.savedDependencies.clear();
         this.possibleOptions.clear();
         this.removeOptions.clear();
+        this.selectedOptions.clear();
         this.possibleOptions.add(this.getTemplateSubjectItems());
 
 		this.taskIndex++;
@@ -121,6 +180,7 @@ public with sharing class ActionPlanTemplateCreationController{
 	public void removeTemplateTask(){
         this.savedDependencies.clear();
         this.possibleOptions.clear();
+        this.selectedOptions.clear();
         this.removeOptions.clear();
         
 		addedTask = !actionPlanTemplates.removeTemplateTask();

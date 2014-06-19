@@ -19,66 +19,50 @@ public with sharing class MultiselectController {
     public List<Integer> removeOptions{
         get;
         set{
-            /*if(value.size()>0){
-                System.debug('Value :'+value+':');
-                Boolean lowerRemaining=false;
-                for(Integer j=0;j<rightOptions.size();++j){
-                    if(lowerRemaining==true){
-                        System.debug('Lowering remaining');//This is not corrent... poo
-                        rightOptions[j].setValue( String.valueOf( ( Integer.valueOf( rightOptions[j].getValue() )-1 ) ));
-                    }
-                    if(value[0]==Integer.valueOf( rightOptions[j].getValue()) && lowerRemaining==false){
-                        System.debug('Found R match removing :'+rightOptions[j]+':');
-                        rightOptions.remove(j);
-                        --j;
-                        lowerRemaining=true;
-
-                    }
-                    
-                }
-                for(Integer j=0;j<leftOptions.size();++j){
-                    System.debug('leftOptions:'+leftOptions+':');
-                }
-                lowerRemaining=false;
-                for(Integer j=0;j<leftOptions.size();++j){
-                    if(lowerRemaining==true){
-                        System.debug('Lowering remaining');//This is not corrent... poo
-                        System.debug('Left option value:'+leftOptions[j].getValue()+':');
-                        System.debug('Left Int reduced option value:'+(Integer.valueOf( leftOptions[j].getValue() )-1) +':');
-                        System.debug('Left String reduced option value:'+String.valueOf( ( Integer.valueOf( leftOptions[j].getValue() )-1 ) )+':');
-                        leftOptions[j].setValue( String.valueOf( ( Integer.valueOf( leftOptions[j].getValue() )-1 ) ));
-                    }
-                    if(value[0]==Integer.valueOf( leftOptions[j].getValue()) && lowerRemaining==false){
-                        System.debug('J:'+j+':');
-                        System.debug('Found L option val:'+leftOptions[j].getValue()+':');
-                        System.debug('Found L match removing :'+leftOptions[j]+':');
-                        leftOptions.remove(j);
-                        --j;
-                        lowerRemaining=true;
-                    }
-                    
-                }
-            }*/
+            removeOptions=value;
+            //System.debug('component remove option:'+value);
         }
+    }
+    public List<SelectOption[]> returnValue{
+        get;
+        set;
     }
     public List<SelectOption[]> rightSelection { 
         get; 
         set{
-            //System.debug('Setting rightSelection'+value+':');
+            System.debug('setting right side:'+value+':::size:'+value.size()+':::index:'+indexID);
             rightSelection=value;
+
+            if(rightSelection.size()>0 && rightSelection.size()>Integer.valueOf(indexID)){
+                rightOptions=rightSelection[Integer.valueOf(indexID)];
+                //rightOptions.clear();
+                //rightOptions=rightSelection[Integer.valueOf(indexID)];
+                System.debug('actually setting RightOption='+rightOptions+';');
+                //rightOptions = cleaned2(rightSelection[Integer.valueOf(indexID)],removeOptions);
+            }
+            /*else if(indexID!=null && rightSelection.size()<Integer.valueOf(indexID)){
+                if(rightOptions!=null){
+                    System.debug('Clearing rightside');
+                    rightOptions.clear();
+                }
+            }*/
         }
     }
     public List<SelectOption[]> leftSelection { 
         get; 
         set{
-            System.debug('Setting leftSelection:'+value+':');
+            System.debug('setting left side:'+value+':::size:'+value.size()+':::index:'+indexID);
+
             leftSelection=value;
-            if(leftSelection.size()>0){
+            
+            if(leftSelection.size()>0 ){
+                //if(indexID!=null && leftSelection[0].size()<Integer.valueOf(indexID)){
+                //    if(rightOptions!=null){
+                //        System.debug('Clearing rightside');
+                //        rightOptions.clear();
+                //    }
+                //}
                 leftOptions=leftSelection[0];
-                //System.debug('Setting left option to:'+leftOptions);
-                //System.debug('For giggles:'+rightOptions);
-                //System.debug('For giggles2:'+rightSelection);
-                
                 leftOptions = cleaned(leftSelection[0],rightOptions);
             }
         }
@@ -89,15 +73,26 @@ public with sharing class MultiselectController {
         Boolean addFlag;
         for(Integer i=0;i<all.size();++i){
             addFlag=true;
-            //System.debug('All:'+all+':: Size:'+all.size()+';');
-            //System.debug('Sel:'+sel+':: Size:'+sel.size()+';');
             for(Integer j=0;j<sel.size();++j){
-                //System.debug('I:'+i+':: J:'+j);
                 if(all[i].getValue()==sel[j].getValue()){
-                    //System.debug('Removing I:'+i);
                     addFlag=false;
-                    //all.remove(i);
-                    //--i;
+                }
+            }
+            if(addFlag==true){
+                retVal.add(all[i]);
+            }
+        }
+        return retVal;
+    }
+
+    private SelectOption[] cleaned2 (SelectOption[] all, List<Integer> sel){
+        SelectOption[] retVal = new SelectOption[]{};
+        Boolean addFlag;
+        for(Integer i=0;i<all.size();++i){
+            addFlag=true;
+            for(Integer j=0;j<sel.size();++j){
+                if(all[i].getValue()==String.valueOf(sel[j])){
+                    addFlag=false;
                 }
             }
             if(addFlag==true){
@@ -163,7 +158,7 @@ public with sharing class MultiselectController {
     public String rightOptionsHidden { get; set {
            rightOptionsHidden = value;
            setOptions(rightOptions, value);
-           setOptions(rightSelection, value);
+           setOptions(returnValue, value);
         }
     }
 }

@@ -109,7 +109,7 @@ public with sharing class ActionPlansUtilities{
         List<Integer> eod = ActionPlansUtilities.getNumberTime(start.Day_End__c);
 
         //If the task is set to start after the end of the day automatically roll to the next day.
-        if((eod[0]==currentTime.hour() && eod[1]<currentTime.minute()) || eod[0]<currentTime.hour()){
+        if((eod[0]==currentTime.hour() && eod[1]<currentTime.minute()) || eod[0]<currentTime.hour() || start.Ignore_Day__c==true){
             Integer counter = 0;
             while(true){
                 if(dayOfWeek==7) { dayOfWeek = 1; }
@@ -179,8 +179,6 @@ public with sharing class ActionPlansUtilities{
     }
 
     public static List<String> parseMultiSelect(String input){
-        //System.debug('Parsing Multiselect Input :: '+input + ':');
-        //System.debug('Parsing Multiselect Test :: '+input.contains('None')+':');
         List<String> values;
         String cleaned = input.replace('[', '');
         cleaned = cleaned.replace(']', '');
@@ -190,11 +188,11 @@ public with sharing class ActionPlansUtilities{
         cleaned = cleaned.replace(' ', '');
         values = cleaned.split(',');
         if(values[0]=='') values.clear();
-        System.debug('Parsing Multiselect Output:: '+values + ':' + values.size());
+        //System.debug('Parsing Multiselect Output:: '+values + ':' + values.size());
         for(Integer i=0; i<values.size();++i){
             if(values[i].contains('None')){
                 values.clear();
-                System.debug('Use the force');
+                //System.debug('Use the force');
             }
         }
         return values;
@@ -818,6 +816,7 @@ public with sharing class ActionPlansUtilities{
             t.Reminder__c           = false;
             t.Minutes_Reminder__c   = this.getReminderDefaultTime();
             t.Name                  = null;
+            System.debug('taskIndexOrder:'+taskIndexOrder+':');
             t.taskIndex__c          = this.taskIndexOrder;
            
             // validate user, priority, subject and days before adding another
@@ -882,6 +881,7 @@ public with sharing class ActionPlansUtilities{
                     pendingDeletes = new List<APTaskTemplate__c>();
                 } 
                 pendingDeletes.add( this.apTasks[taskIndex] );
+                System.debug('Task added to pendingDeletes:'+pendingDeletes+';');
             }
             
             apTasks.remove( taskIndex );
@@ -965,7 +965,6 @@ public with sharing class ActionPlansUtilities{
         if( this.apTasks != null ){
             for( APTaskTemplate__c t : this.apTasks ){
                 if( t.Subject__c != null ){
-                    //System.debug('ActionPlansUtilities::getSubjectItems  I:'+i+':');
                     options.add(new SelectOption( string.valueOf(i), t.Subject__c+' ('+ (i+1) +')') );
                 }
                 i++;
@@ -1002,10 +1001,8 @@ public with sharing class ActionPlansUtilities{
         for( APTaskTemplate__c t : this.apTasks ){
             //taskMap.add(string.valueof(t.taskIndex__c), t.Subject__c);
         }
-        System.debug('New request');
         if( this.apTasks != null ){
             for( APTaskTemplate__c t : this.apTasks ){
-                System.debug('Test '+i+':'+t.taskIndex__c);
                 options.add(new List<SelectOption>());
                 if(t.Dependent__c!=null){
                     List<String> tmp = ActionPlansUtilities.parseMultiSelect(t.Dependent__c);
@@ -1453,7 +1450,6 @@ public with sharing class ActionPlansUtilities{
     
         List<APTaskTemplate__c> aptList =  [ select  a.Action_Plan__c,a.Status__c,a.Dependent__c,a.taskIndex__c
                                              from APTaskTemplate__c a ];
-        System.debug('validateChangeStatus::'+aptList+'::');
 
         String actionPlan = '';
         List<String> dependencies = new List<String>();
@@ -1481,40 +1477,12 @@ public with sharing class ActionPlansUtilities{
         for(Integer i=0;i<dependenciesI.size();++i){
             if(nonComplete.contains(dependenciesI[i])){
                 result = false;
-                System.debug('Should return false -- not all pre reqs meet::'+dependenciesI[i]);
                 break;
-            }
-            else{
-                System.debug('Can return true -- all visited pre reqs meet::'+dependenciesI[i]);
             }
         }
 
         return result;                      
     }
-    /*public Boolean validateChangeStatus(String apTaskId){
-        Boolean result = true;
-        set<string> rejectStatus = new set<string>{'In progress','Not Started','Deferred','Waiting on someone else'};
-    
-        List<APTaskTemplate__c> aptList =  [select  a.Status__c,a.APTaskTemplate__r.Id,a.APTaskTemplate__r.Status__c,a.Dependent__c
-                                             from APTaskTemplate__c a 
-                                             where a.Id =: apTaskId  
-                                        ];
-        System.debug('validateChangeStatus::'+aptList+'::');
-        if (aptList.size() > 0){
-            System.debug('validateChangeStatus2::'+aptList[0].APTaskTemplate__c+'::');
-            if (aptList[0].APTaskTemplate__c !=null ){
-                
-                for(APTaskTemplate__c t: aptList){
-                    if (rejectStatus.contains(t.APTaskTemplate__r.Status__c)){
-                        result = false;
-                        break;
-                    }
-                }
-            }
-        
-        }
-        return result;                      
-    }*/
     
     /**
     * Verifies that the user is able to add reminders.

@@ -52,7 +52,7 @@ public with sharing class ActionPlanCreationController{
     public List<SelectOption[]>     savedDependencies       { get; set; }
     public List<SelectOption[]>     possibleOptions         { get; set; }
     public List<SelectOption[]>     selectedOptions         { get; set; }
-    public List<Integer>       removeOptions           { get; set; }
+    public List<Integer>            removeOptions           { get; set; }
     /**
     * Constructor
     */
@@ -66,6 +66,7 @@ public with sharing class ActionPlanCreationController{
         this.relatedObjIds      = new List<String>();
         this.mapTasksListBkp    = new Map<String,ApTaskWrapper>();
         this.actionPlan         = ( ActionPlan__c ) stdController.getRecord();
+
         this.savedDependencies       = new List<SelectOption[]>();
         this.possibleOptions         = new List<SelectOption[]>();
         this.selectedOptions         = new List<SelectOption[]>();
@@ -106,8 +107,12 @@ public with sharing class ActionPlanCreationController{
         this.actionPlans                = new ActionPlansUtilities( this.actionPlan );
         this.hasRelatedObject           = this.actionPlans.hasRelatedObject();
         this.taskIndex                  = this.calculateAPTaskIndexValue();
-        this.possibleOptions.add(this.getSubjectItems());
 
+        Map<Integer, APTaskTemplate__c> savedRecords = this.grabAPTasks();
+        List<List<SelectOption[]>> recordsToPush = this.generateFields(savedRecords);
+
+        this.possibleOptions = recordsToPush[0];
+        this.selectedOptions = recordsToPush[1];
     }
 
     /**
@@ -128,6 +133,7 @@ public with sharing class ActionPlanCreationController{
         for( APTaskTemplate__c t : this.actionPlans.apTasks ){
             t.Action_Plan__c = null;
         }
+
     }
     
     /**
@@ -150,6 +156,14 @@ public with sharing class ActionPlanCreationController{
             this.actionPlan.Action_Plan_Template__c  = actionPlanTemplate.Id;
         }
         this.taskIndex  = this.calculateAPTTaskIndexValue();
+
+        System.debug('From Acion Plan');
+
+        Map<Integer, APTTaskTemplate__c> savedRecords = this.grabAPTTasks();
+        List<List<SelectOption[]>> recordsToPush = this.generateTemplateFields(savedRecords);
+
+        this.possibleOptions = recordsToPush[0];
+        this.selectedOptions = recordsToPush[1];
 
     }
     
@@ -289,6 +303,7 @@ public with sharing class ActionPlanCreationController{
         this.savedDependencies.clear();
         this.possibleOptions.clear();
         this.removeOptions.clear();
+        //this.selectedOptions.clear();
         this.possibleOptions.add(this.getSubjectItems());
         this.taskIndex++;
         this.actionPlans.taskIndexOrder = this.taskIndex;
@@ -302,11 +317,16 @@ public with sharing class ActionPlanCreationController{
         this.savedDependencies.clear();
         this.possibleOptions.clear();
         this.removeOptions.clear();
-        //this.possibleOptions.add(this.getSubjectItems());
+        System.debug('Printing selectedOptions-1:'+selectedOptions+':');
+        System.debug('Printing possibleOptions-1:'+possibleOptions+':');
+        //this.selectedOptions.clear();
+        System.debug('Remove options:'+removeOptions+':');
         addedTask = !actionPlans.removeTask(removeOptions);
-        //System.debug('remove options :'+removeOptions+':');
+        this.selectedOptions.remove(removeOptions[0]);
+        System.debug('Remove options2:'+removeOptions+':');
         this.possibleOptions.add(this.getSubjectItems());
-        //this.possibleOptions[0].add(new SelectOption('500','5000(500)'));
+        System.debug('Printing selectedOptions-2:'+selectedOptions+':');
+        System.debug('Printing possibleOptions-2:'+possibleOptions+':');
     }
     
     /**
@@ -540,10 +560,60 @@ public with sharing class ActionPlanCreationController{
                 maxIndex = tsk.taskIndex__c;
             }
         }
-        
+        System.debug('valid taskIndexs:'+apTasks+': Max is='+maxIndex+':');
         return maxIndex;
     }
     
+    public Map<Integer, APTaskTemplate__c> grabAPTasks(){//Custom PAL
+        
+        List<APTaskTemplate__c> apTasks = [ select Id, Subject__c, Dependent__c, taskIndex__c from APTaskTemplate__c 
+                                                where Action_Plan__c =: this.actionPlanId ];
+        Map<Integer, APTaskTemplate__c> retVal = new Map<Integer, APTaskTemplate__c>();
+        for(APTaskTemplate__c t: apTasks){
+            retVal.put(t.taskIndex__c.intValue(), t);
+        }
+        return retVal;
+    }
+
+    public List<List<SelectOption[]>> generateFields(Map<Integer, APTaskTemplate__c> input){//Custom PAL
+        List<List<SelectOption[]>> retVal = new List<List<SelectOption[]>>();
+        List<SelectOption[]> leftField = new List<SelectOption[]>();
+        List<SelectOption[]> rightField = new List<SelectOption[]>();
+
+        List<Integer> all = new List<Integer>(input.keySet());
+        //System.debug('All size:'+all.size()+': ALL:'+all);
+        for(Integer i=0;i<all.size();++i){
+            APTaskTemplate__c t = input.get(all[i]);
+            List<String> deps = ActionPlansUtilities.parseMultiSelect(t.Dependent__c);
+            leftField.add(new SelectOption[]{});
+            rightField.add(new SelectOption[]{});
+            for(Integer j=0;j<all.size();++j){
+                APTaskTemplate__c listTask = input.get(all[j]);
+                Boolean leftList = true;
+                for(Integer k=0;k<deps.size();++k){
+                    if(listTask.taskIndex__c.intValue() == Integer.valueOf(deps[k])){
+                        leftList=false;
+                        break;
+                    }
+                }
+                if(leftList==true){
+                    //t.Subject__c+' ('+ (i+1) +')'
+                    leftField[leftField.size()-1].add( new SelectOption(String.valueOf(listTask.taskIndex__c.intValue()),
+                                                                        listTask.Subject__c+' ('+String.valueOf(listTask.taskIndex__c.intValue()+1)+')') );
+                }
+                else{
+                    rightField[leftField.size()-1].add( new SelectOption(String.valueOf(listTask.taskIndex__c.intValue()),
+                                                                        listTask.Subject__c+' ('+String.valueOf(listTask.taskIndex__c.intValue()+1)+')') );
+                }
+            }
+        }
+
+        retVal.add(leftField);
+        retVal.add(rightField);
+
+        return retVal;
+    }
+
     /**
     * Calculates the highest task index value for Action Plan Template Tasks
     * @return maxIndex
@@ -563,6 +633,59 @@ public with sharing class ActionPlanCreationController{
         return maxIndex;
     }
     
+    public Map<Integer, APTTaskTemplate__c> grabAPTTasks(){//Custom PAL
+        
+        List<APTTaskTemplate__c> apTasks = [ select Id, Subject__c, Dependent__c, taskIndex__c from APTTaskTemplate__c 
+                                                where Action_Plan_Template__c =: this.templateId ];
+        Map<Integer, APTTaskTemplate__c> retVal = new Map<Integer, APTTaskTemplate__c>();
+        for(APTTaskTemplate__c t: apTasks){
+            retVal.put(t.taskIndex__c.intValue(), t);
+        }
+        return retVal;
+    }
+
+    public List<List<SelectOption[]>> generateTemplateFields(Map<Integer, APTTaskTemplate__c> input){//Custom PAL
+        List<List<SelectOption[]>> retVal = new List<List<SelectOption[]>>();
+        List<SelectOption[]> leftField = new List<SelectOption[]>();
+        List<SelectOption[]> rightField = new List<SelectOption[]>();
+
+        List<Integer> all = new List<Integer>(input.keySet());
+        //System.debug('All size:'+all.size()+': ALL:'+all);
+        for(Integer i=0;i<all.size();++i){
+            APTTaskTemplate__c t = input.get(all[i]);
+            if(t.Dependent__c==null){
+                t.Dependent__c='None';
+            }
+            List<String> deps = ActionPlansUtilities.parseMultiSelect(t.Dependent__c);
+            leftField.add(new SelectOption[]{});
+            rightField.add(new SelectOption[]{});
+            for(Integer j=0;j<all.size();++j){
+                APTTaskTemplate__c listTask = input.get(all[j]);
+                Boolean leftList = true;
+                for(Integer k=0;k<deps.size();++k){
+                    if(listTask.taskIndex__c.intValue() == Integer.valueOf(deps[k])){
+                        leftList=false;
+                        break;
+                    }
+                }
+                if(leftList==true){
+                    //t.Subject__c+' ('+ (i+1) +')'
+                    leftField[leftField.size()-1].add( new SelectOption(String.valueOf(listTask.taskIndex__c.intValue()),
+                                                                        listTask.Subject__c+' ('+String.valueOf(listTask.taskIndex__c.intValue()+1)+')') );
+                }
+                else{
+                    rightField[leftField.size()-1].add( new SelectOption(String.valueOf(listTask.taskIndex__c.intValue()),
+                                                                        listTask.Subject__c+' ('+String.valueOf(listTask.taskIndex__c.intValue()+1)+')') );
+                }
+            }
+        }
+
+        retVal.add(leftField);
+        retVal.add(rightField);
+
+        return retVal;
+    }
+
     /**
     * Getter method with the related object options by default.
     */

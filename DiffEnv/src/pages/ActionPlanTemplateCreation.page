@@ -124,11 +124,11 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
 		                            <!--<apex:selectList id="dependent" value="{!wrapTask.task.Dependent__c}" multiselect="false" size="1" style="width:85px;" onchange="javascript:ActionPlanTemplateCreationScripts.checkDependent('{!$Component.taskTable.dependent}');">
 		                                <apex:selectOptions value="{!TemplateSubjectItems}" />
 		                            </apex:selectList>-->
-		                            <c:MultiselectPicklist
-		                            	indexID="{!wrapTask.task.taskIndex__c}"
+		                            <c:MultiselectPicklist indexID="{!wrapTask.task.taskIndex__c}"
 		                            	leftSelection="{!possibleOptions}"
-						                rightSelection="{!savedDependencies}"
-						            	removeOptions="{!removeOptions}"
+                                        rightSelection="{!selectedOptions}"
+                                        returnValue="{!savedDependencies}"
+                                        removeOptions="{!removeOptions}"
 
 		                            	leftLabel="Possible"
 						                
