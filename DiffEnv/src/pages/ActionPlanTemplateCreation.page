@@ -121,9 +121,6 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
 		                        </apex:column>
 		                        
 		                        <apex:column headerValue="{!$ObjectType.APTTaskTemplate__c.fields.APTTaskTemplate__c.label}" rendered="{!IF(TemplateTaskSize > 1, true, false)}">
-		                            <!--<apex:selectList id="dependent" value="{!wrapTask.task.Dependent__c}" multiselect="false" size="1" style="width:85px;" onchange="javascript:ActionPlanTemplateCreationScripts.checkDependent('{!$Component.taskTable.dependent}');">
-		                                <apex:selectOptions value="{!TemplateSubjectItems}" />
-		                            </apex:selectList>-->
 		                            <c:MultiselectPicklist indexID="{!wrapTask.task.taskIndex__c}"
 		                            	leftSelection="{!possibleOptions}"
                                         rightSelection="{!selectedOptions}"
@@ -131,18 +128,18 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
                                         removeOptions="{!removeOptions}"
 
 		                            	leftLabel="Possible"
-						                
+
 						                rightLabel="Selected"
 						                
 						                
 						                size="5"
 						                width="100px"
-						                />
+						                />        <!--//(PAL) Swapped single picklist for custom miltiselect picklist -->
 		                          <apex:inputHidden value="{!wrapTask.task.taskIndex__c}" id="theHiddenInput"/>
 		                        </apex:column>
 		                        
 		                        <apex:column >
-		                        
+                                    <!--//(PAL) Changed to Hours_After_Start  -->
 		                   			<apex:facet name="header">{!$ObjectType.APTTaskTemplate__c.fields.Hours_After_Start__c.label}
 										<span id="daysAfterTtip_help" class="helpButton">
 											<img class="helpOrb" title="{!$Label.ap_days_after_msg}" src="/s.gif"/>

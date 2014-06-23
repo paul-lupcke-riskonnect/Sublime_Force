@@ -30,6 +30,6 @@ OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISE
 OF THE POSSIBILITY OF SUCH DAMAGE.
 
 */
-public with sharing class ProcessorControl {
+public with sharing class ProcessorControl {//(PAL) 100% covered
      public static boolean inBatchContext = false;
 }

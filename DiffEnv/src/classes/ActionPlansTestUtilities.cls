@@ -57,6 +57,11 @@ public with sharing class ActionPlansTestUtilities{
  	public String 		xmlImportWrongAPTask	 { get; set; }
  	public String 		xmlImportWrongMetaData	 { get; set; }
  	public String 		xmlImportEmptyMetaData	 { get; set; }
+
+    public String       xmlImportEmptyPackage   { get; set; }
+    public String       xmlImportEmptyAuthor   { get; set; }
+    public String       xmlImportEmptyOrg   { get; set; }
+    public String       xmlImportEmptyDate   { get; set; }
  	
  	public ActionPlansTestUtilities(){
  		this.xmlImport 					= '<?xml version="1.0"?><export><meta><exportPackage>Action+Plan+Template</exportPackage><exportAuthor>mat+men</exportAuthor><exportOrganization>Force.com+Labs</exportOrganization><exportCreateDate>2010-08-10+19%3A24%3A49</exportCreateDate></meta><ActionPlanTemplate><id>a025000000DGr9DAAT</id><name>Test+new+Import+Order</name><description>null</description><skipWeekend>true</skipWeekend><skipday>Friday</skipday></ActionPlanTemplate><ActionPlanTemplateTasks><TaskTemplate><id>a005000000IJPlZAAX</id><templateId>a025000000DGr9DAAT</templateId><subject>task+1</subject><dependent>None</dependent><taskIndex>0</taskIndex><apttemplate>null</apttemplate><daysFromStart>1</daysFromStart><category>Email</category><priority>Medium</priority><sendEmail>false</sendEmail><reminder>true</reminder><reminderTime>510</reminderTime><comments>null</comments></TaskTemplate><TaskTemplate><id>a005000000IJPyqAAH</id><templateId>a025000000DGr9DAAT</templateId><subject>task+3</subject><dependent>0</dependent><taskIndex>2</taskIndex><apttemplate>a005000000IJPlZAAX</apttemplate><daysFromStart>1</daysFromStart><category>Phone+Call</category><priority>Medium</priority><sendEmail>false</sendEmail><reminder>true</reminder><reminderTime>30</reminderTime><comments>null</comments></TaskTemplate><TaskTemplate><id>a005000000IJPlaAAH</id><templateId>a025000000DGr9DAAT</templateId><subject>task2</subject><dependent>0</dependent><taskIndex>1</taskIndex><apttemplate>a005000000IJPlZAAX</apttemplate><daysFromStart>2</daysFromStart><category>Email</category><priority>Medium</priority><sendEmail>false</sendEmail><reminder>true</reminder><reminderTime>30</reminderTime><comments>null</comments></TaskTemplate></ActionPlanTemplateTasks></export>';
@@ -64,7 +69,13 @@ public with sharing class ActionPlansTestUtilities{
  		this.xmlImportWrongAPTask 		= '<?xml version="1.0"?><export><meta><exportPackage>Action+Plan+Template</exportPackage><exportAuthor>mat+men</exportAuthor><exportOrganization>Force.com+Labs</exportOrganization><exportCreateDate>2010-08-10+19%3A24%3A49</exportCreateDate></meta><ActionPlanTemplate><id>a025000000DGr9DAAT</id><name>Test+new+Import+Order</name><description>null</description><skipWeekend>true</skipWeekend><skipday>Friday</skipday></ActionPlanTemplate><ActionPlanTemplateTasks><TaskTemplate><id>a005000000IJPlZAAX</id><templateId>a025000000DGr9DAAT</templateId><subject></subject><dependent>null</dependent><apttemplate>null</apttemplate><daysFromStart>1</daysFromStart><category>Email</category><priority>Medium</priority><sendEmail>false</sendEmail><reminder>true</reminder><reminderTime>510</reminderTime><comments>null</comments></TaskTemplate><TaskTemplate><id>a005000000IJPyqAAH</id><templateId>a025000000DGr9DAAT</templateId><subject>task+3</subject><dependent>0</dependent><taskIndex>2</taskIndex><apttemplate>a005000000IJPlZAAX</apttemplate><daysFromStart>1</daysFromStart><category>Phone+Call</category><priority>Medium</priority><sendEmail>false</sendEmail><reminder>true</reminder><reminderTime>30</reminderTime><comments>null</comments></TaskTemplate><TaskTemplate><id>a005000000IJPlaAAH</id><templateId>a025000000DGr9DAAT</templateId><subject>task2</subject><dependent>0</dependent><taskIndex>1</taskIndex><apttemplate>a005000000IJPlZAAX</apttemplate><daysFromStart>2</daysFromStart><category>Email</category><priority>Medium</priority><sendEmail>false</sendEmail><reminder>true</reminder><reminderTime>30</reminderTime><comments>null</comments></TaskTemplate></ActionPlanTemplateTasks></export>';
  		this.xmlImportWrongMetaData 	= '<?xml version="1.0"?><export><meta><><></exportAuthor><exportOrganization>Force.com+Labs</exportOrganization><exportCreateDate>2010-07-30+13%3A12%3A52</exportCreateDate></meta><ActionPlanTemplate><id>a0250000';
  		this.xmlImportEmptyMetaData		= '<?xml version="1.0"?><export><meta><exportPackage></exportPackage><exportAuthor></exportAuthor><exportOrganization></exportOrganization><exportCreateDate></exportCreateDate></meta>';
- 	}
+ 	    
+        this.xmlImportEmptyPackage     = '<?xmlversion="1.0"?><export><meta><exportPackage> </exportPackage><exportAuthor>mat+men</exportAuthor><exportOrganization>Force.com+Labs</exportOrganization><exportCreateDate>2010-08-10+19%3A24%3A49</exportCreateDate></meta><ActionPlanTemplate><id>a025000000DGr9DAAT</id><name>Test+new+Import+Order</name><description>null</description><skipWeekend>true</skipWeekend><skipday>Friday</skipday></ActionPlanTemplate><ActionPlanTemplateTasks><TaskTemplate><id>a005000000IJPlZAAX</id><templateId>a025000000DGr9DAAT</templateId><subject>task+1</subject><dependent>None</dependent><taskIndex>0</taskIndex><apttemplate>null</apttemplate><daysFromStart>1</daysFromStart><category>Email</category><priority>Medium</priority><sendEmail>false</sendEmail><reminder>true</reminder><reminderTime>510</reminderTime><comments>null</comments></TaskTemplate></ActionPlanTemplateTasks></export>';
+        this.xmlImportEmptyAuthor     = '<?xmlversion="1.0"?><export><meta><exportPackage>Action+Plan+Template</exportPackage><exportAuthor></exportAuthor><exportOrganization>Force.com+Labs</exportOrganization><exportCreateDate>2010-08-10+19%3A24%3A49</exportCreateDate></meta><ActionPlanTemplate><id>a025000000DGr9DAAT</id><name>Test+new+Import+Order</name><description>null</description><skipWeekend>true</skipWeekend><skipday>Friday</skipday></ActionPlanTemplate><ActionPlanTemplateTasks><TaskTemplate><id>a005000000IJPlZAAX</id><templateId>a025000000DGr9DAAT</templateId><subject>task+1</subject><dependent>None</dependent><taskIndex>0</taskIndex><apttemplate>null</apttemplate><daysFromStart>1</daysFromStart><category>Email</category><priority>Medium</priority><sendEmail>false</sendEmail><reminder>true</reminder><reminderTime>510</reminderTime><comments>null</comments></TaskTemplate></ActionPlanTemplateTasks></export>';
+        this.xmlImportEmptyOrg     = '<?xmlversion="1.0"?><export><meta><exportPackage>Action+Plan+Template</exportPackage><exportAuthor>mat+men</exportAuthor><exportOrganization></exportOrganization><exportCreateDate>2010-08-10+19%3A24%3A49</exportCreateDate></meta><ActionPlanTemplate><id>a025000000DGr9DAAT</id><name>Test+new+Import+Order</name><description>null</description><skipWeekend>true</skipWeekend><skipday>Friday</skipday></ActionPlanTemplate><ActionPlanTemplateTasks><TaskTemplate><id>a005000000IJPlZAAX</id><templateId>a025000000DGr9DAAT</templateId><subject>task+1</subject><dependent>None</dependent><taskIndex>0</taskIndex><apttemplate>null</apttemplate><daysFromStart>1</daysFromStart><category>Email</category><priority>Medium</priority><sendEmail>false</sendEmail><reminder>true</reminder><reminderTime>510</reminderTime><comments>null</comments></TaskTemplate></ActionPlanTemplateTasks></export>';
+        this.xmlImportEmptyDate     = '<?xmlversion="1.0"?><export><meta><exportPackage>Action+Plan+Template</exportPackage><exportAuthor>mat+men</exportAuthor><exportOrganization>Force.com+Labs</exportOrganization><exportCreateDate></exportCreateDate></meta><ActionPlanTemplate><id>a025000000DGr9DAAT</id><name>Test+new+Import+Order</name><description>null</description><skipWeekend>true</skipWeekend><skipday>Friday</skipday></ActionPlanTemplate><ActionPlanTemplateTasks><TaskTemplate><id>a005000000IJPlZAAX</id><templateId>a025000000DGr9DAAT</templateId><subject>task+1</subject><dependent>None</dependent><taskIndex>0</taskIndex><apttemplate>null</apttemplate><daysFromStart>1</daysFromStart><category>Email</category><priority>Medium</priority><sendEmail>false</sendEmail><reminder>true</reminder><reminderTime>510</reminderTime><comments>null</comments></TaskTemplate></ActionPlanTemplateTasks></export>';
+
+    }
  	
  	/**
     * Random words are required for testing 
@@ -446,13 +457,42 @@ public with sharing class ActionPlansTestUtilities{
       ActionPlansTestUtilities apTestUtil = new ActionPlansTestUtilities();
       
       System.assert( apTestUtil.batchIds('accounts') != null );
+      System.assert( apTestUtil.batchIds('campaigns') != null );
+      System.assert( apTestUtil.batchIds('cases') != null );
+      System.assert( apTestUtil.batchIds('contacts') != null );
+      System.assert( apTestUtil.batchIds('contracts') != null );
+      System.assert( apTestUtil.batchIds('leads') != null );
+      System.assert( apTestUtil.batchIds('opportunitys') != null );
     }
     
-     static TestMethod void testRandomWord(){
+    static TestMethod void testRandomWord(){
       
       ActionPlansTestUtilities apTestUtil = new ActionPlansTestUtilities();
       
       System.assert( apTestUtil.createRandomWord() != apTestUtil.createRandomWord() );
+    }
+
+    static TestMethod void CreationTests() {//(PAL) Written by Paul
+        
+        test.startTest();
+
+        ActionPlansTestUtilities ge =  new ActionPlansTestUtilities();
+        
+        ge.createNewAccount();
+        ge.createNewLead();
+        ge.createNewContract();
+        ge.createNewCampaign();
+        ge.createNewOpportunity();
+        ge.createNewCase();
+        ge.createNewContact();
+
+        ge.createNewActionPlan('accounts', 2);
+
+        ge.createNewActionPlanTemplate(2);
+
+
+        test.stopTest();
+    
     }
     /*
 	static TestMethod void testcreateNewActionPlanTemplateTask(){

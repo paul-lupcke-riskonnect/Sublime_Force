@@ -31,5 +31,4 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
 
 */
 public with sharing class ImportException extends Exception{
- 
 }

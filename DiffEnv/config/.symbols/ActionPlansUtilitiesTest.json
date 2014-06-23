@@ -6,7 +6,7 @@
                 "TEST", 
                 "STATIC"
             ], 
-            "name": "APUtestSaveMethod", 
+            "name": "APUtestgetSelectedItems", 
             "parameters": [], 
             "visibility": "PRIVATE", 
             "references": [], 
@@ -22,13 +22,93 @@
                 "TEST", 
                 "STATIC"
             ], 
+            "name": "APUtestgetTimeShift", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 63
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "APUtestparseMultiSelect", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 79
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "APUtestcheckCycleDependent", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 108
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "APUtestsetDependencies", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 155
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "APUtestSaveMethod", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 191
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
             "name": "APUtestSaveMultiple", 
             "parameters": [], 
             "visibility": "PRIVATE", 
             "references": [], 
             "location": {
                 "column": 33, 
-                "line": 67
+                "line": 223
             }, 
             "returnType": "void", 
             "type": null
@@ -44,7 +124,7 @@
             "references": [], 
             "location": {
                 "column": 33, 
-                "line": 89
+                "line": 245
             }, 
             "returnType": "void", 
             "type": null
@@ -60,7 +140,7 @@
             "references": [], 
             "location": {
                 "column": 33, 
-                "line": 119
+                "line": 275
             }, 
             "returnType": "void", 
             "type": null
@@ -76,7 +156,7 @@
             "references": [], 
             "location": {
                 "column": 33, 
-                "line": 148
+                "line": 304
             }, 
             "returnType": "void", 
             "type": null
@@ -92,7 +172,7 @@
             "references": [], 
             "location": {
                 "column": 33, 
-                "line": 184
+                "line": 340
             }, 
             "returnType": "void", 
             "type": null
@@ -108,7 +188,7 @@
             "references": [], 
             "location": {
                 "column": 33, 
-                "line": 221
+                "line": 377
             }, 
             "returnType": "void", 
             "type": null
@@ -124,7 +204,7 @@
             "references": [], 
             "location": {
                 "column": 33, 
-                "line": 266
+                "line": 422
             }, 
             "returnType": "void", 
             "type": null
@@ -140,7 +220,7 @@
             "references": [], 
             "location": {
                 "column": 33, 
-                "line": 292
+                "line": 448
             }, 
             "returnType": "void", 
             "type": null
@@ -156,7 +236,7 @@
             "references": [], 
             "location": {
                 "column": 33, 
-                "line": 304
+                "line": 460
             }, 
             "returnType": "void", 
             "type": null
@@ -172,7 +252,7 @@
             "references": [], 
             "location": {
                 "column": 33, 
-                "line": 367
+                "line": 523
             }, 
             "returnType": "void", 
             "type": null
@@ -188,7 +268,7 @@
             "references": [], 
             "location": {
                 "column": 32, 
-                "line": 409
+                "line": 565
             }, 
             "returnType": "void", 
             "type": null
@@ -208,7 +288,31 @@
             "references": [], 
             "location": {
                 "column": 34, 
-                "line": 432
+                "line": 588
+            }, 
+            "returnType": "APTaskTemplate__c", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "STATIC"
+            ], 
+            "name": "apptask", 
+            "parameters": [
+                {
+                    "type": "ActionPlan__c", 
+                    "name": "ap"
+                }, 
+                {
+                    "type": "String", 
+                    "name": "dep"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 34, 
+                "line": 607
             }, 
             "returnType": "APTaskTemplate__c", 
             "type": null
@@ -232,7 +336,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 41
+                "line": 40
             }, 
             "name": "ap"
         }, 
@@ -242,7 +346,147 @@
             "references": [], 
             "location": {
                 "column": 24, 
-                "line": 46
+                "line": 43
+            }, 
+            "name": "main"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 45
+            }, 
+            "name": "output"
+        }, 
+        {
+            "type": "Datetime", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 66
+            }, 
+            "name": "testVal"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 82
+            }, 
+            "name": "testVal"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 85
+            }, 
+            "name": "i"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 112
+            }, 
+            "name": "ge"
+        }, 
+        {
+            "type": "ActionPlan__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 114
+            }, 
+            "name": "ap"
+        }, 
+        {
+            "type": "ActionPlansUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 117
+            }, 
+            "name": "apu"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 159
+            }, 
+            "name": "ge"
+        }, 
+        {
+            "type": "ActionPlan__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 161
+            }, 
+            "name": "ap"
+        }, 
+        {
+            "type": "ActionPlansUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 164
+            }, 
+            "name": "apu"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 171
+            }, 
+            "name": "input"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 195
+            }, 
+            "name": "ge"
+        }, 
+        {
+            "type": "ActionPlan__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 197
+            }, 
+            "name": "ap"
+        }, 
+        {
+            "type": "ActionPlansUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 202
             }, 
             "name": "apu"
         }, 
@@ -252,7 +496,7 @@
             "references": [], 
             "location": {
                 "column": 10, 
-                "line": 51
+                "line": 207
             }, 
             "name": "str"
         }, 
@@ -262,7 +506,7 @@
             "references": [], 
             "location": {
                 "column": 15, 
-                "line": 54
+                "line": 210
             }, 
             "name": "strl"
         }, 
@@ -272,7 +516,7 @@
             "references": [], 
             "location": {
                 "column": 23, 
-                "line": 55
+                "line": 211
             }, 
             "name": "apl"
         }, 
@@ -282,7 +526,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 59
+                "line": 215
             }, 
             "name": "rap"
         }, 
@@ -292,7 +536,7 @@
             "references": [], 
             "location": {
                 "column": 28, 
-                "line": 70
+                "line": 226
             }, 
             "name": "ge"
         }, 
@@ -302,7 +546,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 71
+                "line": 227
             }, 
             "name": "ap"
         }, 
@@ -312,7 +556,7 @@
             "references": [], 
             "location": {
                 "column": 24, 
-                "line": 77
+                "line": 233
             }, 
             "name": "apu"
         }, 
@@ -322,7 +566,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 82
+                "line": 238
             }, 
             "name": "rap"
         }, 
@@ -332,7 +576,7 @@
             "references": [], 
             "location": {
                 "column": 28, 
-                "line": 92
+                "line": 248
             }, 
             "name": "ge"
         }, 
@@ -342,7 +586,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 94
+                "line": 250
             }, 
             "name": "ap"
         }, 
@@ -352,7 +596,7 @@
             "references": [], 
             "location": {
                 "column": 24, 
-                "line": 102
+                "line": 258
             }, 
             "name": "apu"
         }, 
@@ -362,7 +606,7 @@
             "references": [], 
             "location": {
                 "column": 25, 
-                "line": 108
+                "line": 264
             }, 
             "name": "apt"
         }, 
@@ -372,7 +616,7 @@
             "references": [], 
             "location": {
                 "column": 24, 
-                "line": 110
+                "line": 266
             }, 
             "name": "apu2"
         }, 
@@ -382,7 +626,7 @@
             "references": [], 
             "location": {
                 "column": 28, 
-                "line": 122
+                "line": 278
             }, 
             "name": "ge"
         }, 
@@ -392,7 +636,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 124
+                "line": 280
             }, 
             "name": "ap"
         }, 
@@ -402,7 +646,7 @@
             "references": [], 
             "location": {
                 "column": 24, 
-                "line": 131
+                "line": 287
             }, 
             "name": "apu"
         }, 
@@ -412,7 +656,7 @@
             "references": [], 
             "location": {
                 "column": 25, 
-                "line": 137
+                "line": 293
             }, 
             "name": "apt"
         }, 
@@ -422,7 +666,7 @@
             "references": [], 
             "location": {
                 "column": 22, 
-                "line": 150
+                "line": 306
             }, 
             "name": "objectDetails"
         }, 
@@ -432,7 +676,7 @@
             "references": [], 
             "location": {
                 "column": 28, 
-                "line": 156
+                "line": 312
             }, 
             "name": "ge"
         }, 
@@ -442,7 +686,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 157
+                "line": 313
             }, 
             "name": "ap"
         }, 
@@ -452,7 +696,7 @@
             "references": [], 
             "location": {
                 "column": 14, 
-                "line": 158
+                "line": 314
             }, 
             "name": "k"
         }, 
@@ -462,7 +706,7 @@
             "references": [], 
             "location": {
                 "column": 25, 
-                "line": 167
+                "line": 323
             }, 
             "name": "apu"
         }, 
@@ -472,7 +716,7 @@
             "references": [], 
             "location": {
                 "column": 26, 
-                "line": 173
+                "line": 329
             }, 
             "name": "apt"
         }, 
@@ -482,7 +726,7 @@
             "references": [], 
             "location": {
                 "column": 22, 
-                "line": 186
+                "line": 342
             }, 
             "name": "objectDetails"
         }, 
@@ -492,7 +736,7 @@
             "references": [], 
             "location": {
                 "column": 28, 
-                "line": 192
+                "line": 348
             }, 
             "name": "ge"
         }, 
@@ -502,7 +746,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 193
+                "line": 349
             }, 
             "name": "ap"
         }, 
@@ -512,7 +756,7 @@
             "references": [], 
             "location": {
                 "column": 14, 
-                "line": 194
+                "line": 350
             }, 
             "name": "k"
         }, 
@@ -522,7 +766,7 @@
             "references": [], 
             "location": {
                 "column": 25, 
-                "line": 203
+                "line": 359
             }, 
             "name": "apu"
         }, 
@@ -532,7 +776,7 @@
             "references": [], 
             "location": {
                 "column": 26, 
-                "line": 209
+                "line": 365
             }, 
             "name": "apt"
         }, 
@@ -542,7 +786,7 @@
             "references": [], 
             "location": {
                 "column": 24, 
-                "line": 223
+                "line": 379
             }, 
             "name": "apu"
         }, 
@@ -552,7 +796,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 224
+                "line": 380
             }, 
             "name": "page"
         }, 
@@ -562,7 +806,7 @@
             "references": [], 
             "location": {
                 "column": 28, 
-                "line": 227
+                "line": 383
             }, 
             "name": "ge"
         }, 
@@ -572,7 +816,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 229
+                "line": 385
             }, 
             "name": "ap"
         }, 
@@ -582,7 +826,7 @@
             "references": [], 
             "location": {
                 "column": 25, 
-                "line": 259
+                "line": 415
             }, 
             "name": "apt"
         }, 
@@ -592,7 +836,7 @@
             "references": [], 
             "location": {
                 "column": 28, 
-                "line": 269
+                "line": 425
             }, 
             "name": "ge"
         }, 
@@ -602,7 +846,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 271
+                "line": 427
             }, 
             "name": "ap"
         }, 
@@ -612,7 +856,7 @@
             "references": [], 
             "location": {
                 "column": 24, 
-                "line": 272
+                "line": 428
             }, 
             "name": "apu"
         }, 
@@ -622,7 +866,7 @@
             "references": [], 
             "location": {
                 "column": 10, 
-                "line": 273
+                "line": 429
             }, 
             "name": "id"
         }, 
@@ -632,7 +876,7 @@
             "references": [], 
             "location": {
                 "column": 24, 
-                "line": 295
+                "line": 451
             }, 
             "name": "apu"
         }, 
@@ -642,7 +886,7 @@
             "references": [], 
             "location": {
                 "column": 21, 
-                "line": 296
+                "line": 452
             }, 
             "name": "options"
         }, 
@@ -652,7 +896,7 @@
             "references": [], 
             "location": {
                 "column": 28, 
-                "line": 308
+                "line": 464
             }, 
             "name": "ge"
         }, 
@@ -662,7 +906,7 @@
             "references": [], 
             "location": {
                 "column": 15, 
-                "line": 309
+                "line": 465
             }, 
             "name": "oIds"
         }, 
@@ -672,7 +916,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 311
+                "line": 467
             }, 
             "name": "ap"
         }, 
@@ -682,7 +926,7 @@
             "references": [], 
             "location": {
                 "column": 24, 
-                "line": 312
+                "line": 468
             }, 
             "name": "apu"
         }, 
@@ -692,7 +936,7 @@
             "references": [], 
             "location": {
                 "column": 11, 
-                "line": 313
+                "line": 469
             }, 
             "name": "a"
         }, 
@@ -702,7 +946,7 @@
             "references": [], 
             "location": {
                 "column": 10, 
-                "line": 316
+                "line": 472
             }, 
             "name": "owner"
         }, 
@@ -712,7 +956,7 @@
             "references": [], 
             "location": {
                 "column": 8, 
-                "line": 321
+                "line": 477
             }, 
             "name": "c"
         }, 
@@ -722,7 +966,7 @@
             "references": [], 
             "location": {
                 "column": 11, 
-                "line": 330
+                "line": 486
             }, 
             "name": "contact"
         }, 
@@ -732,7 +976,7 @@
             "references": [], 
             "location": {
                 "column": 12, 
-                "line": 339
+                "line": 495
             }, 
             "name": "contract"
         }, 
@@ -742,7 +986,7 @@
             "references": [], 
             "location": {
                 "column": 8, 
-                "line": 348
+                "line": 504
             }, 
             "name": "l"
         }, 
@@ -752,7 +996,7 @@
             "references": [], 
             "location": {
                 "column": 15, 
-                "line": 357
+                "line": 513
             }, 
             "name": "o"
         }, 
@@ -762,7 +1006,7 @@
             "references": [], 
             "location": {
                 "column": 28, 
-                "line": 371
+                "line": 527
             }, 
             "name": "ge"
         }, 
@@ -772,7 +1016,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 373
+                "line": 529
             }, 
             "name": "ap"
         }, 
@@ -782,7 +1026,7 @@
             "references": [], 
             "location": {
                 "column": 24, 
-                "line": 374
+                "line": 530
             }, 
             "name": "apu"
         }, 
@@ -792,7 +1036,7 @@
             "references": [], 
             "location": {
                 "column": 28, 
-                "line": 411
+                "line": 567
             }, 
             "name": "ge"
         }, 
@@ -802,7 +1046,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 412
+                "line": 568
             }, 
             "name": "ap"
         }, 
@@ -812,7 +1056,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 413
+                "line": 569
             }, 
             "name": "ap2"
         }, 
@@ -822,7 +1066,7 @@
             "references": [], 
             "location": {
                 "column": 23, 
-                "line": 414
+                "line": 570
             }, 
             "name": "lAp"
         }, 
@@ -832,7 +1076,7 @@
             "references": [], 
             "location": {
                 "column": 10, 
-                "line": 417
+                "line": 573
             }, 
             "name": "url"
         }, 
@@ -842,7 +1086,7 @@
             "references": [], 
             "location": {
                 "column": 10, 
-                "line": 418
+                "line": 574
             }, 
             "name": "records"
         }, 
@@ -852,7 +1096,7 @@
             "references": [], 
             "location": {
                 "column": 24, 
-                "line": 420
+                "line": 576
             }, 
             "name": "apu"
         }, 
@@ -862,7 +1106,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 424
+                "line": 580
             }, 
             "name": "page"
         }, 
@@ -872,7 +1116,7 @@
             "references": [], 
             "location": {
                 "column": 23, 
-                "line": 427
+                "line": 583
             }, 
             "name": "lAp2"
         }, 
@@ -882,7 +1126,7 @@
             "references": [], 
             "location": {
                 "column": 58, 
-                "line": 432
+                "line": 588
             }, 
             "name": "ap"
         }, 
@@ -892,7 +1136,7 @@
             "references": [], 
             "location": {
                 "column": 28, 
-                "line": 434
+                "line": 590
             }, 
             "name": "ge"
         }, 
@@ -902,7 +1146,47 @@
             "references": [], 
             "location": {
                 "column": 21, 
-                "line": 435
+                "line": 591
+            }, 
+            "name": "at"
+        }, 
+        {
+            "type": "ActionPlan__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 58, 
+                "line": 607
+            }, 
+            "name": "ap"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 69, 
+                "line": 607
+            }, 
+            "name": "dep"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 609
+            }, 
+            "name": "ge"
+        }, 
+        {
+            "type": "APTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 610
             }, 
             "name": "at"
         }

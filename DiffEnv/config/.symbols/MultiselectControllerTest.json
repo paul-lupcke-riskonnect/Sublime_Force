@@ -26,9 +26,29 @@
             "references": [], 
             "location": {
                 "column": 31, 
-                "line": 25
+                "line": 27
             }, 
             "name": "c"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 30, 
+                "line": 32
+            }, 
+            "name": "left"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 30, 
+                "line": 40
+            }, 
+            "name": "right"
         }
     ], 
     "constructors": [], 

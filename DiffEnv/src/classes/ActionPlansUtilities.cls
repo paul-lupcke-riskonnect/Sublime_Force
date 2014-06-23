@@ -180,20 +180,25 @@ public with sharing class ActionPlansUtilities{
 
     public static List<String> parseMultiSelect(String input){
         List<String> values;
-        String cleaned = input.replace('[', '');
-        cleaned = cleaned.replace(']', '');
-        cleaned = cleaned.replace('NONE,','');
-        cleaned = cleaned.replace('None,','');
-        cleaned = cleaned.replace('none,','');
-        cleaned = cleaned.replace(' ', '');
-        values = cleaned.split(',');
-        if(values[0]=='') values.clear();
-        //System.debug('Parsing Multiselect Output:: '+values + ':' + values.size());
-        for(Integer i=0; i<values.size();++i){
-            if(values[i].contains('None')){
-                values.clear();
-                //System.debug('Use the force');
+        if(input!=null){
+            String cleaned = input.replace('[', '');
+            cleaned = cleaned.replace(']', '');
+            cleaned = cleaned.replace('NONE,','');
+            cleaned = cleaned.replace('None,','');
+            cleaned = cleaned.replace('none,','');
+            cleaned = cleaned.replace(' ', '');
+            values = cleaned.split(',');
+            if(values[0]=='') values.clear();
+            //System.debug('Parsing Multiselect Output:: '+values + ':' + values.size());
+            for(Integer i=0; i<values.size();++i){
+                if(values[i].contains('None')){
+                    values.clear();
+                    //System.debug('Use the force');
+                }
             }
+        }
+        else{
+            values = new List<String>();
         }
         return values;
     }
@@ -283,7 +288,7 @@ public with sharing class ActionPlansUtilities{
     * @param index
     * @return Boolean 
     */
-    private Boolean dependantCycle( APTaskTemplate__c originTask, APTaskTemplate__c destinyTask, Integer index ){
+    /*private Boolean dependantCycle( APTaskTemplate__c originTask, APTaskTemplate__c destinyTask, Integer index ){
         
         Boolean hasDependency = false;
         Set<Integer> visitedTasks = new Set<Integer>();
@@ -324,7 +329,7 @@ public with sharing class ActionPlansUtilities{
         }
 
         return hasDependency;
-    } 
+    } */
     
    /**
     * Saves Action Plan Instance and task. Also creates all due dates for tasks, then redirects to the AP list
@@ -401,31 +406,6 @@ public with sharing class ActionPlansUtilities{
         }
     }
     
-    public void setDependencies(List<SelectOption[]> input){
-        if(input.size()!=apTasks.size()+1 && apTasks.size()!=1){
-            System.debug('List size mismatch::Input:'+input.size()+'!='+apTasks.size()+':tasks');
-            System.debug('Input contains:'+input+':');
-            throw new MyException('List sizes do not match');
-        }
-        else{
-            System.debug('Everything is fine with list sizes');
-            for(Integer i=0;i<input.size()-1;++i){
-                String val = '';
-                if(input[i+1].size()>0){
-                    val += input[i+1][0].getValue();
-                    for(Integer j=1;j<input[i+1].size();++j){
-                        val += ','+input[i+1][j].getValue();
-                    }
-                }
-                this.apTasks[i].Dependent__c = val;
-                System.debug('Check Dependent__c::'+this.apTasks[i]+'::');
-            }
-
-            //update this.apTasks;
-            // now need to update the list of apTasks to push dependents on database.
-        }
-    }
-
     public void setDependencies2(List<SelectOption[]> input){
         if(input.size()!=apTasks.size() && apTasks.size()!=1){
             System.debug('List size mismatch::Input:'+input.size()+'!='+apTasks.size()+':tasks');
@@ -840,6 +820,7 @@ public with sharing class ActionPlansUtilities{
         
         Boolean removedTask = false;
         if( ApexPages.currentPage().getParameters().get( 'remove' ) != null ){
+
             Integer taskIndex       = Integer.valueOf( ApexPages.currentPage().getParameters().get( 'remove' ) );
             vals.add(taskIndex);
             //check for dependent children and clear them since the parent is being removed.
@@ -974,7 +955,7 @@ public with sharing class ActionPlansUtilities{
         return options;
     }
 
-    public List<SelectOption> getSelectedItems(){
+    /*public List<SelectOption> getSelectedItems(){
         List<SelectOption> options = new List<SelectOption>();
         //options.add( new SelectOption( 'None', '--'+ Label.ap_None +'--' ) );
         integer i = 0;
@@ -989,7 +970,7 @@ public with sharing class ActionPlansUtilities{
         }
         //getSelectedSubjectItems();
         return options;
-    }
+    }*/
 
 
     public List<List<SelectOption>> getSelectedSubjectItems(){

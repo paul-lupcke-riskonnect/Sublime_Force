@@ -23,12 +23,10 @@
   <apex:attribute name="width" description="Width of listboxes."
     type="String" required="true" />
 
-  <!--<apex:attribute name="leftOptions"
-    description="Options list for left listbox." type="SelectOption[]"
-    required="false" assignTo="{!leftOptions}" />
-  <apex:attribute name="rightOptions"
-    description="Options list for right listbox." type="SelectOption[]"
-    required="false" assignTo="{!rightOptions}" />-->
+  <!--//(PAL)  
+  Removed right and left options so they are held by the component.
+  Added all below attributes to be able to pass data backand forth from the 
+    Page Controller and the Component Controller.-->
 
   <apex:attribute name="returnValue"
     description="Options list for left listbox." type="String[]"
@@ -102,6 +100,7 @@
               </apex:repeat>
             </select>
           </td>
+          <!--//(PAL)  Removed shift up and down functionallity as it was just extra cluter-->
           <!--<td class="buttonCell"><apex:outputPanel layout="block"
               styleClass="text">Up</apex:outputPanel>
             <apex:outputPanel layout="block" styleClass="text">

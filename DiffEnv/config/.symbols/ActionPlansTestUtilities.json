@@ -197,6 +197,50 @@
                 "line": 59
             }, 
             "type": "String"
+        }, 
+        {
+            "modifiers": [], 
+            "name": "xmlImportEmptyPackage", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 25, 
+                "line": 61
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [], 
+            "name": "xmlImportEmptyAuthor", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 25, 
+                "line": 62
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [], 
+            "name": "xmlImportEmptyOrg", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 25, 
+                "line": 63
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [], 
+            "name": "xmlImportEmptyDate", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 25, 
+                "line": 64
+            }, 
+            "type": "String"
         }
     ], 
     "methods": [
@@ -208,7 +252,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 74
+                "line": 85
             }, 
             "returnType": "String", 
             "type": null
@@ -221,7 +265,7 @@
             "references": [], 
             "location": {
                 "column": 16, 
-                "line": 86
+                "line": 97
             }, 
             "returnType": "User", 
             "type": null
@@ -239,7 +283,7 @@
             "references": [], 
             "location": {
                 "column": 16, 
-                "line": 99
+                "line": 110
             }, 
             "returnType": "User", 
             "type": null
@@ -252,7 +296,7 @@
             "references": [], 
             "location": {
                 "column": 18, 
-                "line": 123
+                "line": 134
             }, 
             "returnType": "Account", 
             "type": null
@@ -265,7 +309,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 143
+                "line": 154
             }, 
             "returnType": "Campaign", 
             "type": null
@@ -278,7 +322,7 @@
             "references": [], 
             "location": {
                 "column": 15, 
-                "line": 163
+                "line": 174
             }, 
             "returnType": "Case", 
             "type": null
@@ -291,7 +335,7 @@
             "references": [], 
             "location": {
                 "column": 18, 
-                "line": 184
+                "line": 195
             }, 
             "returnType": "Contact", 
             "type": null
@@ -304,7 +348,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 204
+                "line": 215
             }, 
             "returnType": "Contract", 
             "type": null
@@ -317,7 +361,7 @@
             "references": [], 
             "location": {
                 "column": 15, 
-                "line": 227
+                "line": 238
             }, 
             "returnType": "Lead", 
             "type": null
@@ -330,7 +374,7 @@
             "references": [], 
             "location": {
                 "column": 22, 
-                "line": 249
+                "line": 260
             }, 
             "returnType": "Opportunity", 
             "type": null
@@ -352,7 +396,7 @@
             "references": [], 
             "location": {
                 "column": 24, 
-                "line": 272
+                "line": 283
             }, 
             "returnType": "ActionPlan__c", 
             "type": null
@@ -386,7 +430,7 @@
             "references": [], 
             "location": {
                 "column": 28, 
-                "line": 327
+                "line": 338
             }, 
             "returnType": "APTaskTemplate__c", 
             "type": null
@@ -404,7 +448,7 @@
             "references": [], 
             "location": {
                 "column": 32, 
-                "line": 352
+                "line": 363
             }, 
             "returnType": "ActionPlanTemplate__c", 
             "type": null
@@ -438,7 +482,7 @@
             "references": [], 
             "location": {
                 "column": 31, 
-                "line": 377
+                "line": 388
             }, 
             "returnType": "APTTaskTemplate__c", 
             "type": null
@@ -456,7 +500,7 @@
             "references": [], 
             "location": {
                 "column": 23, 
-                "line": 406
+                "line": 417
             }, 
             "returnType": "LIST", 
             "type": null
@@ -472,7 +516,7 @@
             "references": [], 
             "location": {
                 "column": 28, 
-                "line": 444
+                "line": 455
             }, 
             "returnType": "void", 
             "type": null
@@ -487,8 +531,24 @@
             "visibility": "PRIVATE", 
             "references": [], 
             "location": {
-                "column": 29, 
-                "line": 451
+                "column": 28, 
+                "line": 468
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "CreationTests", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 475
             }, 
             "returnType": "void", 
             "type": null
@@ -502,7 +562,7 @@
             "references": [], 
             "location": {
                 "column": 14, 
-                "line": 76
+                "line": 87
             }, 
             "name": "ret"
         }, 
@@ -512,7 +572,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 87
+                "line": 98
             }, 
             "name": "p"
         }, 
@@ -522,7 +582,7 @@
             "references": [], 
             "location": {
                 "column": 40, 
-                "line": 99
+                "line": 110
             }, 
             "name": "p"
         }, 
@@ -532,7 +592,7 @@
             "references": [], 
             "location": {
                 "column": 13, 
-                "line": 101
+                "line": 112
             }, 
             "name": "namePrefix"
         }, 
@@ -542,7 +602,7 @@
             "references": [], 
             "location": {
                 "column": 11, 
-                "line": 103
+                "line": 114
             }, 
             "name": "testUser"
         }, 
@@ -552,7 +612,7 @@
             "references": [], 
             "location": {
                 "column": 12, 
-                "line": 125
+                "line": 136
             }, 
             "name": "newAccount"
         }, 
@@ -562,7 +622,7 @@
             "references": [], 
             "location": {
                 "column": 13, 
-                "line": 145
+                "line": 156
             }, 
             "name": "newCampaign"
         }, 
@@ -572,7 +632,7 @@
             "references": [], 
             "location": {
                 "column": 9, 
-                "line": 165
+                "line": 176
             }, 
             "name": "newCase"
         }, 
@@ -582,7 +642,7 @@
             "references": [], 
             "location": {
                 "column": 12, 
-                "line": 186
+                "line": 197
             }, 
             "name": "newContact"
         }, 
@@ -592,7 +652,7 @@
             "references": [], 
             "location": {
                 "column": 13, 
-                "line": 206
+                "line": 217
             }, 
             "name": "newContract"
         }, 
@@ -602,7 +662,7 @@
             "references": [], 
             "location": {
                 "column": 12, 
-                "line": 207
+                "line": 218
             }, 
             "name": "a"
         }, 
@@ -612,7 +672,7 @@
             "references": [], 
             "location": {
                 "column": 9, 
-                "line": 229
+                "line": 240
             }, 
             "name": "newLead"
         }, 
@@ -622,7 +682,7 @@
             "references": [], 
             "location": {
                 "column": 16, 
-                "line": 251
+                "line": 262
             }, 
             "name": "newOpportunity"
         }, 
@@ -632,7 +692,7 @@
             "references": [], 
             "location": {
                 "column": 52, 
-                "line": 272
+                "line": 283
             }, 
             "name": "relatedObject"
         }, 
@@ -642,7 +702,7 @@
             "references": [], 
             "location": {
                 "column": 75, 
-                "line": 272
+                "line": 283
             }, 
             "name": "numTasks"
         }, 
@@ -652,7 +712,7 @@
             "references": [], 
             "location": {
                 "column": 18, 
-                "line": 274
+                "line": 285
             }, 
             "name": "newActionPlan"
         }, 
@@ -662,7 +722,7 @@
             "references": [], 
             "location": {
                 "column": 22, 
-                "line": 310
+                "line": 321
             }, 
             "name": "auxTask"
         }, 
@@ -672,7 +732,7 @@
             "references": [], 
             "location": {
                 "column": 9, 
-                "line": 311
+                "line": 322
             }, 
             "name": "user"
         }, 
@@ -682,7 +742,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 314
+                "line": 325
             }, 
             "name": "i"
         }, 
@@ -692,7 +752,7 @@
             "references": [], 
             "location": {
                 "column": 67, 
-                "line": 327
+                "line": 338
             }, 
             "name": "actionPlan"
         }, 
@@ -702,7 +762,7 @@
             "references": [], 
             "location": {
                 "column": 88, 
-                "line": 327
+                "line": 338
             }, 
             "name": "days"
         }, 
@@ -712,7 +772,7 @@
             "references": [], 
             "location": {
                 "column": 99, 
-                "line": 327
+                "line": 338
             }, 
             "name": "user"
         }, 
@@ -722,7 +782,7 @@
             "references": [], 
             "location": {
                 "column": 112, 
-                "line": 327
+                "line": 338
             }, 
             "name": "category"
         }, 
@@ -732,7 +792,7 @@
             "references": [], 
             "location": {
                 "column": 129, 
-                "line": 327
+                "line": 338
             }, 
             "name": "priority"
         }, 
@@ -742,7 +802,7 @@
             "references": [], 
             "location": {
                 "column": 22, 
-                "line": 329
+                "line": 340
             }, 
             "name": "newAPTask"
         }, 
@@ -752,7 +812,7 @@
             "references": [], 
             "location": {
                 "column": 69, 
-                "line": 352
+                "line": 363
             }, 
             "name": "numTasks"
         }, 
@@ -762,7 +822,7 @@
             "references": [], 
             "location": {
                 "column": 26, 
-                "line": 354
+                "line": 365
             }, 
             "name": "apTemplate"
         }, 
@@ -772,7 +832,7 @@
             "references": [], 
             "location": {
                 "column": 23, 
-                "line": 364
+                "line": 375
             }, 
             "name": "auxTask"
         }, 
@@ -782,7 +842,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 366
+                "line": 377
             }, 
             "name": "i"
         }, 
@@ -792,7 +852,7 @@
             "references": [], 
             "location": {
                 "column": 86, 
-                "line": 377
+                "line": 388
             }, 
             "name": "apTemplate"
         }, 
@@ -802,7 +862,7 @@
             "references": [], 
             "location": {
                 "column": 106, 
-                "line": 377
+                "line": 388
             }, 
             "name": "days"
         }, 
@@ -812,7 +872,7 @@
             "references": [], 
             "location": {
                 "column": 117, 
-                "line": 377
+                "line": 388
             }, 
             "name": "user"
         }, 
@@ -822,7 +882,7 @@
             "references": [], 
             "location": {
                 "column": 130, 
-                "line": 377
+                "line": 388
             }, 
             "name": "category"
         }, 
@@ -832,7 +892,7 @@
             "references": [], 
             "location": {
                 "column": 147, 
-                "line": 377
+                "line": 388
             }, 
             "name": "priority"
         }, 
@@ -842,7 +902,7 @@
             "references": [], 
             "location": {
                 "column": 23, 
-                "line": 379
+                "line": 390
             }, 
             "name": "newAPTTask"
         }, 
@@ -852,7 +912,7 @@
             "references": [], 
             "location": {
                 "column": 40, 
-                "line": 406
+                "line": 417
             }, 
             "name": "ref"
         }, 
@@ -862,7 +922,7 @@
             "references": [], 
             "location": {
                 "column": 19, 
-                "line": 408
+                "line": 419
             }, 
             "name": "ap"
         }, 
@@ -872,7 +932,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 409
+                "line": 420
             }, 
             "name": "apTasksIds"
         }, 
@@ -882,7 +942,7 @@
             "references": [], 
             "location": {
                 "column": 22, 
-                "line": 411
+                "line": 422
             }, 
             "name": "at"
         }, 
@@ -892,7 +952,7 @@
             "references": [], 
             "location": {
                 "column": 32, 
-                "line": 446
+                "line": 457
             }, 
             "name": "apTestUtil"
         }, 
@@ -902,9 +962,19 @@
             "references": [], 
             "location": {
                 "column": 32, 
-                "line": 453
+                "line": 470
             }, 
             "name": "apTestUtil"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 34, 
+                "line": 479
+            }, 
+            "name": "ge"
         }
     ], 
     "constructors": [
@@ -916,7 +986,7 @@
             "references": [], 
             "location": {
                 "column": 10, 
-                "line": 61
+                "line": 66
             }, 
             "type": null
         }

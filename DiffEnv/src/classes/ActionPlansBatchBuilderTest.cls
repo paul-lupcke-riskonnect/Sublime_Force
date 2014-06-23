@@ -30,7 +30,7 @@ OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISE
 OF THE POSSIBILITY OF SUCH DAMAGE.
 
 */
-public with sharing class ActionPlansBatchBuilderTest {
+public with sharing class ActionPlansBatchBuilderTest {//(PAL) 100% covered
 
 	public static Boolean isTest = false;
 	private static testMethod void runBatchAccount(){

@@ -423,9 +423,9 @@ public with sharing class ActionPlanCreationController{
         return this.actionPlans.getSubjectItems();
     }
     
-    public List<SelectOption> getSelectedItems(){
-        return this.actionPlans.getSelectedItems();
-    }
+    //public List<SelectOption> getSelectedItems(){
+    //    return this.actionPlans.getSelectedItems();
+    //}
 
     /**
     * Set the Refered object to Create New Action Plan 
@@ -637,8 +637,10 @@ public with sharing class ActionPlanCreationController{
         
         List<APTTaskTemplate__c> apTasks = [ select Id, Subject__c, Dependent__c, taskIndex__c from APTTaskTemplate__c 
                                                 where Action_Plan_Template__c =: this.templateId ];
+        System.debug('GRABBING APTTasks:'+apTasks+':');
         Map<Integer, APTTaskTemplate__c> retVal = new Map<Integer, APTTaskTemplate__c>();
         for(APTTaskTemplate__c t: apTasks){
+            System.debug('Printing'+t.taskIndex__c.intValue()+':');
             retVal.put(t.taskIndex__c.intValue(), t);
         }
         return retVal;
@@ -723,28 +725,142 @@ public with sharing class ActionPlanCreationController{
         }
     }
     
-    public static testMethod void constructorTests(){
+    public static testMethod void testgenerateTemplateFields(){//(PAL) Made by Paul
         
         Test.StartTest();
         
+        ActionPlansTestUtilities testUtil   = new ActionPlansTestUtilities();
+        ActionPlan__c apTemplate    = new ActionPlan__c();
+
+        APTTaskTemplate__c newAPTTask   = new APTTaskTemplate__c();
+        APTTaskTemplate__c newAPTTask2  = new APTTaskTemplate__c();
+        APTTaskTemplate__c newAPTTask3  = new APTTaskTemplate__c();
+        
+        newAPTTask.Subject__c           = testUtil.createRandomWord();
+        newAPTTask.Hours_After_Start__c     = 2;
+        newAPTTask.Dependent__c         = 'None';
+        newAPTTask.Type__c              = 'Email';
+        newAPTTask.Priority__c          = 'Hight';
+        newAPTTask.taskIndex__c         = 0;
+        
+        newAPTTask2.Subject__c          = testUtil.createRandomWord();
+        newAPTTask2.Hours_After_Start__c    = 2;
+        newAPTTask2.Dependent__c        = '0';
+        newAPTTask2.Type__c             = 'Email';
+        newAPTTask2.Priority__c         = 'Hight';
+        newAPTTask2.taskIndex__c         = 1;
+        
+        newAPTTask3.Subject__c          = testUtil.createRandomWord();
+        newAPTTask3.Hours_After_Start__c    = 2;
+        newAPTTask3.Dependent__c        = '0,1';
+        newAPTTask3.Type__c             = 'Email';
+        newAPTTask3.Priority__c         = 'Hight';
+        newAPTTask3.taskIndex__c         = 2;
+
+        Map<Integer, APTTaskTemplate__c> input = new Map<Integer, APTTaskTemplate__c>();
+        input.put(0, newAPTTask);
+        input.put(1, newAPTTask2);
+        input.put(2, newAPTTask3);
+
+        ActionPlanCreationController apTemplateController = new ActionPlanCreationController( new ApexPages.StandardController( apTemplate ) );
+
+        apTemplateController.generateTemplateFields(input);
+        
+        
+        
+        Test.StopTest();
+    }
+
+    public static testMethod void testgenerateFields(){//(PAL) Made by Paul
+        
+        Test.StartTest();
+        
+        ActionPlansTestUtilities testUtil   = new ActionPlansTestUtilities();
+        ActionPlan__c actionPlan    = new ActionPlan__c();
+
+
+        APTaskTemplate__c newAPTTask   = new APTaskTemplate__c();
+        APTaskTemplate__c newAPTTask2  = new APTaskTemplate__c();
+        APTaskTemplate__c newAPTTask3  = new APTaskTemplate__c();
+        
+        newAPTTask.Subject__c           = testUtil.createRandomWord();
+        newAPTTask.Hours_After_Start__c     = 2;
+        newAPTTask.Dependent__c         = 'None';
+        newAPTTask.Type__c              = 'Email';
+        newAPTTask.Priority__c          = 'Hight';
+        newAPTTask.taskIndex__c         = 0;
+        
+        newAPTTask2.Subject__c          = testUtil.createRandomWord();
+        newAPTTask2.Hours_After_Start__c    = 2;
+        newAPTTask2.Dependent__c        = '0';
+        newAPTTask2.Type__c             = 'Email';
+        newAPTTask2.Priority__c         = 'Hight';
+        newAPTTask2.taskIndex__c         = 1;
+        
+        newAPTTask3.Subject__c          = testUtil.createRandomWord();
+        newAPTTask3.Hours_After_Start__c    = 2;
+        newAPTTask3.Dependent__c        = '0,1';
+        newAPTTask3.Type__c             = 'Email';
+        newAPTTask3.Priority__c         = 'Hight';
+        newAPTTask3.taskIndex__c         = 2;
+
+        Map<Integer, APTaskTemplate__c> input = new Map<Integer, APTaskTemplate__c>();
+        input.put(0, newAPTTask);
+        input.put(1, newAPTTask2);
+        input.put(2, newAPTTask3);
+
+        ActionPlanCreationController apTemplateController = new ActionPlanCreationController( new ApexPages.StandardController( actionPlan ) );
+
+        apTemplateController.generateFields(input);
+        
+        
+        
+        Test.StopTest();
+    }
+
+    public static testMethod void fromTemplateTest(){
+        Test.StartTest();
+        ActionPlanTemplate__c apTemplate    = new ActionPlanTemplate__c();
+        apTemplate.Name = 'fred';
+        APTTaskTemplate__c newAPTTask = new APTTaskTemplate__c();
+        newAPTTask.Subject__c           = 'freds subject';
+        newAPTTask.Hours_After_Start__c     = 2;
+        newAPTTask.Type__c              = 'Email';
+        newAPTTask.Priority__c          = 'Hight';
+        newAPTTask.taskIndex__c          = 0;
+        ActionPlanTemplateCreationController apTemplateController = new ActionPlanTemplateCreationController( new ApexPages.StandardController( apTemplate ) );
+        apTemplateController.actionPlanTemplates.aptTasks = new List<APTTaskTemplate__c>();
+        apTemplateController.actionPlanTemplates.aptTasks.add( newAPTTask );
+        Pagereference page = apTemplateController.saveTemplate();
+
+        ActionPlanCreationController main = new ActionPlanCreationController(new Apexpages.StandardController( new ActionPlan__c() ) );
+        main.templateId = apTemplate.Id;
+        main.initNewActionPlanFromTemplate();
+
+        try{
+            main.removeTask();
+        }
+        catch(Exception e){
+
+        }
+        Test.StopTest();
+    }
+
+    public static testMethod void constructorTests(){
+        
+        Test.StartTest();
+
         ActionPlansTestUtilities testUtil = new ActionPlansTestUtilities();
         ActionPlan__c actionPlan = testUtil.createNewActionPlan( 'contacts', 2 );
         
         System.currentPageReference().getParameters().put( 'id', null );
         ActionPlanCreationController apCreateController = new ActionPlanCreationController( new Apexpages.StandardController( new ActionPlan__c() ) );
         
-        System.currentPageReference().getParameters().put( 'id', actionPlan.Id );
+        System.currentPageReference().getParameters().put( 'id', null );
         apCreateController = new ActionPlanCreationController( new Apexpages.StandardController( new ActionPlan__c() ) );
         
         System.currentPageReference().getParameters().put( 'id', null );
         System.currentPageReference().getParameters().put( 'clone', '1' );
-        apCreateController = new ActionPlanCreationController( new Apexpages.StandardController( new ActionPlan__c() ) );
-        
-        ActionPlanTemplate__c apTemplate = testUtil.createNewActionPlanTemplate( 3 );
-        
-        System.currentPageReference().getParameters().put( 'id', null );
-        System.currentPageReference().getParameters().put( 'clone', null );
-        System.currentPageReference().getParameters().put( 'templateId', apTemplate.Id );
         apCreateController = new ActionPlanCreationController( new Apexpages.StandardController( new ActionPlan__c() ) );
         
         Contact contact = testUtil.createNewContact();
@@ -854,7 +970,7 @@ public with sharing class ActionPlanCreationController{
         ActionPlansTestUtilities testUtil   = new ActionPlansTestUtilities();
         ActionPlan__c actionPlan            = testUtil.createNewActionPlan( 'accounts', 2 );
         
-        System.currentPageReference().getParameters().put( 'id', actionPlan.Id );
+        System.currentPageReference().getParameters().put( 'id', null );
         ActionPlanCreationController apCreateController = new ActionPlanCreationController( new Apexpages.StandardController( actionPlan ) );
         
         Integer numTasksComplete = apCreateController.getCompleted();
@@ -919,7 +1035,7 @@ public with sharing class ActionPlanCreationController{
         ActionPlansTestUtilities testUtil   = new ActionPlansTestUtilities();
         ActionPlan__c actionPlan            = testUtil.createNewActionPlan( 'accounts', 2 );
         
-        System.currentPageReference().getParameters().put( 'id', actionPlan.Id );
+        System.currentPageReference().getParameters().put( 'id', null);
         ActionPlanCreationController apCreateController = new ActionPlanCreationController( new Apexpages.StandardController( actionPlan ) );
         
         List<ApTaskWrapper> apTaskList = apCreateController.getTasks();
@@ -936,7 +1052,7 @@ public with sharing class ActionPlanCreationController{
         ActionPlansTestUtilities testUtil   = new ActionPlansTestUtilities();
         ActionPlan__c actionPlan            = testUtil.createNewActionPlan( 'accounts', 2 );
         
-        System.currentPageReference().getParameters().put( 'id', actionPlan.Id );
+        System.currentPageReference().getParameters().put( 'id', null);
         ActionPlanCreationController apCreateController = new ActionPlanCreationController( new Apexpages.StandardController( actionPlan ) );
         
         List<ApTaskWrapper> apTaskList  = apCreateController.getTasks();
@@ -1009,16 +1125,23 @@ public with sharing class ActionPlanCreationController{
         newAPTask3.Action_Plan__c       = actionPlan.Id;
         upsert newAPTask3;
         
-        System.currentPageReference().getParameters().put( 'id', actionPlan.Id );
+        System.currentPageReference().getParameters().put( 'id', null );
         ActionPlanCreationController apCreateController = new ActionPlanCreationController( new Apexpages.StandardController( actionPlan ) );
         
         apCreateController.actionPlans.apTasks = new List<APTaskTemplate__c>();
         apCreateController.actionPlans.apTasks.add( newAPTask1 );
         apCreateController.actionPlans.apTasks.add( newAPTask2 );
         apCreateController.actionPlans.apTasks.add( newAPTask3 );
+        apCreateController.savedDependencies = new List<SelectOption[]>();
+        apCreateController.savedDependencies.add(new SelectOption[]{});
+        apCreateController.savedDependencies.add(new SelectOption[]{});
+        apCreateController.savedDependencies.add(new SelectOption[]{});
+        apCreateController.savedDependencies[0].add(new SelectOption('2','2'));
+        //apCreateController.savedDependencies[1].add(new SelectOption('0','0'));
+        apCreateController.savedDependencies[2].add(new SelectOption('1','1'));
         
         apCreateController.save();
-        
+        System.debug('Error message is --'+apCreateController.getErrorMsg()+'--');
         System.assert( apCreateController.getErrorMsg() == '' );
         
         Test.StopTest();
@@ -1061,6 +1184,13 @@ public with sharing class ActionPlanCreationController{
         apCreateController.actionPlans.apTasks.add( newAPTask1 );
         apCreateController.actionPlans.apTasks.add( newAPTask2 );
         apCreateController.actionPlans.apTasks.add( newAPTask3 );
+        apCreateController.savedDependencies = new List<SelectOption[]>();
+        apCreateController.savedDependencies.add(new SelectOption[]{});
+        apCreateController.savedDependencies.add(new SelectOption[]{});
+        apCreateController.savedDependencies.add(new SelectOption[]{});
+        apCreateController.savedDependencies[0].add(new SelectOption('2','2'));
+        apCreateController.savedDependencies[1].add(new SelectOption('0','0'));
+        apCreateController.savedDependencies[2].add(new SelectOption('1','1'));
         
         apCreateController.save();
         
@@ -1110,6 +1240,38 @@ public with sharing class ActionPlanCreationController{
         
         System.assert( apCreateController.relatedObjNameList.size() == 2 );
         
+
+        System.currentPageReference().getParameters().put( 'id', null );
+        System.currentPageReference().getParameters().put( 'refId', opportunity.Id );
+        System.currentPageReference().getParameters().put( 'refType', 'Campaign' );
+        
+        apCreateController = new ActionPlanCreationController( new Apexpages.StandardController( new ActionPlan__c() ) );
+        apCreateController.referedObjectInit();
+        apCreateController.referedObjectOwnerInit();
+        
+        //System.assert( apCreateController.relatedObjNameList.size() == 2 );
+
+        System.currentPageReference().getParameters().put( 'id', null );
+        System.currentPageReference().getParameters().put( 'refId', opportunity.Id );
+        System.currentPageReference().getParameters().put( 'refType', 'Case' );
+        
+        apCreateController = new ActionPlanCreationController( new Apexpages.StandardController( new ActionPlan__c() ) );
+        apCreateController.referedObjectInit();
+        apCreateController.referedObjectOwnerInit();
+        
+        //System.assert( apCreateController.relatedObjNameList.size() == 2 );
+
+        System.currentPageReference().getParameters().put( 'id', null );
+        System.currentPageReference().getParameters().put( 'refId', opportunity.Id );
+        System.currentPageReference().getParameters().put( 'refType', 'Contract' );
+        
+        apCreateController = new ActionPlanCreationController( new Apexpages.StandardController( new ActionPlan__c() ) );
+        apCreateController.referedObjectInit();
+        apCreateController.referedObjectOwnerInit();
+        
+        //System.assert( apCreateController.relatedObjNameList.size() == 2 );
+
+
         System.currentPageReference().getParameters().put( 'id', null );
         System.currentPageReference().getParameters().put( 'refId', opportunity.Id );
         System.currentPageReference().getParameters().put( 'refType', 'Opportunity' );

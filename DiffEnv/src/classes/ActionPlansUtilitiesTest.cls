@@ -30,7 +30,163 @@ OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISE
 OF THE POSSIBILITY OF SUCH DAMAGE.
 
 */
-public with sharing class ActionPlansUtilitiesTest {
+public with sharing class ActionPlansUtilitiesTest {//(PAL) 100% covered
+
+	private static testMethod void APUtestgetSelectedItems() {//(PAL) Written by Paul
+		
+		test.startTest();
+
+		ActionPlansTestUtilities ge =  new ActionPlansTestUtilities();
+		ActionPlan__c ap = ge.createNewActionPlan( 'accounts', 0 );
+   		ApexPages.currentPage().getParameters().put( 'refType', 'Account' );
+		ApexPages.currentPage().getParameters().put( 'refId' ,  ap.Account__c);
+		ActionPlansUtilities main = new ActionPlansUtilities(ap);
+		
+		List<SelectOption> output = main.getSubjectItems();
+		System.assertEquals(output.size(), 0);
+		//getSelectedItems
+		main.apTasks = new List<APTaskTemplate__c>();
+		main.apTasks.add( ActionPlansUtilitiesTest.apptask( ap) );
+   		main.apTasks.add( ActionPlansUtilitiesTest.apptask( ap , '0') );
+   		main.apTasks.add( ActionPlansUtilitiesTest.apptask( ap , '1,2') );
+   		main.apTasks.add( ActionPlansUtilitiesTest.apptask( ap , '2') );
+
+   		output = main.getSubjectItems();
+		System.assertEquals(output.size(), 4);
+
+		System.assertEquals('2', output[2].getValue());
+	
+		test.stopTest();
+	
+	}
+
+	private static testMethod void APUtestgetTimeShift() {//(PAL) Written by Paul
+		
+		test.startTest();
+		Datetime testVal;
+		testVal = ActionPlansUtilities.getTimeShift(ActionPlansUtilities.getWorkingHours(), Datetime.newInstance(2014, 6, 18, 11, 0, 0), 12);
+		System.assertEquals(Datetime.newInstance(2014, 6, 20, 13, 30, 0), testVal);
+		testVal = ActionPlansUtilities.getTimeShift(ActionPlansUtilities.getWorkingHours(), Datetime.newInstance(2014, 6, 18, 11, 0, 0), 1);
+		System.assertEquals(Datetime.newInstance(2014, 6, 18, 12, 0, 0), testVal);
+		testVal = ActionPlansUtilities.getTimeShift(ActionPlansUtilities.getWorkingHours(), Datetime.newInstance(2014, 6, 18, 22, 0, 0), 5);
+		System.assertEquals(Datetime.newInstance(2014, 6, 20, 11, 30, 0), testVal);
+
+	
+		test.stopTest();
+	
+	}
+
+	private static testMethod void APUtestparseMultiSelect() {//(PAL) Written by Paul
+		
+		test.startTest();
+		List<String> testVal;
+		testVal = ActionPlansUtilities.parseMultiSelect('[1,2,3,4]');
+		try{
+			for(Integer i=0;i<4;++i){
+				System.assertEquals(String.valueOf(i+1), testVal[i]);
+			}
+		}catch(Exception e){
+			System.assert(false, 'Exception:'+e);
+		}
+		testVal = ActionPlansUtilities.parseMultiSelect('[None]');
+		System.assertEquals(0, testVal.size());
+		testVal = ActionPlansUtilities.parseMultiSelect('None');
+		System.assertEquals(0, testVal.size());
+		testVal = ActionPlansUtilities.parseMultiSelect('[1]');
+		System.assertEquals(1, testVal.size());
+		try{
+			System.assertEquals('1', testVal[0]);
+		}catch(Exception e){
+			System.assert(false, 'Exception:'+e);
+		}
+
+
+		test.stopTest();
+	
+	}
+
+	private static testMethod void APUtestcheckCycleDependent() {//(PAL) Written by Paul
+		
+		test.startTest();
+
+		ActionPlansTestUtilities ge =  new ActionPlansTestUtilities();
+		
+		ActionPlan__c ap = ge.createNewActionPlan( 'accounts', 0 );
+   		ApexPages.currentPage().getParameters().put( 'refType', 'Account' );
+		ApexPages.currentPage().getParameters().put( 'refId' ,  ap.Account__c);
+		ActionPlansUtilities apu = new ActionPlansUtilities( ap );   		
+   		apu.apTasks = new List<APTaskTemplate__c>();
+   		apu.apTasks.add( ActionPlansUtilitiesTest.apptask( ap ) );
+   		apu.apTasks.add( ActionPlansUtilitiesTest.apptask( ap , '0') );
+   		apu.apTasks.add( ActionPlansUtilitiesTest.apptask( ap , '1') );
+   		apu.apTasks.add( ActionPlansUtilitiesTest.apptask( ap , '1,2') );
+   		apu.checkCycleDependent();
+   		System.assert(apu.errorMsg=='', 'Error running dependents:'+apu.errorMsg);
+
+   		ap = ge.createNewActionPlan( 'accounts', 0 );
+   		ApexPages.currentPage().getParameters().put( 'refType', 'Account' );
+		ApexPages.currentPage().getParameters().put( 'refId' ,  ap.Account__c);
+		apu = new ActionPlansUtilities( ap );   		
+   		apu.apTasks = new List<APTaskTemplate__c>();
+   		apu.apTasks.add( ActionPlansUtilitiesTest.apptask( ap) );
+   		apu.apTasks.add( ActionPlansUtilitiesTest.apptask( ap , '0') );
+   		apu.apTasks.add( ActionPlansUtilitiesTest.apptask( ap , '1,2') );
+   		apu.apTasks.add( ActionPlansUtilitiesTest.apptask( ap , '2') );
+   		apu.checkCycleDependent();
+   		System.assert(apu.errorMsg!='', 'No Error running dependents found');
+
+
+   		ap = ge.createNewActionPlan( 'accounts', 0 );
+   		ApexPages.currentPage().getParameters().put( 'refType', 'Account' );
+		ApexPages.currentPage().getParameters().put( 'refId' ,  ap.Account__c);
+		apu = new ActionPlansUtilities( ap );   		
+   		apu.apTasks = new List<APTaskTemplate__c>();
+   		apu.apTasks.add( ActionPlansUtilitiesTest.apptask( ap , '3') );
+   		apu.apTasks.add( ActionPlansUtilitiesTest.apptask( ap , '0') );
+   		apu.apTasks.add( ActionPlansUtilitiesTest.apptask( ap , '1') );
+   		apu.apTasks.add( ActionPlansUtilitiesTest.apptask( ap , '1,2') );
+   		apu.checkCycleDependent();
+   		System.assert(apu.errorMsg!='', 'No Error running dependents found');
+
+		test.stopTest();
+	
+	}
+
+	private static testMethod void APUtestsetDependencies() {//(PAL) Written by Paul
+		
+		test.startTest();
+
+		ActionPlansTestUtilities ge =  new ActionPlansTestUtilities();
+		
+		ActionPlan__c ap = ge.createNewActionPlan( 'accounts', 0 );
+   		ApexPages.currentPage().getParameters().put( 'refType', 'Account' );
+		ApexPages.currentPage().getParameters().put( 'refId' ,  ap.Account__c);
+		ActionPlansUtilities apu = new ActionPlansUtilities( ap );   		
+   		apu.apTasks = new List<APTaskTemplate__c>();
+   		apu.apTasks.add( ActionPlansUtilitiesTest.apptask( ap ) );
+   		apu.apTasks.add( ActionPlansUtilitiesTest.apptask( ap , '0') );
+   		apu.apTasks.add( ActionPlansUtilitiesTest.apptask( ap , '0') );
+   		apu.apTasks.add( ActionPlansUtilitiesTest.apptask( ap , '1,2') );
+
+   		List<SelectOption[]> input = new List<SelectOption[]>();
+   		input.add(new SelectOption[]{});
+   		input.add(new SelectOption[]{});
+   		input.add(new SelectOption[]{});
+   		input.add(new SelectOption[]{});
+   		input[1].add(new SelectOption('2','Two'));
+   		input[1].add(new SelectOption('3','Three'));
+   		input[2].add(new SelectOption('0','Zero'));
+   		input[3].add(new SelectOption('0','Zero'));
+
+   		apu.setDependencies2(input);
+   		System.assertEquals('2,3', apu.apTasks[1].Dependent__c);
+   		System.assertEquals('0', apu.apTasks[3].Dependent__c);
+
+		test.stopTest();
+	
+	}
+
+	
 
 	private static testMethod void APUtestSaveMethod() {
 		
@@ -435,6 +591,25 @@ public with sharing class ActionPlansUtilitiesTest {
 		APTaskTemplate__c at = new APTaskTemplate__c();
    		at.Action_Plan__c 	 = ap.Id;
    		at.Dependent__c		 = 'None';
+   		at.Hours_After_Start__c  = 2.0;
+   		at.User__c			 = ge.createTestUser().Id;
+   		at.SendEmail__c		 = false;
+   		at.Subject__c		 = 'Test ';
+   		at.Type__c			 = 'Email';
+   		at.Priority__c		 = 'Low';
+   		at.Comments__c		 = 'Test';
+   		at.Reminder__c		 = true;
+   		at.Minutes_Reminder__c = '510';
+   		upsert at;
+   		return at;
+	}
+
+	public static APTaskTemplate__c apptask ( ActionPlan__c ap, String dep ){//(PAL) Made by Paul
+				
+		ActionPlansTestUtilities ge =  new ActionPlansTestUtilities();
+		APTaskTemplate__c at = new APTaskTemplate__c();
+   		at.Action_Plan__c 	 = ap.Id;
+   		at.Dependent__c		 = dep;
    		at.Hours_After_Start__c  = 2.0;
    		at.User__c			 = ge.createTestUser().Id;
    		at.SendEmail__c		 = false;

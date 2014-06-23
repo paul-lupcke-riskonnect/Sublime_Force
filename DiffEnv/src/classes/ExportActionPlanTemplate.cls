@@ -30,7 +30,7 @@ OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISE
 OF THE POSSIBILITY OF SUCH DAMAGE.
 
 */
-public with sharing class ExportActionPlanTemplate{
+public with sharing class ExportActionPlanTemplate{ //(PAL) 97% covered
 	
 	private String templateId;
 	
@@ -175,4 +175,5 @@ public with sharing class ExportActionPlanTemplate{
 		
 		Test.StopTest();
 	}
+
 }

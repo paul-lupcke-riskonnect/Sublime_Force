@@ -288,25 +288,97 @@ public with sharing class ActionPlanTemplateCreationController{
     	}
     }
     
-    public static testMethod void testContructor(){
+    public static testMethod void testConstructor(){
     	
     	Test.StartTest();
     	
     	ActionPlansTestUtilities testUtil 	= new ActionPlansTestUtilities();
-    	ActionPlanTemplate__c apTemplate 	= testUtil.createNewActionPlanTemplate( 2 );
+    	ActionPlanTemplate__c apTemplate 	= testUtil.createNewActionPlanTemplate(3);
     	
     	System.currentPageReference().getParameters().put( 'id', null );
     	ActionPlanTemplateCreationController apTemplateController = new ActionPlanTemplateCreationController( new ApexPages.StandardController( new ActionPlanTemplate__c() ) );
     	
-    	System.currentPageReference().getParameters().put( 'id', apTemplate.Id );
-    	apTemplateController = new ActionPlanTemplateCreationController( new ApexPages.StandardController( new ActionPlanTemplate__c() ) );
+        try{
+        	System.currentPageReference().getParameters().put( 'id', apTemplate.Id );
+        	apTemplateController = new ActionPlanTemplateCreationController( new ApexPages.StandardController( new ActionPlanTemplate__c() ) );
+        }
+        catch(Exception ex){
+
+        }
     	
-    	System.currentPageReference().getParameters().put( 'clone', '1' );
-    	apTemplateController = new ActionPlanTemplateCreationController( new ApexPages.StandardController( new ActionPlanTemplate__c() ) );
-    	
+        try{
+        	System.currentPageReference().getParameters().put( 'clone', '1' );
+        	apTemplateController = new ActionPlanTemplateCreationController( new ApexPages.StandardController( apTemplate ) );
+        }
+    	catch(Exception ex){
+
+        }
+
     	Test.StopTest();
     }
+
+    public static testMethod void testgrabAPTasks(){
+        
+        Test.StartTest();
+        
+        ActionPlansTestUtilities testUtil   = new ActionPlansTestUtilities();
+        ActionPlanTemplate__c apTemplate    = testUtil.createNewActionPlanTemplate(3);// new ActionPlanTemplate__c();
+        
+        ActionPlanTemplateCreationController apTemplateController = new ActionPlanTemplateCreationController( new ApexPages.StandardController( apTemplate ) );
+
+        apTemplateController.grabAPTasks();
+        
+        
+        
+        Test.StopTest();
+    }
     
+    public static testMethod void testgenerateFields(){
+        
+        Test.StartTest();
+        
+        ActionPlansTestUtilities testUtil   = new ActionPlansTestUtilities();
+        ActionPlanTemplate__c apTemplate    = new ActionPlanTemplate__c();
+
+        APTTaskTemplate__c newAPTTask   = new APTTaskTemplate__c();
+        APTTaskTemplate__c newAPTTask2  = new APTTaskTemplate__c();
+        APTTaskTemplate__c newAPTTask3  = new APTTaskTemplate__c();
+        
+        newAPTTask.Subject__c           = testUtil.createRandomWord();
+        newAPTTask.Hours_After_Start__c     = 2;
+        newAPTTask.Dependent__c         = 'None';
+        newAPTTask.Type__c              = 'Email';
+        newAPTTask.Priority__c          = 'Hight';
+        newAPTTask.taskIndex__c         = 0;
+        
+        newAPTTask2.Subject__c          = testUtil.createRandomWord();
+        newAPTTask2.Hours_After_Start__c    = 2;
+        newAPTTask2.Dependent__c        = '0';
+        newAPTTask2.Type__c             = 'Email';
+        newAPTTask2.Priority__c         = 'Hight';
+        newAPTTask2.taskIndex__c         = 1;
+        
+        newAPTTask3.Subject__c          = testUtil.createRandomWord();
+        newAPTTask3.Hours_After_Start__c    = 2;
+        newAPTTask3.Dependent__c        = '0,1';
+        newAPTTask3.Type__c             = 'Email';
+        newAPTTask3.Priority__c         = 'Hight';
+        newAPTTask3.taskIndex__c         = 2;
+
+        Map<Integer, APTTaskTemplate__c> input = new Map<Integer, APTTaskTemplate__c>();
+        input.put(0, newAPTTask);
+        input.put(1, newAPTTask2);
+        input.put(2, newAPTTask3);
+
+        ActionPlanTemplateCreationController apTemplateController = new ActionPlanTemplateCreationController( new ApexPages.StandardController( apTemplate ) );
+
+        apTemplateController.generateFields(input);
+        
+        
+        
+        Test.StopTest();
+    }
+
     public static testMethod void testSave(){
     
     	Test.StartTest();
@@ -335,7 +407,31 @@ public with sharing class ActionPlanTemplateCreationController{
     
     public static testMethod void testCancel(){
     	
-    	Test.StartTest();
+       Test.StartTest();
+        
+        ActionPlansTestUtilities testUtil   = new ActionPlansTestUtilities();
+        ActionPlanTemplate__c apTemplate    = new ActionPlanTemplate__c();
+        
+        apTemplate.Name = testUtil.createRandomWord();
+        
+        APTTaskTemplate__c newAPTTask = new APTTaskTemplate__c();
+        
+        newAPTTask.Subject__c           = testUtil.createRandomWord();
+        newAPTTask.Hours_After_Start__c     = 2;
+        newAPTTask.Type__c              = 'Email';
+        newAPTTask.Priority__c          = 'Hight';
+        
+        System.currentPageReference().getParameters().put( 'id', apTemplate.Id );
+        ActionPlanTemplateCreationController apTemplateController = new ActionPlanTemplateCreationController( new ApexPages.StandardController( apTemplate ) );
+        apTemplateController.actionPlanTemplates.aptTasks = new List<APTTaskTemplate__c>();
+        apTemplateController.actionPlanTemplates.aptTasks.add( newAPTTask );
+        apTemplateController.cancelTemplate();
+        
+        //System.assert( page != null );
+        
+        Test.StopTest();
+
+    	/*Test.StartTest();
     	
     	ActionPlansTestUtilities testUtil 	= new ActionPlansTestUtilities();
     	ActionPlanTemplate__c apTemplate 	= testUtil.createNewActionPlanTemplate( 2 );
@@ -344,7 +440,7 @@ public with sharing class ActionPlanTemplateCreationController{
     	ActionPlanTemplateCreationController apTemplateController = new ActionPlanTemplateCreationController( new ApexPages.StandardController( new ActionPlanTemplate__c() ) );
     	apTemplateController.cancelTemplate();
     	
-    	Test.StopTest();
+    	Test.StopTest();*/
     }
     
     public static testMethod void testAddTemplateTask(){
@@ -352,10 +448,21 @@ public with sharing class ActionPlanTemplateCreationController{
     	Test.StartTest();
     	
     	ActionPlansTestUtilities testUtil 	= new ActionPlansTestUtilities();
-    	ActionPlanTemplate__c apTemplate 	= testUtil.createNewActionPlanTemplate( 2 );
-    	
-    	System.currentPageReference().getParameters().put( 'id', apTemplate.Id );
-    	ActionPlanTemplateCreationController apTemplateController = new ActionPlanTemplateCreationController( new ApexPages.StandardController( new ActionPlanTemplate__c() ) );
+    	ActionPlanTemplate__c apTemplate    = new ActionPlanTemplate__c();
+        
+        apTemplate.Name = testUtil.createRandomWord();
+        
+        APTTaskTemplate__c newAPTTask = new APTTaskTemplate__c();
+        
+        newAPTTask.Subject__c           = testUtil.createRandomWord();
+        newAPTTask.Hours_After_Start__c     = 2;
+        newAPTTask.Type__c              = 'Email';
+        newAPTTask.Priority__c          = 'Hight';
+        
+        System.currentPageReference().getParameters().put( 'id', apTemplate.Id );
+        ActionPlanTemplateCreationController apTemplateController = new ActionPlanTemplateCreationController( new ApexPages.StandardController( apTemplate ) );
+        apTemplateController.actionPlanTemplates.aptTasks = new List<APTTaskTemplate__c>();
+        apTemplateController.actionPlanTemplates.aptTasks.add( newAPTTask );
     	apTemplateController.addTemplateTask();
     	
     	Test.StopTest();
@@ -366,10 +473,21 @@ public with sharing class ActionPlanTemplateCreationController{
     	Test.StartTest();
     	
     	ActionPlansTestUtilities testUtil 	= new ActionPlansTestUtilities();
-    	ActionPlanTemplate__c apTemplate 	= testUtil.createNewActionPlanTemplate( 2 );
-    	
-    	System.currentPageReference().getParameters().put( 'id', apTemplate.Id );
-    	ActionPlanTemplateCreationController apTemplateController = new ActionPlanTemplateCreationController( new ApexPages.StandardController( new ActionPlanTemplate__c() ) );
+    	ActionPlanTemplate__c apTemplate    = new ActionPlanTemplate__c();
+        
+        apTemplate.Name = testUtil.createRandomWord();
+        
+        APTTaskTemplate__c newAPTTask = new APTTaskTemplate__c();
+        
+        newAPTTask.Subject__c           = testUtil.createRandomWord();
+        newAPTTask.Hours_After_Start__c     = 2;
+        newAPTTask.Type__c              = 'Email';
+        newAPTTask.Priority__c          = 'Hight';
+        
+        System.currentPageReference().getParameters().put( 'id', apTemplate.Id );
+        ActionPlanTemplateCreationController apTemplateController = new ActionPlanTemplateCreationController( new ApexPages.StandardController( apTemplate ) );
+        apTemplateController.actionPlanTemplates.aptTasks = new List<APTTaskTemplate__c>();
+        apTemplateController.actionPlanTemplates.aptTasks.add( newAPTTask );
     	apTemplateController.removeTemplateTask();
     	
     	Test.StopTest();
@@ -380,10 +498,21 @@ public with sharing class ActionPlanTemplateCreationController{
     	Test.StartTest();
     	
     	ActionPlansTestUtilities testUtil 	= new ActionPlansTestUtilities();
-    	ActionPlanTemplate__c apTemplate 	= testUtil.createNewActionPlanTemplate( 2 );
-    	
-    	System.currentPageReference().getParameters().put( 'id', apTemplate.Id );
-    	ActionPlanTemplateCreationController apTemplateController = new ActionPlanTemplateCreationController( new ApexPages.StandardController( new ActionPlanTemplate__c() ) );
+    	ActionPlanTemplate__c apTemplate    = new ActionPlanTemplate__c();
+        
+        apTemplate.Name = testUtil.createRandomWord();
+        
+        APTTaskTemplate__c newAPTTask = new APTTaskTemplate__c();
+        
+        newAPTTask.Subject__c           = testUtil.createRandomWord();
+        newAPTTask.Hours_After_Start__c     = 2;
+        newAPTTask.Type__c              = 'Email';
+        newAPTTask.Priority__c          = 'Hight';
+        
+        System.currentPageReference().getParameters().put( 'id', apTemplate.Id );
+        ActionPlanTemplateCreationController apTemplateController = new ActionPlanTemplateCreationController( new ApexPages.StandardController( apTemplate ) );
+        apTemplateController.actionPlanTemplates.aptTasks = new List<APTTaskTemplate__c>();
+        apTemplateController.actionPlanTemplates.aptTasks.add( newAPTTask );
     	List<ApTTaskWrapper> taskList =  apTemplateController.getTemplateTasks();
     	
     	//checks that the list is not empty
@@ -397,10 +526,21 @@ public with sharing class ActionPlanTemplateCreationController{
     	Test.StartTest();
     	
     	ActionPlansTestUtilities testUtil 	= new ActionPlansTestUtilities();
-    	ActionPlanTemplate__c apTemplate 	= testUtil.createNewActionPlanTemplate( 2 );
-    	
-    	System.currentPageReference().getParameters().put( 'id', apTemplate.Id );
-    	ActionPlanTemplateCreationController apTemplateController = new ActionPlanTemplateCreationController( new ApexPages.StandardController( new ActionPlanTemplate__c() ) );
+    	ActionPlanTemplate__c apTemplate    = new ActionPlanTemplate__c();
+        
+        apTemplate.Name = testUtil.createRandomWord();
+        
+        APTTaskTemplate__c newAPTTask = new APTTaskTemplate__c();
+        
+        newAPTTask.Subject__c           = testUtil.createRandomWord();
+        newAPTTask.Hours_After_Start__c     = 2;
+        newAPTTask.Type__c              = 'Email';
+        newAPTTask.Priority__c          = 'Hight';
+        
+        System.currentPageReference().getParameters().put( 'id', apTemplate.Id );
+        ActionPlanTemplateCreationController apTemplateController = new ActionPlanTemplateCreationController( new ApexPages.StandardController( apTemplate ) );
+        apTemplateController.actionPlanTemplates.aptTasks = new List<APTTaskTemplate__c>();
+        apTemplateController.actionPlanTemplates.aptTasks.add( newAPTTask );
     	List<ApTTaskWrapper> taskList =  apTemplateController.getTemplateTasks();
     	Integer numTasks = apTemplateController.getTemplateTaskSize();
     	
@@ -418,10 +558,21 @@ public with sharing class ActionPlanTemplateCreationController{
     	Test.StartTest();
     	
     	ActionPlansTestUtilities testUtil 	= new ActionPlansTestUtilities();
-    	ActionPlanTemplate__c apTemplate 	= testUtil.createNewActionPlanTemplate( 2 );
-    	
-    	System.currentPageReference().getParameters().put( 'id', apTemplate.Id );
-    	ActionPlanTemplateCreationController apTemplateController = new ActionPlanTemplateCreationController( new ApexPages.StandardController( new ActionPlanTemplate__c() ) );
+    	ActionPlanTemplate__c apTemplate    = new ActionPlanTemplate__c();
+        
+        apTemplate.Name = testUtil.createRandomWord();
+        
+        APTTaskTemplate__c newAPTTask = new APTTaskTemplate__c();
+        
+        newAPTTask.Subject__c           = testUtil.createRandomWord();
+        newAPTTask.Hours_After_Start__c     = 2;
+        newAPTTask.Type__c              = 'Email';
+        newAPTTask.Priority__c          = 'Hight';
+        
+        System.currentPageReference().getParameters().put( 'id', apTemplate.Id );
+        ActionPlanTemplateCreationController apTemplateController = new ActionPlanTemplateCreationController( new ApexPages.StandardController( apTemplate ) );
+        apTemplateController.actionPlanTemplates.aptTasks = new List<APTTaskTemplate__c>();
+        apTemplateController.actionPlanTemplates.aptTasks.add( newAPTTask );
     	
     	List<ApTTaskWrapper> taskList	= apTemplateController.getTemplateTasks();
     	List<SelectOption> subjectItems 	= apTemplateController.getTemplateSubjectItems();
@@ -434,7 +585,7 @@ public with sharing class ActionPlanTemplateCreationController{
     	Test.StartTest();
     	
     	ActionPlansTestUtilities testUtil 	= new ActionPlansTestUtilities();
-    	ActionPlanTemplate__c apTemplate 	= testUtil.createNewActionPlanTemplate( 2 );
+    	ActionPlanTemplate__c apTemplate    = new ActionPlanTemplate__c();
     	
     	APTTaskTemplate__c newAPTTask 	= new APTTaskTemplate__c();
  		APTTaskTemplate__c newAPTTask2 	= new APTTaskTemplate__c();
@@ -453,7 +604,7 @@ public with sharing class ActionPlanTemplateCreationController{
  		
  		
     	System.currentPageReference().getParameters().put( 'id', apTemplate.Id );
-    	ActionPlanTemplateCreationController apTemplateController = new ActionPlanTemplateCreationController( new ApexPages.StandardController( new ActionPlanTemplate__c() ) );
+    	ActionPlanTemplateCreationController apTemplateController = new ActionPlanTemplateCreationController( new ApexPages.StandardController( apTemplate ) );
     	
     	apTemplateController.actionPlanTemplates.aptTasks = new List<APTTaskTemplate__c>();
 		apTemplateController.actionPlanTemplates.aptTasks.add( newAPTTask );
@@ -470,7 +621,7 @@ public with sharing class ActionPlanTemplateCreationController{
     	Test.StartTest();
     	
     	ActionPlansTestUtilities testUtil 	= new ActionPlansTestUtilities();
-    	ActionPlanTemplate__c apTemplate 	= testUtil.createNewActionPlanTemplate( 2 );
+    	ActionPlanTemplate__c apTemplate    = new ActionPlanTemplate__c();
     	
     	APTTaskTemplate__c newAPTTask 	= new APTTaskTemplate__c();
  		APTTaskTemplate__c newAPTTask2 	= new APTTaskTemplate__c();
@@ -496,8 +647,16 @@ public with sharing class ActionPlanTemplateCreationController{
  		
  		
     	System.currentPageReference().getParameters().put( 'id', apTemplate.Id );
-    	ActionPlanTemplateCreationController apTemplateController = new ActionPlanTemplateCreationController( new ApexPages.StandardController( new ActionPlanTemplate__c() ) );
+    	ActionPlanTemplateCreationController apTemplateController = new ActionPlanTemplateCreationController( new ApexPages.StandardController( apTemplate ) );
     	
+        apTemplateController.savedDependencies = new List<SelectOption[]>();
+        apTemplateController.savedDependencies.add(new SelectOption[]{});
+        apTemplateController.savedDependencies.add(new SelectOption[]{});
+        apTemplateController.savedDependencies.add(new SelectOption[]{});
+        apTemplateController.savedDependencies[0].add(new SelectOption('2','Two'));
+        apTemplateController.savedDependencies[0].add(new SelectOption('0','Zero'));
+        apTemplateController.savedDependencies[0].add(new SelectOption('1','One'));
+
     	apTemplateController.actionPlanTemplates.aptTasks = new List<APTTaskTemplate__c>();
 		apTemplateController.actionPlanTemplates.aptTasks.add( newAPTTask );
 		apTemplateController.actionPlanTemplates.aptTasks.add( newAPTTask2 );

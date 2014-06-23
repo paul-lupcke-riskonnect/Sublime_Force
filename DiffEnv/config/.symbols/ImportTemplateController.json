@@ -116,8 +116,72 @@
             "visibility": "PUBLIC", 
             "references": [], 
             "location": {
-                "column": 36, 
+                "column": 35, 
                 "line": 137
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "testXMLImportEmptyPackage", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 35, 
+                "line": 152
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "testXMLImportEmptyAuthor", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 35, 
+                "line": 166
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "testXMLImportEmptyOrg", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 35, 
+                "line": 180
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "testXMLImportEmptyDate", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 35, 
+                "line": 194
             }, 
             "returnType": "void", 
             "type": null
@@ -372,6 +436,166 @@
             "location": {
                 "column": 21, 
                 "line": 146
+            }, 
+            "name": "pageRef"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 34, 
+                "line": 154
+            }, 
+            "name": "testUtil"
+        }, 
+        {
+            "type": "ImportTemplateController", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 34, 
+                "line": 155
+            }, 
+            "name": "controller"
+        }, 
+        {
+            "type": "Attachment", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 157
+            }, 
+            "name": "att"
+        }, 
+        {
+            "type": "PageReference", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 161
+            }, 
+            "name": "pageRef"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 34, 
+                "line": 168
+            }, 
+            "name": "testUtil"
+        }, 
+        {
+            "type": "ImportTemplateController", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 34, 
+                "line": 169
+            }, 
+            "name": "controller"
+        }, 
+        {
+            "type": "Attachment", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 171
+            }, 
+            "name": "att"
+        }, 
+        {
+            "type": "PageReference", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 175
+            }, 
+            "name": "pageRef"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 34, 
+                "line": 182
+            }, 
+            "name": "testUtil"
+        }, 
+        {
+            "type": "ImportTemplateController", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 34, 
+                "line": 183
+            }, 
+            "name": "controller"
+        }, 
+        {
+            "type": "Attachment", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 185
+            }, 
+            "name": "att"
+        }, 
+        {
+            "type": "PageReference", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 189
+            }, 
+            "name": "pageRef"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 34, 
+                "line": 196
+            }, 
+            "name": "testUtil"
+        }, 
+        {
+            "type": "ImportTemplateController", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 34, 
+                "line": 197
+            }, 
+            "name": "controller"
+        }, 
+        {
+            "type": "Attachment", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 199
+            }, 
+            "name": "att"
+        }, 
+        {
+            "type": "PageReference", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 203
             }, 
             "name": "pageRef"
         }

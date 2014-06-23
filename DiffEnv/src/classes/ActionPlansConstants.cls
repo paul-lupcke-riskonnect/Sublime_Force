@@ -30,7 +30,7 @@ OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISE
 OF THE POSSIBILITY OF SUCH DAMAGE.
 
 */
-public with sharing class ActionPlansConstants {
+public with sharing class ActionPlansConstants {//(PAL) 100% covered
 	
 	// Max ammount of APTasks per Action Plan
 	public static final Integer maxAPTasks 		= 75;

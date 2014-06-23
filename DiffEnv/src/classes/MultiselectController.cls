@@ -2,7 +2,7 @@
  * MultiselectController synchronizes the values of the hidden elements to the
  * SelectOption lists.
  */
-public with sharing class MultiselectController {
+public with sharing class MultiselectController {  //(PAL) 100% coverage
     // SelectOption lists for public consumption
     public SelectOption[] leftOptions { get; 
         set{SelectOption[] tmp = value;
@@ -23,75 +23,43 @@ public with sharing class MultiselectController {
             //System.debug('component remove option:'+value);
         }
     }
-    public List<SelectOption[]> returnValue{
+    public List<SelectOption[]> returnValue{        //(PAL) Used to return the values from the components on the page.
         get;
         set;
     }
-    public List<SelectOption[]> rightSelection { 
+    public List<SelectOption[]> rightSelection {    //(PAL) Used to set the right side of the select box.
         get; 
         set{
-            System.debug('setting right side:'+value+':::size:'+value.size()+':::index:'+indexID);
+            //System.debug('setting right side:'+value+':::size:'+value.size()+':::index:'+indexID);
             rightSelection=value;
 
             if(rightSelection.size()>0 && rightSelection.size()>Integer.valueOf(indexID)){
                 rightOptions=rightSelection[Integer.valueOf(indexID)];
-                //rightOptions.clear();
-                //rightOptions=rightSelection[Integer.valueOf(indexID)];
-                System.debug('actually setting RightOption='+rightOptions+';');
-                //rightOptions = cleaned2(rightSelection[Integer.valueOf(indexID)],removeOptions);
+                //System.debug('actually setting RightOption='+rightOptions+';');
             }
-            /*else if(indexID!=null && rightSelection.size()<Integer.valueOf(indexID)){
-                if(rightOptions!=null){
-                    System.debug('Clearing rightside');
-                    rightOptions.clear();
-                }
-            }*/
         }
     }
-    public List<SelectOption[]> leftSelection { 
+    public List<SelectOption[]> leftSelection { //(PAL) Used to set the left side of the select box.
         get; 
         set{
-            System.debug('setting left side:'+value+':::size:'+value.size()+':::index:'+indexID);
+            //System.debug('setting left side:'+value+':::size:'+value.size()+':::index:'+indexID);
 
             leftSelection=value;
             
             if(leftSelection.size()>0 ){
-                //if(indexID!=null && leftSelection[0].size()<Integer.valueOf(indexID)){
-                //    if(rightOptions!=null){
-                //        System.debug('Clearing rightside');
-                //        rightOptions.clear();
-                //    }
-                //}
                 leftOptions=leftSelection[0];
                 leftOptions = cleaned(leftSelection[0],rightOptions);
             }
         }
     }
 
-    private SelectOption[] cleaned (SelectOption[] all, SelectOption[] sel){
+    private SelectOption[] cleaned (SelectOption[] all, SelectOption[] sel){    //(PAL) Used to remove options from the left box since they are in the right box
         SelectOption[] retVal = new SelectOption[]{};
         Boolean addFlag;
         for(Integer i=0;i<all.size();++i){
             addFlag=true;
             for(Integer j=0;j<sel.size();++j){
                 if(all[i].getValue()==sel[j].getValue()){
-                    addFlag=false;
-                }
-            }
-            if(addFlag==true){
-                retVal.add(all[i]);
-            }
-        }
-        return retVal;
-    }
-
-    private SelectOption[] cleaned2 (SelectOption[] all, List<Integer> sel){
-        SelectOption[] retVal = new SelectOption[]{};
-        Boolean addFlag;
-        for(Integer i=0;i<all.size();++i){
-            addFlag=true;
-            for(Integer j=0;j<sel.size();++j){
-                if(all[i].getValue()==String.valueOf(sel[j])){
                     addFlag=false;
                 }
             }
@@ -110,7 +78,7 @@ public with sharing class MultiselectController {
                 indexID=value;
             }
             else{
-                indexID='0.0';
+                indexID='0';
             }
         }
     }
@@ -119,6 +87,9 @@ public with sharing class MultiselectController {
         //System.debug('MultiselectController Constructor called.');
         leftSelection = new List<SelectOption[]>();
         rightSelection = new List<SelectOption[]>();
+        removeOptions = new List<Integer>();
+        returnValue = new List<SelectOption[]>();
+
         leftOptions = new SelectOption[]{};
         rightOptions = new SelectOption[]{};
         indexID = '';
@@ -135,7 +106,7 @@ public with sharing class MultiselectController {
               EncodingUtil.urlDecode(parts[(i*2)+1], 'UTF-8')));
         }
     }
-    private void setOptions(List<SelectOption[]> options, String value) {
+    private void setOptions(List<SelectOption[]> options, String value) {   //(PAL) Used to load the List of SelectOption arrays for return values
         //options.clear();
         options.add(new SelectOption[]{});
         String[] parts = value.split('&');

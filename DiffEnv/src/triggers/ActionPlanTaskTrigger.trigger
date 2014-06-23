@@ -47,7 +47,7 @@ trigger ActionPlanTaskTrigger on Task ( after update, after delete , before dele
 			Map<String,APTaskTemplate__c> mapAPTasks = new Map<String,APTaskTemplate__c>();
 			List<APTaskTemplate__c> aptList =  [select  a.Status__c,a.Id,a.APTaskTemplate__r.Status__c,a.Due_Date_Time__c,a.Minutes_Reminder__c
 											from APTaskTemplate__c a 
-											where a.Id in: APTasksIds ];
+											where a.Id in: APTasksIds ];		//(PAL) Changed ActivityDate__c --> Due_Date_Time__c
 	    	//create a MAP with APTask id, and APTask object						
 	    	for(APTaskTemplate__c apt : aptList){
 	    		mapAPTasks.put(apt.Id, apt);
@@ -63,7 +63,7 @@ trigger ActionPlanTaskTrigger on Task ( after update, after delete , before dele
 					tmp.Comments__c = t.Description;
 					tmp.Priority__c = t.Priority;
 					tmp.User__c		= t.OwnerId;
-					tmp.Completed__c = System.now();
+					tmp.Completed__c = System.now();		//(PAL) Added this line to save completed time.
 					lUpsert.add(tmp);	
 				}
 			}

@@ -30,7 +30,7 @@ OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISE
 OF THE POSSIBILITY OF SUCH DAMAGE.
 
 */
-public with sharing class ImportActionPlanTemplate{
+public with sharing class ImportActionPlanTemplate{ //(PAL) 91% Covered
 	                 
 	private Map<String, APTTaskTemplate__c> importedTasks;
 	private Map<String, APTTaskTemplate__c> newTasks;
@@ -318,7 +318,7 @@ public with sharing class ImportActionPlanTemplate{
 			//handle daysFromStart field
 			if( reader.getEventType() == XMLTag.START_ELEMENT && reader.getLocalName() == 'daysFromStart' ){
 				reader.next();
-				apTaskAux.Hours_After_Start__c = Decimal.valueOf( getDecodedString( reader ) );
+				apTaskAux.Hours_After_Start__c = Decimal.valueOf( getDecodedString( reader ) );	//(PAL)  Changed to hours_After_Start;
 			}
 			//handle category field
 			if( reader.getEventType() == XMLTag.START_ELEMENT && reader.getLocalName() == 'category' ){

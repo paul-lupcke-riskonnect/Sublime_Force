@@ -229,19 +229,6 @@
         }, 
         {
             "modifiers": [], 
-            "name": "checkCycleDependent_old", 
-            "parameters": [], 
-            "visibility": "PUBLIC", 
-            "references": [], 
-            "location": {
-                "column": 20, 
-                "line": 421
-            }, 
-            "returnType": "Boolean", 
-            "type": null
-        }, 
-        {
-            "modifiers": [], 
             "name": "checkCycleDependent", 
             "parameters": [], 
             "visibility": "PUBLIC", 
@@ -262,32 +249,6 @@
             "location": {
                 "column": 20, 
                 "line": 496
-            }, 
-            "returnType": "Boolean", 
-            "type": null
-        }, 
-        {
-            "modifiers": [], 
-            "name": "dependantCycle", 
-            "parameters": [
-                {
-                    "type": "APTTaskTemplate__c", 
-                    "name": "originTask"
-                }, 
-                {
-                    "type": "APTTaskTemplate__c", 
-                    "name": "destinyTask"
-                }, 
-                {
-                    "type": "Integer", 
-                    "name": "index"
-                }
-            ], 
-            "visibility": "PRIVATE", 
-            "references": [], 
-            "location": {
-                "column": 18, 
-                "line": 549
             }, 
             "returnType": "Boolean", 
             "type": null
@@ -460,7 +421,7 @@
             "references": [], 
             "location": {
                 "column": 32, 
-                "line": 828
+                "line": 833
             }, 
             "returnType": "void", 
             "type": null
@@ -476,7 +437,7 @@
             "references": [], 
             "location": {
                 "column": 32, 
-                "line": 854
+                "line": 859
             }, 
             "returnType": "void", 
             "type": null
@@ -492,7 +453,7 @@
             "references": [], 
             "location": {
                 "column": 32, 
-                "line": 881
+                "line": 886
             }, 
             "returnType": "void", 
             "type": null
@@ -508,7 +469,7 @@
             "references": [], 
             "location": {
                 "column": 32, 
-                "line": 907
+                "line": 911
             }, 
             "returnType": "void", 
             "type": null
@@ -518,13 +479,29 @@
                 "TEST", 
                 "STATIC"
             ], 
-            "name": "testActionPlanTemplateTaskDependencyFail", 
+            "name": "testActionPlanTemplateTaskDependencySelfFail", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 35, 
+                "line": 949
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "testActionPlanTemplateTaskDependencyCircularFail", 
             "parameters": [], 
             "visibility": "PUBLIC", 
             "references": [], 
             "location": {
                 "column": 32, 
-                "line": 945
+                "line": 994
             }, 
             "returnType": "void", 
             "type": null
@@ -540,7 +517,7 @@
             "references": [], 
             "location": {
                 "column": 33, 
-                "line": 991
+                "line": 1040
             }, 
             "returnType": "void", 
             "type": null
@@ -556,7 +533,39 @@
             "references": [], 
             "location": {
                 "column": 36, 
-                "line": 1022
+                "line": 1071
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "testSetDependenciesPass", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 36, 
+                "line": 1107
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "TEST", 
+                "STATIC"
+            ], 
+            "name": "testSetDependenciesFail", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 36, 
+                "line": 1141
             }, 
             "returnType": "void", 
             "type": null
@@ -958,56 +967,6 @@
             "name": "t"
         }, 
         {
-            "type": "Boolean", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 17, 
-                "line": 424
-            }, 
-            "name": "exists"
-        }, 
-        {
-            "type": "Integer", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 17, 
-                "line": 425
-            }, 
-            "name": "index"
-        }, 
-        {
-            "type": "APTTaskTemplate__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 33, 
-                "line": 427
-            }, 
-            "name": "t"
-        }, 
-        {
-            "type": "Integer", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 25, 
-                "line": 429
-            }, 
-            "name": "tempIndex"
-        }, 
-        {
-            "type": "APTTaskTemplate__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 36, 
-                "line": 430
-            }, 
-            "name": "link"
-        }, 
-        {
             "type": "Integer", 
             "modifiers": [], 
             "references": [], 
@@ -1186,86 +1145,6 @@
                 "line": 529
             }, 
             "name": "j"
-        }, 
-        {
-            "type": "APTTaskTemplate__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 53, 
-                "line": 549
-            }, 
-            "name": "originTask"
-        }, 
-        {
-            "type": "APTTaskTemplate__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 84, 
-                "line": 549
-            }, 
-            "name": "destinyTask"
-        }, 
-        {
-            "type": "Integer", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 105, 
-                "line": 549
-            }, 
-            "name": "index"
-        }, 
-        {
-            "type": "Boolean", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 17, 
-                "line": 551
-            }, 
-            "name": "hasDependency"
-        }, 
-        {
-            "type": "Set", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 22, 
-                "line": 552
-            }, 
-            "name": "visitedTasks"
-        }, 
-        {
-            "type": "Integer", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 13, 
-                "line": 566
-            }, 
-            "name": "tempIndexDestiny"
-        }, 
-        {
-            "type": "APTTaskTemplate__c", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 24, 
-                "line": 567
-            }, 
-            "name": "link"
-        }, 
-        {
-            "type": "Integer", 
-            "modifiers": [], 
-            "references": [], 
-            "location": {
-                "column": 18, 
-                "line": 576
-            }, 
-            "name": "tempIndex"
         }, 
         {
             "type": "ActionPlansUtilities", 
@@ -1663,7 +1542,7 @@
             "references": [], 
             "location": {
                 "column": 28, 
-                "line": 832
+                "line": 837
             }, 
             "name": "testUtil"
         }, 
@@ -1673,7 +1552,7 @@
             "references": [], 
             "location": {
                 "column": 25, 
-                "line": 833
+                "line": 838
             }, 
             "name": "actionPlanTemplate"
         }, 
@@ -1683,7 +1562,7 @@
             "references": [], 
             "location": {
                 "column": 23, 
-                "line": 835
+                "line": 840
             }, 
             "name": "apTemplate"
         }, 
@@ -1693,7 +1572,7 @@
             "references": [], 
             "location": {
                 "column": 28, 
-                "line": 844
+                "line": 849
             }, 
             "name": "apTemplateTasks"
         }, 
@@ -1703,7 +1582,7 @@
             "references": [], 
             "location": {
                 "column": 28, 
-                "line": 858
+                "line": 863
             }, 
             "name": "testUtil"
         }, 
@@ -1713,7 +1592,7 @@
             "references": [], 
             "location": {
                 "column": 25, 
-                "line": 859
+                "line": 864
             }, 
             "name": "actionPlanTemplate"
         }, 
@@ -1723,7 +1602,7 @@
             "references": [], 
             "location": {
                 "column": 23, 
-                "line": 861
+                "line": 866
             }, 
             "name": "apTemplate"
         }, 
@@ -1733,7 +1612,7 @@
             "references": [], 
             "location": {
                 "column": 28, 
-                "line": 870
+                "line": 875
             }, 
             "name": "apTemplateTasks"
         }, 
@@ -1743,7 +1622,7 @@
             "references": [], 
             "location": {
                 "column": 11, 
-                "line": 871
+                "line": 876
             }, 
             "name": "numTasks"
         }, 
@@ -1753,7 +1632,7 @@
             "references": [], 
             "location": {
                 "column": 28, 
-                "line": 885
+                "line": 890
             }, 
             "name": "testUtil"
         }, 
@@ -1763,7 +1642,7 @@
             "references": [], 
             "location": {
                 "column": 25, 
-                "line": 886
+                "line": 891
             }, 
             "name": "actionPlanTemplate"
         }, 
@@ -1773,7 +1652,7 @@
             "references": [], 
             "location": {
                 "column": 23, 
-                "line": 888
+                "line": 893
             }, 
             "name": "apTemplate"
         }, 
@@ -1783,7 +1662,7 @@
             "references": [], 
             "location": {
                 "column": 22, 
-                "line": 897
+                "line": 902
             }, 
             "name": "options"
         }, 
@@ -1793,7 +1672,7 @@
             "references": [], 
             "location": {
                 "column": 28, 
-                "line": 911
+                "line": 915
             }, 
             "name": "testUtil"
         }, 
@@ -1803,7 +1682,7 @@
             "references": [], 
             "location": {
                 "column": 25, 
-                "line": 912
+                "line": 916
             }, 
             "name": "actionPlanTemplate"
         }, 
@@ -1813,7 +1692,7 @@
             "references": [], 
             "location": {
                 "column": 23, 
-                "line": 914
+                "line": 918
             }, 
             "name": "apTemplate"
         }, 
@@ -1823,7 +1702,7 @@
             "references": [], 
             "location": {
                 "column": 22, 
-                "line": 916
+                "line": 920
             }, 
             "name": "newAPTTask"
         }, 
@@ -1833,7 +1712,7 @@
             "references": [], 
             "location": {
                 "column": 23, 
-                "line": 917
+                "line": 921
             }, 
             "name": "newAPTTask2"
         }, 
@@ -1843,7 +1722,7 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 935
+                "line": 939
             }, 
             "name": "result"
         }, 
@@ -1852,8 +1731,8 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 28, 
-                "line": 949
+                "column": 34, 
+                "line": 953
             }, 
             "name": "testUtil"
         }, 
@@ -1862,8 +1741,8 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 25, 
-                "line": 950
+                "column": 31, 
+                "line": 954
             }, 
             "name": "actionPlanTemplate"
         }, 
@@ -1872,8 +1751,8 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 23, 
-                "line": 952
+                "column": 29, 
+                "line": 956
             }, 
             "name": "apTemplate"
         }, 
@@ -1882,8 +1761,8 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 22, 
-                "line": 954
+                "column": 28, 
+                "line": 958
             }, 
             "name": "newAPTTask"
         }, 
@@ -1892,8 +1771,8 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 23, 
-                "line": 955
+                "column": 28, 
+                "line": 959
             }, 
             "name": "newAPTTask2"
         }, 
@@ -1902,8 +1781,8 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 23, 
-                "line": 956
+                "column": 28, 
+                "line": 960
             }, 
             "name": "newAPTTask3"
         }, 
@@ -1913,7 +1792,87 @@
             "references": [], 
             "location": {
                 "column": 17, 
-                "line": 981
+                "line": 985
+            }, 
+            "name": "result"
+        }, 
+        {
+            "type": "Boolean", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 986
+            }, 
+            "name": "result2"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 998
+            }, 
+            "name": "testUtil"
+        }, 
+        {
+            "type": "ActionPlanTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 25, 
+                "line": 999
+            }, 
+            "name": "actionPlanTemplate"
+        }, 
+        {
+            "type": "ActionPlanTemplates", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 1001
+            }, 
+            "name": "apTemplate"
+        }, 
+        {
+            "type": "APTTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 1003
+            }, 
+            "name": "newAPTTask"
+        }, 
+        {
+            "type": "APTTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 1004
+            }, 
+            "name": "newAPTTask2"
+        }, 
+        {
+            "type": "APTTaskTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 1005
+            }, 
+            "name": "newAPTTask3"
+        }, 
+        {
+            "type": "Boolean", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 1030
             }, 
             "name": "result"
         }, 
@@ -1923,7 +1882,7 @@
             "references": [], 
             "location": {
                 "column": 28, 
-                "line": 993
+                "line": 1042
             }, 
             "name": "ge"
         }, 
@@ -1933,7 +1892,7 @@
             "references": [], 
             "location": {
                 "column": 27, 
-                "line": 994
+                "line": 1043
             }, 
             "name": "apt"
         }, 
@@ -1943,7 +1902,7 @@
             "references": [], 
             "location": {
                 "column": 24, 
-                "line": 998
+                "line": 1047
             }, 
             "name": "apTemplate"
         }, 
@@ -1953,7 +1912,7 @@
             "references": [], 
             "location": {
                 "column": 31, 
-                "line": 1023
+                "line": 1072
             }, 
             "name": "ge"
         }, 
@@ -1963,7 +1922,7 @@
             "references": [], 
             "location": {
                 "column": 30, 
-                "line": 1024
+                "line": 1073
             }, 
             "name": "apt"
         }, 
@@ -1973,7 +1932,7 @@
             "references": [], 
             "location": {
                 "column": 11, 
-                "line": 1025
+                "line": 1074
             }, 
             "name": "tUser"
         }, 
@@ -1983,9 +1942,109 @@
             "references": [], 
             "location": {
                 "column": 26, 
-                "line": 1026
+                "line": 1075
             }, 
             "name": "apTemplate"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 34, 
+                "line": 1108
+            }, 
+            "name": "ge"
+        }, 
+        {
+            "type": "ActionPlanTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 1109
+            }, 
+            "name": "apt"
+        }, 
+        {
+            "type": "User", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 14, 
+                "line": 1110
+            }, 
+            "name": "tUser"
+        }, 
+        {
+            "type": "ActionPlanTemplates", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 1111
+            }, 
+            "name": "apTemplate"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 30, 
+                "line": 1118
+            }, 
+            "name": "incoming"
+        }, 
+        {
+            "type": "ActionPlansTestUtilities", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 34, 
+                "line": 1142
+            }, 
+            "name": "ge"
+        }, 
+        {
+            "type": "ActionPlanTemplate__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 1143
+            }, 
+            "name": "apt"
+        }, 
+        {
+            "type": "User", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 14, 
+                "line": 1144
+            }, 
+            "name": "tUser"
+        }, 
+        {
+            "type": "ActionPlanTemplates", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 1145
+            }, 
+            "name": "apTemplate"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 30, 
+                "line": 1146
+            }, 
+            "name": "incoming"
         }
     ], 
     "constructors": [

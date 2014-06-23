@@ -30,7 +30,7 @@ OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISE
 OF THE POSSIBILITY OF SUCH DAMAGE.
 
 */
-public with sharing class ImportTemplateController{
+public with sharing class ImportTemplateController{ //(PAL) 100% Covered
 	
 	public Attachment attachment { get; set; }
 
@@ -134,7 +134,7 @@ public with sharing class ImportTemplateController{
     	}
     }
     
-     public static testMethod void testXMLImportWrongMetaData(){
+    public static testMethod void testXMLImportWrongMetaData(){
     
     	ActionPlansTestUtilities testUtil 	= new ActionPlansTestUtilities();
     	ImportTemplateController controller = new ImportTemplateController();
@@ -148,4 +148,63 @@ public with sharing class ImportTemplateController{
     		System.assert( true );
     	}
     }
+
+    public static testMethod void testXMLImportEmptyPackage(){
+    
+        ActionPlansTestUtilities testUtil   = new ActionPlansTestUtilities();
+        ImportTemplateController controller = new ImportTemplateController();
+        
+        Attachment att = new Attachment( Name = 'Test Xml', Body = Blob.valueOf( testUtil.xmlImportEmptyPackage ), ContentType = 'plain/text' );
+        controller.attachment = att;
+        
+        try{
+            Pagereference pageRef = controller.importTemplate();
+        }catch( Exception ex ){
+            System.assert( true );
+        }
+    }
+    public static testMethod void testXMLImportEmptyAuthor(){
+    
+        ActionPlansTestUtilities testUtil   = new ActionPlansTestUtilities();
+        ImportTemplateController controller = new ImportTemplateController();
+        
+        Attachment att = new Attachment( Name = 'Test Xml', Body = Blob.valueOf( testUtil.xmlImportEmptyAuthor ), ContentType = 'plain/text' );
+        controller.attachment = att;
+        
+        try{
+            Pagereference pageRef = controller.importTemplate();
+        }catch( Exception ex ){
+            System.assert( true );
+        }
+    }
+    public static testMethod void testXMLImportEmptyOrg(){
+    
+        ActionPlansTestUtilities testUtil   = new ActionPlansTestUtilities();
+        ImportTemplateController controller = new ImportTemplateController();
+        
+        Attachment att = new Attachment( Name = 'Test Xml', Body = Blob.valueOf( testUtil.xmlImportEmptyOrg ), ContentType = 'plain/text' );
+        controller.attachment = att;
+        
+        try{
+            Pagereference pageRef = controller.importTemplate();
+        }catch( Exception ex ){
+            System.assert( true );
+        }
+    }
+    public static testMethod void testXMLImportEmptyDate(){
+    
+        ActionPlansTestUtilities testUtil   = new ActionPlansTestUtilities();
+        ImportTemplateController controller = new ImportTemplateController();
+        
+        Attachment att = new Attachment( Name = 'Test Xml', Body = Blob.valueOf( testUtil.xmlImportEmptyDate ), ContentType = 'plain/text' );
+        controller.attachment = att;
+        
+        try{
+            Pagereference pageRef = controller.importTemplate();
+        }catch( Exception ex ){
+            System.assert( true );
+        }
+    }
+
+
 }

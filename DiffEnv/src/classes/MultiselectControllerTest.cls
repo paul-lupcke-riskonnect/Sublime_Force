@@ -20,17 +20,43 @@
  * See the Apex Language Reference for more information about Testing and Code Coverage.
  */
 @isTest
-private class MultiselectControllerTest {
+private class MultiselectControllerTest { //(PAL) 100% coverage
     static testMethod void testMultiselectController() {
+
+
         MultiselectController c = new MultiselectController();
         
-        c.leftOptions = new List<SelectOption>();
-        c.rightOptions = new List<List<SelectOption>>();
+        //c.leftOptions = new SelectOption[]{};
+        //c.rightOptions = new SelectOption[]{};
 
-        c.leftOptionsHidden = 'A&a&b&b&C&c';
-        c.rightOptionsHidden = '';
+        List<SelectOption[]> left = new List<SelectOption[]>();
+        left.add(new SelectOption[]{});
+        left[0].add(new SelectOption('0','Zero'));
+        left[0].add(new SelectOption('1','One'));
+        left[0].add(new SelectOption('2','Two'));
+        left[0].add(new SelectOption('3','Three'));
+        left[0].add(new SelectOption('4','Four'));
+
+        List<SelectOption[]> right = new List<SelectOption[]>();
+        right.add(new SelectOption[]{});
+        right[0].add(new SelectOption('1','One'));
+
+        c.indexID = null;
+
+        System.assertEquals('0', c.indexID);
+
+        c.indexID = '0';
+        c.rightSelection = right;
+        c.leftSelection = left;
+        //c.rightSelection = right;
+
+        System.assertEquals(4, c.leftOptions.size());
+        System.assertEquals(1, c.rightOptions.size());
+
+        c.leftOptionsHidden = '5&Five&4&Four&C&c';
+        c.rightOptionsHidden = '3&Three&2&Two';
         
-        System.assertEquals(c.leftOptions.size(), 3);
-        System.assertEquals(c.rightOptions.size(), 0);
+        System.assertEquals(3, c.leftOptions.size());
+        System.assertEquals(2,c.rightOptions.size());
     }
 }
